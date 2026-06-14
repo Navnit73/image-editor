@@ -45,7 +45,12 @@ export default function Home() {
           </div>
         </header>
 
-        {activeTab === 'editor' ? <PhotoEditor /> : <BgRemoverApp />}
+        <div className={activeTab === 'editor' ? 'block' : 'hidden'}>
+          <PhotoEditor />
+        </div>
+        <div className={activeTab === 'bg_remover' ? 'block' : 'hidden'}>
+          <BgRemoverApp />
+        </div>
       </main>
     </div>
   );

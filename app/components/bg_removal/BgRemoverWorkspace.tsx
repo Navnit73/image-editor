@@ -1,12 +1,15 @@
 'use client';
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useBgRemoval } from './BgRemovalContext';
-import { UploadCloud, CheckCircle, XCircle, Loader2, Download } from 'lucide-react';
+import { downloadProcessedImage } from './utils/bgRemovalUtils';
+import { UploadCloud, CheckCircle, XCircle, Download } from 'lucide-react';
 
 export default function BgRemoverWorkspace() {
-  const { jobs, addJobs, removeJob } = useBgRemoval();
+  const { jobs, addJobs, selectedJobId, setSelectedJobId, backgroundColor, exportFormat } = useBgRemoval();
+  
+  const selectedJob = jobs.find(j => j.id === selectedJobId) || jobs[0];
 
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
@@ -21,38 +24,76 @@ export default function BgRemoverWorkspace() {
     onDrop,
     accept: { 'image/*': ['.jpeg', '.jpg', '.png', '.webp'] },
     multiple: true,
+    noClick: jobs.length > 0, // Disable click to upload in the main area when jobs exist
   });
 
-  const downloadFile = (url: string, filename: string) => {
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename.replace(/\.[^/.]+$/, "") + "_nobg.png";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+  const CircularProgress = ({ progress }: { progress: number }) => {
+    const radius = 20;
+    const circumference = 2 * Math.PI * radius;
+    const strokeDashoffset = circumference - (progress / 100) * circumference;
+
+    return (
+      <div className="flex flex-col items-center justify-center">
+        <svg className="w-12 h-12 transform -rotate-90" viewBox="0 0 48 48">
+          <circle
+            className="text-white/30"
+            strokeWidth="4"
+            stroke="currentColor"
+            fill="transparent"
+            r={radius}
+            cx="24"
+            cy="24"
+          />
+          <circle
+            className="text-indigo-500 transition-all duration-300 ease-out"
+            strokeWidth="4"
+            strokeDasharray={circumference}
+            strokeDashoffset={strokeDashoffset}
+            strokeLinecap="round"
+            stroke="currentColor"
+            fill="transparent"
+            r={radius}
+            cx="24"
+            cy="24"
+          />
+        </svg>
+        <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-300 mt-1">{Math.round(progress)}%</span>
+      </div>
+    );
+  };
+
+  const getBgStyle = () => {
+    if (backgroundColor !== 'transparent') {
+      return { backgroundColor };
+    }
+    return {
+      backgroundImage: 'linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%)',
+      backgroundSize: '20px 20px',
+      backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px'
+    };
   };
 
   return (
-    <div className="flex-1 flex flex-col min-h-0 bg-bg-root">
+    <div className="flex-1 flex flex-col min-h-0 bg-bg-root" {...getRootProps()}>
+      <input {...getInputProps()} />
+      
       {jobs.length === 0 ? (
         <div className="flex-1 flex items-center justify-center p-4 sm:p-8">
           <div
-            {...getRootProps()}
             className={`w-full max-w-lg p-10 sm:p-16 border-2 border-dashed rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer transition-all ${
               isDragActive
-                ? 'border-accent-main bg-accent-muted scale-[1.02]'
-                : 'border-border-subtle hover:border-accent-main/60 hover:bg-bg-card'
+                ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 scale-[1.02]'
+                : 'border-border-subtle hover:border-indigo-500/50 hover:bg-bg-card'
             }`}
           >
-            <input {...getInputProps()} />
-            <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-6 transition-colors ${isDragActive ? 'bg-accent-main' : 'bg-accent-muted'}`}>
-              <UploadCloud size={36} className={isDragActive ? 'text-white' : 'text-accent-main'} />
+            <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-6 transition-colors ${isDragActive ? 'bg-indigo-500 text-white' : 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-500'}`}>
+              <UploadCloud size={36} />
             </div>
             <h4 className="text-lg sm:text-xl font-bold text-text-main mb-3">
               {isDragActive ? 'Drop images here!' : 'Upload Images for Bulk BG Removal'}
             </h4>
             <p className="text-sm text-text-muted mb-6 max-w-sm mx-auto">
-              Drag & drop multiple images or tap to select. We process them locally on your device for total privacy.
+              Drag & drop multiple images or click to select. We process them locally on your device for total privacy.
             </p>
             <div className="flex gap-2 justify-center">
               {['JPG', 'PNG', 'WEBP'].map((fmt) => (
@@ -62,94 +103,107 @@ export default function BgRemoverWorkspace() {
           </div>
         </div>
       ) : (
-        <div className="flex-1 overflow-auto p-4 sm:p-6">
-          <div
-            {...getRootProps()}
-            className={`mb-6 p-6 border-2 border-dashed rounded-xl flex items-center justify-center text-center cursor-pointer transition-colors ${
-              isDragActive ? 'border-accent-main bg-accent-muted' : 'border-border-subtle hover:border-accent-main/50 hover:bg-bg-card'
-            }`}
-          >
-            <input {...getInputProps()} />
-            <div className="flex items-center gap-3">
-              <UploadCloud className={isDragActive ? 'text-accent-main' : 'text-text-muted'} size={24} />
-              <span className="text-sm font-semibold text-text-main">
-                {isDragActive ? 'Drop more files here' : 'Click or drag more files to add to queue'}
-              </span>
+        <div className="flex-1 flex flex-col overflow-hidden relative">
+          
+          {/* Drag Overlay */}
+          {isDragActive && (
+            <div className="absolute inset-0 z-50 bg-indigo-500/10 backdrop-blur-[2px] border-4 border-indigo-500 border-dashed rounded-xl flex items-center justify-center">
+              <div className="bg-white dark:bg-bg-card px-6 py-4 rounded-2xl shadow-xl flex items-center gap-3">
+                <UploadCloud className="text-indigo-500" size={28} />
+                <span className="text-lg font-bold text-text-main">Drop images to add to queue</span>
+              </div>
             </div>
-          </div>
+          )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {jobs.map((job) => (
-              <div key={job.id} className="bg-bg-card rounded-xl border border-border-subtle overflow-hidden flex flex-col group">
-                <div className="relative aspect-square bg-gray-100 dark:bg-gray-800/50 flex items-center justify-center overflow-hidden">
-                  {/* Checkerboard background for transparent results */}
-                  {job.status === 'done' && (
-                    <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: 'linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%)', backgroundSize: '20px 20px', backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px' }} />
-                  )}
-                  
-                  {/* Image */}
+          {/* Top Thumbnails Carousel */}
+          <div className="flex-shrink-0 p-4 border-b border-border-subtle bg-bg-card">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-bold text-text-main">{jobs.length} image{jobs.length !== 1 ? 's' : ''}</h3>
+              <div className="flex items-center gap-2 text-xs font-semibold text-text-muted">
+                {jobs.filter(j => j.status === 'processing').length} processing
+              </div>
+            </div>
+            
+            <div className="flex overflow-x-auto gap-3 pb-2 scrollbar-thin scrollbar-thumb-border-subtle">
+              {jobs.map((job) => (
+                <button
+                  key={job.id}
+                  onClick={() => setSelectedJobId(job.id)}
+                  className={`relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-xl overflow-hidden border-2 transition-all ${
+                    selectedJobId === job.id ? 'border-indigo-500 shadow-md ring-2 ring-indigo-500/20' : 'border-border-subtle hover:border-indigo-300'
+                  }`}
+                >
+                  {/* Thumbnail Image */}
                   <img
-                    src={job.resultUrl || job.originalUrl}
+                    src={job.originalUrl}
                     alt={job.fileName}
-                    className={`max-w-full max-h-full object-contain relative z-10 transition-opacity duration-300 ${job.status === 'processing' ? 'opacity-40 grayscale' : ''}`}
+                    className={`w-full h-full object-cover ${job.status === 'processing' ? 'opacity-30 grayscale blur-[1px]' : ''}`}
                   />
-
-                  {/* Overlays */}
-                  {job.status === 'queued' && (
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-20">
-                      <span className="px-3 py-1 bg-black/60 text-white text-xs font-bold rounded-full backdrop-blur-sm">Queued</span>
+                  
+                  {/* Status Overlays */}
+                  {job.status === 'processing' && (
+                    <div className="absolute inset-0 bg-white/60 dark:bg-black/60 flex items-center justify-center backdrop-blur-[1px]">
+                      <CircularProgress progress={job.progress} />
                     </div>
                   )}
-                  {job.status === 'processing' && (
-                    <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center z-20">
-                      <Loader2 className="animate-spin text-white mb-2" size={28} />
-                      <span className="text-white text-xs font-bold">Removing BG...</span>
+                  {job.status === 'queued' && (
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <span className="text-[10px] font-bold text-white uppercase tracking-wider">Queued</span>
                     </div>
                   )}
                   {job.status === 'error' && (
-                    <div className="absolute inset-0 bg-red-500/20 flex flex-col items-center justify-center z-20">
-                      <XCircle className="text-red-500 mb-1" size={28} />
-                      <span className="text-red-500 text-xs font-bold bg-white/90 px-2 py-0.5 rounded">Failed</span>
+                    <div className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-0.5">
+                      <XCircle size={14} />
                     </div>
                   )}
                   {job.status === 'done' && (
-                    <div className="absolute top-2 right-2 z-20 bg-green-500 text-white rounded-full p-1 shadow-md">
-                      <CheckCircle size={16} />
+                    <div className="absolute top-1 right-1 bg-green-500 text-white rounded-full p-0.5 shadow-sm">
+                      <CheckCircle size={14} />
                     </div>
                   )}
-
-                  {/* Hover Actions */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-30 flex items-center justify-center gap-2">
-                    {job.status === 'done' && job.resultUrl && (
-                      <button
-                        onClick={(e) => { e.stopPropagation(); downloadFile(job.resultUrl!, job.fileName); }}
-                        className="p-2 bg-white/20 hover:bg-white/40 text-white rounded-full backdrop-blur-md transition-colors"
-                        title="Download"
-                      >
-                        <Download size={18} />
-                      </button>
-                    )}
-                    <button
-                      onClick={(e) => { e.stopPropagation(); removeJob(job.id); }}
-                      className="p-2 bg-white/20 hover:bg-red-500/80 text-white rounded-full backdrop-blur-md transition-colors"
-                      title="Remove"
-                    >
-                      <XCircle size={18} />
-                    </button>
-                  </div>
-                </div>
-                
-                <div className="p-3 border-t border-border-subtle bg-bg-card">
-                  <p className="text-xs font-medium text-text-main truncate" title={job.fileName}>
-                    {job.fileName}
-                  </p>
-                  <p className="text-[10px] text-text-muted mt-0.5">
-                    {job.status === 'done' ? 'Transparent PNG' : job.status === 'processing' ? 'Processing...' : job.status === 'queued' ? 'Waiting in queue' : 'Error'}
-                  </p>
-                </div>
-              </div>
-            ))}
+                </button>
+              ))}
+            </div>
           </div>
+
+          {/* Bottom Preview Area */}
+          <div className="flex-1 overflow-auto p-4 sm:p-6 flex flex-col">
+            <h3 className="text-sm font-bold text-text-main mb-4">Preview</h3>
+            
+            <div className="flex-1 relative rounded-2xl overflow-hidden border border-border-subtle shadow-inner bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-[300px]">
+              
+              {selectedJob ? (
+                <>
+                  {/* Background Layer */}
+                  <div className="absolute inset-0 z-0 transition-colors duration-300" style={getBgStyle()} />
+                  
+                  {/* Image Layer */}
+                  <img
+                    src={selectedJob.status === 'done' && selectedJob.resultUrl ? selectedJob.resultUrl : selectedJob.originalUrl}
+                    alt={selectedJob.fileName}
+                    className="absolute inset-0 w-full h-full object-contain p-4 sm:p-6 z-10 drop-shadow-xl"
+                  />
+                  
+                  {/* Download Action */}
+                  {selectedJob.status === 'done' && selectedJob.resultUrl && (
+                    <div className="absolute bottom-4 right-4 z-20">
+                      <button
+                        onClick={() => downloadProcessedImage(selectedJob.resultUrl!, selectedJob.fileName, backgroundColor, exportFormat)}
+                        className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl shadow-lg transition-colors"
+                      >
+                        <Download size={16} />
+                        Download
+                      </button>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="text-text-muted text-sm font-medium z-10">Select an image to preview</div>
+              )}
+
+            </div>
+          </div>
+
         </div>
       )}
     </div>
