@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { ClientErrorSuppressor } from "./components/ClientErrorSuppressor";
 import ModelPreloader from "./components/ModelPreloader";
+import { LangUpdater } from "./components/LangUpdater";
 import "./globals.css";
-import { headers } from "next/headers";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -20,23 +20,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headersList = await headers();
-  const pathname = headersList.get('x-pathname') || '';
-  
-  // Default to English, change based on route
-  let lang = 'en';
-  if (pathname.startsWith('/fr')) lang = 'fr';
-  else if (pathname.startsWith('/de')) lang = 'de';
-  else if (pathname.startsWith('/es')) lang = 'es';
-
+  // Default to English, since we can't use headers() without opting into dynamic rendering.
+  // The correct language will be updated by LangUpdater on the client if needed, or just left as en for SSG.
   return (
     <html
-      lang={lang}
+      lang="en"
       className={`font-sans h-full antialiased`}
       suppressHydrationWarning
     >
@@ -63,6 +56,7 @@ export default async function RootLayout({
           `}
         </Script>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <LangUpdater />
           <ClientErrorSuppressor />
           <ModelPreloader />
           {children}

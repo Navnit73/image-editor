@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Disallow: /private/
+Disallow: /api/
+
+Sitemap: https://photoresizerai.com/sitemap_main.xml
+Sitemap: https://photoresizerai.com/sitemap_de.xml
+Sitemap: https://photoresizerai.com/sitemap_fr.xml
+Sitemap: https://photoresizerai.com/sitemap_es.xml
