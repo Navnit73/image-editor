@@ -28,8 +28,8 @@ export function SeoPageRenderer({ page, lang }: Props) {
         <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
 
-      {/* Top Header Content - Constrained Width */}
-      <div className="max-w-5xl mx-auto px-4 pt-8 md:pt-12">
+      {/* Top Header Content - Wide Width to match Editor */}
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-8 md:pt-12">
         <Breadcrumb page={page} lang={lang} />
 
         <header className="mb-10 text-center md:text-left">

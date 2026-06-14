@@ -15,7 +15,7 @@ export default function EditorHeader() {
   }, []);
 
   return (
-    <header className="flex items-center rounded-2xl justify-between w-full px-4 h-14 bg-indigo-600 dark:bg-indigo-950 border-b border-indigo-700 dark:border-indigo-900 transition-colors duration-300">
+    <header className="flex items-center rounded-2xl justify-between w-full px-4 h-14 bg-lime-600 dark:bg-lime-950 border-b border-lime-700 dark:border-lime-900 transition-colors duration-300">
       
       {/* LEFT: Actions */}
       <div className="flex items-center gap-2 sm:gap-3 w-1/3">

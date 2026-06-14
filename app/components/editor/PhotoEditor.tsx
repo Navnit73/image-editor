@@ -16,17 +16,17 @@ export default function PhotoEditor() {
         {/* Mobile: stack vertically; Desktop: side-by-side */}
         <div className="flex flex-col mt-3 lg:flex-row flex-1 p-1 sm:p-2 gap-3 sm:gap-4 overflow-hidden">
           {/* Settings sidebar — scrollable on mobile, fixed on desktop */}
-          <div className="w-full lg:w-72 xl:w-80 flex-shrink-0 overflow-y-auto lg:overflow-visible">
+          <div className="w-full lg:w-72 xl:w-80 flex-shrink-0 overflow-y-auto lg:overflow-visible order-3 lg:order-none">
             <SettingsSidebar />
           </div>
 
-          {/* Main canvas — grows to fill */}
-          <div className="flex-1 min-h-[320px] sm:min-h-[400px] lg:min-h-0">
+          {/* Main canvas — grows to fill, moves to top on mobile */}
+          <div className="flex-1 min-h-[320px] sm:min-h-[400px] lg:min-h-0 order-1 lg:order-none">
             <OriginalWorkspace />
           </div>
 
-          {/* Live preview — bottom on mobile, right column on desktop */}
-          <div className="w-full lg:w-80 xl:w-96 flex-shrink-0">
+          {/* Live preview — below canvas on mobile, right column on desktop */}
+          <div className="w-full lg:w-80 xl:w-96 flex-shrink-0 order-2 lg:order-none">
             <LivePreview />
           </div>
         </div>
