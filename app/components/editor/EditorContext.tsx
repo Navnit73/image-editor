@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useRef, useEffect } from 'react';
 
 export type ImageFormat = 'image/jpeg' | 'image/png' | 'image/webp';
 export type AspectRatio = 'free' | '1:1' | '16:9' | '4:3' | '3:2' | '9:16';
@@ -73,6 +73,10 @@ interface EditorContextType extends EditorState {
   setSelectedTextId: (id: string | null) => void;
   setFileName: (name: string) => void;
   reset: () => void;
+  undo: () => void;
+  redo: () => void;
+  canUndo: boolean;
+  canRedo: boolean;
 }
 
 const defaultState: EditorState = {
@@ -100,23 +104,79 @@ const EditorContext = createContext<EditorContextType | undefined>(undefined);
 
 export const EditorProvider = ({ children }: { children: ReactNode }) => {
   const [state, setState] = useState<EditorState>(defaultState);
+  const [past, setPast] = useState<EditorState[]>([]);
+  const [future, setFuture] = useState<EditorState[]>([]);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isUndoRedo = useRef(false);
+  const prevStateRef = useRef<EditorState>(defaultState);
+
+  useEffect(() => {
+    if (isUndoRedo.current) {
+      isUndoRedo.current = false;
+      prevStateRef.current = state;
+      return;
+    }
+
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    
+    timeoutRef.current = setTimeout(() => {
+      if (prevStateRef.current !== state) {
+        setPast((p) => [...p, prevStateRef.current]);
+        setFuture([]);
+        prevStateRef.current = state;
+      }
+    }, 400);
+
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [state]);
+
+  const undo = () => {
+    if (past.length === 0) return;
+    isUndoRedo.current = true;
+    const previous = past[past.length - 1];
+    setPast((p) => p.slice(0, p.length - 1));
+    setFuture((f) => [state, ...f]);
+    setState(previous);
+    prevStateRef.current = previous;
+  };
+
+  const redo = () => {
+    if (future.length === 0) return;
+    isUndoRedo.current = true;
+    const next = future[0];
+    setFuture((f) => f.slice(1));
+    setPast((p) => [...p, state]);
+    setState(next);
+    prevStateRef.current = next;
+  };
 
   const setImageFile = (file: File | null, url: string | null, width: number, height: number) => {
     const baseName = file?.name?.replace(/\.[^/.]+$/, '') ?? 'edited-image';
-    setState((prev) => ({
-      ...prev,
-      imageFile: file,
-      imageUrl: url,
-      width,
-      height,
-      originalWidth: width,
-      originalHeight: height,
-      crop: null,
-      aspectRatio: 'free',
-      rotation: 0,
-      backgroundColor: 'transparent',
-      fileName: baseName,
-    }));
+    setState((prev) => {
+      const newState = {
+        ...prev,
+        imageFile: file,
+        imageUrl: url,
+        width,
+        height,
+        originalWidth: width,
+        originalHeight: height,
+        crop: null,
+        aspectRatio: 'free' as AspectRatio,
+        rotation: 0,
+        backgroundColor: 'transparent',
+        fileName: baseName,
+        textOverlays: [],
+        selectedTextId: null,
+      };
+      isUndoRedo.current = true;
+      setPast([]);
+      setFuture([]);
+      prevStateRef.current = newState;
+      return newState;
+    });
   };
 
   const setWidth = (width: number) => setState((prev) => ({ ...prev, width }));
@@ -170,7 +230,13 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
     }));
   };
 
-  const reset = () => setState(defaultState);
+  const reset = () => {
+    isUndoRedo.current = true;
+    setPast([]);
+    setFuture([]);
+    prevStateRef.current = defaultState;
+    setState(defaultState);
+  };
 
   return (
     <EditorContext.Provider
@@ -196,6 +262,10 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
         setSelectedTextId,
         setFileName,
         reset,
+        undo,
+        redo,
+        canUndo: past.length > 0,
+        canRedo: future.length > 0,
       }}
     >
       {children}
