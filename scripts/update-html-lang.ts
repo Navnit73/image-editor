@@ -23,6 +23,16 @@ function updateLang(directory: string, lang: string) {
   }
 }
 
+function updateLangFile(filePath: string, lang: string) {
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isFile() && filePath.endsWith('.html')) {
+    let content = fs.readFileSync(filePath, 'utf8');
+    if (content.includes('lang="en"')) {
+      content = content.replace(/lang="en"/g, `lang="${lang}"`);
+      fs.writeFileSync(filePath, content, 'utf8');
+    }
+  }
+}
+
 function main() {
   const outDir = path.join(process.cwd(), 'out');
   
@@ -35,10 +45,15 @@ function main() {
 
   // Update DE
   updateLang(path.join(outDir, 'de'), 'de');
+  updateLangFile(path.join(outDir, 'de.html'), 'de');
+  
   // Update FR
   updateLang(path.join(outDir, 'fr'), 'fr');
+  updateLangFile(path.join(outDir, 'fr.html'), 'fr');
+  
   // Update ES
   updateLang(path.join(outDir, 'es'), 'es');
+  updateLangFile(path.join(outDir, 'es.html'), 'es');
 
   console.log("Successfully updated lang attributes.");
 }
