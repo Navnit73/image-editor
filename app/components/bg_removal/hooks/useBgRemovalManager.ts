@@ -166,7 +166,7 @@ export function useBgRemovalManager() {
        *                          thread (and UI) stays responsive.
        */
       const config: Config = {
-        publicPath: 'https://unpkg.com/@imgly/background-removal-data@1.4.5/dist/',
+        publicPath: 'https://staticimgly.com/@imgly/background-removal-data/1.7.0/dist/',
         model: BG_REMOVAL_MODEL,
         output: {
           format: 'image/png', // always PNG internally; conversion at download time

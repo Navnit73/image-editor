@@ -59,21 +59,22 @@ export default function PassportCropper({ imageSrc, onComplete, onCancel }: Pass
     setIsRemovingBg(true);
     try {
       const config: Config = {
-        publicPath: 'https://unpkg.com/@imgly/background-removal-data@1.4.5/dist/',
+        publicPath: 'https://staticimgly.com/@imgly/background-removal-data/1.7.0/dist/',
         model: 'isnet_fp16',
+        proxyToWorker: false,
         output: {
           format: 'image/png',
           quality: 1.0,
         },
-        proxyToWorker: true,
       };
       const blob = await removeBackground(imageSrc, config);
       const url = URL.createObjectURL(blob);
       setBgRemovedSrc(url);
       setUseBgRemoved(true);
     } catch (err) {
-      console.error('Failed to remove bg', err);
-      alert('Failed to remove background. Please try again.');
+      console.error('Background removal failed:', err);
+      alert(`Background removal failed: ${err instanceof Error ? err.message : err}. Please try again.`);
+      setIsRemovingBg(false);
     } finally {
       setIsRemovingBg(false);
     }

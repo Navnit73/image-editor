@@ -14,6 +14,7 @@ export default function ModelPreloader() {
     const initModel = async () => {
       try {
         await preload({
+          publicPath: 'https://staticimgly.com/@imgly/background-removal-data/1.7.0/dist/',
           progress: (key, current, total) => {
             if (!isMounted) return;
             if (key.startsWith('fetch:')) {

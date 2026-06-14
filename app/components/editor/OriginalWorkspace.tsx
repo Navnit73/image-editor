@@ -78,7 +78,11 @@ export default function OriginalWorkspace() {
     if (!imageUrl || isBgRemoving) return;
     setIsBgRemoving(true);
     try {
-      const config = { publicPath: 'https://unpkg.com/@imgly/background-removal-data@1.4.5/dist/' };
+      const config: import('@imgly/background-removal').Config = { 
+        publicPath: 'https://staticimgly.com/@imgly/background-removal-data/1.7.0/dist/',
+        model: 'isnet_fp16',
+        proxyToWorker: false, // Prevents Next.js Turbopack Web Worker module errors
+      };
       const blob = await removeBackground(imageUrl, config);
       const url = URL.createObjectURL(blob);
       const file = new File([blob], 'no-bg.png', { type: 'image/png' });
@@ -91,7 +95,7 @@ export default function OriginalWorkspace() {
       img.src = url;
     } catch (error) {
       console.error('Error removing background:', error);
-      alert('Background removal failed. Please try a different image.');
+      alert(`Background removal failed: ${error instanceof Error ? error.message : error}. Please try a different image.`);
       setIsBgRemoving(false);
     }
   };
