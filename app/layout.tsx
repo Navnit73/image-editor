@@ -50,6 +50,18 @@ export default async function RootLayout({
             })(window, document, "clarity", "script", "x6yjypjsyk");
           `}
         </Script>
+
+        {/* Google Analytics */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-1Z9MBM58SZ" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-1Z9MBM58SZ');
+          `}
+        </Script>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <ClientErrorSuppressor />
           <ModelPreloader />
