@@ -10,6 +10,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://photoresizerai.com'),
   title: "photoresizerai - Free Online Image Tools",
   description: "Professional, fast, and fully local photo editing right in your browser. Remove backgrounds, resize images, create passport photos, and more. No uploads, 100% private.",
+  alternates: {
+    canonical: '/',
+    languages: {
+      en: '/',
+      de: '/de',
+      fr: '/fr',
+      es: '/es',
+      'x-default': '/',
+    },
+  },
   icons: {
     icon: '/icon.svg',
   },
@@ -17,6 +27,21 @@ export const metadata: Metadata = {
     title: "photoresizerai - Free Online Image Tools",
     description: "Professional, fast, and fully local photo editing right in your browser. Remove backgrounds, resize images, create passport photos, and more. No uploads, 100% private.",
     type: "website",
+    url: '/',
+    images: [
+      {
+        url: '/icon.svg',
+        width: 800,
+        height: 600,
+        alt: 'photoresizerai',
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "photoresizerai - Free Online Image Tools",
+    description: "Professional, fast, and fully local photo editing right in your browser. Remove backgrounds, resize images, create passport photos, and more. No uploads, 100% private.",
+    images: ['/icon.svg'],
   },
 };
 

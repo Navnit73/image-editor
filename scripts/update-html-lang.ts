@@ -24,21 +24,21 @@ function updateLang(directory: string, lang: string) {
 }
 
 function main() {
-  const nextAppDir = path.join(process.cwd(), '.next', 'server', 'app');
+  const outDir = path.join(process.cwd(), 'out');
   
-  if (!fs.existsSync(nextAppDir)) {
-    console.warn("Could not find .next/server/app directory. Did you build the project first?");
+  if (!fs.existsSync(outDir)) {
+    console.warn("Could not find out/ directory. Did you build the project first?");
     return;
   }
 
   console.log("Updating lang attributes in generated HTML...");
 
   // Update DE
-  updateLang(path.join(nextAppDir, 'de'), 'de');
+  updateLang(path.join(outDir, 'de'), 'de');
   // Update FR
-  updateLang(path.join(nextAppDir, 'fr'), 'fr');
+  updateLang(path.join(outDir, 'fr'), 'fr');
   // Update ES
-  updateLang(path.join(nextAppDir, 'es'), 'es');
+  updateLang(path.join(outDir, 'es'), 'es');
 
   console.log("Successfully updated lang attributes.");
 }

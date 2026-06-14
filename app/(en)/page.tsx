@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import PhotoEditor from "../components/editor/PhotoEditor";
-import BgRemoverApp from "../components/bg_removal/BgRemoverApp";
+import dynamic from "next/dynamic";
+const PhotoEditor = dynamic(() => import("../components/editor/PhotoEditor"), { ssr: false });
+const BgRemoverApp = dynamic(() => import("../components/bg_removal/BgRemoverApp"), { ssr: false });
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'editor' | 'bg_remover'>('editor');

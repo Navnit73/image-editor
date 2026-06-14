@@ -45,11 +45,20 @@ export function generateSeoMetadata(page: SeoPage, lang: Language, pageIndex: nu
       url: currentUrl,
       locale: lang,
       type: 'website',
+      images: [
+        {
+          url: '/icon.svg',
+          width: 800,
+          height: 600,
+          alt: page.metaTitle,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: page.metaTitle,
       description: page.metaDescription,
+      images: ['/icon.svg'],
     }
   };
 }
