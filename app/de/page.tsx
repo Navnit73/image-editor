@@ -174,7 +174,7 @@ export default function GermanHomePage() {
               </div>
             </div>
 
-            {/* Tab Switcher */}
+            {/* Tab Switcherg */}
             <div className="flex flex-col gap-2 w-full lg:w-auto">
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">Werkzeug wählen</p>
               <div className="flex p-1.5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm w-full lg:w-auto">
