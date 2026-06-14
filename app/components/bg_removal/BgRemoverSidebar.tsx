@@ -2,120 +2,158 @@
 
 import React from 'react';
 import { useBgRemoval } from './BgRemovalContext';
-import { Palette, FileImage, RotateCcw } from 'lucide-react';
+import { Palette, FileImage, RotateCcw, Plus } from 'lucide-react';
+import { useDropzone } from 'react-dropzone';
 
 const COLORS = [
-  { label: 'Transparent', value: 'transparent', hex: 'transparent' },
-  { label: 'White', value: 'white', hex: '#ffffff' },
-  { label: 'Black', value: 'black', hex: '#000000' },
-  { label: 'Red', value: 'red', hex: '#ef4444' },
-  { label: 'Blue', value: 'blue', hex: '#3b82f6' },
-  { label: 'Green', value: 'green', hex: '#22c55e' },
+  { label: 'Clear', value: 'transparent' },
+  { label: 'White', value: '#ffffff' },
+  { label: 'Black', value: '#000000' },
+  { label: 'Slate', value: '#f1f5f9' },
+  { label: 'Indigo', value: '#6366f1' },
+  { label: 'Rose', value: '#f43f5e' },
+  { label: 'Amber', value: '#f59e0b' },
+  { label: 'Emerald', value: '#10b981' },
 ];
 
+const CheckerSwatch = () => (
+  <div className="w-5 h-5 rounded-md border border-slate-300 dark:border-slate-600 flex-shrink-0 overflow-hidden" style={{
+    backgroundImage: 'linear-gradient(45deg, #cbd5e1 25%, transparent 25%), linear-gradient(-45deg, #cbd5e1 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #cbd5e1 75%), linear-gradient(-45deg, transparent 75%, #cbd5e1 75%)',
+    backgroundSize: '8px 8px',
+    backgroundPosition: '0 0, 0 4px, 4px -4px, -4px 0px',
+    backgroundColor: '#f8fafc',
+  }} />
+);
+
 export default function BgRemoverSidebar() {
-  const { backgroundColor, setBackgroundColor, exportFormat, setExportFormat, clearAll } = useBgRemoval();
+  const { backgroundColor, setBackgroundColor, exportFormat, setExportFormat, clearAll, addJobs } = useBgRemoval();
+
+  const { getRootProps: getAddRootProps, getInputProps: getAddInputProps } = useDropzone({
+    onDrop: (files) => { if (files?.length) addJobs(files); },
+    accept: { 'image/*': ['.jpeg', '.jpg', '.png', '.webp'] },
+    multiple: true,
+    noClick: false,
+  });
+
+  const isCustomColor = !COLORS.find(c => c.value === backgroundColor);
 
   return (
-    <div className="w-full lg:w-72 xl:w-80 flex-shrink-0 bg-bg-card border-t lg:border-t-0 lg:border-r border-border-subtle flex flex-col h-auto lg:h-full lg:overflow-y-auto">
-      <div className="p-4 sm:p-6 flex flex-col gap-8">
-        
-        {/* Background Section */}
-        <section>
-          <div className="flex items-center gap-2 mb-4">
-            <Palette size={16} className="text-text-muted" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted">Background</h3>
+    <aside className="w-full lg:w-64 xl:w-72 flex-shrink-0 bg-white dark:bg-slate-900 border-t lg:border-t-0 lg:border-l border-slate-100 dark:border-slate-800 flex flex-col max-h-[35vh] sm:max-h-[40vh] lg:max-h-none">
+      <div className="overflow-y-auto flex-1">
+        <div className="p-4 sm:p-5 flex flex-col gap-6">
+
+          {/* Add More Images */}
+          <div {...getAddRootProps()} className="cursor-pointer">
+            <input {...getAddInputProps()} />
+            <button className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border-2 border-dashed border-violet-200 dark:border-violet-800 text-violet-600 dark:text-violet-400 text-sm font-semibold hover:bg-violet-50 dark:hover:bg-violet-900/20 hover:border-violet-400 transition-all duration-150 active:scale-[0.98]">
+              <Plus size={15} strokeWidth={2.5} />
+              Add more images
+            </button>
           </div>
-          
-          <div className="grid grid-cols-2 gap-2">
-            {COLORS.map((c) => (
-              <button
-                key={c.value}
-                onClick={() => setBackgroundColor(c.value)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-sm font-semibold transition-all ${
-                  backgroundColor === c.value
-                    ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 shadow-sm'
-                    : 'border-border-subtle hover:border-text-muted bg-bg-root text-text-main'
-                }`}
-              >
-                <div 
-                  className={`w-4 h-4 rounded-full border border-border-subtle flex-shrink-0 ${c.value === 'transparent' ? 'bg-checkerboard' : ''}`}
-                  style={c.value !== 'transparent' ? { backgroundColor: c.hex } : {
-                    backgroundImage: 'linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%)',
-                    backgroundSize: '8px 8px',
-                    backgroundPosition: '0 0, 0 4px, 4px -4px, -4px 0px'
-                  }}
-                />
-                {c.label}
-              </button>
-            ))}
-            
-            {/* Custom Color Button */}
-            <label className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-sm font-semibold cursor-pointer transition-all ${
-              !COLORS.find(c => c.value === backgroundColor)
-                ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 shadow-sm'
-                : 'border-border-subtle hover:border-text-muted bg-bg-root text-text-main'
+
+          {/* Background Section */}
+          <section>
+            <div className="flex items-center gap-2 mb-3">
+              <Palette size={14} className="text-slate-400 dark:text-slate-500" />
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Background</h3>
+            </div>
+
+            <div className="grid grid-cols-4 gap-1.5 mb-3">
+              {COLORS.map(c => (
+                <button
+                  key={c.value}
+                  onClick={() => setBackgroundColor(c.value)}
+                  title={c.label}
+                  className={`flex flex-col items-center gap-1.5 p-2 rounded-xl border transition-all duration-150 ${
+                    backgroundColor === c.value
+                      ? 'border-violet-500 bg-violet-50 dark:bg-violet-900/20 shadow-sm ring-1 ring-violet-500/30'
+                      : 'border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-800/50'
+                  }`}
+                >
+                  {c.value === 'transparent' ? (
+                    <CheckerSwatch />
+                  ) : (
+                    <div className="w-5 h-5 rounded-md border border-black/10 dark:border-white/10 flex-shrink-0" style={{ backgroundColor: c.value }} />
+                  )}
+                  <span className={`text-[9px] font-bold leading-none ${backgroundColor === c.value ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-400'}`}>
+                    {c.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {/* Custom color row */}
+            <label className={`flex items-center gap-3 px-3 py-2.5 rounded-xl border cursor-pointer transition-all duration-150 ${
+              isCustomColor
+                ? 'border-violet-500 bg-violet-50 dark:bg-violet-900/20 shadow-sm'
+                : 'border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-800/50'
             }`}>
-              <div 
-                className="w-4 h-4 rounded-full border border-border-subtle flex-shrink-0"
-                style={{ backgroundColor: !COLORS.find(c => c.value === backgroundColor) ? backgroundColor : '#6366f1' }}
-              />
-              <span className="flex-1 text-left">Custom</span>
-              <input 
-                type="color" 
-                value={!COLORS.find(c => c.value === backgroundColor) ? backgroundColor : '#6366f1'} 
-                onChange={(e) => setBackgroundColor(e.target.value)}
-                className="w-0 h-0 opacity-0 absolute"
-              />
+              <div className="relative w-5 h-5 flex-shrink-0">
+                <div className="w-5 h-5 rounded-md border border-black/10" style={{ backgroundColor: isCustomColor ? backgroundColor : '#a78bfa' }} />
+                <input
+                  type="color"
+                  value={isCustomColor ? backgroundColor : '#a78bfa'}
+                  onChange={e => setBackgroundColor(e.target.value)}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                />
+              </div>
+              <span className={`text-xs font-semibold flex-1 ${isCustomColor ? 'text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-300'}`}>
+                {isCustomColor ? backgroundColor.toUpperCase() : 'Custom color'}
+              </span>
+              <span className="text-[9px] text-slate-400 dark:text-slate-500 font-medium">Pick</span>
             </label>
-          </div>
-        </section>
+          </section>
 
-        {/* Format Section */}
-        <section>
-          <div className="flex items-center gap-2 mb-4">
-            <FileImage size={16} className="text-text-muted" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted">Format</h3>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-2">
-            <button
-              onClick={() => setExportFormat('image/png')}
-              className={`flex flex-col items-start px-3 py-2.5 rounded-xl border transition-all text-left ${
-                exportFormat === 'image/png'
-                  ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 shadow-sm'
-                  : 'border-border-subtle hover:border-text-muted bg-bg-root'
-              }`}
-            >
-              <span className={`text-sm font-bold ${exportFormat === 'image/png' ? 'text-indigo-700 dark:text-indigo-300' : 'text-text-main'}`}>PNG</span>
-              <span className="text-[10px] text-text-muted mt-0.5">Lossless, transparency</span>
-            </button>
-            
-            <button
-              onClick={() => setExportFormat('image/webp')}
-              className={`flex flex-col items-start px-3 py-2.5 rounded-xl border transition-all text-left ${
-                exportFormat === 'image/webp'
-                  ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 shadow-sm'
-                  : 'border-border-subtle hover:border-text-muted bg-bg-root'
-              }`}
-            >
-              <span className={`text-sm font-bold ${exportFormat === 'image/webp' ? 'text-indigo-700 dark:text-indigo-300' : 'text-text-main'}`}>WEBP</span>
-              <span className="text-[10px] text-text-muted mt-0.5">Smaller file size</span>
-            </button>
-          </div>
-        </section>
+          {/* Divider */}
+          <div className="h-px bg-slate-100 dark:bg-slate-800" />
 
-        <hr className="border-border-subtle" />
+          {/* Format Section */}
+          <section>
+            <div className="flex items-center gap-2 mb-3">
+              <FileImage size={14} className="text-slate-400 dark:text-slate-500" />
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Export Format</h3>
+            </div>
 
-        <button
-          onClick={clearAll}
-          className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl border border-border-subtle text-text-main font-semibold text-sm hover:bg-bg-root transition-colors"
-        >
-          <RotateCcw size={16} />
-          Start over
-        </button>
+            <div className="grid grid-cols-2 gap-2">
+              {([
+                { value: 'image/png', label: 'PNG', desc: 'Best quality', note: 'with transparency' },
+                { value: 'image/webp', label: 'WebP', desc: 'Smaller size', note: 'modern format' },
+              ] as const).map(fmt => (
+                <button
+                  key={fmt.value}
+                  onClick={() => setExportFormat(fmt.value)}
+                  className={`flex flex-col items-start px-3 py-3 rounded-xl border transition-all duration-150 text-left ${
+                    exportFormat === fmt.value
+                      ? 'border-violet-500 bg-violet-50 dark:bg-violet-900/20 shadow-sm ring-1 ring-violet-500/20'
+                      : 'border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-800/50'
+                  }`}
+                >
+                  <span className={`text-sm font-black tracking-tight ${exportFormat === fmt.value ? 'text-violet-700 dark:text-violet-300' : 'text-slate-700 dark:text-slate-200'}`}>
+                    {fmt.label}
+                  </span>
+                  <span className={`text-[9px] font-semibold mt-0.5 ${exportFormat === fmt.value ? 'text-violet-500 dark:text-violet-400' : 'text-slate-400 dark:text-slate-500'}`}>
+                    {fmt.desc}
+                  </span>
+                  <span className="text-[8px] text-slate-400 dark:text-slate-600 mt-0.5">{fmt.note}</span>
+                </button>
+              ))}
+            </div>
+          </section>
 
+          {/* Divider */}
+          <div className="h-px bg-slate-100 dark:bg-slate-800" />
+
+          {/* Reset */}
+          <button
+            onClick={clearAll}
+            className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 font-semibold text-sm hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 hover:border-red-200 dark:hover:border-red-800 transition-all duration-150 active:scale-[0.98]"
+          >
+            <RotateCcw size={14} />
+            Start over
+          </button>
+
+        </div>
       </div>
-    </div>
+    </aside>
   );
 }

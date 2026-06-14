@@ -1,21 +1,21 @@
 'use client';
 
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useBgRemoval } from './BgRemovalContext';
 import { downloadProcessedImage } from './utils/bgRemovalUtils';
-import { UploadCloud, CheckCircle, XCircle, Download } from 'lucide-react';
+import { UploadCloud, CheckCircle, XCircle, Download, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 
 export default function BgRemoverWorkspace() {
   const { jobs, addJobs, selectedJobId, setSelectedJobId, backgroundColor, exportFormat } = useBgRemoval();
-  
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [lightbox, setLightbox] = useState(false);
+
   const selectedJob = jobs.find(j => j.id === selectedJobId) || jobs[0];
 
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
-      if (acceptedFiles?.length > 0) {
-        addJobs(acceptedFiles);
-      }
+      if (acceptedFiles?.length > 0) addJobs(acceptedFiles);
     },
     [addJobs]
   );
@@ -24,186 +24,262 @@ export default function BgRemoverWorkspace() {
     onDrop,
     accept: { 'image/*': ['.jpeg', '.jpg', '.png', '.webp'] },
     multiple: true,
-    noClick: jobs.length > 0, // Disable click to upload in the main area when jobs exist
+    noClick: jobs.length > 0,
   });
 
-  const CircularProgress = ({ progress }: { progress: number }) => {
-    const radius = 20;
-    const circumference = 2 * Math.PI * radius;
-    const strokeDashoffset = circumference - (progress / 100) * circumference;
+  const scrollCarousel = (dir: 'left' | 'right') => {
+    if (!carouselRef.current) return;
+    carouselRef.current.scrollBy({ left: dir === 'left' ? -200 : 200, behavior: 'smooth' });
+  };
 
+  const selectedIndex = jobs.findIndex(j => j.id === selectedJobId);
+  const goPrev = () => { if (selectedIndex > 0) setSelectedJobId(jobs[selectedIndex - 1].id); };
+  const goNext = () => { if (selectedIndex < jobs.length - 1) setSelectedJobId(jobs[selectedIndex + 1].id); };
+
+  const CircularProgress = ({ progress }: { progress: number }) => {
+    const r = 18;
+    const circ = 2 * Math.PI * r;
+    const offset = circ - (progress / 100) * circ;
     return (
-      <div className="flex flex-col items-center justify-center">
-        <svg className="w-12 h-12 transform -rotate-90" viewBox="0 0 48 48">
-          <circle
-            className="text-white/30"
-            strokeWidth="4"
-            stroke="currentColor"
-            fill="transparent"
-            r={radius}
-            cx="24"
-            cy="24"
-          />
-          <circle
-            className="text-indigo-500 transition-all duration-300 ease-out"
-            strokeWidth="4"
-            strokeDasharray={circumference}
-            strokeDashoffset={strokeDashoffset}
-            strokeLinecap="round"
-            stroke="currentColor"
-            fill="transparent"
-            r={radius}
-            cx="24"
-            cy="24"
-          />
+      <div className="flex flex-col items-center justify-center gap-1">
+        <svg className="w-10 h-10 -rotate-90" viewBox="0 0 44 44">
+          <circle cx="22" cy="22" r={r} fill="transparent" stroke="rgba(255,255,255,0.2)" strokeWidth="3.5" />
+          <circle cx="22" cy="22" r={r} fill="transparent" stroke="#6366f1" strokeWidth="3.5"
+            strokeDasharray={circ} strokeDashoffset={offset} strokeLinecap="round" className="transition-all duration-200" />
         </svg>
-        <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-300 mt-1">{Math.round(progress)}%</span>
+        <span className="text-[9px] font-black text-white tracking-wider">{Math.round(progress)}%</span>
       </div>
     );
   };
 
-  const getBgStyle = () => {
-    if (backgroundColor !== 'transparent') {
-      return { backgroundColor };
-    }
+  const getBgStyle = (): React.CSSProperties => {
+    if (backgroundColor !== 'transparent') return { backgroundColor };
     return {
-      backgroundImage: 'linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%)',
-      backgroundSize: '20px 20px',
-      backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px'
+      backgroundImage: 'linear-gradient(45deg, #e2e8f0 25%, transparent 25%), linear-gradient(-45deg, #e2e8f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e2e8f0 75%), linear-gradient(-45deg, transparent 75%, #e2e8f0 75%)',
+      backgroundSize: '16px 16px',
+      backgroundPosition: '0 0, 0 8px, 8px -8px, -8px 0px',
+      backgroundColor: '#f8fafc',
     };
   };
 
   return (
-    <div className="flex-1 flex flex-col min-h-0 bg-bg-root" {...getRootProps()}>
+    <div className="flex-1 flex flex-col min-h-0 bg-slate-50 dark:bg-slate-950" {...getRootProps()}>
       <input {...getInputProps()} />
-      
+
       {jobs.length === 0 ? (
-        <div className="flex-1 flex items-center justify-center p-4 sm:p-8">
-          <div
-            className={`w-full max-w-lg p-10 sm:p-16 border-2 border-dashed rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer transition-all ${
-              isDragActive
-                ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 scale-[1.02]'
-                : 'border-border-subtle hover:border-indigo-500/50 hover:bg-bg-card'
-            }`}
-          >
-            <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-6 transition-colors ${isDragActive ? 'bg-indigo-500 text-white' : 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-500'}`}>
-              <UploadCloud size={36} />
+        <div className="flex-1 flex items-center justify-center p-4 sm:p-8 lg:p-12">
+          <div className={`w-full max-w-xl p-8 sm:p-14 border-2 border-dashed rounded-3xl flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-200 ${
+            isDragActive
+              ? 'border-red-500 bg-red-50 dark:bg-red-950/30 scale-[1.01]'
+              : 'border-slate-200 dark:border-slate-700 hover:border-red-400 hover:bg-white dark:hover:bg-slate-900'
+          }`}>
+            <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-5 transition-all duration-200 ${
+              isDragActive ? 'bg-red-500 text-white scale-110' : 'bg-red-100 dark:bg-red-900/40 text-red-500'
+            }`}>
+              <UploadCloud size={32} strokeWidth={1.5} />
             </div>
-            <h4 className="text-lg sm:text-xl font-bold text-text-main mb-3">
-              {isDragActive ? 'Drop images here!' : 'Upload Images for Bulk BG Removal'}
+            <h4 className="text-lg sm:text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2 tracking-tight">
+              {isDragActive ? 'Drop to upload' : 'Remove backgrounds instantly'}
             </h4>
-            <p className="text-sm text-text-muted mb-6 max-w-sm mx-auto">
-              Drag & drop multiple images or click to select. We process them locally on your device for total privacy.
+            <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 max-w-xs leading-relaxed">
+              Drag & drop images or click to select. Processed locally — your images never leave your device.
             </p>
-            <div className="flex gap-2 justify-center">
-              {['JPG', 'PNG', 'WEBP'].map((fmt) => (
-                <span key={fmt} className="px-2.5 py-1 bg-bg-card border border-border-subtle text-text-muted rounded-md text-[10px] font-bold shadow-sm">{fmt}</span>
+            <div className="flex gap-2 justify-center flex-wrap">
+              {['JPG', 'PNG', 'WEBP'].map(fmt => (
+                <span key={fmt} className="px-3 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 rounded-lg text-xs font-bold tracking-wider">{fmt}</span>
               ))}
             </div>
+            <p className="text-xs text-slate-400 dark:text-slate-500 mt-4">Batch process multiple images at once</p>
           </div>
         </div>
       ) : (
         <div className="flex-1 flex flex-col overflow-hidden relative">
-          
-          {/* Drag Overlay */}
+
           {isDragActive && (
-            <div className="absolute inset-0 z-50 bg-indigo-500/10 backdrop-blur-[2px] border-4 border-indigo-500 border-dashed rounded-xl flex items-center justify-center">
-              <div className="bg-white dark:bg-bg-card px-6 py-4 rounded-2xl shadow-xl flex items-center gap-3">
-                <UploadCloud className="text-indigo-500" size={28} />
-                <span className="text-lg font-bold text-text-main">Drop images to add to queue</span>
+            <div className="absolute inset-0 z-50 bg-red-500/10 backdrop-blur-sm border-4 border-red-500 border-dashed rounded-xl flex items-center justify-center">
+              <div className="bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3">
+                <UploadCloud className="text-red-500" size={26} />
+                <span className="text-base font-bold text-slate-800 dark:text-slate-100">Drop to add more images</span>
               </div>
             </div>
           )}
 
-          {/* Top Thumbnails Carousel */}
-          <div className="flex-shrink-0 p-4 border-b border-border-subtle bg-bg-card">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-bold text-text-main">{jobs.length} image{jobs.length !== 1 ? 's' : ''}</h3>
-              <div className="flex items-center gap-2 text-xs font-semibold text-text-muted">
-                {jobs.filter(j => j.status === 'processing').length} processing
+          {/* Thumbnail Carousel */}
+          <div className="flex-shrink-0 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 px-3 pt-3 pb-3">
+            <div className="flex items-center justify-between mb-2 px-1">
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                {jobs.length} image{jobs.length !== 1 ? 's' : ''}
+              </span>
+              <div className="flex items-center gap-1.5">
+                {jobs.filter(j => j.status === 'done').length > 0 && (
+                  <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full">
+                    {jobs.filter(j => j.status === 'done').length} done
+                  </span>
+                )}
+                {jobs.filter(j => j.status === 'processing' || j.status === 'queued').length > 0 && (
+                  <span className="text-[10px] font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 px-2 py-0.5 rounded-full">
+                    {jobs.filter(j => j.status === 'processing' || j.status === 'queued').length} pending
+                  </span>
+                )}
               </div>
             </div>
-            
-            <div className="flex overflow-x-auto gap-3 pb-2 scrollbar-thin scrollbar-thumb-border-subtle">
-              {jobs.map((job) => (
-                <button
-                  key={job.id}
-                  onClick={() => setSelectedJobId(job.id)}
-                  className={`relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-xl overflow-hidden border-2 transition-all ${
-                    selectedJobId === job.id ? 'border-indigo-500 shadow-md ring-2 ring-indigo-500/20' : 'border-border-subtle hover:border-indigo-300'
-                  }`}
-                >
-                  {/* Thumbnail Image */}
-                  <img
-                    src={job.originalUrl}
-                    alt={job.fileName}
-                    className={`w-full h-full object-cover ${job.status === 'processing' ? 'opacity-30 grayscale blur-[1px]' : ''}`}
-                  />
-                  
-                  {/* Status Overlays */}
-                  {job.status === 'processing' && (
-                    <div className="absolute inset-0 bg-white/60 dark:bg-black/60 flex items-center justify-center backdrop-blur-[1px]">
-                      <CircularProgress progress={job.progress} />
-                    </div>
-                  )}
-                  {job.status === 'queued' && (
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                      <span className="text-[10px] font-bold text-white uppercase tracking-wider">Queued</span>
-                    </div>
-                  )}
-                  {job.status === 'error' && (
-                    <div className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-0.5">
-                      <XCircle size={14} />
-                    </div>
-                  )}
-                  {job.status === 'done' && (
-                    <div className="absolute top-1 right-1 bg-green-500 text-white rounded-full p-0.5 shadow-sm">
-                      <CheckCircle size={14} />
-                    </div>
-                  )}
-                </button>
-              ))}
+
+            <div className="relative flex items-center">
+              <button onClick={() => scrollCarousel('left')} className="hidden sm:flex absolute left-0 z-10 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 items-center justify-center shadow-sm hover:bg-slate-50 transition-colors flex-shrink-0">
+                <ChevronLeft size={14} className="text-slate-600 dark:text-slate-300" />
+              </button>
+
+              <div ref={carouselRef} className="flex overflow-x-auto gap-2 sm:gap-2.5 px-2 py-2 sm:px-8 -mx-2 sm:mx-0 scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory scroll-smooth">
+                {jobs.map(job => (
+                  <button
+                    key={job.id}
+                    onClick={() => setSelectedJobId(job.id)}
+                    className={`relative flex-shrink-0 snap-start rounded-xl overflow-hidden transition-all duration-150 ${
+                      selectedJobId === job.id
+                        ? 'ring-2 ring-red-500 ring-offset-2 dark:ring-offset-slate-900 shadow-md scale-[1.03] z-10'
+                        : 'ring-1 ring-slate-200 dark:ring-slate-700 hover:ring-red-300 hover:scale-[1.01] z-0'
+                    }`}
+                    style={{ width: 72, height: 72 }}
+                  >
+                    <img src={job.originalUrl} alt={job.fileName} className={`w-full h-full object-cover ${job.status === 'processing' ? 'opacity-40 grayscale' : ''}`} />
+
+                    {job.status === 'processing' && (
+                      <div className="absolute inset-0 bg-slate-900/60 flex items-center justify-center">
+                        <CircularProgress progress={job.progress} />
+                      </div>
+                    )}
+                    {job.status === 'queued' && (
+                      <div className="absolute inset-0 bg-slate-900/50 flex items-center justify-center">
+                        <span className="text-[9px] font-black text-white uppercase ml-[0.05em]">Queue</span>
+                      </div>
+                    )}
+                    {job.status === 'error' && (
+                      <div className="absolute inset-0 bg-red-900/60 flex items-center justify-center">
+                        <XCircle size={18} className="text-red-300" />
+                      </div>
+                    )}
+                    {job.status === 'done' && (
+                      <div className="absolute top-1 right-1">
+                        <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center shadow-sm">
+                          <CheckCircle size={10} className="text-white" strokeWidth={3} />
+                        </div>
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              <button onClick={() => scrollCarousel('right')} className="hidden sm:flex absolute right-0 z-10 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 items-center justify-center shadow-sm hover:bg-slate-50 transition-colors flex-shrink-0">
+                <ChevronRight size={14} className="text-slate-600 dark:text-slate-300" />
+              </button>
             </div>
           </div>
 
-          {/* Bottom Preview Area */}
-          <div className="flex-1 overflow-auto p-4 sm:p-6 flex flex-col">
-            <h3 className="text-sm font-bold text-text-main mb-4">Preview</h3>
-            
-            <div className="flex-1 relative rounded-2xl overflow-hidden border border-border-subtle shadow-inner bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-[300px]">
-              
+          {/* Preview Area */}
+          <div className="flex-1 overflow-hidden flex flex-col p-3 sm:p-4 lg:p-5 min-h-0">
+            <div className="flex items-center justify-between mb-2 sm:mb-3 px-1">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Preview</span>
+                {selectedJob && (
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 truncate max-w-[120px] sm:max-w-xs">{selectedJob.fileName}</span>
+                )}
+              </div>
+              <div className="flex items-center gap-2">
+                {selectedJob && jobs.length > 1 && (
+                  <div className="flex items-center gap-1">
+                    <button onClick={goPrev} disabled={selectedIndex === 0} className="w-6 h-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-slate-50 transition-colors">
+                      <ChevronLeft size={12} className="text-slate-600 dark:text-slate-300" />
+                    </button>
+                    <span className="text-[10px] font-bold text-slate-400 px-1">{selectedIndex + 1}/{jobs.length}</span>
+                    <button onClick={goNext} disabled={selectedIndex === jobs.length - 1} className="w-6 h-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-slate-50 transition-colors">
+                      <ChevronRight size={12} className="text-slate-600 dark:text-slate-300" />
+                    </button>
+                  </div>
+                )}
+                {selectedJob?.status === 'done' && selectedJob.resultUrl && (
+                  <button onClick={() => setLightbox(true)} className="w-6 h-6 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-slate-50 transition-colors">
+                    <ZoomIn size={11} className="text-slate-500 dark:text-slate-400" />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div className="flex-1 relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner min-h-[200px] sm:min-h-0" style={getBgStyle()}>
               {selectedJob ? (
                 <>
-                  {/* Background Layer */}
-                  <div className="absolute inset-0 z-0 transition-colors duration-300" style={getBgStyle()} />
-                  
-                  {/* Image Layer */}
                   <img
+                    key={selectedJob.id + selectedJob.status}
                     src={selectedJob.status === 'done' && selectedJob.resultUrl ? selectedJob.resultUrl : selectedJob.originalUrl}
                     alt={selectedJob.fileName}
-                    className="absolute inset-0 w-full h-full object-contain p-4 sm:p-6 z-10 drop-shadow-xl"
+                    className="absolute inset-0 w-full h-full object-contain p-3 sm:p-5 z-10 transition-opacity duration-300"
                   />
-                  
-                  {/* Download Action */}
+
+                  {selectedJob.status === 'processing' && (
+                    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/60 dark:bg-slate-900/60 backdrop-blur-[2px]">
+                      <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-5 shadow-xl flex flex-col items-center gap-3">
+                        <CircularProgress progress={selectedJob.progress} />
+                        <span className="text-xs font-bold text-slate-600 dark:text-slate-300">Removing background…</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {selectedJob.status === 'queued' && (
+                    <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/60 dark:bg-slate-900/60 backdrop-blur-[2px]">
+                      <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-4 shadow-xl">
+                        <span className="text-xs font-bold text-slate-500 dark:text-slate-400">Waiting in queue…</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {selectedJob.status === 'error' && (
+                    <div className="absolute inset-0 z-20 flex items-center justify-center bg-red-50/80 dark:bg-red-950/50 backdrop-blur-[2px]">
+                      <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-4 shadow-xl flex flex-col items-center gap-2">
+                        <XCircle className="text-red-500" size={24} />
+                        <span className="text-xs font-bold text-red-600 dark:text-red-400">Processing failed</span>
+                      </div>
+                    </div>
+                  )}
+
                   {selectedJob.status === 'done' && selectedJob.resultUrl && (
-                    <div className="absolute bottom-4 right-4 z-20">
+                    <div className="absolute bottom-3 right-3 z-20 flex items-center gap-2">
+                      <div className="bg-emerald-500 text-white text-[9px] font-black px-2 py-1 rounded-lg tracking-wider uppercase flex items-center gap-1 shadow-sm">
+                        <CheckCircle size={9} strokeWidth={3} /> Done
+                      </div>
                       <button
                         onClick={() => downloadProcessedImage(selectedJob.resultUrl!, selectedJob.fileName, backgroundColor, exportFormat)}
-                        className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl shadow-lg transition-colors"
+                        className="flex items-center gap-1.5 px-3 py-2 bg-red-600 hover:bg-red-700 active:scale-95 text-white text-xs font-bold rounded-xl shadow-lg transition-all duration-150"
                       >
-                        <Download size={16} />
+                        <Download size={13} />
                         Download
                       </button>
                     </div>
                   )}
                 </>
               ) : (
-                <div className="text-text-muted text-sm font-medium z-10">Select an image to preview</div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-slate-400 dark:text-slate-500 text-sm font-medium">Select an image to preview</span>
+                </div>
               )}
-
             </div>
           </div>
 
+          {/* Lightbox */}
+          {lightbox && selectedJob?.resultUrl && (
+            <div
+              className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
+              onClick={() => setLightbox(false)}
+            >
+              <img
+                src={selectedJob.resultUrl}
+                alt={selectedJob.fileName}
+                className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
+                style={getBgStyle()}
+              />
+              <button onClick={() => setLightbox(false)} className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+                <XCircle size={20} className="text-white" />
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>
