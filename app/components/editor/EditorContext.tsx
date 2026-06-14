@@ -3,8 +3,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 export type ImageFormat = 'image/jpeg' | 'image/png' | 'image/webp';
-// UI friendly format names: jpg, jpeg, png, webp. We map jpg to image/jpeg in the UI.
-
 export type AspectRatio = 'free' | '1:1' | '16:9' | '4:3' | '3:2' | '9:16';
 
 export interface CropRect {
@@ -21,6 +19,20 @@ export interface LivePreviewData {
   height: number;
 }
 
+export interface TextOverlay {
+  id: string;
+  text: string;
+  x: number; // percentage 0-100
+  y: number; // percentage 0-100
+  fontSize: number;
+  color: string;
+  fontWeight: 'normal' | 'bold';
+  opacity: number; // 0-100
+  rotation: number;
+  align: 'left' | 'center' | 'right';
+  fontFamily: string;
+}
+
 interface EditorState {
   imageFile: File | null;
   imageUrl: string | null;
@@ -29,7 +41,7 @@ interface EditorState {
   originalWidth: number;
   originalHeight: number;
   format: ImageFormat;
-  quality: number; // 1 to 100
+  quality: number;
   backgroundColor: string;
   rotation: number;
   crop: CropRect | null;
@@ -37,6 +49,9 @@ interface EditorState {
   livePreview: LivePreviewData;
   isProcessing: boolean;
   isBgRemoving: boolean;
+  textOverlays: TextOverlay[];
+  selectedTextId: string | null;
+  fileName: string;
 }
 
 interface EditorContextType extends EditorState {
@@ -52,6 +67,11 @@ interface EditorContextType extends EditorState {
   setLivePreview: (data: LivePreviewData) => void;
   setIsProcessing: (processing: boolean) => void;
   setIsBgRemoving: (removing: boolean) => void;
+  addTextOverlay: () => void;
+  updateTextOverlay: (id: string, updates: Partial<TextOverlay>) => void;
+  removeTextOverlay: (id: string) => void;
+  setSelectedTextId: (id: string | null) => void;
+  setFileName: (name: string) => void;
   reset: () => void;
 }
 
@@ -71,6 +91,9 @@ const defaultState: EditorState = {
   livePreview: { url: null, sizeKb: 0, width: 0, height: 0 },
   isProcessing: false,
   isBgRemoving: false,
+  textOverlays: [],
+  selectedTextId: null,
+  fileName: 'edited-image',
 };
 
 const EditorContext = createContext<EditorContextType | undefined>(undefined);
@@ -79,6 +102,7 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
   const [state, setState] = useState<EditorState>(defaultState);
 
   const setImageFile = (file: File | null, url: string | null, width: number, height: number) => {
+    const baseName = file?.name?.replace(/\.[^/.]+$/, '') ?? 'edited-image';
     setState((prev) => ({
       ...prev,
       imageFile: file,
@@ -87,10 +111,11 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
       height,
       originalWidth: width,
       originalHeight: height,
-      crop: null, // reset crop on new image
+      crop: null,
       aspectRatio: 'free',
       rotation: 0,
       backgroundColor: 'transparent',
+      fileName: baseName,
     }));
   };
 
@@ -105,12 +130,54 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
   const setLivePreview = (livePreview: LivePreviewData) => setState((prev) => ({ ...prev, livePreview }));
   const setIsProcessing = (isProcessing: boolean) => setState((prev) => ({ ...prev, isProcessing }));
   const setIsBgRemoving = (isBgRemoving: boolean) => setState((prev) => ({ ...prev, isBgRemoving }));
+  const setFileName = (fileName: string) => setState((prev) => ({ ...prev, fileName }));
+  const setSelectedTextId = (selectedTextId: string | null) => setState((prev) => ({ ...prev, selectedTextId }));
+
+  const addTextOverlay = () => {
+    const id = `text-${Date.now()}`;
+    const newOverlay: TextOverlay = {
+      id,
+      text: 'Your Text Here',
+      x: 50,
+      y: 50,
+      fontSize: 32,
+      color: '#ffffff',
+      fontWeight: 'bold',
+      opacity: 100,
+      rotation: 0,
+      align: 'center',
+      fontFamily: 'Arial',
+    };
+    setState((prev) => ({
+      ...prev,
+      textOverlays: [...prev.textOverlays, newOverlay],
+      selectedTextId: id,
+    }));
+  };
+
+  const updateTextOverlay = (id: string, updates: Partial<TextOverlay>) => {
+    setState((prev) => ({
+      ...prev,
+      textOverlays: prev.textOverlays.map((t) => (t.id === id ? { ...t, ...updates } : t)),
+    }));
+  };
+
+  const removeTextOverlay = (id: string) => {
+    setState((prev) => ({
+      ...prev,
+      textOverlays: prev.textOverlays.filter((t) => t.id !== id),
+      selectedTextId: prev.selectedTextId === id ? null : prev.selectedTextId,
+    }));
+  };
+
   const reset = () => setState(defaultState);
 
   return (
     <EditorContext.Provider
       value={{
         ...state,
+        textOverlays: state.textOverlays || [],
+        fileName: state.fileName || 'edited-image',
         setImageFile,
         setWidth,
         setHeight,
@@ -123,6 +190,11 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
         setLivePreview,
         setIsProcessing,
         setIsBgRemoving,
+        addTextOverlay,
+        updateTextOverlay,
+        removeTextOverlay,
+        setSelectedTextId,
+        setFileName,
         reset,
       }}
     >
@@ -133,8 +205,6 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
 
 export const useEditor = () => {
   const context = useContext(EditorContext);
-  if (!context) {
-    throw new Error('useEditor must be used within an EditorProvider');
-  }
+  if (!context) throw new Error('useEditor must be used within an EditorProvider');
   return context;
 };

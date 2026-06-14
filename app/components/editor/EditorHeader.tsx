@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { useEditor } from './EditorContext';
-import { RefreshCcw, Sun, Moon } from 'lucide-react';
+import { RefreshCcw, Sun, Moon, ImageIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 export default function EditorHeader() {
@@ -13,26 +15,29 @@ export default function EditorHeader() {
   }, []);
 
   return (
-    <header className="flex items-center justify-between w-full p-4 bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 rounded-t-xl">
-      <div className="flex items-center gap-6">
-        <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Edit Image</h2>
-        <button
-          onClick={reset}
-          disabled={!imageFile}
-          className="flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-        >
-          <RefreshCcw size={16} />
-          Reset
-        </button>
+    <header className="flex items-center justify-between w-full px-4 py-3 sm:px-6 sm:py-4 bg-bg-card border-b border-border-subtle transition-colors duration-300">
+      <div className="flex items-center gap-3 sm:gap-6">
+       
+
+        {imageFile && (
+          <button
+            onClick={reset}
+            className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-text-muted hover:text-text-main transition-all px-2 py-1 rounded-md hover:bg-bg-input active:scale-95"
+          >
+            <RefreshCcw size={13} />
+            <span className="hidden sm:inline">Reset</span>
+          </button>
+        )}
       </div>
 
       {mounted && (
         <button
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="p-2 rounded-md hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 transition-colors"
+          className="p-2 rounded-lg hover:bg-bg-input text-text-muted hover:text-text-main transition-all active:scale-90"
           title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
         >
-          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
         </button>
       )}
     </header>

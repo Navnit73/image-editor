@@ -3,14 +3,14 @@ import PhotoEditor from "./components/editor/PhotoEditor";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-200 dark:bg-zinc-950 p-4 md:p-8 font-sans">
+    <div className="min-h-screen bg-bg-root p-4 md:p-8 font-sans transition-colors duration-300">
       <main className="max-w-[1400px] mx-auto">
         <header className="mb-8 text-center md:text-left">
-          <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+          <h1 className="text-3xl font-bold tracking-tight text-text-main">
             Image Editor Studio
           </h1>
-          <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-            A fast, responsive, and easy-to-use photo editor built with Next.js, Konva, and Tailwind CSS.
+          <p className="mt-2 text-text-muted">
+            A professional, fully responsive photo editor built with Next.js and Tailwind CSS.
           </p>
         </header>
 
