@@ -182,7 +182,8 @@ export default function OriginalWorkspace() {
               onClick={() => setIsCropping(true)}
               className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-semibold bg-accent-muted text-accent-main hover:bg-accent-main/20 rounded-lg transition-colors"
             >
-              <CropIcon size={13} />
+              <CropIcon size={13} className="hidden sm:block" />
+              <span className="sm:hidden">Crop Image</span>
               <span className="hidden sm:inline">Crop</span>
             </button>
             <button
@@ -190,7 +191,8 @@ export default function OriginalWorkspace() {
               disabled={isBgRemoving}
               className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-semibold bg-bg-root text-text-main hover:bg-border-subtle rounded-lg transition-colors disabled:opacity-50 border border-border-subtle"
             >
-              <Scissors size={13} />
+              <Scissors size={13} className="hidden sm:block" />
+              <span className="sm:hidden">{isBgRemoving ? 'Removing…' : 'Remove Background'}</span>
               <span className="hidden sm:inline">{isBgRemoving ? 'Removing…' : 'Remove BG'}</span>
             </button>
           </div>
@@ -356,7 +358,7 @@ export default function OriginalWorkspace() {
             {isCropping ? (
               <ReactCrop
                 crop={cropState}
-                onChange={(_, percentCrop) => setCropState(percentCrop)}
+                onChange={(pixelCrop) => setCropState(pixelCrop)}
                 onComplete={(c) => setCompletedCrop(c)}
                 aspect={currentRatioValue}
                 ruleOfThirds={true}

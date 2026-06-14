@@ -14,7 +14,7 @@ export default function PhotoEditor() {
         <EditorHeader />
 
         {/* Mobile: stack vertically; Desktop: side-by-side */}
-        <div className="flex flex-col lg:flex-row flex-1 p-3 sm:p-4 gap-3 sm:gap-4 overflow-hidden">
+        <div className="flex flex-col mt-3 lg:flex-row flex-1 p-1 sm:p-2 gap-3 sm:gap-4 overflow-hidden">
           {/* Settings sidebar — scrollable on mobile, fixed on desktop */}
           <div className="w-full lg:w-72 xl:w-80 flex-shrink-0 overflow-y-auto lg:overflow-visible">
             <SettingsSidebar />
@@ -26,7 +26,7 @@ export default function PhotoEditor() {
           </div>
 
           {/* Live preview — bottom on mobile, right column on desktop */}
-          <div className="w-full lg:w-72 xl:w-80 flex-shrink-0">
+          <div className="w-full lg:w-80 xl:w-96 flex-shrink-0">
             <LivePreview />
           </div>
         </div>
