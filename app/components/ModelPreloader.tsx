@@ -51,7 +51,7 @@ export default function ModelPreloader() {
     <div className={`fixed bottom-4 right-4 z-50 transition-all duration-500 ease-in-out transform ${status === 'ready' ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'}`}>
       <div className="bg-bg-card border border-border-subtle shadow-xl rounded-2xl p-4 w-72 sm:w-80 flex flex-col gap-3">
         <div className="flex items-center gap-3">
-          <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${status === 'ready' ? 'bg-green-100 dark:bg-green-900/30 text-green-500' : 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-500'}`}>
+          <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${status === 'ready' ? 'bg-green-100 dark:bg-green-900/30 text-green-500' : 'bg-lime-100 dark:bg-lime-900/30 text-lime-600'}`}>
             {status === 'ready' ? <CheckCircle size={20} /> : <BrainCircuit size={20} className={status === 'downloading' ? 'animate-pulse' : ''} />}
           </div>
           <div className="flex flex-col flex-1">
@@ -63,7 +63,7 @@ export default function ModelPreloader() {
             </p>
           </div>
           {status === 'downloading' && (
-            <div className="text-xs font-bold text-indigo-500">
+            <div className="text-xs font-bold text-lime-600">
               {progress}%
             </div>
           )}
@@ -72,7 +72,7 @@ export default function ModelPreloader() {
         {status === 'downloading' && (
           <div className="w-full h-1.5 bg-bg-input rounded-full overflow-hidden">
             <div 
-              className="h-full bg-indigo-500 transition-all duration-300 ease-out" 
+              className="h-full bg-lime-500 transition-all duration-300 ease-out" 
               style={{ width: `${progress}%` }} 
             />
           </div>

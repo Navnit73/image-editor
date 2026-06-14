@@ -8,4 +8,5 @@ export interface BgJob {
   resultUrl: string | null;
   status: BgJobStatus;
   progress: number;
+  errorMessage?: string;
 }
