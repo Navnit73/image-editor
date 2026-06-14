@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { SeoPage, Language } from '../../lib/types/seo';
 
 export function Breadcrumb({ page, lang }: { page: SeoPage, lang: Language }) {
-  const langPrefix = lang === 'en' ? '' : `/${lang}`;
+  const langPrefix = lang === 'en' ? '' : `${lang}`;
   
   return (
     <nav className="flex text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
