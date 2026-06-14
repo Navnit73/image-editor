@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   // Add the current pathname to the headers so we can access it in Server Components
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-pathname', request.nextUrl.pathname);
@@ -13,7 +13,7 @@ export function proxy(request: NextRequest) {
   });
 }
 
-// See "Matching Paths" below to learn more
+// See "Matching Paths" below to learn moreg
 export const config = {
   matcher: [
     // Match all request paths except for the ones starting with:
