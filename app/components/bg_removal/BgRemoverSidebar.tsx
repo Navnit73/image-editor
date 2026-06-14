@@ -4,6 +4,7 @@ import React from 'react';
 import { useBgRemoval } from './BgRemovalContext';
 import { Palette, FileImage, RotateCcw, Plus } from 'lucide-react';
 import { useDropzone } from 'react-dropzone';
+import { useTranslation } from '@/app/hooks/useTranslation';
 
 const COLORS = [
   { label: 'Clear', value: 'transparent' },
@@ -27,6 +28,7 @@ const CheckerSwatch = () => (
 
 export default function BgRemoverSidebar() {
   const { backgroundColor, setBackgroundColor, exportFormat, setExportFormat, clearAll, addJobs } = useBgRemoval();
+  const { t } = useTranslation();
 
   const { getRootProps: getAddRootProps, getInputProps: getAddInputProps } = useDropzone({
     onDrop: (files) => { if (files?.length) addJobs(files); },
@@ -47,7 +49,7 @@ export default function BgRemoverSidebar() {
             <input {...getAddInputProps()} />
             <button className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border-2 border-dashed border-lime-200 dark:border-lime-800 text-lime-600 dark:text-lime-400 text-sm font-semibold hover:bg-lime-50 dark:hover:bg-lime-900/20 hover:border-lime-400 transition-all duration-150 active:scale-[0.98]">
               <Plus size={15} strokeWidth={2.5} />
-              Add more images
+              {t.addMoreImages}
             </button>
           </div>
 
@@ -55,7 +57,7 @@ export default function BgRemoverSidebar() {
           <section>
             <div className="flex items-center gap-2 mb-3">
               <Palette size={14} className="text-slate-400 dark:text-slate-500" />
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Background</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">{t.background}</h3>
             </div>
 
             <div className="grid grid-cols-4 gap-1.5 mb-3">
@@ -98,9 +100,9 @@ export default function BgRemoverSidebar() {
                 />
               </div>
               <span className={`text-xs font-semibold flex-1 ${isCustomColor ? 'text-lime-700 dark:text-lime-300' : 'text-slate-600 dark:text-slate-300'}`}>
-                {isCustomColor ? backgroundColor.toUpperCase() : 'Custom color'}
+                {isCustomColor ? backgroundColor.toUpperCase() : t.customColor}
               </span>
-              <span className="text-[9px] text-slate-400 dark:text-slate-500 font-medium">Pick</span>
+              <span className="text-[9px] text-slate-400 dark:text-slate-500 font-medium">{t.pick}</span>
             </label>
           </section>
 
@@ -111,14 +113,14 @@ export default function BgRemoverSidebar() {
           <section>
             <div className="flex items-center gap-2 mb-3">
               <FileImage size={14} className="text-slate-400 dark:text-slate-500" />
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Export Format</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">{t.exportFormatSide}</h3>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
-              {([
-                { value: 'image/png', label: 'PNG', desc: 'Best quality', note: 'with transparency' },
-                { value: 'image/webp', label: 'WebP', desc: 'Smaller size', note: 'modern format' },
-              ] as const).map(fmt => (
+              {[
+                { value: 'image/png' as const, label: 'PNG', desc: t.bestQuality, note: t.withTransparency },
+                { value: 'image/webp' as const, label: 'WebP', desc: t.smallerSize, note: t.modernFormat },
+              ].map(fmt => (
                 <button
                   key={fmt.value}
                   onClick={() => setExportFormat(fmt.value)}
@@ -149,7 +151,7 @@ export default function BgRemoverSidebar() {
             className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 font-semibold text-sm hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 hover:border-red-200 dark:hover:border-red-800 transition-all duration-150 active:scale-[0.98]"
           >
             <RotateCcw size={14} />
-            Start over
+            {t.startOver}
           </button>
 
         </div>

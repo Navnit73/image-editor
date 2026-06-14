@@ -5,6 +5,7 @@ import { useDropzone } from 'react-dropzone';
 import ReactCrop, { Crop, PixelCrop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import { useEditor, AspectRatio } from './EditorContext';
+import { useTranslation } from '@/app/hooks/useTranslation';
 import { UploadCloud, Crop as CropIcon, Scissors, Check, X, Type, ZoomIn, ZoomOut } from 'lucide-react';
 import { removeBackground } from '@imgly/background-removal';
 
@@ -23,6 +24,8 @@ export default function OriginalWorkspace() {
     isBgRemoving, setIsBgRemoving, setWidth, setHeight,
     textOverlays, updateTextOverlay, selectedTextId, setSelectedTextId,
   } = useEditor();
+
+  const { t } = useTranslation();
 
   const [isCropping, setIsCropping] = useState(false);
   const [zoom, setZoom] = useState(1);
@@ -163,7 +166,7 @@ export default function OriginalWorkspace() {
     <div className="flex-1 flex flex-col bg-bg-card border border-border-subtle rounded-xl overflow-hidden min-h-0 transition-colors duration-300">
       {/* Toolbar */}
       <div className="flex items-center gap-2 px-3 py-2.5 sm:px-4 sm:py-3 border-b border-border-subtle bg-bg-input">
-        <h3 className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-text-muted mr-auto">Canvas</h3>
+        <h3 className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-text-muted mr-auto">{t.canvas}</h3>
         
         {imageFile && (
           <div className="flex items-center gap-1 bg-bg-root rounded-lg border border-border-subtle p-0.5 mr-2">
@@ -343,10 +346,10 @@ export default function OriginalWorkspace() {
               <UploadCloud size={28} className={isDragActive ? 'text-white' : 'text-accent-main'} />
             </div>
             <h4 className="text-base sm:text-lg font-bold text-text-main mb-2">
-              {isDragActive ? 'Drop it!' : 'Upload an Image'}
+              {isDragActive ? t.dropIt : t.uploadImage}
             </h4>
             <p className="text-xs sm:text-sm text-text-muted mb-4">
-              Drag & drop or tap to browse
+              {t.dragDropOrTap}
             </p>
             <div className="flex gap-2">
               {['JPG', 'PNG', 'WEBP'].map((fmt) => (

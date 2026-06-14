@@ -26,7 +26,7 @@ export default function SiteHeader() {
                 <ImageIcon size={20} strokeWidth={2.5} />
               </div>
               <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">
-                Image Editor <span className="text-lime-600 dark:text-lime-400">Studio</span>
+                photoresizer<span className="text-lime-600 dark:text-lime-400">ai</span>
               </span>
             </Link>
           </div>

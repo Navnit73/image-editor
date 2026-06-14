@@ -41,7 +41,7 @@ export const esPages: SeoPage[] = [
   },
   {
     slug: 'como-usar',
-    metaTitle: 'Cómo usar | Image Editor Studio',
+    metaTitle: 'Cómo usar | photoresizerai',
     metaDescription: 'Aprenda a utilizar nuestras herramientas de imagen online gratuitas.',
     h1: 'Cómo usar',
     sections: [
@@ -68,7 +68,7 @@ export const esPages: SeoPage[] = [
   },
   {
     slug: 'contacto',
-    metaTitle: 'Contáctenos | Image Editor Studio',
+    metaTitle: 'Contáctenos | photoresizerai',
     metaDescription: 'Póngase en contacto con nuestro equipo para soporte.',
     h1: 'Contáctenos',
     sections: [
@@ -80,8 +80,8 @@ export const esPages: SeoPage[] = [
   </div>
   <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Contáctenos</h3>
   <p class="text-slate-600 dark:text-slate-400 mb-6 max-w-md mx-auto">Normalmente respondemos a todas las solicitudes de soporte en 24-48 horas. Incluya los detalles de su problema.</p>
-  <a href="mailto:support@example.com" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition-colors">
-    support@example.com
+  <a href="mailto:usvisaphotoai@gmail.com" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+    usvisaphotoai@gmail.com
   </a>
 </div>`
       }
@@ -89,7 +89,7 @@ export const esPages: SeoPage[] = [
   },
   {
     slug: 'terminos',
-    metaTitle: 'Términos y Condiciones | Image Editor Studio',
+    metaTitle: 'Términos y Condiciones | photoresizerai',
     metaDescription: 'Lea los términos y condiciones de uso de nuestros servicios.',
     h1: 'Términos y Condiciones',
     sections: [
@@ -101,7 +101,7 @@ export const esPages: SeoPage[] = [
       <span class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-sm">1</span>
       Aceptación de los términos
     </h3>
-    <p class="text-slate-600 dark:text-slate-400 ml-10">Al acceder y utilizar Image Editor Studio, usted acepta y acepta estar sujeto a los términos y disposiciones de este acuerdo.</p>
+    <p class="text-slate-600 dark:text-slate-400 ml-10">Al acceder y utilizar photoresizerai, usted acepta y acepta estar sujeto a los términos y disposiciones de este acuerdo.</p>
   </div>
   <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
     <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
@@ -116,7 +116,7 @@ export const esPages: SeoPage[] = [
   },
   {
     slug: 'privacidad',
-    metaTitle: 'Política de Privacidad | Image Editor Studio',
+    metaTitle: 'Política de Privacidad | photoresizerai',
     metaDescription: 'Nuestra política de privacidad detalla cómo manejamos sus datos.',
     h1: 'Política de Privacidad',
     sections: [

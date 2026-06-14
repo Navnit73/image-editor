@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useEditor, ImageFormat, TextOverlay } from './EditorContext';
+import { useTranslation } from '@/app/hooks/useTranslation';
 import {
   Maximize2,
   SlidersHorizontal,
@@ -191,6 +192,8 @@ export default function SettingsSidebar() {
     removeTextOverlay, selectedTextId, setSelectedTextId,
   } = useEditor();
 
+  const { t } = useTranslation();
+
   const [activeSection, setActiveSection] = useState<'export' | 'text'>('export');
 
   const handlePercentageClick = (percentage: number) => {
@@ -230,10 +233,10 @@ export default function SettingsSidebar() {
         {activeSection === 'export' && (
           <>
             <div>
-              <label className="text-[10px] font-semibold uppercase tracking-wider text-text-muted mb-3 block">Output Size</label>
+              <label className="text-[10px] font-semibold uppercase tracking-wider text-text-muted mb-3 block">{t.outputSize}</label>
               <div className="grid grid-cols-2 gap-3 mb-3">
                 <div>
-                  <label className="text-xs text-text-muted mb-1 block">Width (px)</label>
+                  <label className="text-xs text-text-muted mb-1 block">{t.widthPx}</label>
                   <input
                     type="number" value={width}
                     onChange={(e) => setWidth(Number(e.target.value))}
@@ -242,7 +245,7 @@ export default function SettingsSidebar() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-text-muted mb-1 block">Height (px)</label>
+                  <label className="text-xs text-text-muted mb-1 block">{t.heightPx}</label>
                   <input
                     type="number" value={height}
                     onChange={(e) => setHeight(Number(e.target.value))}
@@ -268,7 +271,7 @@ export default function SettingsSidebar() {
             <hr className="border-border-subtle" />
 
             <div>
-              <label className="text-[10px] font-semibold uppercase tracking-wider text-text-muted mb-3 block">Rotate</label>
+              <label className="text-[10px] font-semibold uppercase tracking-wider text-text-muted mb-3 block">{t.rotate}</label>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => setRotation((rotation - 90 + 360) % 360)}
@@ -288,7 +291,7 @@ export default function SettingsSidebar() {
             </div>
             <hr className="border-border-subtle my-5" />
             <div>
-              <label className="text-[10px] font-semibold uppercase tracking-wider text-text-muted mb-2 block">Output Format</label>
+              <label className="text-[10px] font-semibold uppercase tracking-wider text-text-muted mb-2 block">{t.outputFormat}</label>
               <div className="grid grid-cols-3 gap-1.5">
                 {[
                   { label: 'JPG', value: 'image/jpeg' as ImageFormat },
@@ -318,7 +321,7 @@ export default function SettingsSidebar() {
 
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label className="text-[10px] font-semibold uppercase tracking-wider text-text-muted">Quality</label>
+                <label className="text-[10px] font-semibold uppercase tracking-wider text-text-muted">{t.quality}</label>
                 <span className="text-xs font-bold text-accent-main">{quality}%</span>
               </div>
               <input
@@ -328,15 +331,15 @@ export default function SettingsSidebar() {
                 className="w-full accent-accent-main disabled:opacity-40"
               />
               <div className="flex justify-between text-[10px] text-text-muted mt-1">
-                <span>Smaller file</span>
-                <span>Best quality</span>
+                <span>{t.smallerFile}</span>
+                <span>{t.bestQuality}</span>
               </div>
             </div>
 
             <hr className="border-border-subtle" />
 
             <div>
-              <label className="text-[10px] font-semibold uppercase tracking-wider text-text-muted mb-3 block">Background Color</label>
+              <label className="text-[10px] font-semibold uppercase tracking-wider text-text-muted mb-3 block">{t.bgColor}</label>
               <div className="flex gap-2 flex-wrap">
                 {['transparent', '#ffffff', '#000000', '#ef4444', '#6366f1', '#f59e0b', '#10b981'].map((color) => (
                   <button
@@ -358,7 +361,7 @@ export default function SettingsSidebar() {
                   />
                 ))}
               </div>
-              <p className="text-[10px] text-text-muted mt-2">Applied when rotating or converting transparent images to JPG.</p>
+              <p className="text-[10px] text-text-muted mt-2">{t.bgColorDesc}</p>
             </div>
           </>
         )}
@@ -369,7 +372,7 @@ export default function SettingsSidebar() {
             {!imageFile ? (
               <div className="text-center py-8">
                 <Type size={32} className="mx-auto text-text-muted opacity-50 mb-3" />
-                <p className="text-sm text-text-muted">Upload an image first to add text overlays.</p>
+                <p className="text-sm text-text-muted">{t.uploadImageFirst}</p>
               </div>
             ) : (
               <>

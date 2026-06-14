@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Cropper from 'react-easy-crop';
-import { ArrowLeft, ArrowRight, Check, Image as ImageIcon, Info, Loader2, Wand2, ZoomIn, ZoomOut,Eraser } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, Image as ImageIcon, Info, Loader2, Wand2, ZoomIn, ZoomOut, Eraser } from 'lucide-react';
+import { useTranslation } from '@/app/hooks/useTranslation';
 import imageCompression from 'browser-image-compression';
 import { removeBackground, Config } from '@imgly/background-removal';
 
@@ -24,6 +25,7 @@ const BG_COLORS = [
 ];
 
 export default function PassportCropper({ imageSrc, onComplete, onCancel }: PassportCropperProps) {
+  const { t } = useTranslation();
   // Cropper State
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -299,7 +301,7 @@ export default function PassportCropper({ imageSrc, onComplete, onCancel }: Pass
             <section className="flex flex-col gap-4">
               <h3 className="font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
                 <span className="bg-slate-100 dark:bg-slate-700 w-6 h-6 rounded-full flex items-center justify-center text-xs text-slate-500 dark:text-slate-400">2</span>
-                Passport Background
+                {t.passportBg}
               </h3>
 
               <button
@@ -314,19 +316,19 @@ export default function PassportCropper({ imageSrc, onComplete, onCancel }: Pass
                 {useBgRemoved ? (
                   <>
                     <Check size={18} />
-                    <span>Background Removed</span>
+                    <span>{t.bgRemoved}</span>
                   </>
                 ) : (
                   <>
                     <Eraser size={18} />
-                    <span>Remove Background</span>
+                    <span>{t.removeBg}</span>
                   </>
                 )}
               </button>
 
               {/* Color Picker (Only visible when BG is removed) */}
               <div className={`transition-all duration-300 overflow-hidden flex flex-col gap-3 ${useBgRemoved ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
-                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Select Color</span>
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">{t.selectColor}</span>
                 <div className="grid grid-cols-3 gap-2">
                   {BG_COLORS.map((c) => (
                     <button

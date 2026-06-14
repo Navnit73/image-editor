@@ -14,7 +14,7 @@ export default function Home() {
         <header className="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight text-text-main">
-              Free Online Image Editor Studio
+              Free Online photoresizerai
             </h1>
             <p className="mt-2 text-text-muted">
               Professional, fast, and fully local photo editing right in your browser. No uploads, 100% private.
@@ -56,9 +56,9 @@ export default function Home() {
         {/* SEO Content Section */}
         <section className="mt-16 max-w-4xl mx-auto px-4 md:px-0">
           <div className="prose prose-slate dark:prose-invert max-w-none">
-            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">The Best Free Online Image Editor Studio</h2>
+            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">The Best Free Online photoresizerai</h2>
             <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-              Welcome to Image Editor Studio, your ultimate destination for professional-grade photo manipulation without the need to download heavy software. Whether you need to crop a profile picture, remove a background for an e-commerce product, or resize a batch of images for social media, our suite of tools handles it all instantly and securely.
+              Welcome to photoresizerai, your ultimate destination for professional-grade photo manipulation without the need to download heavy software. Whether you need to crop a profile picture, remove a background for an e-commerce product, or resize a batch of images for social media, our suite of tools handles it all instantly and securely.
             </p>
 
             <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">How to Use the Free Photo Editor</h3>
@@ -80,12 +80,12 @@ export default function Home() {
             <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">Frequently Asked Questions (FAQ)</h3>
             <div className="space-y-4 mb-12 not-prose">
               <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-                <h4 className="font-bold text-slate-900 dark:text-white mb-2">Is the Image Editor really free?</h4>
+                <h4 className="font-bold text-slate-900 dark:text-white mb-2">Is the photoresizerai really free?</h4>
                 <p className="text-slate-600 dark:text-slate-400">Yes! Our online photo editor is completely free to use. There are no hidden fees, no watermarks, and no premium subscriptions required to access core editing features.</p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
                 <h4 className="font-bold text-slate-900 dark:text-white mb-2">Are my photos safe and private?</h4>
-                <p className="text-slate-600 dark:text-slate-400">Absolutely. Image Editor Studio utilizes cutting-edge WebAssembly technology, meaning all photo editing and background removal happens entirely inside your local browser. Your images are never uploaded to our servers.</p>
+                <p className="text-slate-600 dark:text-slate-400">Absolutely. photoresizerai utilizes cutting-edge WebAssembly technology, meaning all photo editing and background removal happens entirely inside your local browser. Your images are never uploaded to our servers.</p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
                 <h4 className="font-bold text-slate-900 dark:text-white mb-2">Do you support bulk background removal?</h4>
@@ -93,7 +93,7 @@ export default function Home() {
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">Why Choose Our Online Image Editor?</h3>
+            <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">Why Choose Our Online photoresizerai?</h3>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
               When looking for a fast, reliable, and secure way to edit photos online, privacy and speed are crucial. Because we do not upload your data to remote cloud servers, you benefit from instantaneous edits and zero wait times. Whether you are creating a passport photo, designing social media graphics, or just doing a quick crop, everything you need is right here.
             </p>

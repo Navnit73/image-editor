@@ -4,7 +4,7 @@ import { dePages } from '../content/de-pages';
 import { frPages } from '../content/fr-pages';
 import { esPages } from '../content/es-pages';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://imageeditor.studio';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://photoresizerai.com';
 
 export function generateSitemaps() {
   return [

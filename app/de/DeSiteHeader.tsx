@@ -22,11 +22,9 @@ export default function DeSiteHeader() {
           {/* Logo & Brand */}
           <div className="flex items-center">
             <Link href="/de" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-lime-500 to-purple-500 flex items-center justify-center text-white shadow-lg shadow-lime-500/30 group-hover:shadow-lime-500/50 transition-all duration-300 transform group-hover:scale-105">
-                <ImageIcon size={20} strokeWidth={2.5} />
-              </div>
+              
               <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">
-                Image Editor <span className="text-lime-600 dark:text-lime-400">Studio</span>
+                photoresizer<span className="text-lime-600 dark:text-lime-400">ai</span>
               </span>
             </Link>
           </div>
@@ -60,9 +58,9 @@ export default function DeSiteHeader() {
                   <Link href="/de/bild-resizer" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Bild Resizer</Link>
                   <Link href="/de/bild-online-verkleinern" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Online Verkleinern</Link>
                   <Link href="/de/foto-online-verkleinern" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Foto Online Verkleinern</Link>
-                  <Link href="/de/minimize-photo-size" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Minimize Photo Size</Link>
-                  <Link href="/de/photo-cropper-online" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Photo Cropper</Link>
-                  <Link href="/de/photo-image-resizer" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Photo Image Resizer</Link>
+                  <Link href="/de/bearbeiten" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Bild Bearbeiten</Link>
+                  <Link href="/de/zuschneiden" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Foto Zuschneiden</Link>
+                  <Link href="/de/bild-freistellen" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Bild Freistellen</Link>
                   <Link href="/de/foto" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Foto</Link>
                   <Link href="/de/bild" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">Bild</Link>
                 </div>

@@ -22,7 +22,7 @@ export default function FrenchLayout({ children }: { children: React.ReactNode }
           <Link href="/fr/conditions" className="hover:text-slate-800 transition-colors">Conditions générales</Link>
           <Link href="/fr/confidentialite" className="hover:text-slate-800 transition-colors">Confidentialité</Link>
         </div>
-        <div>Image Editor Studio &copy; {new Date().getFullYear()}</div>
+        <div>photoresizerai &copy; {new Date().getFullYear()}</div>
       </footer>
     </div>
   );

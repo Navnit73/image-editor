@@ -17,7 +17,7 @@ export default function GermanLayout({ children }: { children: React.ReactNode }
             {/* Brand */}
             <div className="col-span-1 sm:col-span-2 md:col-span-2">
               <h3 className="text-xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">
-                Image Editor Studio
+                photoresizerai
               </h3>
               <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-sm">
                 Ihre ultimative Suite kostenloser, privater und sicherer Online-Bildbearbeitungswerkzeuge. Verarbeiten Sie Ihre Fotos lokal in Ihrem Browser, ohne dass Daten Ihr Gerät verlassen.
@@ -70,7 +70,7 @@ export default function GermanLayout({ children }: { children: React.ReactNode }
 
           <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="text-slate-500 dark:text-slate-500 text-sm">
-              &copy; {new Date().getFullYear()} Image Editor Studio. Alle Rechte vorbehalten.
+              &copy; {new Date().getFullYear()} photoresizerai. Alle Rechte vorbehalten.
             </div>
             <div className="flex gap-4 text-sm text-slate-400 dark:text-slate-500">
               <span>Made with ❤️ for Creators</span>

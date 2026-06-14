@@ -294,17 +294,17 @@ export const enPages: SeoPage[] = [
   // ─────────────────────────────────────────────
   {
     slug: "how-to-use",
-    metaTitle: "How to Use — Image Editor Studio Guide",
+    metaTitle: "How to Use — photoresizerai Guide",
     metaDescription:
-      "Step-by-step guide to using Image Editor Studio. Learn to resize images, reduce file size, create passport photos, and more — all for free in your browser.",
-    h1: "How to Use Image Editor Studio",
+      "Step-by-step guide to using photoresizerai. Learn to resize images, reduce file size, create passport photos, and more — all for free in your browser.",
+    h1: "How to Use photoresizerai",
     sections: [
       {
         heading: "Complete Guide to Resizing & Editing Images",
         content: `
 <div class="space-y-10 not-prose">
   <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-    Image Editor Studio is a collection of free, browser-based image tools. Every tool works without any server upload — your files stay on your device at all times. This guide walks you through everything you can do, step by step.
+    photoresizerai is a collection of free, browser-based image tools. Every tool works without any server upload — your files stay on your device at all times. This guide walks you through everything you can do, step by step.
   </p>
 
   <div class="grid md:grid-cols-2 gap-6">
@@ -405,9 +405,9 @@ export const enPages: SeoPage[] = [
   // ─────────────────────────────────────────────
   {
     slug: "contact",
-    metaTitle: "Contact Us — Image Editor Studio Support",
+    metaTitle: "Contact Us — photoresizerai Support",
     metaDescription:
-      "Get in touch with the Image Editor Studio team. Report bugs, request features, or ask questions about our free online image tools.",
+      "Get in touch with the photoresizerai team. Report bugs, request features, or ask questions about our free online image tools.",
     h1: "Contact Us",
     sections: [
       {
@@ -425,7 +425,7 @@ export const enPages: SeoPage[] = [
       </div>
       <h3 class="font-bold text-slate-900 dark:text-white mb-1">Email Support</h3>
       <p class="text-sm text-slate-500 dark:text-slate-400 mb-3">For general questions and bug reports</p>
-      <a href="mailto:support@example.com" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">support@example.com</a>
+      <a href="mailto:usvisaphotoai@gmail.com" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">usvisaphotoai@gmail.com</a>
     </div>
     <div class="p-6 bg-emerald-50 dark:bg-emerald-900/10 rounded-2xl border border-emerald-100 dark:border-emerald-900 text-center">
       <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4 text-emerald-600 dark:text-emerald-400">
@@ -441,7 +441,7 @@ export const enPages: SeoPage[] = [
       </div>
       <h3 class="font-bold text-slate-900 dark:text-white mb-1">Feature Requests</h3>
       <p class="text-sm text-slate-500 dark:text-slate-400 mb-3">We love user suggestions</p>
-      <a href="mailto:features@example.com" class="text-sm font-medium text-violet-600 dark:text-violet-400 hover:underline">features@example.com</a>
+      <a href="mailto:usvisaphotoai@gmail.com" class="text-sm font-medium text-violet-600 dark:text-violet-400 hover:underline">usvisaphotoai@gmail.com</a>
     </div>
   </div>
 
@@ -475,7 +475,7 @@ export const enPages: SeoPage[] = [
   <div class="p-6 bg-slate-900 dark:bg-slate-700 rounded-2xl text-center">
     <h3 class="text-lg font-bold text-white mb-2">Send Us a Message</h3>
     <p class="text-sm text-slate-400 mb-5">Include your browser name, operating system, and a description of the issue. Screenshots are very helpful.</p>
-    <a href="mailto:support@example.com" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-colors">
+    <a href="mailto:usvisaphotoai@gmail.com" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-colors">
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
       Email Support Team
     </a>
@@ -490,16 +490,16 @@ export const enPages: SeoPage[] = [
   // ─────────────────────────────────────────────
   {
     slug: "terms",
-    metaTitle: "Terms & Conditions — Image Editor Studio",
+    metaTitle: "Terms & Conditions — photoresizerai",
     metaDescription:
-      "Terms and conditions for using Image Editor Studio. Read our usage policy, limitations, and user responsibilities.",
+      "Terms and conditions for using photoresizerai. Read our usage policy, limitations, and user responsibilities.",
     h1: "Terms & Conditions",
     sections: [
       {
         heading: "Terms of Use",
         content: `
 <div class="space-y-6 not-prose">
-  <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Last updated: January 2025. Please read these terms carefully before using Image Editor Studio. By accessing our tools, you agree to be bound by these terms.</p>
+  <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Last updated: January 2025. Please read these terms carefully before using photoresizerai. By accessing our tools, you agree to be bound by these terms.</p>
 
   <div class="space-y-4">
     <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
@@ -507,7 +507,7 @@ export const enPages: SeoPage[] = [
         <span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
         Acceptance of Terms
       </h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed ml-11">By accessing and using Image Editor Studio ("the Service"), you confirm that you are at least 13 years of age, have read and understood these Terms, and agree to be bound by them. If you are using the Service on behalf of an organisation, you represent that you have the authority to bind that organisation to these Terms.</p>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed ml-11">By accessing and using photoresizerai ("the Service"), you confirm that you are at least 13 years of age, have read and understood these Terms, and agree to be bound by them. If you are using the Service on behalf of an organisation, you represent that you have the authority to bind that organisation to these Terms.</p>
     </div>
 
     <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
@@ -515,7 +515,7 @@ export const enPages: SeoPage[] = [
         <span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
         Description of Service
       </h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed ml-11">Image Editor Studio provides free, browser-based image editing tools including photo resizing, compression, format conversion, and passport photo creation. All processing occurs client-side in the user's browser. We do not store, process, or transmit user images on our servers.</p>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed ml-11">photoresizerai provides free, browser-based image editing tools including photo resizing, compression, format conversion, and passport photo creation. All processing occurs client-side in the user's browser. We do not store, process, or transmit user images on our servers.</p>
     </div>
 
     <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
@@ -539,7 +539,7 @@ export const enPages: SeoPage[] = [
         <span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
         Intellectual Property
       </h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed ml-11">You retain full ownership of all images you process using our Service. We claim no intellectual property rights over your content. The Image Editor Studio software, design, and branding are our intellectual property and may not be copied or reproduced without permission.</p>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed ml-11">You retain full ownership of all images you process using our Service. We claim no intellectual property rights over your content. The photoresizerai software, design, and branding are our intellectual property and may not be copied or reproduced without permission.</p>
     </div>
 
     <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
@@ -560,7 +560,7 @@ export const enPages: SeoPage[] = [
   </div>
 
   <div class="p-5 bg-slate-100 dark:bg-slate-700/50 rounded-xl">
-    <p class="text-sm text-slate-600 dark:text-slate-400">Questions about these Terms? Contact us at <a href="mailto:legal@example.com" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">legal@example.com</a></p>
+    <p class="text-sm text-slate-600 dark:text-slate-400">Questions about these Terms? Contact us at <a href="mailto:usvisaphotoai@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">usvisaphotoai@gmail.com</a></p>
   </div>
 </div>`,
       },
@@ -572,16 +572,16 @@ export const enPages: SeoPage[] = [
   // ─────────────────────────────────────────────
   {
     slug: "privacy",
-    metaTitle: "Privacy Policy — Image Editor Studio",
+    metaTitle: "Privacy Policy — photoresizerai",
     metaDescription:
-      "Privacy policy for Image Editor Studio. All image processing is 100% local in your browser. We never upload, store, or share your photos.",
+      "Privacy policy for photoresizerai. All image processing is 100% local in your browser. We never upload, store, or share your photos.",
     h1: "Privacy Policy",
     sections: [
       {
         heading: "How We Protect Your Privacy",
         content: `
 <div class="space-y-6 not-prose">
-  <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Last updated: January 2025. Your privacy is fundamental to how we built Image Editor Studio. This policy explains exactly what data we collect (very little), what we don't collect (your images), and how we use information.</p>
+  <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Last updated: January 2025. Your privacy is fundamental to how we built photoresizerai. This policy explains exactly what data we collect (very little), what we don't collect (your images), and how we use information.</p>
 
   <div class="grid md:grid-cols-2 gap-5">
     <div class="p-6 border-l-4 border-green-500 bg-green-50 dark:bg-green-900/10 rounded-r-2xl">
@@ -635,7 +635,7 @@ export const enPages: SeoPage[] = [
     </div>
     <div class="p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
       <h3 class="font-semibold text-slate-900 dark:text-white mb-2">Your Rights (GDPR &amp; CCPA)</h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">If you are in the EU or California, you have rights including the right to access data we hold about you, request deletion, and opt out of analytics tracking. Since we collect very little identifiable data, most requests can be fulfilled by simply disabling cookies. Contact privacy@example.com for any data requests.</p>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">If you are in the EU or California, you have rights including the right to access data we hold about you, request deletion, and opt out of analytics tracking. Since we collect very little identifiable data, most requests can be fulfilled by simply disabling cookies. Contact usvisaphotoai@gmail.com for any data requests.</p>
     </div>
     <div class="p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
       <h3 class="font-semibold text-slate-900 dark:text-white mb-2">Third-Party Services</h3>
@@ -644,7 +644,7 @@ export const enPages: SeoPage[] = [
   </div>
 
   <div class="p-5 bg-slate-100 dark:bg-slate-700/50 rounded-xl">
-    <p class="text-sm text-slate-600 dark:text-slate-400">Privacy questions? Email <a href="mailto:privacy@example.com" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">privacy@example.com</a> — we aim to respond within 5 business days.</p>
+    <p class="text-sm text-slate-600 dark:text-slate-400">Privacy questions? Email <a href="mailto:usvisaphotoai@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">usvisaphotoai@gmail.com</a> — we aim to respond within 5 business days.</p>
   </div>
 </div>`,
       },

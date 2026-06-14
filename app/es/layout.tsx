@@ -22,7 +22,7 @@ export default function SpanishLayout({ children }: { children: React.ReactNode 
           <Link href="/es/terminos" className="hover:text-slate-800 transition-colors">Términos</Link>
           <Link href="/es/privacidad" className="hover:text-slate-800 transition-colors">Privacidad</Link>
         </div>
-        <div>Image Editor Studio &copy; {new Date().getFullYear()}</div>
+        <div>photoresizerai &copy; {new Date().getFullYear()}</div>
       </footer>
     </div>
   );

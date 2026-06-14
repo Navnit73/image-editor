@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslation } from '@/app/hooks/useTranslation';
 import { useEditor } from './EditorContext';
 import { useImageProcessor } from '../../hooks/useImageProcessor';
 import { Download, Eye, Check, X } from 'lucide-react';
 
 export default function LivePreview() {
+  const { t } = useTranslation();
   const { livePreview, isProcessing, format, quality, imageFile, fileName, setFileName, setFormat, setQuality } = useEditor();
   const [showDownloadModal, setShowDownloadModal] = useState(false);
   const [localName, setLocalName] = useState('');
@@ -42,7 +44,7 @@ export default function LivePreview() {
       {/* Header */}
       <div className="flex items-center gap-2 px-4 py-3 border-b border-border-subtle bg-bg-input">
         <Eye size={14} className="text-accent-main" />
-        <h3 className="text-[10px] font-bold uppercase tracking-wider text-text-muted">Live Preview</h3>
+        <h3 className="text-[10px] font-bold uppercase tracking-wider text-text-muted">{t.livePreview}</h3>
         {isProcessing && (
           <div className="ml-auto flex items-center gap-1.5">
             <div className="w-3.5 h-3.5 border-2 border-accent-main border-t-transparent rounded-full animate-spin" />
@@ -57,7 +59,7 @@ export default function LivePreview() {
           {!imageFile ? (
             <div className="text-center">
               <Eye size={28} className="mx-auto text-text-muted opacity-50 mb-2" />
-              <span className="text-xs text-text-muted">No image loaded</span>
+              <span className="text-xs text-text-muted">{t.noImageLoaded}</span>
             </div>
           ) : isProcessing ? (
             <div className="absolute inset-0 flex items-center justify-center bg-bg-card/60 backdrop-blur-sm transition-colors">
@@ -67,7 +69,7 @@ export default function LivePreview() {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={livePreview.url}
-              alt="Live Preview"
+              alt={t.livePreview}
               className="max-w-full max-h-full object-contain"
             />
           ) : null}

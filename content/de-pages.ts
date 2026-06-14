@@ -2474,8 +2474,8 @@ export const dePages: SeoPage[] = [
       </div>
       <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Per E‑Mail</h3>
       <p class="text-slate-600 dark:text-slate-400 mb-6">Unsere Support‑Adresse für alle technischen und allgemeinen Anfragen:</p>
-      <a href="mailto:support@image-editor-studio.de" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition-colors">
-        support@image-editor-studio.de
+      <a href="mailto:usvisaphotoai@gmail.com" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+        usvisaphotoai@gmail.com
       </a>
     </div>
 
@@ -2531,7 +2531,7 @@ export const dePages: SeoPage[] = [
         question:
           "Wie kann ich sicher sein, dass meine E‑Mail nicht im Spam landet?",
         answer:
-          "Füge support@image-editor-studio.de zu deinen Kontakten hinzu. Solltest du nach 48 Stunden keine Antwort erhalten, kontrolliere bitte den Spam‑Ordner.",
+          "Füge usvisaphotoai@gmail.com zu deinen Kontakten hinzu. Solltest du nach 48 Stunden keine Antwort erhalten, kontrolliere bitte den Spam‑Ordner.",
       },
       {
         question: "Verwendet ihr meine E‑Mail‑Adresse für Werbung?",
@@ -2564,7 +2564,7 @@ export const dePages: SeoPage[] = [
         heading: "Nutzungsbedingungen",
         content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
-    <p>Willkommen bei Image Editor Studio (nachfolgend „Dienst“). Durch den Zugriff auf unsere Website und die Nutzung der angebotenen Online‑Bildbearbeitung erklärst du dich mit den folgenden Allgemeinen Geschäftsbedingungen einverstanden. Bitte lies sie sorgfältig durch.</p>
+    <p>Willkommen bei photoresizerai (nachfolgend „Dienst“). Durch den Zugriff auf unsere Website und die Nutzung der angebotenen Online‑Bildbearbeitung erklärst du dich mit den folgenden Allgemeinen Geschäftsbedingungen einverstanden. Bitte lies sie sorgfältig durch.</p>
   </div>
 
   <div class="space-y-5">
@@ -2711,13 +2711,13 @@ export const dePages: SeoPage[] = [
         <li>Unsere Website wird über ein Content Delivery Network (CDN) ausgeliefert, das temporär die IP‑Adresse zur Auslieferung der Seiten benötigt. Diese Protokolle werden nicht mit Bilddaten verknüpft und nach spätestens 24 Stunden gelöscht.</li>
         <li>Für die Hintergrundentfernung wird ein KI‑Modell in deinen Browser heruntergeladen. Es ist vollständig lokal und kommuniziert nicht mit externen Servern.</li>
         <li>Wir hosten keine Social‑Media‑Plugins oder eingebetteten Inhalte, die dein Surfverhalten nachverfolgen könnten.</li>
-        <li>Solltest du Fragen zur Datenverarbeitung haben, schreibe uns an: datenschutz@image-editor-studio.de</li>
+        <li>Solltest du Fragen zur Datenverarbeitung haben, schreibe uns an: usvisaphotoai@gmail.com</li>
       </ul>
     </div>
   </div>
 
   <div class="prose prose-slate dark:prose-invert max-w-none mt-4">
-    <p>Verantwortlicher im Sinne der DSGVO:<br/>Image Editor Studio (Einzelunternehmen), Musterstraße 1, 10115 Berlin.<br/>Kontakt: datenschutz@image-editor-studio.de</p>
+    <p>Verantwortlicher im Sinne der DSGVO:<br/>photoresizerai (Einzelunternehmen), Musterstraße 1, 10115 Berlin.<br/>Kontakt: usvisaphotoai@gmail.com</p>
     <p class="text-sm text-slate-500">Diese Datenschutzerklärung wird regelmäßig aktualisiert. Stand: Juni 2026.</p>
   </div>
 </div>`,
