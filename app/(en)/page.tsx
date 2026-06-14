@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import PhotoEditor from "./components/editor/PhotoEditor";
-import BgRemoverApp from "./components/bg_removal/BgRemoverApp";
+import PhotoEditor from "../components/editor/PhotoEditor";
+import BgRemoverApp from "../components/bg_removal/BgRemoverApp";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'editor' | 'bg_remover'>('editor');
