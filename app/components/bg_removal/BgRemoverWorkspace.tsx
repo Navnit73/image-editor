@@ -44,7 +44,7 @@ export default function BgRemoverWorkspace() {
       <div className="flex flex-col items-center justify-center gap-1">
         <svg className="w-10 h-10 -rotate-90" viewBox="0 0 44 44">
           <circle cx="22" cy="22" r={r} fill="transparent" stroke="rgba(255,255,255,0.2)" strokeWidth="3.5" />
-          <circle cx="22" cy="22" r={r} fill="transparent" stroke="#6366f1" strokeWidth="3.5"
+          <circle cx="22" cy="22" r={r} fill="transparent" stroke="#65a30d" strokeWidth="3.5"
             strokeDasharray={circ} strokeDashoffset={offset} strokeLinecap="round" className="transition-all duration-200" />
         </svg>
         <span className="text-[9px] font-black text-white tracking-wider">{Math.round(progress)}%</span>
@@ -70,11 +70,11 @@ export default function BgRemoverWorkspace() {
         <div className="flex-1 flex items-center justify-center p-4 sm:p-8 lg:p-12">
           <div className={`w-full max-w-xl p-8 sm:p-14 border-2 border-dashed rounded-3xl flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-200 ${
             isDragActive
-              ? 'border-red-500 bg-red-50 dark:bg-red-950/30 scale-[1.01]'
-              : 'border-slate-200 dark:border-slate-700 hover:border-red-400 hover:bg-white dark:hover:bg-slate-900'
+              ? 'border-lime-500 bg-lime-50 dark:bg-lime-900/30 scale-[1.01]'
+              : 'border-slate-200 dark:border-slate-700 hover:border-lime-400 hover:bg-white dark:hover:bg-slate-900'
           }`}>
             <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-5 transition-all duration-200 ${
-              isDragActive ? 'bg-red-500 text-white scale-110' : 'bg-red-100 dark:bg-red-900/40 text-red-500'
+              isDragActive ? 'bg-lime-500 text-white scale-110' : 'bg-lime-100 dark:bg-lime-900/40 text-lime-600'
             }`}>
               <UploadCloud size={32} strokeWidth={1.5} />
             </div>
@@ -96,9 +96,9 @@ export default function BgRemoverWorkspace() {
         <div className="flex-1 flex flex-col overflow-hidden relative">
 
           {isDragActive && (
-            <div className="absolute inset-0 z-50 bg-red-500/10 backdrop-blur-sm border-4 border-red-500 border-dashed rounded-xl flex items-center justify-center">
+            <div className="absolute inset-0 z-50 bg-lime-500/10 backdrop-blur-sm border-4 border-lime-500 border-dashed rounded-xl flex items-center justify-center">
               <div className="bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3">
-                <UploadCloud className="text-red-500" size={26} />
+                <UploadCloud className="text-lime-500" size={26} />
                 <span className="text-base font-bold text-slate-800 dark:text-slate-100">Drop to add more images</span>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function BgRemoverWorkspace() {
                   </span>
                 )}
                 {jobs.filter(j => j.status === 'processing' || j.status === 'queued').length > 0 && (
-                  <span className="text-[10px] font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] font-bold text-lime-600 dark:text-lime-400 bg-lime-50 dark:bg-lime-900/30 px-2 py-0.5 rounded-full">
                     {jobs.filter(j => j.status === 'processing' || j.status === 'queued').length} pending
                   </span>
                 )}
@@ -136,8 +136,8 @@ export default function BgRemoverWorkspace() {
                     onClick={() => setSelectedJobId(job.id)}
                     className={`relative flex-shrink-0 snap-start rounded-xl overflow-hidden transition-all duration-150 ${
                       selectedJobId === job.id
-                        ? 'ring-2 ring-red-500 ring-offset-2 dark:ring-offset-slate-900 shadow-md scale-[1.03] z-10'
-                        : 'ring-1 ring-slate-200 dark:ring-slate-700 hover:ring-red-300 hover:scale-[1.01] z-0'
+                        ? 'ring-2 ring-lime-600 ring-offset-2 dark:ring-offset-slate-900 shadow-md scale-[1.03] z-10'
+                        : 'ring-1 ring-slate-200 dark:ring-slate-700 hover:ring-lime-400 hover:scale-[1.01] z-0'
                     }`}
                     style={{ width: 72, height: 72 }}
                   >
@@ -247,7 +247,7 @@ export default function BgRemoverWorkspace() {
                       </div>
                       <button
                         onClick={() => downloadProcessedImage(selectedJob.resultUrl!, selectedJob.fileName, backgroundColor, exportFormat)}
-                        className="flex items-center gap-1.5 px-3 py-2 bg-red-600 hover:bg-red-700 active:scale-95 text-white text-xs font-bold rounded-xl shadow-lg transition-all duration-150"
+                        className="flex items-center gap-1.5 px-3 py-2 bg-lime-600 hover:bg-lime-700 active:scale-95 text-white text-xs font-bold rounded-xl shadow-lg transition-all duration-150"
                       >
                         <Download size={13} />
                         Download

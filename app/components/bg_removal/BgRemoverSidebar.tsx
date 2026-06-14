@@ -45,7 +45,7 @@ export default function BgRemoverSidebar() {
           {/* Add More Images */}
           <div {...getAddRootProps()} className="cursor-pointer">
             <input {...getAddInputProps()} />
-            <button className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border-2 border-dashed border-violet-200 dark:border-violet-800 text-violet-600 dark:text-violet-400 text-sm font-semibold hover:bg-violet-50 dark:hover:bg-violet-900/20 hover:border-violet-400 transition-all duration-150 active:scale-[0.98]">
+            <button className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border-2 border-dashed border-lime-200 dark:border-lime-800 text-lime-600 dark:text-lime-400 text-sm font-semibold hover:bg-lime-50 dark:hover:bg-lime-900/20 hover:border-lime-400 transition-all duration-150 active:scale-[0.98]">
               <Plus size={15} strokeWidth={2.5} />
               Add more images
             </button>
@@ -66,7 +66,7 @@ export default function BgRemoverSidebar() {
                   title={c.label}
                   className={`flex flex-col items-center gap-1.5 p-2 rounded-xl border transition-all duration-150 ${
                     backgroundColor === c.value
-                      ? 'border-violet-500 bg-violet-50 dark:bg-violet-900/20 shadow-sm ring-1 ring-violet-500/30'
+                      ? 'border-lime-500 bg-lime-50 dark:bg-lime-900/20 shadow-sm ring-1 ring-lime-500/30'
                       : 'border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-800/50'
                   }`}
                 >
@@ -75,7 +75,7 @@ export default function BgRemoverSidebar() {
                   ) : (
                     <div className="w-5 h-5 rounded-md border border-black/10 dark:border-white/10 flex-shrink-0" style={{ backgroundColor: c.value }} />
                   )}
-                  <span className={`text-[9px] font-bold leading-none ${backgroundColor === c.value ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-400'}`}>
+                  <span className={`text-[9px] font-bold leading-none ${backgroundColor === c.value ? 'text-lime-600 dark:text-lime-400' : 'text-slate-500 dark:text-slate-400'}`}>
                     {c.label}
                   </span>
                 </button>
@@ -85,19 +85,19 @@ export default function BgRemoverSidebar() {
             {/* Custom color row */}
             <label className={`flex items-center gap-3 px-3 py-2.5 rounded-xl border cursor-pointer transition-all duration-150 ${
               isCustomColor
-                ? 'border-violet-500 bg-violet-50 dark:bg-violet-900/20 shadow-sm'
+                ? 'border-lime-500 bg-lime-50 dark:bg-lime-900/20 shadow-sm'
                 : 'border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-800/50'
             }`}>
               <div className="relative w-5 h-5 flex-shrink-0">
-                <div className="w-5 h-5 rounded-md border border-black/10" style={{ backgroundColor: isCustomColor ? backgroundColor : '#a78bfa' }} />
+                <div className="w-5 h-5 rounded-md border border-black/10" style={{ backgroundColor: isCustomColor ? backgroundColor : '#84cc16' }} />
                 <input
                   type="color"
-                  value={isCustomColor ? backgroundColor : '#a78bfa'}
+                  value={isCustomColor ? backgroundColor : '#84cc16'}
                   onChange={e => setBackgroundColor(e.target.value)}
                   className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                 />
               </div>
-              <span className={`text-xs font-semibold flex-1 ${isCustomColor ? 'text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-300'}`}>
+              <span className={`text-xs font-semibold flex-1 ${isCustomColor ? 'text-lime-700 dark:text-lime-300' : 'text-slate-600 dark:text-slate-300'}`}>
                 {isCustomColor ? backgroundColor.toUpperCase() : 'Custom color'}
               </span>
               <span className="text-[9px] text-slate-400 dark:text-slate-500 font-medium">Pick</span>
@@ -124,14 +124,14 @@ export default function BgRemoverSidebar() {
                   onClick={() => setExportFormat(fmt.value)}
                   className={`flex flex-col items-start px-3 py-3 rounded-xl border transition-all duration-150 text-left ${
                     exportFormat === fmt.value
-                      ? 'border-violet-500 bg-violet-50 dark:bg-violet-900/20 shadow-sm ring-1 ring-violet-500/20'
+                      ? 'border-lime-500 bg-lime-50 dark:bg-lime-900/20 shadow-sm ring-1 ring-lime-500/20'
                       : 'border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-800/50'
                   }`}
                 >
-                  <span className={`text-sm font-black tracking-tight ${exportFormat === fmt.value ? 'text-violet-700 dark:text-violet-300' : 'text-slate-700 dark:text-slate-200'}`}>
+                  <span className={`text-sm font-black tracking-tight ${exportFormat === fmt.value ? 'text-lime-700 dark:text-lime-300' : 'text-slate-700 dark:text-slate-200'}`}>
                     {fmt.label}
                   </span>
-                  <span className={`text-[9px] font-semibold mt-0.5 ${exportFormat === fmt.value ? 'text-violet-500 dark:text-violet-400' : 'text-slate-400 dark:text-slate-500'}`}>
+                  <span className={`text-[9px] font-semibold mt-0.5 ${exportFormat === fmt.value ? 'text-lime-500 dark:text-lime-400' : 'text-slate-400 dark:text-slate-500'}`}>
                     {fmt.desc}
                   </span>
                   <span className="text-[8px] text-slate-400 dark:text-slate-600 mt-0.5">{fmt.note}</span>

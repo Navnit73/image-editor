@@ -35,7 +35,7 @@ export default function BgRemoverHeader() {
 
         {/* Brand */}
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-sm shadow-violet-500/30">
+          <div className="w-8 h-8 rounded-xl bg-lime-600 flex items-center justify-center shadow-sm shadow-lime-600/30">
             <Sparkles size={15} className="text-white" strokeWidth={2.5} />
           </div>
           <div>
@@ -70,7 +70,7 @@ export default function BgRemoverHeader() {
             <button
               onClick={handleDownloadAll}
               disabled={completedJobs.length === 0 || isZipping}
-              className="flex items-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all px-3 sm:px-4 py-1.5 rounded-lg shadow-sm shadow-violet-500/20 active:scale-95"
+              className="flex items-center gap-1.5 text-xs font-bold text-white bg-lime-600 hover:bg-lime-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all px-3 sm:px-4 py-1.5 rounded-lg shadow-sm shadow-lime-600/20 active:scale-95"
             >
               {isZipping ? <Loader2 size={13} className="animate-spin" /> : <DownloadCloud size={13} />}
               <span className="hidden sm:inline">
@@ -88,7 +88,7 @@ export default function BgRemoverHeader() {
             <div className="flex items-center gap-1.5">
               {isProcessingQueue ? (
                 <>
-                  <div className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-lime-500 animate-pulse" />
                   <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400">
                     Processing {processingJobs.length > 0 ? `· ${processingJobs[0]?.progress ? Math.round(processingJobs[0].progress) + '%' : ''}` : ''}
                   </span>
@@ -107,7 +107,7 @@ export default function BgRemoverHeader() {
 
           <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
             <div
-              className={`h-full rounded-full transition-all duration-500 ease-out ${isProcessingQueue ? 'bg-gradient-to-r from-violet-500 to-indigo-500' : 'bg-emerald-500'}`}
+              className={`h-full rounded-full transition-all duration-500 ease-out ${isProcessingQueue ? 'bg-lime-500' : 'bg-emerald-500'}`}
               style={{ width: `${globalProgress}%` }}
             />
           </div>
