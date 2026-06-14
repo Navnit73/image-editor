@@ -75,7 +75,8 @@ export default function OriginalWorkspace() {
     if (!imageUrl || isBgRemoving) return;
     setIsBgRemoving(true);
     try {
-      const blob = await removeBackground(imageUrl);
+      const config = { publicPath: 'https://unpkg.com/@imgly/background-removal-data@1.4.5/dist/' };
+      const blob = await removeBackground(imageUrl, config);
       const url = URL.createObjectURL(blob);
       const file = new File([blob], 'no-bg.png', { type: 'image/png' });
       const img = new Image();

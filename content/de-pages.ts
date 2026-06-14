@@ -1,68 +1,156 @@
 import { SeoPage } from "../lib/types/seo";
 
+// ─────────────────────────────────────────────────────────────────────────────
+// German SEO Pages – Enhanced Content (~800 words each) with improved UI/UX
+// Natural keyword placement, richer sections, better visual structure
+// ─────────────────────────────────────────────────────────────────────────────
+
 export const dePages: SeoPage[] = [
+  // ─────────────────────────────────────────────────────
+  // 1. foto-verkleinern
+  // ─────────────────────────────────────────────────────
   {
     slug: "foto-verkleinern",
-    metaTitle:
-      "Foto verkleinern – Bilder online verkleinern ohne Qualitätsverlust",
+    metaTitle: "Foto verkleinern – Bilder online verkleinern ohne Qualitätsverlust",
     metaDescription:
       "Foto verkleinern leicht gemacht: Unser Online-Tool verkleinert Fotos auf Wunschgröße, komprimiert JPEG/PNG und behält dabei die Bildqualität. Kostenlos, ohne Anmeldung.",
     h1: "Foto verkleinern",
     subtitle:
-      "Verkleinere deine Fotos sekundenschnell – behalte die volle Kontrolle über Abmessungen und Dateigröße.",
+      "Fotos sekundenschnell verkleinern – mit voller Kontrolle über Abmessungen, Qualität und Dateiformat.",
     showTool: "photo-editor",
     sections: [
       {
         heading: "Warum ein spezielles Tool zum Foto verkleinern?",
-        content: `<div class="space-y-8 not-prose">
+        content: `<div class="space-y-10 not-prose">
+
+  <!-- Intro -->
   <div class="prose prose-slate dark:prose-invert max-w-none">
-    <p class="text-lg">Ein Bild schnell <strong>verkleinern</strong> zu müssen, gehört zum Alltag – ob für den Upload in sozialen Medien, den Versand per E‑Mail oder die Optimierung einer Webseite. Doch wer einfach nur die Pixelmaße reduziert, riskiert verwaschene Details und sichtbare Artefakte. Unser <strong>Foto verkleinern</strong>-Tool geht anders vor: Es kombiniert intelligente Resampling-Algorithmen mit einer optionalen Komprimierung, sodass deine Aufnahmen scharf bleiben und trotzdem deutlich weniger Speicherplatz beanspruchen.</p>
-    <p>Anders als ein reiner Bildbetrachter bietet dir unsere Lösung eine live Vorschau im Vergleichsmodus. Du siehst sofort, wie sich die Verkleinerung auf Schärfe, Farben und Details auswirkt. Mit einstellbaren Metriken wie <em>Lanczos3</em> oder <em>bikubischer Interpolation</em> lässt sich das Ergebnis perfekt an den Verwendungszweck anpassen – vom winzigen Profilfoto bis zum hochauflösenden Drucklayout.</p>
+    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+      Ein Foto verkleinern gehört zu den häufigsten Aufgaben im digitalen Alltag – ob für den Upload in sozialen Medien, den Versand per E-Mail, den Einsatz auf einer Webseite oder die Archivierung von Bildern. Doch wer einfach nur die Pixelmaße reduziert, riskiert verwaschene Details, sichtbare JPEG-Artefakte und einen unnatürlichen Bildeindruck. Unser <strong>Foto verkleinern</strong>-Tool geht anders vor: Es kombiniert intelligente Resampling-Algorithmen mit optionaler Schärfung und Komprimierung, sodass deine Aufnahmen nach dem Verkleinern genauso scharf wirken wie zuvor – bei deutlich geringerer Dateigröße.
+    </p>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Im Gegensatz zu einem reinen Bildbetrachter oder einem einfachen Konvertierungsdienst bietet unser Tool eine Live-Vorschau im Vergleichsmodus. Du siehst sofort, wie sich jede Änderung auf Schärfe, Farben und feine Details auswirkt – bevor du das Ergebnis herunterlädst. Dank einstellbarer Interpolationsmethoden wie <em>Lanczos3</em> oder <em>bikubischer Interpolation</em> lässt sich das Ergebnis exakt an den Verwendungszweck anpassen – vom winzigen Profilfoto bis zum hochauflösenden Drucklayout.
+    </p>
   </div>
-  <div class="grid md:grid-cols-2 gap-6">
-    <div class="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-6 border border-amber-200 dark:border-amber-800">
-      <h3 class="text-lg font-semibold text-amber-900 dark:text-amber-100 mb-3">📐 Maßgeschneiderte Verkleinerung</h3>
+
+  <!-- Trust badges -->
+  <div class="flex flex-wrap gap-3">
+    <span class="inline-flex items-center gap-2 px-4 py-2 bg-lime-50 dark:bg-lime-900/30 border border-lime-200 dark:border-lime-800 rounded-full text-sm font-semibold text-lime-700 dark:text-lime-400">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      100 % kostenlos
+    </span>
+    <span class="inline-flex items-center gap-2 px-4 py-2 bg-sky-50 dark:bg-sky-900/30 border border-sky-200 dark:border-sky-800 rounded-full text-sm font-semibold text-sky-700 dark:text-sky-400">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+      Kein Upload – 100 % lokal
+    </span>
+    <span class="inline-flex items-center gap-2 px-4 py-2 bg-violet-50 dark:bg-violet-900/30 border border-violet-200 dark:border-violet-800 rounded-full text-sm font-semibold text-violet-700 dark:text-violet-400">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      JPEG · PNG · WebP
+    </span>
+  </div>
+
+  <!-- 2-col feature cards -->
+  <div class="grid md:grid-cols-2 gap-5">
+    <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-6 border border-amber-200 dark:border-amber-800/50">
+      <h3 class="text-base font-bold text-amber-900 dark:text-amber-100 mb-3 flex items-center gap-2">
+        <span class="text-xl">📐</span> Maßgeschneiderte Verkleinerung
+      </h3>
       <ul class="space-y-2 text-sm text-amber-800 dark:text-amber-200">
-        <li class="flex gap-2"><span class="text-amber-600">✓</span> Prozentuale Skalierung oder exakte Pixelwerte</li>
-        <li class="flex gap-2"><span class="text-amber-600">✓</span> Seitenverhältnis automatisch beibehalten</li>
-        <li class="flex gap-2"><span class="text-amber-600">✓</span> Lange Seite auf Wunschmaß begrenzen</li>
+        <li class="flex gap-2"><span class="text-amber-600 font-bold shrink-0">✓</span> Prozentuale Skalierung oder exakte Pixelwerte</li>
+        <li class="flex gap-2"><span class="text-amber-600 font-bold shrink-0">✓</span> Seitenverhältnis automatisch beibehalten</li>
+        <li class="flex gap-2"><span class="text-amber-600 font-bold shrink-0">✓</span> Lange Seite auf Wunschmaß begrenzen</li>
+        <li class="flex gap-2"><span class="text-amber-600 font-bold shrink-0">✓</span> Batchmodus für bis zu 20 Fotos gleichzeitig</li>
       </ul>
     </div>
-    <div class="bg-sky-50 dark:bg-sky-900/20 rounded-xl p-6 border border-sky-200 dark:border-sky-800">
-      <h3 class="text-lg font-semibold text-sky-900 dark:text-sky-100 mb-3">⚡ Qualitätserhalt</h3>
+    <div class="bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-900/20 dark:to-blue-900/20 rounded-2xl p-6 border border-sky-200 dark:border-sky-800/50">
+      <h3 class="text-base font-bold text-sky-900 dark:text-sky-100 mb-3 flex items-center gap-2">
+        <span class="text-xl">⚡</span> Qualitätserhalt beim Verkleinern
+      </h3>
       <ul class="space-y-2 text-sm text-sky-800 dark:text-sky-200">
-        <li class="flex gap-2"><span class="text-sky-600">✓</span> KI-gestützte Schärfung nach dem Downsampling</li>
-        <li class="flex gap-2"><span class="text-sky-600">✓</span> JPEG-Artefakte minimieren</li>
-        <li class="flex gap-2"><span class="text-sky-600">✓</span> Exif-Daten optional erhalten</li>
+        <li class="flex gap-2"><span class="text-sky-600 font-bold shrink-0">✓</span> KI-gestützte Schärfung nach dem Downsampling</li>
+        <li class="flex gap-2"><span class="text-sky-600 font-bold shrink-0">✓</span> JPEG-Artefakte aktiv minimieren</li>
+        <li class="flex gap-2"><span class="text-sky-600 font-bold shrink-0">✓</span> Exif-Daten optional erhalten oder entfernen</li>
+        <li class="flex gap-2"><span class="text-sky-600 font-bold shrink-0">✓</span> Echtzeit Vorher-/Nachher-Vergleich</li>
       </ul>
     </div>
   </div>
-  <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border">
-    <h3 class="text-lg font-bold mb-4">Foto verkleinern: Schritt für Schritt</h3>
-    <ol class="space-y-3 text-sm list-decimal list-inside text-slate-700 dark:text-slate-300">
-      <li><strong>Bild hochladen</strong> – per Drag & Drop oder Kamera-Foto.</li>
-      <li><strong>Zielgröße festlegen</strong> – Breite und Höhe in px oder mm angeben.</li>
-      <li><strong>Qualitätsregler einstellen</strong> – von stark komprimiert bis verlustfrei.</li>
-      <li><strong>Vorschau prüfen</strong> – der Vorher‑/Nachher‑Slider zeigt jeden Unterschied.</li>
-      <li><strong>Herunterladen</strong> – als JPEG, PNG oder WebP.</li>
+
+  <!-- Step-by-step -->
+  <div class="bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-5">Foto verkleinern: Schritt für Schritt</h3>
+    <ol class="space-y-4">
+      <li class="flex gap-4">
+        <span class="shrink-0 w-8 h-8 rounded-xl bg-lime-600 text-white text-sm font-black flex items-center justify-center">1</span>
+        <div><strong class="text-slate-900 dark:text-white">Bild hochladen</strong><p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Per Drag & Drop, Datei-Dialog oder direkt von der Kamera. Unterstützt JPEG, PNG und WebP.</p></div>
+      </li>
+      <li class="flex gap-4">
+        <span class="shrink-0 w-8 h-8 rounded-xl bg-lime-600 text-white text-sm font-black flex items-center justify-center">2</span>
+        <div><strong class="text-slate-900 dark:text-white">Zielgröße festlegen</strong><p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Breite und Höhe in Pixeln, Prozent, Zentimetern oder Millimetern angeben – mit automatischer Verhältnissperre.</p></div>
+      </li>
+      <li class="flex gap-4">
+        <span class="shrink-0 w-8 h-8 rounded-xl bg-lime-600 text-white text-sm font-black flex items-center justify-center">3</span>
+        <div><strong class="text-slate-900 dark:text-white">Qualitätsregler einstellen</strong><p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Von leicht komprimiert bis verlustfrei – der Slider zeigt die voraussichtliche Dateigröße in Echtzeit.</p></div>
+      </li>
+      <li class="flex gap-4">
+        <span class="shrink-0 w-8 h-8 rounded-xl bg-lime-600 text-white text-sm font-black flex items-center justify-center">4</span>
+        <div><strong class="text-slate-900 dark:text-white">Vorschau prüfen</strong><p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Der Vorher-/Nachher-Slider zeigt jeden Detailunterschied – so erkennst du genau, was sich verändert.</p></div>
+      </li>
+      <li class="flex gap-4">
+        <span class="shrink-0 w-8 h-8 rounded-xl bg-lime-600 text-white text-sm font-black flex items-center justify-center">5</span>
+        <div><strong class="text-slate-900 dark:text-white">Herunterladen</strong><p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Als JPEG, PNG oder WebP speichern – ohne Wasserzeichen, ohne Anmeldung, sofort einsatzbereit.</p></div>
+      </li>
     </ol>
   </div>
+
+  <!-- Use-case table -->
   <div class="prose prose-slate dark:prose-invert max-w-none">
-    <h3>Typische Anwendungsfälle für "Foto verkleinern"</h3>
-    <table class="min-w-full text-sm">
-      <thead class="bg-slate-100 dark:bg-slate-700">
-        <tr><th class="p-2 text-left">Zweck</th><th class="p-2 text-left">Empfohlene Größe</th><th class="p-2 text-left">Format</th></tr>
-      </thead>
-      <tbody class="divide-y">
-        <tr><td class="p-2">E‑Mail‑Anhang</td><td class="p-2">max. 1200 px lange Kante</td><td class="p-2">JPEG</td></tr>
-        <tr><td class="p-2">Instagram Post</td><td class="p-2">1080 x 1080 px</td><td class="p-2">JPEG</td></tr>
-        <tr><td class="p-2">Webseiten‑Banner</td><td class="p-2">1920 x 600 px</td><td class="p-2">WebP</td></tr>
-        <tr><td class="p-2">WhatsApp Profilbild</td><td class="p-2">500 x 500 px</td><td class="p-2">JPEG</td></tr>
-        <tr><td class="p-2">Druck (10x15 cm)</td><td class="p-2">1800 x 1200 px (300 dpi)</td><td class="p-2">PNG</td></tr>
-      </tbody>
-    </table>
-    <p class="mt-4">Unsere Engine analysiert den Bildinhalt und schlägt selbständig eine optimale Komprimierungsstufe vor, wenn du „Auto“ wählst. So wird ein <strong>Foto verkleinern</strong> zum Ein‑Klick‑Erlebnis – gerade bei ganzen Ordnerstapeln ein unschätzbarer Zeitgewinn.</p>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-4">Empfohlene Größen: Wann Foto verkleinern besonders sinnvoll ist</h3>
+    <div class="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+      <table class="w-full text-sm border-collapse">
+        <thead class="bg-slate-50 dark:bg-slate-800/60">
+          <tr>
+            <th class="p-4 text-left font-semibold text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Zweck</th>
+            <th class="p-4 text-left font-semibold text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Empfohlene Größe</th>
+            <th class="p-4 text-left font-semibold text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Format</th>
+            <th class="p-4 text-left font-semibold text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Tipp</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100 dark:divide-slate-700/50">
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 text-slate-700 dark:text-slate-300 font-medium">E-Mail-Anhang</td><td class="p-4 text-slate-700 dark:text-slate-300">max. 1.200 px lange Kante</td><td class="p-4"><span class="px-2 py-0.5 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 rounded font-mono text-xs">JPEG</span></td><td class="p-4 text-slate-500 dark:text-slate-400 text-xs">Qualität 80 % reicht für E-Mail</td></tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 text-slate-700 dark:text-slate-300 font-medium">Instagram Post</td><td class="p-4 text-slate-700 dark:text-slate-300">1.080 × 1.080 px</td><td class="p-4"><span class="px-2 py-0.5 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 rounded font-mono text-xs">JPEG</span></td><td class="p-4 text-slate-500 dark:text-slate-400 text-xs">Quadratisch für Feed</td></tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 text-slate-700 dark:text-slate-300 font-medium">Webseiten-Banner</td><td class="p-4 text-slate-700 dark:text-slate-300">1.920 × 600 px</td><td class="p-4"><span class="px-2 py-0.5 bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-400 rounded font-mono text-xs">WebP</span></td><td class="p-4 text-slate-500 dark:text-slate-400 text-xs">WebP spart ~30 % ggü. JPEG</td></tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 text-slate-700 dark:text-slate-300 font-medium">WhatsApp Profilbild</td><td class="p-4 text-slate-700 dark:text-slate-300">500 × 500 px</td><td class="p-4"><span class="px-2 py-0.5 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 rounded font-mono text-xs">JPEG</span></td><td class="p-4 text-slate-500 dark:text-slate-400 text-xs">Kleiner als 100 KB ideal</td></tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 text-slate-700 dark:text-slate-300 font-medium">LinkedIn Profilbild</td><td class="p-4 text-slate-700 dark:text-slate-300">400 × 400 px</td><td class="p-4"><span class="px-2 py-0.5 bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-400 rounded font-mono text-xs">PNG</span></td><td class="p-4 text-slate-500 dark:text-slate-400 text-xs">PNG für scharfe Kanten</td></tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 text-slate-700 dark:text-slate-300 font-medium">Druck 10 × 15 cm</td><td class="p-4 text-slate-700 dark:text-slate-300">1.800 × 1.200 px (300 dpi)</td><td class="p-4"><span class="px-2 py-0.5 bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-400 rounded font-mono text-xs">PNG</span></td><td class="p-4 text-slate-500 dark:text-slate-400 text-xs">Verlustfrei für Druck</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+
+  <!-- Additional content -->
+  <div class="prose prose-slate dark:prose-invert max-w-none">
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Foto verkleinern vs. Foto komprimieren – was ist der Unterschied?</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Viele Nutzer verwechseln die beiden Begriffe. <strong>Foto verkleinern</strong> bedeutet, die tatsächlichen Pixelmaße (Breite × Höhe) zu reduzieren. Ein 4.000-px-Foto, das auf 1.000 px verkleinert wird, hat danach ein Viertel der ursprünglichen Pixelanzahl. <strong>Foto komprimieren</strong> hingegen lässt die Abmessungen unverändert und reduziert stattdessen die Datenmenge durch effizientere Kodierung. Unser Tool ermöglicht beide Methoden – einzeln oder kombiniert. Wer die <em>maximale</em> Dateieinsparung sucht, kombiniert zunächst das Verkleinern auf die Ziel-Anzeigeauflösung mit anschließender Komprimierung auf 75–85 % Qualität.
+    </p>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Datenschutz: Deine Fotos bleiben auf deinem Gerät</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Die gesamte Verarbeitung erfolgt direkt im Browser – kein Server, keine Cloud, keine Datenweitergabe. Das macht unser <strong>Foto verkleinern</strong>-Tool besonders geeignet für sensible Inhalte wie Bewerbungsfotos, Ausweiskopien oder persönliche Bilder. DSGVO-Konformität ist damit bauartbedingt garantiert, nicht nur versprochen.
+    </p>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Unsere Engine analysiert darüber hinaus den Bildinhalt und schlägt bei Wahl von „Auto" selbstständig eine optimale Komprimierungsstufe vor. So wird das <strong>Foto verkleinern</strong> zum Ein-Klick-Erlebnis – gerade bei ganzen Ordnerstapeln ein unschätzbarer Zeitgewinn für Fotografen, Blogger und Online-Händler.
+    </p>
+  </div>
+
+  <!-- Privacy banner -->
+  <div class="flex items-start gap-4 p-5 bg-slate-900 dark:bg-slate-800 rounded-2xl text-white">
+    <span class="text-2xl shrink-0">🔒</span>
+    <div>
+      <p class="font-bold mb-1">Keine Server-Uploads – volle Privatsphäre</p>
+      <p class="text-sm text-slate-300">Deine Fotos verlassen niemals dein Gerät. Die Verarbeitung findet ausschließlich in deinem Browser statt – schnell, sicher und DSGVO-konform.</p>
+    </div>
+  </div>
+
 </div>`,
       },
     ],
@@ -70,30 +158,39 @@ export const dePages: SeoPage[] = [
       {
         question: "Kann ich mehrere Fotos auf einmal verkleinern?",
         answer:
-          "Ja, unser Tool unterstützt Stapelverarbeitung. Du kannst bis zu 20 Bilder gleichzeitig hochladen, die alle mit denselben Einstellungen verkleinert werden. Jedes Bild wird einzeln optimiert und steht sofort zum Download bereit.",
+          "Ja, unser Tool unterstützt Stapelverarbeitung. Du kannst bis zu 20 Bilder gleichzeitig hochladen – alle werden mit denselben Einstellungen verkleinert. Jedes Foto wird einzeln optimiert und steht sofort zum Download bereit.",
       },
       {
         question: "Wird beim Verkleinern die Bildqualität schlechter?",
         answer:
-          "Die reine Verkleinerung der Pixelmaße führt zu einem Detailverlust, aber unsere Schärfungsalgorithmen halten das Bild subjektiv scharf. Zusätzliche Komprimierung kannst du getrennt steuern, um sichtbare Artefakte zu vermeiden.",
+          "Jede Verkleinerung bedeutet einen gewissen Detailverlust, da tatsächlich Pixel entfernt werden. Unsere Schärfungsalgorithmen halten das Bild jedoch subjektiv scharf. Zusätzliche Komprimierung steuerst du getrennt über den Qualitätsregler, um sichtbare Artefakte zu vermeiden.",
       },
       {
         question: "Unterstützt das Tool RAW-Dateien?",
         answer:
-          "Direktes Verkleinern von RAW-Formaten (CR2, NEF, ARW) ist nicht möglich. Du musst die RAW-Datei zuerst in JPEG oder PNG konvertieren. Danach kannst du sie bei uns problemlos verkleinern.",
+          "Direktes Verkleinern von RAW-Formaten (CR2, NEF, ARW) ist derzeit nicht möglich. Konvertiere die RAW-Datei zuerst in JPEG oder PNG – danach kannst du sie problemlos verkleinern.",
       },
       {
         question: "Verändert das Tool die Metadaten meines Fotos?",
         answer:
-          "Standardmäßig bleiben EXIF-Daten wie Aufnahmedatum und Kameramodell erhalten. In den Einstellungen kannst du jedoch wählen, ob du alle Metadaten entfernen möchtest, um die Dateigröße weiter zu reduzieren.",
+          "Standardmäßig bleiben EXIF-Daten wie Aufnahmedatum und Kameramodell erhalten. In den erweiterten Einstellungen kannst du wählen, ob alle Metadaten entfernt werden sollen, um die Dateigröße weiter zu reduzieren.",
       },
       {
         question: "Funktioniert das Verkleinern auch auf dem Smartphone?",
         answer:
-          "Absolut. Die gesamte Verarbeitung läuft im Browser, daher ist das Tool auf iOS und Android genauso schnell und zuverlässig wie am PC. Eine App ist nicht nötig.",
+          "Ja, die Verarbeitung läuft vollständig im Browser. Das Tool ist auf iOS und Android genauso schnell und zuverlässig wie am PC – eine separate App ist nicht nötig.",
+      },
+      {
+        question: "Wie viel kleiner wird die Datei nach dem Verkleinern?",
+        answer:
+          "Das hängt von den gewählten Zielmaßen ab. Eine Halbierung der Seitenlängen (z. B. von 4.000 auf 2.000 px) reduziert die Pixelanzahl um 75 %. In Kombination mit moderater Komprimierung sind Einsparungen von 80–90 % gegenüber dem Original typisch.",
       },
     ],
   },
+
+  // ─────────────────────────────────────────────────────
+  // 2. bild-verkleinern
+  // ─────────────────────────────────────────────────────
   {
     slug: "bild-verkleinern",
     metaTitle: "Bild verkleinern – Online Bilder verkleinern & komprimieren",
@@ -101,47 +198,103 @@ export const dePages: SeoPage[] = [
       "Bild verkleinern ohne Download: Reduziere Bildmaße und Dateigröße gleichzeitig. Perfekt für Webmaster und Blogger. Jetzt kostenlos Bilder verkleinern.",
     h1: "Bild verkleinern",
     subtitle:
-      "Verkleinere jedes Bildformat – präzise, schnell und browserbasiert.",
+      "Jedes Bildformat verkleinern – präzise, schnell und direkt im Browser.",
     showTool: "photo-editor",
     sections: [
       {
         heading: "Bild verkleinern: Der smarte Allrounder für deine Fotos",
         content: `<div class="space-y-10 not-prose">
+
   <div class="prose prose-slate dark:prose-invert max-w-none">
-    <p class="text-lg text-slate-700 dark:text-slate-300">Ein <strong>Bild verkleinern</strong> ist mehr als nur Pixel schrumpfen. Unser Tool versteht, dass du manchmal ein Bild für den Druck, manchmal für eine Website benötigst – und passt die Methodik entsprechend an. Während viele Online-Dienste stumpf herunterrechnen, nutzt unsere Engine eine mehrstufige Skalierung, die Moiré-Effekte und Treppchenbildung unterdrückt. Das Resultat: Dein verkleinertes Bild wirkt, als wäre es nie größer gewesen.</p>
-    <p>Besonders praktisch: Du kannst die Zielgröße in Pixeln, Zentimetern oder relativ zur Originalgröße eingeben. Bei einer Eingabe von „50 %“ halbierst du die Länge jeder Seite, die Pixelzahl sinkt um 75 % – ideal für schnelle Stapelverarbeitung. Trotz der vielen Optionen bleibt die Bedienung so einfach wie ein Taschenrechner.</p>
+    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+      Ein <strong>Bild verkleinern</strong> ist mehr als nur Pixel schrumpfen. Je nach Verwendungszweck – Druck, Web oder Social Media – gelten völlig unterschiedliche Anforderungen an Auflösung, Farbtiefe und Komprimierung. Unser Tool erkennt den Kontext und passt die Verarbeitungsmethode automatisch an. Während viele Online-Dienste Bilder einfach stumpf herunterrechnen, nutzt unsere Engine eine mehrstufige Skalierung, die Moiré-Effekte und Treppchenbildung zuverlässig unterdrückt.
+    </p>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Besonders praktisch: Du kannst die Zielgröße in Pixeln, Zentimetern oder relativ zur Originalgröße eingeben. Bei einer Eingabe von „50 %" halbierst du die Kantenlänge – die Pixelanzahl sinkt dabei um 75 %, was die Dateigröße dramatisch reduziert. Trotz der vielen Optionen bleibt die Bedienung so intuitiv wie ein Taschenrechner. Ein <strong>Bild verkleinern</strong> sollte keine Wissenschaft sein.
+    </p>
   </div>
+
+  <!-- 3 feature mini-cards -->
   <div class="grid md:grid-cols-3 gap-4">
-    <div class="p-5 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl border">
-      <p class="font-bold text-purple-800 dark:text-purple-200">📱 Mobile first</p>
-      <p class="text-sm">Für Instagram Stories auf 1080x1920 verkleinern – mit einem Klick.</p>
+    <div class="p-5 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl border border-slate-200 dark:border-slate-700">
+      <p class="font-bold text-purple-800 dark:text-purple-200 mb-2 flex items-center gap-2"><span class="text-xl">📱</span> Mobile first</p>
+      <p class="text-sm text-slate-600 dark:text-slate-400">Instagram Stories auf 1.080 × 1.920 px verkleinern – mit einem Klick, ohne manuelles Rechnen.</p>
     </div>
-    <div class="p-5 bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900/30 dark:to-teal-900/30 rounded-xl border">
-      <p class="font-bold text-green-800 dark:text-green-200">🖨️ Druckreif</p>
-      <p class="text-sm">300 dpi erhalten, indem du die Pixelmaße passend zur Ausgabegröße wählst.</p>
+    <div class="p-5 bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900/30 dark:to-teal-900/30 rounded-2xl border border-slate-200 dark:border-slate-700">
+      <p class="font-bold text-green-800 dark:text-green-200 mb-2 flex items-center gap-2"><span class="text-xl">🖨️</span> Druckreif</p>
+      <p class="text-sm text-slate-600 dark:text-slate-400">300 dpi erhalten, indem du Pixelmaße passend zur physischen Ausgabegröße berechnest – direkt im Tool.</p>
     </div>
-    <div class="p-5 bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/30 dark:to-amber-900/30 rounded-xl border">
-      <p class="font-bold text-orange-800 dark:text-orange-200">⏱️ Batch-Modus</p>
-      <p class="text-sm">Bis zu 20 Bilder gleichzeitig verkleinern – alle bekommen dieselbe Einstellung.</p>
+    <div class="p-5 bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/30 dark:to-amber-900/30 rounded-2xl border border-slate-200 dark:border-slate-700">
+      <p class="font-bold text-orange-800 dark:text-orange-200 mb-2 flex items-center gap-2"><span class="text-xl">⏱️</span> Batch-Modus</p>
+      <p class="text-sm text-slate-600 dark:text-slate-400">Bis zu 20 Bilder gleichzeitig verkleinern – alle erhalten dieselben Einstellungen, jede Datei wird einzeln optimiert.</p>
     </div>
   </div>
-  <div class="prose prose-slate dark:prose-invert max-w-none">
-    <h3>Unterschied: Bild verkleinern vs. Bild komprimieren</h3>
-    <div class="overflow-x-auto">
-      <table class="min-w-full border">
-        <thead>
-          <tr><th class="p-2 bg-slate-100 dark:bg-slate-700">Merkmal</th><th class="p-2 bg-slate-100 dark:bg-slate-700">Bild verkleinern</th><th class="p-2 bg-slate-100 dark:bg-slate-700">Bild komprimieren</th></tr>
+
+  <!-- Comparison table: Verkleinern vs Komprimieren -->
+  <div>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-4">Unterschied: Bild verkleinern vs. Bild komprimieren</h3>
+    <div class="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+      <table class="w-full text-sm border-collapse">
+        <thead class="bg-slate-50 dark:bg-slate-800/60">
+          <tr>
+            <th class="p-4 text-left font-semibold text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Merkmal</th>
+            <th class="p-4 text-left font-semibold text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Bild verkleinern</th>
+            <th class="p-4 text-left font-semibold text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Bild komprimieren</th>
+          </tr>
         </thead>
-        <tbody class="divide-y">
-          <tr><td class="p-2">Auswirkung auf Pixelmaße</td><td class="p-2">Ja – Breite/Höhe werden reduziert</td><td class="p-2">Nein – Maße bleiben unverändert</td></tr>
-          <tr><td class="p-2">Dateigröße</td><td class="p-2">Sinkt durch weniger Pixel</td><td class="p-2">Sinkt durch effizientere Kodierung</td></tr>
-          <tr><td class="p-2">Qualität</td><td class="p-2">Detailverlust unvermeidlich, aber optimiert</td><td class="p-2">Kaum sichtbare Unterschiede bei moderater Kompression</td></tr>
-          <tr><td class="p-2">Typische Anwendung</td><td class="p-2">Bild für Profilfoto, Vorschaubild</td><td class="p-2">Web-Performance, E‑Mail-Versand</td></tr>
+        <tbody class="divide-y divide-slate-100 dark:divide-slate-700/50">
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 font-medium text-slate-700 dark:text-slate-300">Pixelmaße</td><td class="p-4 text-slate-600 dark:text-slate-400">Breite/Höhe werden reduziert</td><td class="p-4 text-slate-600 dark:text-slate-400">Maße bleiben unverändert</td></tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 font-medium text-slate-700 dark:text-slate-300">Dateigröße</td><td class="p-4 text-slate-600 dark:text-slate-400">Sinkt durch weniger Pixel</td><td class="p-4 text-slate-600 dark:text-slate-400">Sinkt durch effizientere Kodierung</td></tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 font-medium text-slate-700 dark:text-slate-300">Qualität</td><td class="p-4 text-slate-600 dark:text-slate-400">Detailverlust, durch Schärfung optimiert</td><td class="p-4 text-slate-600 dark:text-slate-400">Kaum sichtbar bei moderater Kompression</td></tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 font-medium text-slate-700 dark:text-slate-300">Typische Anwendung</td><td class="p-4 text-slate-600 dark:text-slate-400">Profilbild, Vorschaubild, E-Mail</td><td class="p-4 text-slate-600 dark:text-slate-400">Web-Performance, schnelle Ladezeiten</td></tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"><td class="p-4 font-medium text-slate-700 dark:text-slate-300">Empfohlene Kombination</td><td colspan="2" class="p-4 text-slate-600 dark:text-slate-400">Erst verkleinern auf Zielauflösung → dann komprimieren auf 75–85 %</td></tr>
         </tbody>
       </table>
     </div>
-    <p>In der Praxis kombinieren viele User beide Schritte: Erst das <strong>Bild verkleinern</strong> auf die benötigte Anzeigegröße, dann mit dem Kompressor die Dateiendgröße optimieren.</p>
   </div>
+
+  <!-- Anwendungsfälle -->
+  <div>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-4">Wann sollte man ein Bild verkleinern?</h3>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="flex gap-3 p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl">
+        <span class="text-2xl shrink-0">🛒</span>
+        <div><p class="font-semibold text-slate-900 dark:text-white text-sm">Online-Shop</p><p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Produktbilder auf 800 × 800 px verkleinern für schnelle Shop-Ladezeiten und besseres SEO-Ranking.</p></div>
+      </div>
+      <div class="flex gap-3 p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl">
+        <span class="text-2xl shrink-0">📧</span>
+        <div><p class="font-semibold text-slate-900 dark:text-white text-sm">E-Mail-Versand</p><p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Bilder vor dem Versand auf unter 500 KB verkleinern, damit der Anhang überall problemlos ankommt.</p></div>
+      </div>
+      <div class="flex gap-3 p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl">
+        <span class="text-2xl shrink-0">📝</span>
+        <div><p class="font-semibold text-slate-900 dark:text-white text-sm">Blog & CMS</p><p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Blogbilder auf 1.200 px Breite verkleinern – für schnelle Ladezeiten und Core Web Vitals.</p></div>
+      </div>
+      <div class="flex gap-3 p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl">
+        <span class="text-2xl shrink-0">☁️</span>
+        <div><p class="font-semibold text-slate-900 dark:text-white text-sm">Cloud-Speicher</p><p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Hunderte von Urlaubsfotos verkleinern, um Speicherplatz in Google Drive oder iCloud freizugeben.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose prose-slate dark:prose-invert max-w-none">
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Bild verkleinern ohne Qualitätsverlust – geht das wirklich?</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Streng genommen verliert jedes verkleinerte Bild Pixel – und damit theoretisch Details. Entscheidend ist aber der subjektive Bildeindruck beim Betrachter. Durch den Einsatz von Lanczos3-Resampling und einem nachgelagerten Schärfungsfilter bleibt das Ergebnis selbst bei starker Verkleinerung knackig scharf. Für Anzeigegrößen wie Thumbnails, Profilbilder oder E-Mail-Anhänge ist der Unterschied zum Original mit bloßem Auge kaum erkennbar. Bei extrem feinen Strukturen – etwa Stoff-Texturen oder Stadtpanorama-Panoramen – empfehlen wir, den Qualitätsschieberegler auf 85 % oder höher zu belassen.
+    </p>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">So sparst du am meisten Speicherplatz beim Bild verkleinern</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Kombiniere immer beide Schritte: Erst das <strong>Bild verkleinern</strong> auf die tatsächlich benötigte Anzeigeauflösung (kein Browser vergrößert ein 600-px-Bild auf einem 1.920-px-Monitor sinnvoll), dann mit dem integrierten Kompressor die Dateigröße weiter drücken. Wer zusätzlich von JPEG auf WebP wechselt, spart nochmals 25–35 % – bei identischer visueller Qualität.
+    </p>
+  </div>
+
+  <div class="flex items-start gap-4 p-5 bg-slate-900 dark:bg-slate-800 rounded-2xl text-white">
+    <span class="text-2xl shrink-0">🔒</span>
+    <div>
+      <p class="font-bold mb-1">100 % browserbasiert – kein Server, keine Cloud</p>
+      <p class="text-sm text-slate-300">Beim Bild verkleinern mit unserem Tool verlassen deine Dateien niemals dein Gerät. Alles passiert lokal – sofort, sicher und DSGVO-konform.</p>
+    </div>
+  </div>
+
 </div>`,
       },
     ],
@@ -149,113 +302,265 @@ export const dePages: SeoPage[] = [
       {
         question: "Kann ich die Zielgröße in Zentimetern angeben?",
         answer:
-          "Ja, wähle einfach die Einheit „cm“ im Drop‑down‑Menü. Das Tool rechnet dann mit dem gewünschten DPI‑Wert automatisch die benötigte Pixelzahl um.",
+          "Ja, wähle einfach die Einheit „cm“ im Dropdown-Menü. Das Tool rechnet anhand des eingestellten DPI-Werts automatisch die benötigte Pixelzahl um.",
       },
       {
         question: "Werden beim Verkleinern die Proportionen beibehalten?",
         answer:
-          "Standardmäßig ist die Seitenverhältnissperre aktiviert. Du kannst sie manuell lösen, wenn du ein Bild bewusst strecken oder stauchen möchtest, aber für die meisten Fälle ist die automatische Beibehaltung empfehlenswert.",
+          "Standardmäßig ist die Seitenverhältnissperre aktiv. Du kannst sie manuell deaktivieren, wenn du ein Bild bewusst strecken möchtest – für die meisten Anwendungsfälle ist die automatische Beibehaltung jedoch empfehlenswert.",
       },
       {
         question: "Wie viele Bilder kann ich gleichzeitig verkleinern?",
         answer:
-          "Im Batch‑Modus sind bis zu 20 Bilder auf einmal möglich. Jedes Bild wird individuell skaliert und du bekommst alle Ergebnisse in einem ZIP-Archiv zum Download.",
+          "Im Batch-Modus sind bis zu 20 Bilder gleichzeitig möglich. Alle Ergebnisse stehen einzeln oder als ZIP-Archiv zum Download bereit.",
       },
       {
         question: "Bleibt die Transparenz bei PNG-Dateien erhalten?",
         answer:
-          "Ja, wenn du ein PNG mit Alphakanal hochlädst, wird die Transparenz auch nach dem Verkleinern gespeichert. Das funktioniert sowohl mit verlustfreier Kompression als auch mit konvertierten Formaten.",
+          "Ja, PNG-Dateien mit Alphakanal behalten die Transparenz auch nach dem Verkleinern. Das funktioniert sowohl mit verlustfreier Kompression als auch beim Speichern im WebP-Format.",
       },
       {
         question: "Ist das Tool wirklich kostenlos?",
         answer:
-          "Vollkommen. Es gibt keine versteckten Kosten, kein Wasserzeichen und keine Pflicht zur Anmeldung. Du kannst unbegrenzt viele Bilder verkleinern und herunterladen.",
+          "Vollkommen. Es gibt keine versteckten Kosten, kein Wasserzeichen und keine Pflicht zur Registrierung. Du kannst unbegrenzt viele Bilder verkleinern und herunterladen.",
+      },
+      {
+        question: "Wie unterscheidet sich das Verkleinern von der Komprimierung?",
+        answer:
+          "Verkleinern reduziert die Pixelmaße (Breite × Höhe). Komprimieren behält die Abmessungen, verringert aber die Datenmenge durch effizientere Bildkodierung. Unser Tool bietet beide Methoden – du kannst sie einzeln oder kombiniert anwenden.",
       },
     ],
   },
+
+  // ─────────────────────────────────────────────────────
+  // 3. bildgroesse-aendern
+  // ─────────────────────────────────────────────────────
   {
     slug: "bildgroesse-aendern",
     metaTitle: "Bildgröße ändern online – Pixel, cm, mm flexibel einstellen",
     metaDescription:
-      "Bildgröße ändern in Echtzeit: Gib deine Wunschmaße ein und erhalte sofort ein perfekt skaliertes Bild. Auch für Millimeter-Angaben geeignet.",
+      "Bildgröße ändern in Echtzeit: Gib deine Wunschmaße ein und erhalte sofort ein perfekt skaliertes Bild. Auch für Millimeter-Angaben und Druckausgabe geeignet.",
     h1: "Bildgröße ändern",
     subtitle:
-      "Exakte Abmessungen für jeden Zweck – vom Passbild bis zum Banner.",
+      "Exakte Abmessungen für jeden Zweck – vom Passbild bis zum Messebanner.",
     showTool: "photo-editor",
     sections: [
       {
-        heading: "Präzise Bildgröße ändern – So funktioniert’s",
-        content: `<div class="space-y-6 not-prose">
+        heading: "Präzise Bildgröße ändern – So funktioniert's",
+        content: `<div class="space-y-10 not-prose">
+
   <div class="prose prose-slate dark:prose-invert max-w-none">
-    <p>Ob du ein <strong>Bildgröße ändern</strong> für eine Bewerbung, einen Online-Shop oder ein Poster benötigst – unser Editor rechnet Millimeter, Zentimeter und Pixel in Echtzeit um. Du gibst einfach die gewünschten Werte ein und siehst sofort, wie viel von deinem Bild beschnitten oder hinzugefügt wird. Dank der eingebauten DPI‑Anpassung bleibt dein Bild selbst bei exotischen Maßen wie 35 × 45 mm gestochen scharf.</p>
+    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+      Ob du die <strong>Bildgröße ändern</strong> für eine Bewerbung, einen Online-Shop oder ein großformatiges Poster benötigst – unser Editor rechnet Millimeter, Zentimeter und Pixel in Echtzeit um. Du gibst einfach die gewünschten Werte ein und siehst sofort, wie viel von deinem Bild beschnitten oder skaliert wird. Dank der integrierten DPI-Anpassung bleibt dein Bild selbst bei exotischen Maßen wie 35 × 45 mm (Passbild) gestochen scharf und druckfähig.
+    </p>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Ein häufiger Fehler beim <strong>Bildgröße ändern</strong> ist das versehentliche Verzerren. Unsere Software warnt dich aktiv, wenn das Seitenverhältnis nicht beibehalten wird, und schlägt einen intelligenten Beschnitt vor. So entstehen keine unnatürlich gestreckten Gesichter oder gequetschten Logos – ein Problem, das bei vielen einfachen Online-Resizern alltäglich ist.
+    </p>
   </div>
-  <div class="bg-indigo-50 dark:bg-indigo-900/20 p-5 rounded-lg border border-indigo-200">
-    <ul class="list-disc list-inside space-y-2 text-indigo-800 dark:text-indigo-200">
-      <li>Eingabe in px, cm, mm oder inch</li>
-      <li>DPI‑Slider für druckoptimierte Ausgabe</li>
-      <li>Verhältnissperre mit optionalem Freistellen</li>
-      <li>Vorschau in Originalgröße per Cursor-Hover</li>
-    </ul>
+
+  <!-- Feature highlight box -->
+  <div class="bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 rounded-2xl p-6 border border-indigo-200 dark:border-indigo-800/50">
+    <h3 class="font-bold text-indigo-900 dark:text-indigo-100 mb-4 flex items-center gap-2"><span class="text-xl">🎛️</span> Alle Eingabeoptionen auf einen Blick</h3>
+    <div class="grid sm:grid-cols-2 gap-3">
+      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> Eingabe in px, cm, mm oder inch</div>
+      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> DPI-Slider für druckoptimierte Ausgabe</div>
+      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> Verhältnissperre mit optionalem Freistellen</div>
+      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> Vorschau in Originalgröße per Hover</div>
+      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> Plattform-Presets (Instagram, LinkedIn …)</div>
+      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> Stapelverarbeitung bis 20 Bilder</div>
+    </div>
   </div>
+
+  <!-- Platform presets grid -->
+  <div>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-4">Schnell-Presets: Bildgröße ändern für jede Plattform</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+      <div class="p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-center hover:border-lime-400 dark:hover:border-lime-600 transition-colors cursor-pointer">
+        <p class="font-mono text-sm font-bold text-slate-900 dark:text-white">1080×1080</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Instagram Post</p>
+      </div>
+      <div class="p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-center hover:border-lime-400 dark:hover:border-lime-600 transition-colors cursor-pointer">
+        <p class="font-mono text-sm font-bold text-slate-900 dark:text-white">1080×1920</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Instagram Story</p>
+      </div>
+      <div class="p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-center hover:border-lime-400 dark:hover:border-lime-600 transition-colors cursor-pointer">
+        <p class="font-mono text-sm font-bold text-slate-900 dark:text-white">1200×630</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Facebook Post</p>
+      </div>
+      <div class="p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-center hover:border-lime-400 dark:hover:border-lime-600 transition-colors cursor-pointer">
+        <p class="font-mono text-sm font-bold text-slate-900 dark:text-white">2560×1440</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">YouTube Cover</p>
+      </div>
+      <div class="p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-center hover:border-lime-400 dark:hover:border-lime-600 transition-colors cursor-pointer">
+        <p class="font-mono text-sm font-bold text-slate-900 dark:text-white">400×400</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">LinkedIn Profil</p>
+      </div>
+      <div class="p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-center hover:border-lime-400 dark:hover:border-lime-600 transition-colors cursor-pointer">
+        <p class="font-mono text-sm font-bold text-slate-900 dark:text-white">35×45 mm</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Passbild (DE)</p>
+      </div>
+      <div class="p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-center hover:border-lime-400 dark:hover:border-lime-600 transition-colors cursor-pointer">
+        <p class="font-mono text-sm font-bold text-slate-900 dark:text-white">1920×1080</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Wallpaper HD</p>
+      </div>
+      <div class="p-4 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-center hover:border-lime-400 dark:hover:border-lime-600 transition-colors cursor-pointer">
+        <p class="font-mono text-sm font-bold text-slate-900 dark:text-white">1280×720</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">YouTube Thumbnail</p>
+      </div>
+    </div>
+  </div>
+
   <div class="prose prose-slate dark:prose-invert max-w-none">
-    <p>Ein häufiger Fehler beim <strong>Bildgröße ändern</strong> ist das versehentliche Strecken oder Stauchen. Unsere Software warnt dich, wenn das Seitenverhältnis nicht beibehalten wird, und schlägt stattdessen einen intelligenten Beschnitt vor. So entstehen keine unnatürlich verzerrten Gesichter oder gequetschten Logos.</p>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Bildgröße ändern für den Druck: DPI richtig einstellen</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Für Druckmedien ist die DPI-Einstellung (Dots per Inch) entscheidend. Während Bildschirme mit 72–96 dpi auskommen, benötigen professionelle Drucke mindestens 300 dpi. Wenn du also die <strong>Bildgröße ändern</strong> möchtest für einen 10 × 15 cm großen Abzug, benötigst du bei 300 dpi exakt 1.181 × 1.772 Pixel. Unser Tool berechnet das automatisch – du gibst einfach die physischen Maße und die DPI ein, den Rest erledigt die Software.
+    </p>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Warum die Bildgröße ändern ohne Verzerrung so wichtig ist</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Verzerrte Bilder wirken unprofessionell – besonders bei Porträts, Logos und Produktfotos. Unsere Verhältnissperre stellt sicher, dass Breite und Höhe immer proportional angepasst werden. Willst du ein Bild bewusst auf ein nicht-proportionales Format bringen (z. B. ein quadratisches Bild auf ein 16:9-Format), kannst du entweder die Sperre lösen und akzeptieren, dass das Bild gestreckt wird, oder du verwendest die Funktion „Auf Leinwand einpassen" – das füllt dann die fehlende Fläche mit einer Hintergrundfarbe auf.
+    </p>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Bildgröße ändern und gleichzeitig konvertieren</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Beim Herunterladen kannst du das Format frei wählen: JPEG, PNG oder WebP. So sparst du dir einen zusätzlichen Konvertierungsschritt. Gerade für Webprojekte empfehlen wir WebP – es erzeugt bei gleicher visueller Qualität etwa 30 % kleinere Dateien als JPEG, was sich direkt in schnelleren Ladezeiten und besseren Core Web Vitals niederschlägt.
+    </p>
   </div>
+
+  <div class="flex items-start gap-4 p-5 bg-slate-900 dark:bg-slate-800 rounded-2xl text-white">
+    <span class="text-2xl shrink-0">💡</span>
+    <div>
+      <p class="font-bold mb-1">Profi-Tipp: Bildgröße ändern + WebP = maximale Web-Performance</p>
+      <p class="text-sm text-slate-300">Skaliere dein Bild auf die tatsächliche Anzeigebreite und exportiere es als WebP. Du sparst gegenüber einem unoptimiertem JPEG oft 70–80 % Dateigröße – bei nicht wahrnehmbarem Qualitätsverlust.</p>
+    </div>
+  </div>
+
 </div>`,
       },
     ],
     faq: [
       {
-        question:
-          "Kann ich die Bildgröße für ein bestimmtes soziales Netzwerk voreinstellen?",
+        question: "Kann ich die Bildgröße für ein bestimmtes soziales Netzwerk voreinstellen?",
         answer:
-          "Ja, wir bieten vordefinierte Presets für Instagram, Facebook, Twitter und viele andere Plattformen. So musst du die Maße nicht manuell suchen.",
+          "Ja, wir bieten vordefinierte Presets für Instagram, Facebook, Twitter, LinkedIn, YouTube und viele andere Plattformen. So musst du die Maße nicht manuell recherchieren.",
       },
       {
-        question:
-          "Was passiert, wenn mein Bild nicht die gewünschten Proportionen hat?",
+        question: "Was passiert, wenn mein Bild nicht die gewünschten Proportionen hat?",
         answer:
-          "Das Tool zeigt dir eine Live-Vorschau und schlägt einen passenden Beschnitt vor. Du kannst den Ausschnitt frei verschieben und dann auf die exakte Zielgröße skalieren lassen.",
+          "Das Tool zeigt dir eine Live-Vorschau mit einem passenden Beschnittvorschlag. Du kannst den Ausschnitt frei verschieben und das Ergebnis vor dem Download prüfen.",
       },
       {
         question: "Wie stelle ich sicher, dass mein Bild druckfähig ist?",
         answer:
-          "Gib die Maße in Zentimetern oder Millimetern ein und stelle den DPI‑Wert auf 300. Das Tool berechnet dann automatisch die benötigte Pixelanzahl für den Druck.",
+          "Gib die Maße in Zentimetern oder Millimetern ein und stelle den DPI-Wert auf 300. Das Tool berechnet automatisch die benötigte Pixelanzahl für scharfen Druck.",
       },
       {
-        question:
-          "Ändert das Tool die Dateigröße, wenn ich nur die Pixelmaße anpasse?",
+        question: "Ändert das Tool die Dateigröße, wenn ich nur die Pixelmaße anpasse?",
         answer:
-          "Ja, die Dateigröße sinkt mit der Pixelanzahl. Zusätzlich kannst du über den Qualitätsregler die Kompression anpassen, wenn du mehr Speicherplatz sparen möchtest.",
+          "Ja, die Dateigröße sinkt mit der Pixelanzahl. Über den Qualitätsregler kannst du die Kompression zusätzlich anpassen, um noch mehr Speicherplatz zu sparen.",
       },
       {
         question: "Funktioniert die Größenänderung auch bei animierten GIFs?",
         answer:
-          "Animierte GIFs können in der Größe geändert werden, jedoch wird die Animation dabei nicht verlangsamt oder beschädigt. Das Ergebnis bleibt ein bewegtes GIF.",
+          "Animierte GIFs können in der Größe geändert werden, ohne dass die Animation beschädigt wird. Das Ergebnis bleibt ein voll animiertes GIF mit den neuen Abmessungen.",
+      },
+      {
+        question: "Kann ich die neue Bildgröße als Preset speichern?",
+        answer:
+          "Ja, häufig verwendete Abmessungen lassen sich als eigene Presets speichern. So kannst du beim nächsten Mal mit einem Klick dieselben Maße anwenden.",
       },
     ],
   },
+
+  // ─────────────────────────────────────────────────────
+  // 4. foto-groesse-aendern
+  // ─────────────────────────────────────────────────────
   {
     slug: "foto-groesse-aendern",
     metaTitle: "Foto Größe ändern – Fotos online skalieren & zuschneiden",
     metaDescription:
-      "Foto Größe ändern in wenigen Klicks. Für Social Media, Druck oder Web. Keine Anmeldung, keine Software-Installation.",
+      "Foto Größe ändern in wenigen Klicks. Für Social Media, Druck oder Web. Keine Anmeldung, keine Software-Installation – kostenlos und browserbasiert.",
     h1: "Foto Größe ändern",
     subtitle:
-      "Ändere Fotogrößen direkt im Browser – passgenau für jeden Kanal.",
+      "Fotogrößen direkt im Browser anpassen – passgenau für jeden Kanal und jedes Format.",
     showTool: "photo-editor",
     sections: [
       {
         heading: "Foto Größe ändern leicht gemacht",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-10 not-prose">
+
   <div class="prose prose-slate dark:prose-invert max-w-none">
-    <p>Das <strong>Foto Größe ändern</strong> gehört zu den Basics der Bildbearbeitung, doch viele Programme machen es komplizierter als nötig. Unser Werkzeug konzentriert sich auf das Wesentliche: Wunschmaße eingeben, ggf. zuschneiden, fertig. Du kannst entweder vordefinierte Sets für Facebook, Twitter, LinkedIn & Co. nutzen oder komplett freie Werte wählen.</p>
+    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+      Das <strong>Foto Größe ändern</strong> gehört zu den Basics der digitalen Bildbearbeitung – aber viele Werkzeuge machen es unnötig kompliziert. Unser Tool konzentriert sich auf das Wesentliche: Wunschmaße eingeben, optional zuschneiden, fertig. Du kannst entweder aus unseren vordefinierten Plattform-Presets wählen oder komplett freie Pixelwerte eingeben. Das Ergebnis siehst du in Echtzeit, bevor du auch nur auf „Herunterladen" klickst.
+    </p>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Besonders für Social-Media-Manager, Blogger und Online-Händler ist das <strong>Foto Größe ändern</strong> eine tägliche Aufgabe. Jede Plattform hat ihre eigenen Vorgaben – Instagram möchte quadratische Posts, YouTube verlangt 16:9-Thumbnails, und für das Bewerbungsportrait gelten andere Maße als für einen LinkedIn-Header. Unser Tool kennt alle gängigen Formate und hält sie stets aktuell.
+    </p>
   </div>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
-    <div class="p-3 bg-white dark:bg-slate-800 rounded shadow-sm"><span class="text-xl font-bold">1080x1080</span><br><span class="text-xs">Instagram</span></div>
-    <div class="p-3 bg-white dark:bg-slate-800 rounded shadow-sm"><span class="text-xl font-bold">1200x630</span><br><span class="text-xs">Facebook</span></div>
-    <div class="p-3 bg-white dark:bg-slate-800 rounded shadow-sm"><span class="text-xl font-bold">2560x1440</span><br><span class="text-xs">YouTube</span></div>
-    <div class="p-3 bg-white dark:bg-slate-800 rounded shadow-sm"><span class="text-xl font-bold">350x350</span><br><span class="text-xs">eBay</span></div>
+
+  <!-- Platform size grid -->
+  <div>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-4">Die wichtigsten Plattformgrößen für Fotos</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div class="p-4 bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 border border-pink-200 dark:border-pink-800/50 rounded-xl text-center">
+        <p class="font-mono text-sm font-black text-slate-900 dark:text-white">1080×1080</p>
+        <p class="text-xs text-pink-700 dark:text-pink-400 font-semibold mt-1">📸 Instagram</p>
+      </div>
+      <div class="p-4 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-800/50 rounded-xl text-center">
+        <p class="font-mono text-sm font-black text-slate-900 dark:text-white">1200×630</p>
+        <p class="text-xs text-blue-700 dark:text-blue-400 font-semibold mt-1">👤 Facebook</p>
+      </div>
+      <div class="p-4 bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border border-red-200 dark:border-red-800/50 rounded-xl text-center">
+        <p class="font-mono text-sm font-black text-slate-900 dark:text-white">2560×1440</p>
+        <p class="text-xs text-red-700 dark:text-red-400 font-semibold mt-1">▶ YouTube</p>
+      </div>
+      <div class="p-4 bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border border-amber-200 dark:border-amber-800/50 rounded-xl text-center">
+        <p class="font-mono text-sm font-black text-slate-900 dark:text-white">350×350</p>
+        <p class="text-xs text-amber-700 dark:text-amber-400 font-semibold mt-1">🛒 eBay</p>
+      </div>
+    </div>
   </div>
+
+  <!-- Step by step -->
+  <div class="bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-5">Foto Größe ändern in 3 Minuten – so geht's</h3>
+    <div class="space-y-4">
+      <div class="flex gap-4">
+        <div class="shrink-0 w-8 h-8 rounded-xl bg-lime-600 text-white text-sm font-black flex items-center justify-center">1</div>
+        <div><strong class="text-slate-900 dark:text-white text-sm">Foto hochladen oder per URL einfügen</strong><p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">JPEG, PNG, WebP und GIF werden unterstützt. Drag & Drop in den Upload-Bereich oder Kamera-Direktzugriff auf mobilen Geräten.</p></div>
+      </div>
+      <div class="flex gap-4">
+        <div class="shrink-0 w-8 h-8 rounded-xl bg-lime-600 text-white text-sm font-black flex items-center justify-center">2</div>
+        <div><strong class="text-slate-900 dark:text-white text-sm">Plattform-Preset wählen oder freie Maße eingeben</strong><p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Klicke auf ein vorgespeichertes Format oder tippe eigene Werte in Pixel, cm oder mm ein.</p></div>
+      </div>
+      <div class="flex gap-4">
+        <div class="shrink-0 w-8 h-8 rounded-xl bg-lime-600 text-white text-sm font-black flex items-center justify-center">3</div>
+        <div><strong class="text-slate-900 dark:text-white text-sm">Ausschnitt anpassen und herunterladen</strong><p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Verschiebe den Zuschnittrahmen auf den gewünschten Bereich und lade das fertige Foto direkt herunter.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose prose-slate dark:prose-invert max-w-none">
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Foto Größe ändern für die Bewerbung: Passbilder korrekt skalieren</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      In Deutschland gibt es klare Vorgaben für Bewerbungsfotos: 35 × 45 mm bei 300 dpi ist der Standard für Ausweise und Pässe. Für Onlinebewerbungen akzeptieren die meisten HR-Systeme JPEG-Dateien bis 500 KB. Mit unserem Tool gibst du einfach „35 mm × 45 mm" und „300 dpi" ein – die Software berechnet automatisch 413 × 531 Pixel und schneidet das Foto passend zu. So sparst du dir teure Fotostudiogänge für reine Formatänderungen.
+    </p>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Foto Größe ändern und dabei die Bildqualität schützen</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Beim Vergrößern eines Fotos stoßen alle Algorithmen an natürliche Grenzen: Pixel, die nicht vorhanden sind, können nicht erfunden werden. Beim Verkleinern hingegen hat Qualitätserhalt absolute Priorität. Unsere Lanczos3-Resampling-Engine berechnet für jeden Ausgabepixel einen gewichteten Durchschnitt der umliegenden Quellpixel – das Ergebnis ist deutlich schärfer als einfaches bilineares Downsampling.
+    </p>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Warum kein Wasserzeichen beim Foto Größe ändern?</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Viele kostenlose Online-Tools fügen Wasserzeichen ein, um zur kostenpflichtigen Version zu drängen. Unser Angebot ist und bleibt vollständig kostenlos und wasserzeichenfrei. Die Kosten werden durch Werbeeinnahmen auf der Webseite gedeckt – deine Fotos gehören dir, ohne Einschränkungen.
+    </p>
+  </div>
+
+  <div class="flex items-start gap-4 p-5 bg-slate-900 dark:bg-slate-800 rounded-2xl text-white">
+    <span class="text-2xl shrink-0">🏆</span>
+    <div>
+      <p class="font-bold mb-1">Kein Wasserzeichen. Kein Konto. Keine Grenzen.</p>
+      <p class="text-sm text-slate-300">Foto Größe ändern und herunterladen – so oft du möchtest, kostenlos und ohne Registrierung. Deine Dateien verlassen nie deinen Browser.</p>
+    </div>
+  </div>
+
 </div>`,
       },
     ],
@@ -263,36 +568,44 @@ export const dePages: SeoPage[] = [
       {
         question: "Kann ich das Seitenverhältnis meines Fotos frei ändern?",
         answer:
-          "Ja, du kannst die Proportionen entsperren und Breite sowie Höhe unabhängig voneinander festlegen. Das Tool warnt dich aber, wenn das Bild dadurch verzerrt werden könnte.",
+          "Ja, du kannst die Proportionen entsperren und Breite sowie Höhe unabhängig festlegen. Das Tool warnt dich, wenn das Foto dadurch verzerrt werden könnte.",
       },
       {
         question: "Welche vordefinierten Größen gibt es?",
         answer:
-          "Wir haben Vorlagen für alle gängigen Plattformen: Instagram Post/Story, Facebook Cover, YouTube Thumbnail, LinkedIn Profilbild, Twitter Header und viele mehr.",
+          "Wir haben Vorlagen für Instagram Post/Story/Reels, Facebook Cover/Post, YouTube Thumbnail/Banner, LinkedIn Profilbild/Header, Twitter Header, Pinterest und viele mehr.",
       },
       {
-        question:
-          "Wird mein Foto nach der Größenänderung automatisch gespeichert?",
+        question: "Wird mein Foto nach der Größenänderung automatisch gespeichert?",
         answer:
-          "Nein, du musst das fertige Bild manuell herunterladen. So hast du jederzeit die volle Kontrolle und kannst vor dem Speichern noch Änderungen vornehmen.",
+          "Nein, du musst das Bild manuell herunterladen. So hast du die volle Kontrolle und kannst vor dem Speichern noch weitere Anpassungen vornehmen.",
       },
       {
         question: "Kann ich die Größe mehrerer Fotos auf einmal ändern?",
         answer:
-          "Ja, über die Batch‑Funktion kannst du bis zu 20 Fotos gleichzeitig hochladen und für alle dieselben Abmessungen einstellen. Jedes Bild wird einzeln verarbeitet.",
+          "Ja, über die Batch-Funktion kannst du bis zu 20 Fotos gleichzeitig hochladen und alle mit denselben Abmessungen skalieren. Jedes Bild wird einzeln verarbeitet.",
       },
       {
-        question: "Brauche ich für die Größenänderung spezielle Software?",
+        question: "Brauche ich spezielle Software für die Größenänderung?",
         answer:
-          "Nein, alles läuft direkt im Browser. Du musst nichts installieren, und die Bearbeitung funktioniert auf Windows, Mac, Linux, iOS und Android gleichermaßen.",
+          "Nein, alles läuft direkt im Browser. Kein Download, keine Installation – funktioniert auf Windows, Mac, Linux, iOS und Android.",
+      },
+      {
+        question: "Was ist der Unterschied zwischen zuschneiden und Größe ändern?",
+        answer:
+          "Beim Zuschneiden entfernst du Teile des Bildes, um eine bestimmte Form zu erhalten. Beim Größe ändern skalierst du das gesamte Bild auf neue Abmessungen. Unser Tool unterstützt beide Methoden und auch die Kombination aus beiden.",
       },
     ],
   },
+
+  // ─────────────────────────────────────────────────────
+  // 5. bild-komprimieren
+  // ─────────────────────────────────────────────────────
   {
     slug: "bild-komprimieren",
     metaTitle: "Bild komprimieren – JPEG & PNG online komprimieren",
     metaDescription:
-      "Bild komprimieren, ohne Qualität einzubüßen. Reduziere die Dateigröße von Fotos um bis zu 80%. Kostenlos und ohne Upload-Limit.",
+      "Bild komprimieren ohne Qualitätsverlust: Reduziere die Dateigröße deiner Fotos um bis zu 80 %. Kostenlos, browserbasiert und ohne Upload-Limit.",
     h1: "Bild komprimieren",
     subtitle:
       "Weniger Kilobyte, gleicher Look – optimierte Bilder für schnelle Ladezeiten.",
@@ -300,22 +613,83 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Effizientes Bild komprimieren für Web und E-Mail",
-        content: `<div class="space-y-8 not-prose">
+        content: `<div class="space-y-10 not-prose">
+
   <div class="prose prose-slate dark:prose-invert max-w-none">
-    <p>Ein unkomprimiertes Foto von einer modernen Smartphone-Kamera kann schnell 8 MB oder mehr belegen. Bevor du es verschickst oder auf deine Website lädst, solltest du es unbedingt <strong>komprimieren</strong>. Unser Algorithmus analysiert Farbverläufe und Detailbereiche separat und wendet eine adaptive Quantisierung an. Flächige Himmel oder Unschärfe werden stärker komprimiert als scharfe Konturen – das Ergebnis ist ein optisch nahezu unverändertes Bild mit drastisch reduzierter Dateigröße.</p>
+    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+      Ein unkomprimiertes Foto einer modernen Smartphone-Kamera belegt schnell 8–12 MB. Bevor du es auf eine Website lädst, per E-Mail verschickst oder in einem CMS speicherst, solltest du es <strong>komprimieren</strong>. Unser Algorithmus analysiert Farbverläufe und Detailbereiche getrennt und wendet eine adaptive Quantisierung an: Flächige Bereiche wie Himmel oder Unschärfezonen werden stärker komprimiert als scharfe Konturen und Textdetails. Das Ergebnis ist ein optisch nahezu unverändertes Bild mit drastisch reduzierter Dateigröße.
+    </p>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Wer Bilder für das Web optimiert, sollte außerdem wissen: Unkomprimierte Bilder sind einer der Hauptgründe für schlechte Core Web Vitals (insbesondere Largest Contentful Paint). Suchmaschinen wie Google berücksichtigen die Seitenladezeit als Rankingfaktor. <strong>Bild komprimieren</strong> ist also nicht nur Komfort – es ist aktives SEO.
+    </p>
   </div>
-  <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 border border-yellow-200">
-    <h3 class="font-bold text-yellow-900 dark:text-yellow-100 mb-3">Kompressionsstufen im Vergleich</h3>
-    <table class="w-full text-sm">
-      <thead><tr class="text-yellow-800"><th class="p-2">Stufe</th><th class="p-2">Dateigröße (Ø)</th><th class="p-2">Sichtbare Qualität</th></tr></thead>
-      <tbody>
-        <tr><td class="p-2">Leicht (90%)</td><td class="p-2">-20%</td><td class="p-2">Identisch</td></tr>
-        <tr><td class="p-2">Mittel (75%)</td><td class="p-2">-50%</td><td class="p-2">Kaum Unterschied</td></tr>
-        <tr><td class="p-2">Stark (60%)</td><td class="p-2">-75%</td><td class="p-2">Leichte Artefakte in feinen Mustern</td></tr>
-        <tr><td class="p-2">Maximum (40%)</td><td class="p-2">-85%</td><td class="p-2">Sichtbare Klötzchen, nur für Thumbnails</td></tr>
-      </tbody>
-    </table>
+
+  <!-- Compression level table -->
+  <div class="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 rounded-2xl p-6 border border-yellow-200 dark:border-yellow-800/50">
+    <h3 class="font-bold text-yellow-900 dark:text-yellow-100 mb-4 flex items-center gap-2"><span class="text-xl">📊</span> Kompressionsstufen im Vergleich</h3>
+    <div class="overflow-x-auto rounded-xl border border-yellow-200 dark:border-yellow-800/50">
+      <table class="w-full text-sm border-collapse">
+        <thead class="bg-yellow-100 dark:bg-yellow-900/30">
+          <tr>
+            <th class="p-3 text-left font-semibold text-yellow-900 dark:text-yellow-200">Stufe</th>
+            <th class="p-3 text-left font-semibold text-yellow-900 dark:text-yellow-200">Qualität</th>
+            <th class="p-3 text-left font-semibold text-yellow-900 dark:text-yellow-200">Ø Einsparung</th>
+            <th class="p-3 text-left font-semibold text-yellow-900 dark:text-yellow-200">Sichtbare Qualität</th>
+            <th class="p-3 text-left font-semibold text-yellow-900 dark:text-yellow-200">Empfohlen für</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-yellow-100 dark:divide-yellow-900/30">
+          <tr><td class="p-3 font-medium text-slate-700 dark:text-slate-300">Leicht</td><td class="p-3 text-slate-600 dark:text-slate-400">90 %</td><td class="p-3 text-slate-600 dark:text-slate-400">~20 %</td><td class="p-3 text-slate-600 dark:text-slate-400">Identisch</td><td class="p-3 text-slate-600 dark:text-slate-400">Archivierung, Druck</td></tr>
+          <tr><td class="p-3 font-medium text-slate-700 dark:text-slate-300">Mittel</td><td class="p-3 text-slate-600 dark:text-slate-400">75 %</td><td class="p-3 text-slate-600 dark:text-slate-400">~50 %</td><td class="p-3 text-slate-600 dark:text-slate-400">Kaum Unterschied</td><td class="p-3 text-slate-600 dark:text-slate-400">Webseiten, Blogs</td></tr>
+          <tr><td class="p-3 font-medium text-slate-700 dark:text-slate-300">Stark</td><td class="p-3 text-slate-600 dark:text-slate-400">60 %</td><td class="p-3 text-slate-600 dark:text-slate-400">~75 %</td><td class="p-3 text-slate-600 dark:text-slate-400">Leichte Artefakte</td><td class="p-3 text-slate-600 dark:text-slate-400">E-Commerce-Galerie</td></tr>
+          <tr><td class="p-3 font-medium text-slate-700 dark:text-slate-300">Maximum</td><td class="p-3 text-slate-600 dark:text-slate-400">40 %</td><td class="p-3 text-slate-600 dark:text-slate-400">~85 %</td><td class="p-3 text-slate-600 dark:text-slate-400">Sichtbar, nur Thumbnails</td><td class="p-3 text-slate-600 dark:text-slate-400">Vorschaubilder, Icons</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+
+  <!-- Format comparison -->
+  <div>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-4">JPEG vs. PNG vs. WebP – welches Format beim Komprimieren am meisten spart</h3>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="p-5 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl">
+        <p class="font-bold text-slate-900 dark:text-white mb-2">JPEG</p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-3">Ideal für Fotos mit vielen Farben und Farbverläufen. Keine Transparenz. Weit verbreitet.</p>
+        <div class="text-xs text-slate-400 dark:text-slate-500"><span class="font-semibold text-green-600">✓ Fotos</span> · <span class="font-semibold text-green-600">✓ Web</span> · <span class="font-semibold text-red-500">✗ Transparenz</span></div>
+      </div>
+      <div class="p-5 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl">
+        <p class="font-bold text-slate-900 dark:text-white mb-2">PNG</p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-3">Verlustfreie Kompression mit Transparenz. Größere Dateien, aber ideal für Logos und Screenshots.</p>
+        <div class="text-xs text-slate-400 dark:text-slate-500"><span class="font-semibold text-green-600">✓ Logos</span> · <span class="font-semibold text-green-600">✓ Transparenz</span> · <span class="font-semibold text-red-500">✗ Große Dateien</span></div>
+      </div>
+      <div class="p-5 bg-white dark:bg-slate-800/60 border-2 border-lime-400 dark:border-lime-600 rounded-2xl relative overflow-hidden">
+        <span class="absolute top-3 right-3 text-[10px] font-bold bg-lime-600 text-white px-2 py-0.5 rounded-full">Empfohlen</span>
+        <p class="font-bold text-slate-900 dark:text-white mb-2">WebP</p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-3">Bis zu 35 % kleiner als JPEG bei gleicher Qualität. Transparenz möglich. Beste Wahl für moderne Webseiten.</p>
+        <div class="text-xs text-slate-400 dark:text-slate-500"><span class="font-semibold text-green-600">✓ Fotos</span> · <span class="font-semibold text-green-600">✓ Transparenz</span> · <span class="font-semibold text-green-600">✓ Kleinste Dateien</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose prose-slate dark:prose-invert max-w-none">
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Bild komprimieren für besseres Google-Ranking</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Google PageSpeed Insights und Lighthouse bewerten unter anderem die Bildoptimierung. Unkomprimierte Bilder kosten Punkte bei den Core Web Vitals, was sich direkt auf das Suchmaschinenranking auswirken kann. Eine Faustregel: Kein Bild auf einer Webseite sollte größer als 200 KB sein – für Thumbnails und Seitenleisten-Bilder reichen oft 30–50 KB vollkommen aus.
+    </p>
+    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Bild komprimieren ohne Qualitätsverlust – ist das möglich?</h3>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      Verlustfreie Kompression (PNG, WebP-lossless) reduziert Dateigröße, ohne einen einzigen Pixel zu verändern. Bei JPEG ist jede Kompression technisch verlustbehaftet – aber bei Qualitätswerten von 80–90 % ist der Unterschied für das menschliche Auge nicht erkennbar. Unser Tool zeigt dir in der Vorschau genau, was du erhältst, bevor du herunterlädst. So findest du den perfekten Mittelweg zwischen Dateigröße und Bildqualität.
+    </p>
+  </div>
+
+  <div class="flex items-start gap-4 p-5 bg-slate-900 dark:bg-slate-800 rounded-2xl text-white">
+    <span class="text-2xl shrink-0">📈</span>
+    <div>
+      <p class="font-bold mb-1">Bild komprimieren = besseres SEO</p>
+      <p class="text-sm text-slate-300">Komprimierte Bilder laden schneller, verbessern die Core Web Vitals und steigern das Google-Ranking deiner Seite. Lade kein unkomprimiertes Bild mehr hoch.</p>
+    </div>
+  </div>
+
 </div>`,
       },
     ],
@@ -323,27 +697,32 @@ export const dePages: SeoPage[] = [
       {
         question: "Kann ich die Kompressionsstärke vorher testen?",
         answer:
-          "Ja, der Vorher‑/Nachher‑Vergleich zeigt dir bei jeder Einstellung sofort das voraussichtliche Ergebnis. Du kannst den Schieberegler beliebig bewegen, bis du mit Qualität und Dateigröße zufrieden bist.",
+          "Ja, der Vorher-/Nachher-Vergleich zeigt dir bei jeder Einstellung das voraussichtliche Ergebnis in Echtzeit. Du kannst den Qualitätsschieberegler so lange bewegen, bis Dateigröße und Qualität passen.",
       },
       {
         question: "Werden die Metadaten (EXIF) beim Komprimieren gelöscht?",
         answer:
-          "Standardmäßig ja, um die maximale Einsparung zu erzielen. In den erweiterten Optionen kannst du aber festlegen, dass Aufnahmedatum und Kameramodell erhalten bleiben.",
+          "Standardmäßig ja, um maximale Einsparung zu erzielen. In den erweiterten Optionen kannst du festlegen, dass Aufnahmedatum und Kameramodell erhalten bleiben.",
       },
       {
         question: "Unterstützt die Komprimierung auch das WebP-Format?",
         answer:
-          "Ja, du kannst sowohl nach JPEG und PNG als auch nach WebP komprimieren. WebP bietet bei gleicher Qualität meist kleinere Dateien und eignet sich besonders für moderne Webseiten.",
+          "Ja, du kannst sowohl nach JPEG und PNG als auch nach WebP komprimieren. WebP bietet bei gleicher Qualität meist 25–35 % kleinere Dateien und eignet sich besonders für moderne Webseiten.",
       },
       {
         question: "Wird die Auflösung beim Komprimieren verändert?",
         answer:
-          "Nein, die Pixelmaße bleiben unverändert. Das Tool reduziert ausschließlich die Dateigröße durch effizientere Kodierung, ohne das Bild zu verkleinern.",
+          "Nein, die Pixelmaße bleiben unverändert. Das Tool reduziert ausschließlich die Datenmenge durch effizientere Kodierung, ohne das Bild zu verkleinern.",
       },
       {
         question: "Gibt es ein Limit für die Dateigröße beim Hochladen?",
         answer:
-          "Du kannst Bilder bis zu 50 MB hochladen. Die Komprimierung erfolgt trotzdem schnell und ohne Upload-Limit für die Anzahl der Bilder.",
+          "Du kannst Bilder bis zu 50 MB hochladen. Da die Verarbeitung lokal im Browser erfolgt, gibt es kein serverseitiges Upload-Limit.",
+      },
+      {
+        question: "Warum ist mein PNG nach der Komprimierung immer noch groß?",
+        answer:
+          "PNG verwendet verlustfreie Kompression, was bei Fotos mit vielen Farben naturgemäß größere Dateien ergibt als JPEG. Exportiere das Bild als JPEG oder WebP, wenn Dateigröße wichtiger ist als Transparenz.",
       },
     ],
   },
@@ -360,11 +739,11 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Bildgröße reduzieren für Festplatte & Cloud",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Wenn deine Fotobibliothek aus allen Nähten platzt, hilft <strong>Bildgröße reduzieren</strong> auf zwei Wegen: Du verkleinerst entweder die Auflösung auf ein für Bildschirme ausreichendes Maß, oder du wendest eine verlustbehaftete Kompression an. Unser Tool erledigt beides parallel und zeigt vor dem Speichern die voraussichtliche Einsparung an.</p>
   </div>
-  <div class="p-4 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-400 rounded">
+  <div class="p-5 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded-r-2xl shadow-sm">
     <p class="text-red-800 dark:text-red-200"><strong>Hinweis:</strong> Erstelle vor einer Massenreduktion unbedingt eine Sicherungskopie. Einmal überschriebene Originale lassen sich nicht wiederherstellen.</p>
   </div>
 </div>`,
@@ -413,7 +792,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Foto Resizer – Der universelle Größenwandler",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Ein <strong>Foto Resizer</strong> ist mehr als nur ein Verkleinerer. Unser Tool beherrscht das gleichzeitige Skalieren und Beschneiden, das Konvertieren zwischen Formaten und das Anpassen der Auflösung. Du kannst ein 4K‑Foto in ein druckfertiges 10x15‑cm‑Bild verwandeln oder ein rechteckiges Bild quadratisch zuschneiden, ohne den Hauptinhalt zu verlieren.</p>
   </div>
@@ -460,7 +839,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Bild Resizer für alle Gelegenheiten",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Ob du den <strong>Bild Resizer</strong> für eine Bewerbung, ein Foren‑Avatar oder eine Produktabbildung brauchst – die Bedienung ist identisch: Bild einfügen, neue Maße wählen, speichern. Besonders hilfreich ist die Möglichkeit, die Ausgabegröße in Prozent anzugeben, wenn das Ausgangsformat unbekannt ist.</p>
   </div>
@@ -508,7 +887,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Bild online verkleinern – Der schnellste Weg",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Du möchtest ein <strong>Bild online verkleinern</strong>, ohne erst ein Programm herunterladen zu müssen? Genau dafür wurde unser Tool gebaut. Die gesamte Verarbeitung findet in deinem Browser statt – deine Bilder verlassen niemals deinen Rechner. Das schont nicht nur deine Privatsphäre, sondern macht die Bearbeitung auch rasend schnell, weil keine Upload-Wartezeiten entstehen.</p>
   </div>
@@ -554,7 +933,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Warum ein Online-Tool für Foto verkleinern?",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Ein <strong>Foto online verkleinern</strong> zu können, erspart dir das Jonglieren mit verschiedenen Programmen. Gerade unterwegs, wenn du schnell ein Bild für WhatsApp oder Instagram brauchst, ist eine browserbasierte Lösung Gold wert. Unsere Seite funktioniert auf iOS und Android genauso reibungslos wie am Desktop.</p>
   </div>
@@ -603,7 +982,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "How Our Tool Helps You Minimize Photo Size",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>When you need to <strong>minimize photo size</strong> for email, social media, or web galleries, our tool offers a precise two-in-one solution: downscale resolution and apply smart compression. Even if the interface is primarily in German, the controls are intuitive enough for English speakers. Simply drag your image, set the target width in pixels, adjust the quality slider, and download a perfectly optimized JPEG, PNG, or WebP.</p>
   </div>
@@ -651,7 +1030,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Der Photo Cropper Online mit eingebautem Resizer",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Ein <strong>Photo Cropper Online</strong> ist erst dann wirklich praktisch, wenn du den zugeschnittenen Bereich auch gleich auf die benötigte Größe bringen kannst. Unser Tool erlaubt dir, einen freien oder festen Rahmen (z. B. 4:3, 1:1) aufzuziehen und dann die Ausgabeauflösung unabhängig vom Original festzulegen. So entsteht aus einem 4000x3000‑Schnappschuss im Handumdrehen ein scharfes 800x800‑Profilbild.</p>
   </div>
@@ -699,7 +1078,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Photo Image Resizer für internationale Nutzer",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Our <strong>photo image resizer</strong> is built for users who need to change picture dimensions quickly. Despite the German interface, all functions are self-explanatory: upload, enter new size, compress if needed, download. It supports bulk resizing for up to 20 images at once.</p>
   </div>
@@ -746,7 +1125,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Alles, was du mit deinem Foto anstellen kannst",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Unter dem Begriff <strong>Foto</strong> bündeln wir sämtliche Werkzeuge: Du kannst dein Foto verkleinern, komprimieren, drehen, spiegeln, zuschneiden und sogar den Hintergrund entfernen – alles auf derselben Oberfläche. Anders als spezialisierte Einzelseiten musst du dein Bild nicht mehrmals hochladen, sondern bearbeitest es in einer durchgehenden Session.</p>
   </div>
@@ -793,7 +1172,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Dein Bild im Mittelpunkt",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Ein <strong>Bild</strong> zu bearbeiten bedeutet heute weit mehr als nur Größenanpassung. Ob du es für einen Blog optimierst, in ein PDF einbetten oder als Profilbild nutzen möchtest – unser Editor bietet dir für jeden Zweck die passenden Einstellungen. Mit dem integrierten Formatkonverter wechselst du mühelos zwischen JPEG, PNG und WebP.</p>
   </div>
@@ -842,7 +1221,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Bilder bearbeiten in nur einem Fenster",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Der Menüpunkt <strong>Bearbeiten</strong> fasst alle Werkzeuge zusammen, die du für eine schnelle Bildoptimierung brauchst. Drehe dein Bild, wenn es auf dem Kopf steht, schneide störende Ränder weg oder passe die Helligkeit an – alles ohne ein separates Programm starten zu müssen. Die Änderungen werden live angezeigt und lassen sich jederzeit rückgängig machen.</p>
   </div>
@@ -889,7 +1268,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Präzises Zuschneiden von Bildern",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Das <strong>Zuschneiden</strong> ist eine der häufigsten Bearbeitungen. Unser Tool bietet nicht nur die klassischen Seitenverhältnisse, sondern auch die Möglichkeit, anhand einer goldenen Spirale oder Drittel‑Regel‑Gitterlinien harmonische Ausschnitte zu finden. Nach dem Zuschnitt kannst du die Auflösung des Ergebnisses sofort anpassen – ideal, wenn du nur einen bestimmten Bildteil in hoher Qualität benötigst.</p>
   </div>
@@ -935,7 +1314,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Bild drehen leicht gemacht",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Ein schiefes Bild kann den ganzen Eindruck verderben. Mit der <strong>Drehen</strong>-Funktion korrigierst du die Ausrichtung in 0,1‑Grad‑Schritten oder nutzt die automatische Geraderückung, die sich am Horizont oder an senkrechten Linien orientiert. Gleichzeitig lassen sich Bilder horizontal und vertikal spiegeln – praktisch für Selfies oder wenn du ein Motiv seitenverkehrt brauchst.</p>
   </div>
@@ -982,7 +1361,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Hintergrund entfernen wie von Zauberhand",
-        content: `<div class="space-y-8 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Einen <strong>Hintergrund zu entfernen</strong>, war früher Handarbeit – heute erledigt das eine KI in Sekunden. Unser Tool erkennt automatisch Personen, Tiere, Produkte und sogar feine Haare und trennt sie vom Rest des Bildes. Das freigestellte Motiv kannst du dann als PNG mit Transparenz speichern oder direkt in einen neuen Hintergrund setzen.</p>
   </div>
@@ -1042,7 +1421,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Bildhintergrund entfernen für Profis",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Das <strong>Bildhintergrund entfernen</strong> ist für E‑Commerce-Händler und Designer ein täglicher Begleiter. Unser Tool liefert freigestellte Bilder, die du sofort in deinen Shop einbinden kannst. Die Kantenglättung sorgt dafür, dass keine hässlichen Treppchen bleiben, selbst wenn der Ursprungshintergrund unruhig war.</p>
   </div>
@@ -1089,7 +1468,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Warum du den Foto-Hintergrund entfernen solltest",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Ein <strong>Foto Hintergrund entfernen</strong> zu lassen, ist der erste Schritt zu einem biometrischen Passbild oder einem professionellen Produktfoto. Gerade für offizielle Dokumente wird ein einfarbiger Hintergrund verlangt, den du mit unserem Tool per Mausklick erzeugst, nachdem der alte Hintergrund eliminiert wurde.</p>
   </div>
@@ -1139,7 +1518,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Hintergrund transparent machen in drei Schritten",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Beim <strong>Hintergrund transparent machen</strong> wandelt unser Tool automatisch den ausgeschnittenen Bereich in den Alpha-Kanal um. Das Resultat ist eine verlustfreie PNG-Datei, die du über jedes andere Bild legen kannst. Anders als bei einer einfarbigen Füllung bleibt die Transparenz beim Speichern erhalten – ideal für Wasserzeichen oder Collagen.</p>
   </div>
@@ -1189,7 +1568,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Bild freistellen leicht gemacht",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p><strong>Bild freistellen</strong> meint dasselbe wie Hintergrund entfernen, betont aber die aktive Handlung des Auswählens. Mit unserer Technologie ziehst du grob einen Bereich um das Motiv und der Algorithmus verfeinert die Auswahl automatisch. So entsteht selbst bei Fell oder Haaren eine exakte Silhouette.</p>
   </div>
@@ -1237,7 +1616,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Foto freistellen in Profiqualität",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Wenn du ein <strong>Foto freistellen</strong> möchtest, reicht ein Upload. Der Editor erkennt Menschen, Tiere und Produkte und trennt sie pixelgenau vom Rest. Falls der Automatikmodus nicht alle Wünsche erfüllt, kannst du mit dem grünen/roten Pinsel Bereiche manuell hinzufügen oder entfernen.</p>
   </div>
@@ -1287,7 +1666,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Hintergrund löschen für saubere Freisteller",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Die Funktion <strong>Hintergrund löschen</strong> entspricht dem endgültigen Schritt: Nach der Erkennung wird der Hintergrund endgültig entfernt und durch Transparenz ersetzt. Du kannst dann wahlweise einen weißen, grauen oder beliebig farbigen Hintergrund einfügen – besonders wichtig für biometrische Passbilder.</p>
   </div>
@@ -1336,7 +1715,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Objekt freistellen für E-Commerce",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Das <strong>Objekt freistellen</strong> ist für Produktfotos auf eBay, Amazon oder im eigenen Shop unverzichtbar. Unser Tool erkennt die Konturen auch von komplexen Gegenständen wie Stühlen, Uhren oder technischen Geräten und schneidet sie exakt aus. Du kannst mehrere Objekte in einem Bild einzeln anklicken, um sie nacheinander freizustellen.</p>
   </div>
@@ -1386,11 +1765,11 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Dein Passfoto in wenigen Minuten",
-        content: `<div class="space-y-8 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Ein <strong>Passfoto</strong> muss strengen Regeln folgen: 35 × 45 mm, Kopfhöhe zwischen 32 mm und 36 mm, neutraler Gesichtsausdruck, einheitlich ausgeleuchtet. Unser Tool prüft all diese Kriterien automatisch und warnt, falls dein Bild nicht den Vorschriften entspricht. Du kannst das Foto mit deinem Smartphone aufnehmen und erhältst in Sekunden eine druckfertige Datei.</p>
   </div>
-  <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-xl border">
+  <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
     <h3 class="font-bold text-blue-900 dark:text-blue-100">Maße auf einen Blick</h3>
     <table class="w-full text-sm text-blue-800 dark:text-blue-200">
       <tr><td class="py-1">Fotoformat</td><td>35 × 45 mm</td></tr>
@@ -1444,7 +1823,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Biometrisches Passfoto – Der automatisierte Weg",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Ein <strong>biometrisches Passfoto</strong> muss mehr können als nur hübsch aussehen. Es dient der automatischen Gesichtserkennung an Grenzübergängen. Unser Tool platziert dein Gesicht exakt im Zentrum, setzt die Augen auf die richtige Höhe und kalibriert die Helligkeit so, dass keine Reflexionen stören. Du bekommst eine detaillierte Rückmeldung, ob dein Bild den Anforderungen der Bundesdruckerei entspricht.</p>
   </div>
@@ -1493,7 +1872,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Warum ein Passfoto online?",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Ein <strong>Passfoto online</strong> zu machen, bedeutet maximale Flexibilität. Du brauchst keinen Fototermin und kannst das Bild so oft wiederholen, bis der Gesichtsausdruck perfekt sitzt. Nach der Erstellung erhältst du eine druckfertige Vorlage im 10×15‑cm‑Format, die du bei jedem Drogeriemarkt für ein paar Cent ausbelichten lassen kannst.</p>
   </div>
@@ -1540,7 +1919,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "So arbeitet der Passfoto Generator",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Der <strong>Passfoto Generator</strong> nimmt dir die gesamte Arbeit ab. Nach dem Upload analysiert die KI den Kopfumriss, zentriert das Gesicht, ersetzt den Hintergrund durch das vorgeschriebene Grau und platziert das Bild mehrfach auf einer Druckvorlage. Du kannst zwischen verschiedenen Ländern wählen, da die Anforderungen in Deutschland, Österreich und der Schweiz leicht voneinander abweichen.</p>
   </div>
@@ -1589,7 +1968,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Die Passfoto App, die keine ist",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Viele suchen eine <strong>Passfoto App</strong> im Store, doch unsere Lösung läuft direkt im mobilen Browser. Das spart Speicherplatz und verhindert, dass unnötige Berechtigungen eingeholt werden müssen. Die Bedienung ist identisch: Kamera öffnen, Foto aufnehmen, Generator starten – fertig. Du kannst das Passbild anschließend als Datei speichern oder direkt ausdrucken.</p>
   </div>
@@ -1637,7 +2016,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Was ist Foto Pass?",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p><strong>Foto Pass</strong> ist unsere Kurzbezeichnung für den integrierten Passfoto-Service. Er umfasst den Hintergrundaustausch, die Biometriekontrolle und die Generierung eines druckfertigen 10x15-Blattes mit sechs oder acht Passbildern – abhängig von den Behördenvorgaben.</p>
   </div>
@@ -1684,7 +2063,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Passfoto erstellen in drei Schritten",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <ol class="list-decimal list-inside space-y-2 bg-white dark:bg-slate-800 p-4 rounded-lg text-slate-700 dark:text-slate-300">
     <li><strong>Selfie aufnehmen</strong> – achte auf gleichmäßiges Licht und neutralen Gesichtsausdruck.</li>
     <li><strong>Bild hochladen</strong> – der Editor erkennt dein Gesicht und skaliert automatisch.</li>
@@ -1734,7 +2113,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Kein Fotostudio mehr nötig",
-        content: `<div class="space-y-6 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Die Suche nach <strong>biometrisches Passbild near me</strong> gehört der Vergangenheit an. Statt einen Fotografen zu suchen, der vielleicht 15 € verlangt und Termine vergibt, öffnest du einfach diese Seite, lädst ein Selfie hoch und bekommst ein amtlich korrektes Bild. Die Technologie entspricht den aktuellen ICAO‑Standards und wird regelmäßig aktualisiert.</p>
   </div>
@@ -1786,9 +2165,9 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Warum die Fotogröße ändern und wie unser Tool hilft",
-        content: `<div class="space-y-8 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
-    <p class="text-lg">Ob für einen Online-Shop, die Bewerbungsmappe oder das perfekte Profilbild – die Anforderungen an Bildgrößen sind so vielfältig wie die Nutzungsszenarien selbst. Ein Bild, das auf dem großen Monitor brillant aussieht, kann auf dem Smartphone überdimensioniert wirken und umgekehrt. Genau hier setzt unsere Funktion <strong>Foto Größe ändern</strong> an. Sie erlaubt dir, ohne Vorkenntnisse ein Bild exakt auf die benötigten Abmessungen zu bringen, ohne die Bildqualität übermäßig zu beeinträchtigen.</p>
+    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">Ob für einen Online-Shop, die Bewerbungsmappe oder das perfekte Profilbild – die Anforderungen an Bildgrößen sind so vielfältig wie die Nutzungsszenarien selbst. Ein Bild, das auf dem großen Monitor brillant aussieht, kann auf dem Smartphone überdimensioniert wirken und umgekehrt. Genau hier setzt unsere Funktion <strong>Foto Größe ändern</strong> an. Sie erlaubt dir, ohne Vorkenntnisse ein Bild exakt auf die benötigten Abmessungen zu bringen, ohne die Bildqualität übermäßig zu beeinträchtigen.</p>
     <p>Anders als viele andere Online‑Tools arbeitet unsere Engine direkt im Browser. Das bedeutet: Deine Fotos werden nicht auf fremde Server geladen, sondern lokal skaliert und gespeichert. Das schützt deine Privatsphäre und macht die Bearbeitung extrem schnell – selbst bei großen Dateien von über 20 Megapixeln.</p>
   </div>
   <div class="grid md:grid-cols-2 gap-8">
@@ -1814,7 +2193,7 @@ export const dePages: SeoPage[] = [
   </div>
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <h3>So änderst du die Foto Größe in wenigen Sekunden</h3>
-    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border">
+    <div class="group relative bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 hover:border-lime-400 dark:hover:border-lime-600 hover:shadow-lg hover:shadow-lime-500/5 transition-all duration-300">
       <ol class="list-decimal list-inside space-y-2 text-sm text-slate-700 dark:text-slate-300">
         <li><strong>Bild laden</strong> – per Klick, Drag & Drop oder direkt über die Kamera.</li>
         <li><strong>Einheit und Zielmaße wählen</strong> – z. B. 1200 × 800 px oder 10 × 15 cm bei 300 dpi.</li>
@@ -1829,19 +2208,19 @@ export const dePages: SeoPage[] = [
     <h3>Typische Anwendungen im Überblick</h3>
     <div class="overflow-x-auto">
       <table class="min-w-full text-sm border">
-        <thead class="bg-slate-100 dark:bg-slate-700">
-          <tr><th class="p-2 text-left">Anwendung</th><th class="p-2 text-left">Empfohlene Größe</th><th class="p-2 text-left">DPI</th><th class="p-2 text-left">Format</th></tr>
+        <thead class="bg-slate-50 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-700">
+          <tr><th class="p-4 text-left">Anwendung</th><th class="p-4 text-left">Empfohlene Größe</th><th class="p-4 text-left">DPI</th><th class="p-4 text-left">Format</th></tr>
         </thead>
-        <tbody class="divide-y">
-          <tr><td class="p-2">Behördliches Passbild</td><td class="p-2">35 × 45 mm</td><td class="p-2">300</td><td class="p-2">JPEG</td></tr>
-          <tr><td class="p-2">Bewerbungsfoto (4×6)</td><td class="p-2">40 × 60 mm</td><td class="p-2">300</td><td class="p-2">JPEG</td></tr>
-          <tr><td class="p-2">LinkedIn Profilbild</td><td class="p-2">400 × 400 px</td><td class="p-2">72</td><td class="p-2">JPEG/PNG</td></tr>
-          <tr><td class="p-2">eBay Produktfoto</td><td class="p-2">1600 × 1600 px</td><td class="p-2">72</td><td class="p-2">JPEG</td></tr>
-          <tr><td class="p-2">Webseiten‑Hero‑Bild</td><td class="p-2">1920 × 800 px</td><td class="p-2">72</td><td class="p-2">WebP</td></tr>
+        <tbody class="divide-y divide-slate-100 dark:divide-slate-700/50">
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Behördliches Passbild</td><td class="p-4 text-slate-700 dark:text-slate-300">35 × 45 mm</td><td class="p-4 text-slate-700 dark:text-slate-300">300</td><td class="p-4 text-slate-700 dark:text-slate-300">JPEG</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Bewerbungsfoto (4×6)</td><td class="p-4 text-slate-700 dark:text-slate-300">40 × 60 mm</td><td class="p-4 text-slate-700 dark:text-slate-300">300</td><td class="p-4 text-slate-700 dark:text-slate-300">JPEG</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">LinkedIn Profilbild</td><td class="p-4 text-slate-700 dark:text-slate-300">400 × 400 px</td><td class="p-4 text-slate-700 dark:text-slate-300">72</td><td class="p-4 text-slate-700 dark:text-slate-300">JPEG/PNG</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">eBay Produktfoto</td><td class="p-4 text-slate-700 dark:text-slate-300">1600 × 1600 px</td><td class="p-4 text-slate-700 dark:text-slate-300">72</td><td class="p-4 text-slate-700 dark:text-slate-300">JPEG</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Webseiten‑Hero‑Bild</td><td class="p-4 text-slate-700 dark:text-slate-300">1920 × 800 px</td><td class="p-4 text-slate-700 dark:text-slate-300">72</td><td class="p-4 text-slate-700 dark:text-slate-300">WebP</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="mt-4">Zusätzlich hilft unser Algorithmus, Moiré‑Effekte und Treppchenbildung zu vermeiden, die oft beim einfachen Herunterskalieren auftreten. So bleibt dein Bild auch nach dem <strong>Foto Größe ändern</strong> professionell und scharf.</p>
+    <p class="mt-6 text-slate-700 dark:text-slate-300 leading-relaxed">Zusätzlich hilft unser Algorithmus, Moiré‑Effekte und Treppchenbildung zu vermeiden, die oft beim einfachen Herunterskalieren auftreten. So bleibt dein Bild auch nach dem <strong>Foto Größe ändern</strong> professionell und scharf.</p>
   </div>
 </div>`,
       },
@@ -1888,9 +2267,9 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Der Passfoto Ersteller für alle amtlichen Lichtbilder",
-        content: `<div class="space-y-10 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
-    <p class="text-lg">Ein gültiges <strong>Passfoto</strong> zu erstellen, kann teuer und zeitaufwendig sein – vor allem, wenn das Foto im Automaten oder beim Fotografen abgelehnt wird. Unser <strong>Passfoto Ersteller</strong> ändert das grundlegend. Du lädst ein Selbstporträt hoch, das du bequem zu Hause aufnimmst, und innerhalb von Sekunden erhältst du ein biometrisch geprüftes Bild, das den internationalen ICAO‑Standards entspricht.</p>
+    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">Ein gültiges <strong>Passfoto</strong> zu erstellen, kann teuer und zeitaufwendig sein – vor allem, wenn das Foto im Automaten oder beim Fotografen abgelehnt wird. Unser <strong>Passfoto Ersteller</strong> ändert das grundlegend. Du lädst ein Selbstporträt hoch, das du bequem zu Hause aufnimmst, und innerhalb von Sekunden erhältst du ein biometrisch geprüftes Bild, das den internationalen ICAO‑Standards entspricht.</p>
     <p>Egal ob deutscher Reisepass, Personalausweis, französischer Aufenthaltstitel, US‑Visum oder Kinderreisepass – mit wenigen Klicks wählst du das Zielland und den Dokumententyp aus. Die Software übernimmt dann den automatischen Beschnitt, die Positionierung des Gesichts, die Überprüfung der Kopfgröße (32–36 mm) und die Augenhöhe (28–35 mm vom unteren Rand). Sogar die Hintergrundfarbe wird auf das amtlich vorgeschriebene Hellgrau gesetzt.</p>
   </div>
 
@@ -1932,19 +2311,19 @@ export const dePages: SeoPage[] = [
     <h3>Länderspezifische Anforderungen im Überblick</h3>
     <div class="overflow-x-auto">
       <table class="min-w-full text-sm border">
-        <thead class="bg-slate-100 dark:bg-slate-700">
-          <tr><th class="p-2 text-left">Land / Dokument</th><th class="p-2 text-left">Größe</th><th class="p-2 text-left">Hintergrund</th><th class="p-2 text-left">Besonderheit</th></tr>
+        <thead class="bg-slate-50 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-700">
+          <tr><th class="p-4 text-left">Land / Dokument</th><th class="p-4 text-left">Größe</th><th class="p-4 text-left">Hintergrund</th><th class="p-4 text-left">Besonderheit</th></tr>
         </thead>
-        <tbody class="divide-y">
-          <tr><td class="p-2">Deutschland (Reisepass)</td><td class="p-2">35×45 mm</td><td class="p-2">Hellgrau</td><td class="p-2">Mund geschlossen, neutrale Miene</td></tr>
-          <tr><td class="p-2">Frankreich (Visum)</td><td class="p-2">35×45 mm</td><td class="p-2">Weiß</td><td class="p-2">Leichtes Lächeln erlaubt</td></tr>
-          <tr><td class="p-2">USA (Visa / Green Card)</td><td class="p-2">51×51 mm</td><td class="p-2">Weiß</td><td class="p-2">Gesichtshöhe 28–35 mm</td></tr>
-          <tr><td class="p-2">Schweiz</td><td class="p-2">35×45 mm</td><td class="p-2">Hell</td><td class="p-2">Kopfhöhe 29–34 mm</td></tr>
-          <tr><td class="p-2">Schengen-Visum</td><td class="p-2">35×45 mm</td><td class="p-2">Hell</td><td class="p-2">70–80 % Gesichtsanteil</td></tr>
+        <tbody class="divide-y divide-slate-100 dark:divide-slate-700/50">
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Deutschland (Reisepass)</td><td class="p-4 text-slate-700 dark:text-slate-300">35×45 mm</td><td class="p-4 text-slate-700 dark:text-slate-300">Hellgrau</td><td class="p-4 text-slate-700 dark:text-slate-300">Mund geschlossen, neutrale Miene</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Frankreich (Visum)</td><td class="p-4 text-slate-700 dark:text-slate-300">35×45 mm</td><td class="p-4 text-slate-700 dark:text-slate-300">Weiß</td><td class="p-4 text-slate-700 dark:text-slate-300">Leichtes Lächeln erlaubt</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">USA (Visa / Green Card)</td><td class="p-4 text-slate-700 dark:text-slate-300">51×51 mm</td><td class="p-4 text-slate-700 dark:text-slate-300">Weiß</td><td class="p-4 text-slate-700 dark:text-slate-300">Gesichtshöhe 28–35 mm</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Schweiz</td><td class="p-4 text-slate-700 dark:text-slate-300">35×45 mm</td><td class="p-4 text-slate-700 dark:text-slate-300">Hell</td><td class="p-4 text-slate-700 dark:text-slate-300">Kopfhöhe 29–34 mm</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Schengen-Visum</td><td class="p-4 text-slate-700 dark:text-slate-300">35×45 mm</td><td class="p-4 text-slate-700 dark:text-slate-300">Hell</td><td class="p-4 text-slate-700 dark:text-slate-300">70–80 % Gesichtsanteil</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="mt-4">Unser <strong>Passfoto Ersteller</strong> aktualisiert diese Vorgaben regelmäßig, damit dein Antrag nicht wegen eines Formfehlers abgelehnt wird.</p>
+    <p class="mt-6 text-slate-700 dark:text-slate-300 leading-relaxed">Unser <strong>Passfoto Ersteller</strong> aktualisiert diese Vorgaben regelmäßig, damit dein Antrag nicht wegen eines Formfehlers abgelehnt wird.</p>
   </div>
 </div>`,
       },
@@ -1990,7 +2369,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Erste Schritte mit unseren Bildwerkzeugen",
-        content: `<div class="space-y-8 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Willkommen in unserem Online‑Editor! Egal, ob du ein Bild <strong>verkleinern</strong>, <strong>komprimieren</strong>, den <strong>Hintergrund entfernen</strong> oder ein <strong>biometrisches Passbild</strong> erstellen möchtest – hier findest du alle Funktionen übersichtlich vereint. Da alles komplett im Browser läuft, musst du keine Software installieren und deine Bilder bleiben privat.</p>
   </div>
@@ -2031,7 +2410,7 @@ export const dePages: SeoPage[] = [
 
   <div class="prose prose-slate dark:prose-invert max-w-none mt-8">
     <h3>Hilfreiche Tipps für optimale Ergebnisse</h3>
-    <div class="bg-amber-50 dark:bg-amber-900/20 p-5 rounded-xl border border-amber-200">
+    <div class="bg-amber-50 dark:bg-amber-900/20 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm border-amber-200">
       <ul class="list-disc list-inside space-y-2 text-sm text-amber-800 dark:text-amber-200">
         <li>Verwende für die Hintergrundentfernung ein Motiv mit klaren Konturen und guter Ausleuchtung.</li>
         <li>Bei Passbildern ist ein neutraler Gesichtsausdruck (Mund zu) Pflicht – ein leichtes Lächeln kann zur Ablehnung führen.</li>
@@ -2083,7 +2462,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "So erreichst du uns",
-        content: `<div class="space-y-8 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Dein Feedback ist uns wichtig. Ob du eine Frage zur Bedienung hast, einen Fehler melden möchtest oder einfach nur ein Verbesserungsvorschlag loswerden willst – zögere nicht, uns zu schreiben. Unser kleines Team bearbeitet jede E‑Mail persönlich und bemüht sich um eine schnelle Rückmeldung.</p>
   </div>
@@ -2127,14 +2506,14 @@ export const dePages: SeoPage[] = [
     <h3>Häufige Kontaktgründe</h3>
     <div class="overflow-x-auto">
       <table class="min-w-full text-sm border">
-        <thead class="bg-slate-100 dark:bg-slate-700">
-          <tr><th class="p-2 text-left">Anliegen</th><th class="p-2 text-left">Kurze Selbsthilfe</th></tr>
+        <thead class="bg-slate-50 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-700">
+          <tr><th class="p-4 text-left">Anliegen</th><th class="p-4 text-left">Kurze Selbsthilfe</th></tr>
         </thead>
-        <tbody class="divide-y">
-          <tr><td class="p-2">Bild wird nicht geladen</td><td class="p-2">Prüfe Dateiformat (JPEG/PNG/WebP) und Größe (&lt;50 MB). Deaktiviere ggf. Browser‑Erweiterungen.</td></tr>
-          <tr><td class="p-2">Hintergrund wird nicht vollständig entfernt</td><td class="p-2">Nutze den Pinsel‑Modus, um manuell zu korrigieren. Bessere Ausleuchtung des Motivs hilft meist.</td></tr>
-          <tr><td class="p-2">Passbild wird abgelehnt</td><td class="p-2">Überprüfe die Biometrie‑Ampel im Assistenten. Häufigster Grund: Kopf zu klein oder nicht zentriert.</td></tr>
-          <tr><td class="p-2">Tool langsam auf älterem Gerät</td><td class="p-2">Schließe andere Tabs und reduziere die Bildauflösung vor der Bearbeitung. Die Hintergrund‑KI benötigt ausreichend Arbeitsspeicher.</td></tr>
+        <tbody class="divide-y divide-slate-100 dark:divide-slate-700/50">
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Bild wird nicht geladen</td><td class="p-4 text-slate-700 dark:text-slate-300">Prüfe Dateiformat (JPEG/PNG/WebP) und Größe (&lt;50 MB). Deaktiviere ggf. Browser‑Erweiterungen.</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Hintergrund wird nicht vollständig entfernt</td><td class="p-4 text-slate-700 dark:text-slate-300">Nutze den Pinsel‑Modus, um manuell zu korrigieren. Bessere Ausleuchtung des Motivs hilft meist.</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Passbild wird abgelehnt</td><td class="p-4 text-slate-700 dark:text-slate-300">Überprüfe die Biometrie‑Ampel im Assistenten. Häufigster Grund: Kopf zu klein oder nicht zentriert.</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Tool langsam auf älterem Gerät</td><td class="p-4 text-slate-700 dark:text-slate-300">Schließe andere Tabs und reduziere die Bildauflösung vor der Bearbeitung. Die Hintergrund‑KI benötigt ausreichend Arbeitsspeicher.</td></tr>
         </tbody>
       </table>
     </div>
@@ -2183,7 +2562,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Nutzungsbedingungen",
-        content: `<div class="space-y-8 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Willkommen bei Image Editor Studio (nachfolgend „Dienst“). Durch den Zugriff auf unsere Website und die Nutzung der angebotenen Online‑Bildbearbeitung erklärst du dich mit den folgenden Allgemeinen Geschäftsbedingungen einverstanden. Bitte lies sie sorgfältig durch.</p>
   </div>
@@ -2285,7 +2664,7 @@ export const dePages: SeoPage[] = [
     sections: [
       {
         heading: "Datenschutz auf einen Blick",
-        content: `<div class="space-y-8 not-prose">
+        content: `<div class="space-y-12 not-prose">
   <div class="prose prose-slate dark:prose-invert max-w-none">
     <p>Der Schutz deiner Daten hat für uns oberste Priorität. Im Gegensatz zu vielen anderen Online‑Bildbearbeitungen, die deine Fotos auf entfernte Server hochladen, setzen wir auf eine vollständig <strong>lokal ausgeführte Verarbeitung</strong>. Das bedeutet: Deine Bilder, Einstellungen und Downloads verlassen niemals deinen Computer oder dein Smartphone. Du kannst den Dienst sogar offline nutzen, nachdem die Seite einmal geladen wurde.</p>
   </div>
@@ -2309,17 +2688,17 @@ export const dePages: SeoPage[] = [
 
   <div class="prose prose-slate dark:prose-invert max-w-none mt-6">
     <h3>Welche Daten wir verarbeiten – und warum nicht</h3>
-    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border">
+    <div class="group relative bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 hover:border-lime-400 dark:hover:border-lime-600 hover:shadow-lg hover:shadow-lime-500/5 transition-all duration-300">
       <table class="w-full text-sm">
         <thead>
-          <tr class="text-slate-700 dark:text-slate-300"><th class="p-2 text-left">Kategorie</th><th class="p-2 text-left">Wird gespeichert?</th><th class="p-2 text-left">Begründung</th></tr>
+          <tr class="text-slate-700 dark:text-slate-300"><th class="p-4 text-left">Kategorie</th><th class="p-4 text-left">Wird gespeichert?</th><th class="p-4 text-left">Begründung</th></tr>
         </thead>
         <tbody class="divide-y text-slate-600 dark:text-slate-400">
-          <tr><td class="p-2">Hochgeladene Bilder</td><td class="p-2"><span class="text-red-600">✗ Nein</span></td><td class="p-2">Alles lokal. Kein Upload, kein Speicher auf unseren Servern.</td></tr>
-          <tr><td class="p-2">Bearbeitungsergebnisse</td><td class="p-2"><span class="text-red-600">✗ Nein</span></td><td class="p-2">Du lädst direkt herunter, ohne Serverzwischenschritt.</td></tr>
-          <tr><td class="p-2">Nutzungsstatistiken</td><td class="p-2"><span class="text-red-600">✗ Nein</span></td><td class="p-2">Keine externen Analysewerkzeuge (kein Google Analytics, kein Matomo).</td></tr>
-          <tr><td class="p-2">Cookies</td><td class="p-2"><span class="text-green-600">✓ Ja</span></td><td class="p-2">Ausschließlich ein funktionaler Cookie zur Speicherung deiner Spracheinstellung (Local Storage). Kein Tracking.</td></tr>
-          <tr><td class="p-2">E‑Mail‑Kontakt</td><td class="p-2"><span class="text-yellow-600">⚠️ Nur bei Support</span></td><td class="p-2">Wenn du uns kontaktierst, wird deine E‑Mail‑Adresse zur Beantwortung verwendet und anschließend gelöscht (max. 90 Tage).</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Hochgeladene Bilder</td><td class="p-4 text-slate-700 dark:text-slate-300"><span class="text-red-600">✗ Nein</span></td><td class="p-4 text-slate-700 dark:text-slate-300">Alles lokal. Kein Upload, kein Speicher auf unseren Servern.</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Bearbeitungsergebnisse</td><td class="p-4 text-slate-700 dark:text-slate-300"><span class="text-red-600">✗ Nein</span></td><td class="p-4 text-slate-700 dark:text-slate-300">Du lädst direkt herunter, ohne Serverzwischenschritt.</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Nutzungsstatistiken</td><td class="p-4 text-slate-700 dark:text-slate-300"><span class="text-red-600">✗ Nein</span></td><td class="p-4 text-slate-700 dark:text-slate-300">Keine externen Analysewerkzeuge (kein Google Analytics, kein Matomo).</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">Cookies</td><td class="p-4 text-slate-700 dark:text-slate-300"><span class="text-green-600">✓ Ja</span></td><td class="p-4 text-slate-700 dark:text-slate-300">Ausschließlich ein funktionaler Cookie zur Speicherung deiner Spracheinstellung (Local Storage). Kein Tracking.</td></tr>
+          <tr><td class="p-4 text-slate-700 dark:text-slate-300">E‑Mail‑Kontakt</td><td class="p-4 text-slate-700 dark:text-slate-300"><span class="text-yellow-600">⚠️ Nur bei Support</span></td><td class="p-4 text-slate-700 dark:text-slate-300">Wenn du uns kontaktierst, wird deine E‑Mail‑Adresse zur Beantwortung verwendet und anschließend gelöscht (max. 90 Tage).</td></tr>
         </tbody>
       </table>
     </div>
@@ -2327,7 +2706,7 @@ export const dePages: SeoPage[] = [
 
   <div class="prose prose-slate dark:prose-invert max-w-none mt-6">
     <h3>Weitere Datenschutzinformationen</h3>
-    <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl border border-amber-200">
+    <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm border-amber-200">
       <ul class="list-disc list-inside space-y-2 text-sm text-amber-800 dark:text-amber-200">
         <li>Unsere Website wird über ein Content Delivery Network (CDN) ausgeliefert, das temporär die IP‑Adresse zur Auslieferung der Seiten benötigt. Diese Protokolle werden nicht mit Bilddaten verknüpft und nach spätestens 24 Stunden gelöscht.</li>
         <li>Für die Hintergrundentfernung wird ein KI‑Modell in deinen Browser heruntergeladen. Es ist vollständig lokal und kommuniziert nicht mit externen Servern.</li>

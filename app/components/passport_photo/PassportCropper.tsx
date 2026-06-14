@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Cropper from 'react-easy-crop';
-import { ArrowLeft, ArrowRight, Check, Image as ImageIcon, Info, Loader2, Wand2, ZoomIn, ZoomOut } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, Image as ImageIcon, Info, Loader2, Wand2, ZoomIn, ZoomOut,Eraser } from 'lucide-react';
 import imageCompression from 'browser-image-compression';
 import { removeBackground, Config } from '@imgly/background-removal';
 
@@ -57,6 +57,7 @@ export default function PassportCropper({ imageSrc, onComplete, onCancel }: Pass
     setIsRemovingBg(true);
     try {
       const config: Config = {
+        publicPath: 'https://unpkg.com/@imgly/background-removal-data@1.4.5/dist/',
         model: 'isnet_fp16',
         output: {
           format: 'image/png',
@@ -313,12 +314,12 @@ export default function PassportCropper({ imageSrc, onComplete, onCancel }: Pass
                 {useBgRemoved ? (
                   <>
                     <Check size={18} />
-                    Background Removed
+                    <span>Background Removed</span>
                   </>
                 ) : (
                   <>
-                    <Wand2 size={18} />
-                    Auto-Remove Background
+                    <Eraser size={18} />
+                    <span>Remove Background</span>
                   </>
                 )}
               </button>
