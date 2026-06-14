@@ -127,6 +127,18 @@ export default function Home() {
                 <Link href="/delete-background-from-photo" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Delete Background From Photo</Link>
               </div>
             </div>
+
+            {/* Internal Links for Passport & Visa Photo Tools */}
+            <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 not-prose mb-12">
+              <h3 className="text-lg font-bold mb-4 text-slate-800 dark:text-slate-200">Explore Our Passport & Visa Photo Tools</h3>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/passport-photo-maker" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Passport Photo Maker</Link>
+                <Link href="/passport-photo-size-maker" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Passport Photo Size Maker</Link>
+                <Link href="/pan-card-photo-resizer" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">PAN Card Photo Resizer</Link>
+                <Link href="/passport-photo-editor" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Passport Photo Editor</Link>
+                <Link href="/visa-photo-editor" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Visa Photo Editor</Link>
+              </div>
+            </div>
           </div>
         </section>
       </main>
