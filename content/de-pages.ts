@@ -18,6 +18,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Fotos sekundenschnell verkleinern – mit voller Kontrolle über Abmessungen, Qualität und Dateiformat.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Warum ein spezielles Tool zum Foto verkleinern?",
@@ -200,6 +201,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Jedes Bildformat verkleinern – präzise, schnell und direkt im Browser.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Bild verkleinern: Der smarte Allrounder für deine Fotos",
@@ -344,6 +346,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Exakte Abmessungen für jeden Zweck – vom Passbild bis zum Messebanner.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Präzise Bildgröße ändern – So funktioniert's",
@@ -482,6 +485,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Fotogrößen direkt im Browser anpassen – passgenau für jeden Kanal und jedes Format.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Foto Größe ändern leicht gemacht",
@@ -610,6 +614,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Weniger Kilobyte, gleicher Look – optimierte Bilder für schnelle Ladezeiten.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Effizientes Bild komprimieren für Web und E-Mail",
@@ -736,6 +741,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Schnell Speicherplatz sparen – ein Bild nach dem anderen oder im Stapel.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Bildgröße reduzieren für Festplatte & Cloud",
@@ -789,6 +795,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Resize your photos instantly – with a German interface you’ll love.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Foto Resizer – Der universelle Größenwandler",
@@ -836,6 +843,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Bildgrößen anpassen war nie einfacher – präzise, flexibel, werbefrei.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Bild Resizer für alle Gelegenheiten",
@@ -884,6 +892,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Keine Software, keine Registrierung – einfach Bild online verkleinern.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Bild online verkleinern – Der schnellste Weg",
@@ -930,6 +939,7 @@ export const dePages: SeoPage[] = [
     h1: "Foto online verkleinern",
     subtitle: "Verkleinere Fotos direkt im Browser – sicher und unkompliziert.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Warum ein Online-Tool für Foto verkleinern?",
@@ -979,6 +989,7 @@ export const dePages: SeoPage[] = [
     h1: "Minimize Photo Size",
     subtitle: "Shrink your photos without sacrificing sharpness.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "How Our Tool Helps You Minimize Photo Size",
@@ -1027,6 +1038,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Präzises Freistellen plus Größenänderung in einem Arbeitsschritt.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Der Photo Cropper Online mit eingebautem Resizer",
@@ -1075,6 +1087,7 @@ export const dePages: SeoPage[] = [
     h1: "Photo Image Resizer",
     subtitle: "Resize any image – from passport photos to web banners.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Photo Image Resizer für internationale Nutzer",
@@ -1122,6 +1135,7 @@ export const dePages: SeoPage[] = [
     h1: "Foto",
     subtitle: "Dein Schweizer Taschenmesser für alle Fotobearbeitungen.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Alles, was du mit deinem Foto anstellen kannst",
@@ -1169,6 +1183,7 @@ export const dePages: SeoPage[] = [
     h1: "Bild",
     subtitle: "Das universelle Bild-Tool für alle Größen und Formate.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Dein Bild im Mittelpunkt",
@@ -1218,6 +1233,7 @@ export const dePages: SeoPage[] = [
     h1: "Bearbeiten",
     subtitle: "Fotos bearbeiten wie ein Profi – ohne Vorkenntnisse.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Bilder bearbeiten in nur einem Fenster",
@@ -1265,6 +1281,7 @@ export const dePages: SeoPage[] = [
     h1: "Zuschneiden",
     subtitle: "Perfekte Bildausschnitte – Millimetergenau und ohne Aufwand.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Präzises Zuschneiden von Bildern",
@@ -1311,6 +1328,7 @@ export const dePages: SeoPage[] = [
     h1: "Drehen",
     subtitle: "Richte deine Fotos gerade aus – automatisch oder manuell.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Bild drehen leicht gemacht",
@@ -1358,6 +1376,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Automatische Hintergrundentfernung – präzise, schnell, transparent.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Hintergrund entfernen wie von Zauberhand",
@@ -1418,6 +1437,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Entferne den Bildhintergrund automatisch und lade dein Motiv ohne Umwege herunter.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Bildhintergrund entfernen für Profis",
@@ -1465,6 +1485,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Dein Foto, freigestellt in Sekunden – für Passbilder, Shops und soziale Medien.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Warum du den Foto-Hintergrund entfernen solltest",
@@ -1515,6 +1536,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Verwandle jeden Hintergrund in Transparenz – perfekt für Logos und Montagen.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Hintergrund transparent machen in drei Schritten",
@@ -1565,6 +1587,7 @@ export const dePages: SeoPage[] = [
     h1: "Bild freistellen",
     subtitle: "Freistellen wie die Profis – kein manuelles Maskieren nötig.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Bild freistellen leicht gemacht",
@@ -1613,6 +1636,7 @@ export const dePages: SeoPage[] = [
     h1: "Foto freistellen",
     subtitle: "Dein Foto, perfekt ausgeschnitten – ohne Photoshop-Kenntnisse.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Foto freistellen in Profiqualität",
@@ -1663,6 +1687,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Den Hintergrund löschen war nie einfacher – vollautomatisch und kostenfrei.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Hintergrund löschen für saubere Freisteller",
@@ -1712,6 +1737,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Nicht nur Personen – freigestellte Objekte für deinen Online-Shop.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Objekt freistellen für E-Commerce",
@@ -1762,6 +1788,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Erstelle dein Passfoto direkt zu Hause – biometrisch korrekt und günstig.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Dein Passfoto in wenigen Minuten",
@@ -1820,6 +1847,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Erstelle ein offiziell gültiges biometrisches Passfoto mit wenigen Klicks.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Biometrisches Passfoto – Der automatisierte Weg",
@@ -1869,6 +1897,7 @@ export const dePages: SeoPage[] = [
     h1: "Passfoto online",
     subtitle: "Das Passfoto online zu erstellen spart Zeit, Geld und Nerven.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Warum ein Passfoto online?",
@@ -1916,6 +1945,7 @@ export const dePages: SeoPage[] = [
     h1: "Passfoto Generator",
     subtitle: "Aus einem Selfie wird ein amtliches Passfoto – vollautomatisch.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "So arbeitet der Passfoto Generator",
@@ -1965,6 +1995,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Eine vollwertige Passfoto App – ohne Download, ohne Berechtigungen.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Die Passfoto App, die keine ist",
@@ -2013,6 +2044,7 @@ export const dePages: SeoPage[] = [
     h1: "Foto Pass",
     subtitle: "Der einfache Weg zum eigenen Passfoto – mit dem Foto Pass Tool.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Was ist Foto Pass?",
@@ -2060,6 +2092,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Erstelle dein Passfoto sofort – biometrisch geprüft, amtlich akzeptiert.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Passfoto erstellen in drei Schritten",
@@ -2110,6 +2143,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "„Near me“ war gestern – heute machst du dein Passbild direkt im Browser.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Kein Fotostudio mehr nötig",
@@ -2162,6 +2196,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Passe die Abmessungen deiner Bilder millimetergenau an – für jeden Zweck und jede Plattform.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Warum die Fotogröße ändern und wie unser Tool hilft",
@@ -2264,6 +2299,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Schneide, skaliere und formatiere dein Selfie für offizielle Dokumente – ganz ohne Fotostudio.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Der Passfoto Ersteller für alle amtlichen Lichtbilder",
@@ -2366,6 +2402,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Vom ersten Upload bis zum perfekten Ergebnis – alle Funktionen einfach erklärt.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Erste Schritte mit unseren Bildwerkzeugen",
@@ -2459,6 +2496,7 @@ export const dePages: SeoPage[] = [
     h1: "Kontakt",
     subtitle: "Wir freuen uns auf deine Nachricht und helfen dir gerne weiter.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "So erreichst du uns",
@@ -2559,6 +2597,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Rechtliche Grundlage für die Nutzung unserer Bildbearbeitungswerkzeuge.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Nutzungsbedingungen",
@@ -2661,6 +2700,7 @@ export const dePages: SeoPage[] = [
     subtitle:
       "Deine Privatsphäre ist das Herzstück unseres Dienstes – lese, wie wir sie gewährleisten.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Datenschutz auf einen Blick",

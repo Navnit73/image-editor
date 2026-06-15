@@ -3,6 +3,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import { ClientErrorSuppressor } from "./components/ClientErrorSuppressor";
 import ModelPreloader from "./components/ModelPreloader";
 import { LangUpdater } from "./components/LangUpdater";
+import { generateOrganizationSchema, generateWebSiteSchema } from "../lib/schema";
 import "./globals.css";
 import Script from "next/script";
 
@@ -52,6 +53,9 @@ export default function RootLayout({
 }>) {
   // Default to English, since we can't use headers() without opting into dynamic rendering.
   // The correct language will be updated by LangUpdater on the client if needed, or just left as en for SSG.
+  const orgSchema = generateOrganizationSchema();
+  const webSiteSchema = generateWebSiteSchema();
+  
   return (
     <html
       lang="en"
@@ -80,6 +84,11 @@ export default function RootLayout({
             gtag('config', 'G-1Z9MBM58SZ');
           `}
         </Script>
+        
+        {/* Global Structured Data */}
+        <Script id="org-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
+        <Script id="website-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }} />
+        
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <LangUpdater />
           <ClientErrorSuppressor />

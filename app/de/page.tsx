@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Script from "next/script";
 import PhotoEditor from "../components/editor/PhotoEditor";
 import BgRemoverApp from "../components/bg_removal/BgRemoverApp";
 
@@ -125,6 +126,19 @@ const FAQS = [
   },
 ];
 
+const deHomeFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": FAQS.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
 const USECASES = [
   { emoji: "🛒", title: "E-Commerce", desc: "Produktbilder freistellen, auf gleiche Größe bringen und für Online-Shops optimieren." },
   { emoji: "👤", title: "Bewerbung & LinkedIn", desc: "Professionelles Bewerbungsfoto mit neutralem Hintergrund in Minuten erstellen." },
@@ -140,6 +154,7 @@ export default function GermanHomePage() {
 
   return (
     <div className="min-h-screen bg-bg-root font-sans transition-colors duration-300">
+      <Script id="de-home-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(deHomeFaqSchema) }} />
       {/* ── Hero / Header ── */}
       <div className="bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 pt-10 pb-6">

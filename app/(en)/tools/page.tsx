@@ -1,11 +1,31 @@
 import React from 'react';
 import Link from 'next/link';
+import Script from 'next/script';
 import { enPages } from '../../../content/en-pages';
 import { Scissors, RefreshCw, Wand2, ArrowRight } from 'lucide-react';
 
 export default function ToolsPage() {
+  const validPages = enPages.filter(page => !['how-to-use', 'contact', 'terms', 'privacy'].includes(page.slug));
+
+  const toolsSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "All Free Image Tools",
+    "description": "Explore our complete collection of secure, browser-based image editing utilities. No downloads or sign-ups required.",
+    "url": "https://photoresizerai.com/tools",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": validPages.map((page, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `https://photoresizerai.com/${page.slug}`
+      }))
+    }
+  };
+
   return (
     <main className="max-w-7xl mx-auto px-4 py-12 md:py-16">
+      <Script id="tools-collection-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolsSchema) }} />
       <header className="mb-12 text-center">
         <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-4">
           All Free Image Tools
@@ -16,12 +36,7 @@ export default function ToolsPage() {
       </header>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {enPages.map((page) => {
-          // Exclude utility pages like privacy, terms, contact, how-to-use
-          if (['how-to-use', 'contact', 'terms', 'privacy'].includes(page.slug)) {
-            return null;
-          }
-
+        {validPages.map((page) => {
           const isPassport = page.showTool === 'passport-maker';
           const Icon = isPassport ? Scissors : (page.showTool === 'bg-remover' ? Wand2 : RefreshCw);
 

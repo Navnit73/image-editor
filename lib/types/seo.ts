@@ -33,7 +33,7 @@ export interface SeoPage {
   // Advanced Structured Data overrides
   // Allows per-page overrides for specific schema configurations
   structuredDataOverrides?: {
-    webPageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'FAQPage';
+    webPageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'FAQPage' | 'WebApplication';
     organizationName?: string;
   };
 }

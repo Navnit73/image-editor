@@ -11,6 +11,7 @@ export const enPages: SeoPage[] = [
       "Resize photos online free in seconds. Change dimensions, reduce file size, maintain quality. Browser-based — your images never leave your device. No signup required.",
     h1: "Free Online Photo Resizer",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     subtitle:
       "Resize any photo instantly — change dimensions, reduce file size, and keep quality sharp. 100% free, 100% private.",
     sections: [
@@ -178,6 +179,7 @@ export const enPages: SeoPage[] = [
       "Create passport photos online free. Auto-correct dimensions for US, UK, India, EU, China and 20+ countries. White background, JPEG output, instant download.",
     h1: "Free Passport Photo Maker",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     subtitle:
       "Create perfectly sized passport and ID photos for any country — cropped, formatted, and ready to print or upload.",
     sections: [
@@ -663,6 +665,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Resize any image to exact dimensions — pixels, centimeters, or a target file size in KB. Fast, free, and private.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Everything You Need to Know About Resizing Images",
@@ -810,6 +813,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Enter your target file size in KB and we automatically find the perfect quality — every time.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "How to Reduce Image Size to a Specific KB",
@@ -925,6 +929,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Compress any photo to exactly 20KB for government exam portals, UPSC, SSC, and bank forms — free and instant.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Why Government Forms Require Images Under 20KB",
@@ -1059,6 +1064,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Compress photos to exactly 50KB — perfect for job applications, bank forms, and online registrations.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "When You Need a Photo Under 50KB",
@@ -1144,6 +1150,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Set your photo to exactly 100KB — the most common limit for online registration and admission forms.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Compressing Photos to 100KB — The Right Way",
@@ -1230,6 +1237,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Compress photos to exactly 200KB — ideal for college applications, professional portals, and detailed form uploads.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "200KB — Higher Quality for Detailed Documents",
@@ -1323,6 +1331,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Change JPG image dimensions, reduce file size, and convert format — all free, right in your browser.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "JPG Resizing Guide — Everything You Need to Know",
@@ -1443,6 +1452,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Resize, compress, and convert JPEG photos in your browser — free, instant, private.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "JPEG Resizing — Complete Guide",
@@ -1540,6 +1550,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Resize static and animated GIFs — reduce dimensions and file size while preserving animation.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "How to Resize GIF Files — Static and Animated",
@@ -1672,6 +1683,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Resize animated GIFs while preserving every frame — make them smaller for messaging apps and social media.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "How to Resize Animated GIFs Without Breaking the Animation",
@@ -1771,6 +1783,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Get your digital signature to the exact pixel size required by any online form — instantly, free, no signup.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "How to Resize Your Signature for Online Forms",
@@ -1908,6 +1921,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Create government-compliant passport photos for any country — the right dimensions, the right format, free.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Create Perfect Passport Photos at Home",
@@ -2021,6 +2035,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Auto-resize your photo to the exact PAN card dimensions — 3.5×2.5cm, white background, JPEG, under 50KB.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "PAN Card Photo Requirements — Complete Guide",
@@ -2139,6 +2154,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Enter exact dimensions in CM with your chosen DPI — our tool converts to pixels and resizes instantly.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "How to Resize Images Using Centimeter Dimensions",
@@ -2280,6 +2296,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Enlarge photos and increase image resolution — free, browser-based, no signup required.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "How to Increase Image Size Without Losing Quality",
@@ -2413,6 +2430,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Compress and reduce image file size in KB or MB — keep maximum quality while hitting your size target.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "How to Reduce Image Size Without Losing Quality",
@@ -2535,6 +2553,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Set an exact megabyte target and our tool automatically compresses to hit it — fast and free.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Resizing Images to Specific MB Targets",
@@ -2607,6 +2626,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "One tool for all your photo and image resizing needs — pixels, KB targets, CM dimensions, format conversion.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Complete Photo and Image Resizing Tool",
@@ -2664,6 +2684,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Resize any picture to your exact specifications — dimensions, file size, or format — instantly and free.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Resize Pictures for Any Purpose",
@@ -2827,6 +2848,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Dramatically cut down your image file sizes for faster websites, easier sharing, and stress-free uploads.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Why Use an Image Reducer?",
@@ -2981,6 +3003,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Make your photos lightweight for any platform — from email attachments to government portals — without sacrificing visual clarity.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Your All-In-One Photo Size Reduction Toolkit",
@@ -3097,6 +3120,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Shrink your pictures to the perfect size for any screen, form, or platform — directly in your browser.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Shrink Any Picture, Not Just Photos",
@@ -3203,6 +3227,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Downscale your image's pixel grid with surgical precision — perfect for web publishing and DPI-sensitive submissions.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Downscale Resolution for Speed and Compliance",
@@ -3321,6 +3346,7 @@ export const enPages: SeoPage[] = [
     h1: "Reduce Image Dimensions",
     subtitle: "Reshape your image canvas to fit any digital space perfectly.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Pixel-Perfect Dimension Control for Every Platform",
@@ -3449,6 +3475,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Adapt your images to any format with pinpoint dimensional accuracy.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Comprehensive Guide to Changing Image Dimensions",
@@ -3573,6 +3600,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Gain absolute mastery over every single pixel in your image grid.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "The Definitive Pixel Resizing Workflow",
@@ -3729,6 +3757,7 @@ export const enPages: SeoPage[] = [
     h1: "Size Image",
     subtitle: "The all-in-one image sizing command center for web and print.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Mastering Image Sizing for Optimal Output",
@@ -3883,6 +3912,7 @@ export const enPages: SeoPage[] = [
     h1: "Photo Resizer In Kb",
     subtitle: "Hit your exact kilobyte target without guesswork.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "The Art and Science of KB-Level Photo Compression",
@@ -3972,6 +4002,7 @@ export const enPages: SeoPage[] = [
     h1: "Photo Kb Resize",
     subtitle: "Master your photo's file size down to the exact byte.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Precision File Size Control for Every Digital Requirement",
@@ -4114,6 +4145,7 @@ export const enPages: SeoPage[] = [
     h1: "Photo Kb Reducer",
     subtitle: "Aggressively shrink file size while protecting visual quality.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Eliminate Redundant Bytes, Preserve Visual Impact",
@@ -4232,6 +4264,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Achieve your byte budget without compromising your visual message.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Intelligent Kilobyte Reduction Across All Image Formats",
@@ -4351,6 +4384,7 @@ export const enPages: SeoPage[] = [
     h1: "Pic Size Reducer In Kb",
     subtitle: "Shrink your picture's kilobyte footprint with precision.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "The Essential Tool for Form-Ready Picture Compression",
@@ -4423,6 +4457,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "The last picture compressor you'll ever need for form compliance.",
     showTool: "photo-editor",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Achieving Form Compliance Through Intelligent Byte Reduction",
@@ -4503,6 +4538,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Strip any background from your images instantly with AI precision.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading:
@@ -4534,6 +4570,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Unlimited background removal, truly free. No watermarks, no sign-ups, no limits.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading:
@@ -4566,6 +4603,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Erase backgrounds with surgical precision, leaving only what matters.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Precision Background Erasing That Respects Every Pixel",
@@ -4597,6 +4635,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Transform your photos by removing distracting backgrounds in one click.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading:
@@ -4630,6 +4669,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Get a clean, transparent logo ready for any application in seconds.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading:
@@ -4662,6 +4702,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Make any picture background disappear with intelligent AI detection.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Clean Background Removal for Every Type of Picture",
@@ -4693,6 +4734,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Delete unwanted backgrounds completely and instantly from any image.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading:
@@ -4724,6 +4766,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Create clean, transparent PNGs with perfect alpha channels for any use.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "The Definitive Tool for Creating Transparent PNG Images",
@@ -4754,6 +4797,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Swap out picture backgrounds effortlessly and create stunning new compositions.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading:
@@ -4786,6 +4830,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Give your photos a completely new setting with intelligent background replacement.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Reimagine Your Photos with Professional Background Changes",
@@ -4817,6 +4862,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Clear away unwanted backgrounds and reveal the subject that matters.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading:
@@ -4850,6 +4896,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Background removal that meets the standards of professional designers.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading:
@@ -4882,6 +4929,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Erase photo backgrounds completely while keeping every detail of your subject.",
     showTool: "bg-remover",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "Precision Background Deletion for Every Type of Photograph",
@@ -4913,6 +4961,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Create compliant passport, ID, and visa photos instantly. Meet US, EU, France, and Germany standards with AI-powered background removal.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading: "How to Make a Professional Passport Photo for Any Country",
@@ -4951,6 +5000,7 @@ export const enPages: SeoPage[] = [
     subtitle:
       "Use our visa photo maker online to create compliant ID pictures. Works for EU visa, France visa, Germany visa, and global passports. Free app features with instant download.",
     showTool: "passport-maker",
+    structuredDataOverrides: { webPageType: "WebApplication" },
     sections: [
       {
         heading:

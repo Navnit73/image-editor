@@ -3,14 +3,48 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import Script from "next/script";
+
 const PhotoEditor = dynamic(() => import("../components/editor/PhotoEditor"), { ssr: false });
 const BgRemoverApp = dynamic(() => import("../components/bg_removal/BgRemoverApp"), { ssr: false });
+
+const homeFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the photoresizerai really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Our online photo editor is completely free to use. There are no hidden fees, no watermarks, and no premium subscriptions required to access core editing features."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my photos safe and private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. photoresizerai utilizes cutting-edge WebAssembly technology, meaning all photo editing and background removal happens entirely inside your local browser. Your images are never uploaded to our servers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you support bulk background removal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, switch to the \"Bulk BG Remover\" tab at the top of the page. You can drag and drop multiple images at once, and our AI will automatically remove the backgrounds in sequence."
+      }
+    }
+  ]
+};
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'editor' | 'bg_remover'>('editor');
 
   return (
     <div className="min-h-screen bg-bg-root p-4 md:p-8 font-sans transition-colors duration-300">
+      <Script id="home-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }} />
       <main className="max-w-[1400px] mx-auto">
         <header className="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>

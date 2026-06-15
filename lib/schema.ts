@@ -1,6 +1,6 @@
 import { SeoPage, Language } from './types/seo';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://photoresizerai.com';
 
 export function generateFAQSchema(page: SeoPage) {
   if (!page.faq || page.faq.length === 0) return null;
@@ -19,7 +19,6 @@ export function generateFAQSchema(page: SeoPage) {
 }
 
 export function generateBreadcrumbSchema(page: SeoPage, lang: Language) {
-  const langPrefix = lang === 'en' ? '' : `/de`; // Needs dynamic fixing, but keeping simple for now
   const actualPrefix = lang === 'en' ? '' : `/${lang}`;
   
   return {
@@ -44,7 +43,7 @@ export function generateBreadcrumbSchema(page: SeoPage, lang: Language) {
 
 export function generateWebPageSchema(page: SeoPage, lang: Language) {
   const type = page.structuredDataOverrides?.webPageType || 'WebPage';
-  const orgName = page.structuredDataOverrides?.organizationName || 'ExampleOrg';
+  const orgName = page.structuredDataOverrides?.organizationName || 'photoresizerai';
   
   return {
     '@context': 'https://schema.org',
@@ -54,6 +53,34 @@ export function generateWebPageSchema(page: SeoPage, lang: Language) {
     publisher: {
       '@type': 'Organization',
       name: orgName,
+    }
+  };
+}
+
+export function generateOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'photoresizerai',
+    url: baseUrl,
+    logo: `${baseUrl}/icon.svg`,
+    sameAs: []
+  };
+}
+
+export function generateWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'photoresizerai',
+    url: baseUrl,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${baseUrl}/tools?q={search_term_string}`
+      },
+      'query-input': 'required name=search_term_string'
     }
   };
 }
