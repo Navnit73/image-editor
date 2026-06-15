@@ -22,9 +22,7 @@ export default function SiteHeader() {
           {/* Logo & Brand */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-lime-500 to-purple-500 flex items-center justify-center text-white shadow-lg shadow-lime-500/30 group-hover:shadow-lime-500/50 transition-all duration-300 transform group-hover:scale-105">
-                <ImageIcon size={20} strokeWidth={2.5} />
-              </div>
+             
               <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">
                 photoresizer<span className="text-lime-600 dark:text-lime-400">ai</span>
               </span>
@@ -101,6 +99,7 @@ export default function SiteHeader() {
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 className="p-2 text-slate-600 dark:text-slate-400"
+                aria-label="Toggle dark mode"
               >
                 {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               </button>
@@ -108,6 +107,7 @@ export default function SiteHeader() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

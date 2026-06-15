@@ -47,10 +47,10 @@ export default function Home() {
           </div>
         </header>
 
-        <div className={activeTab === 'editor' ? 'block' : 'hidden'}>
+        <div className={activeTab === 'editor' ? 'block min-h-[600px] sm:min-h-[800px]' : 'hidden'}>
           <PhotoEditor />
         </div>
-        <div className={activeTab === 'bg_remover' ? 'block' : 'hidden'}>
+        <div className={activeTab === 'bg_remover' ? 'block min-h-[600px] sm:min-h-[800px]' : 'hidden'}>
           <BgRemoverApp />
         </div>
 
@@ -65,15 +65,15 @@ export default function Home() {
             <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">How to Use the Free Photo Editor</h3>
             <div className="grid sm:grid-cols-3 gap-6 mb-12 not-prose">
               <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-                <h4 className="font-bold text-lime-600 dark:text-lime-400 mb-2">1. Upload Image</h4>
+                <h4 className="font-bold text-lime-700 dark:text-lime-400 mb-2">1. Upload Image</h4>
                 <p className="text-sm text-slate-600 dark:text-slate-400">Simply drag and drop your photo into the workspace or click to browse files.</p>
               </div>
               <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-                <h4 className="font-bold text-lime-600 dark:text-lime-400 mb-2">2. Edit & Adjust</h4>
+                <h4 className="font-bold text-lime-700 dark:text-lime-400 mb-2">2. Edit & Adjust</h4>
                 <p className="text-sm text-slate-600 dark:text-slate-400">Use our powerful sidebar tools to crop, filter, remove backgrounds, or add text.</p>
               </div>
               <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-                <h4 className="font-bold text-lime-600 dark:text-lime-400 mb-2">3. Free Export</h4>
+                <h4 className="font-bold text-lime-700 dark:text-lime-400 mb-2">3. Free Export</h4>
                 <p className="text-sm text-slate-600 dark:text-slate-400">Download your edited masterpiece instantly in high-quality JPG, PNG, or WEBP formats.</p>
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function Home() {
             <div className="not-prose text-center sm:text-left mt-10">
               <Link 
                 href="/tools" 
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-lime-600 rounded-xl shadow-lg shadow-lime-500/30 hover:bg-lime-700 hover:-translate-y-1 hover:shadow-lime-500/40 transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-lime-600 rounded-xl shadow-lg shadow-lime-500/30 hover:bg-lime-800 hover:-translate-y-1 hover:shadow-lime-500/40 transition-all duration-300"
               >
                 Browse All 40+ Free Tools
                 <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>

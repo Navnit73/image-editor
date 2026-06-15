@@ -44,7 +44,7 @@ export default function LivePreview() {
       {/* Header */}
       <div className="flex items-center gap-2 px-4 py-3 border-b border-border-subtle bg-bg-input">
         <Eye size={14} className="text-accent-main" />
-        <h3 className="text-[10px] font-bold uppercase tracking-wider text-text-muted">{t.livePreview}</h3>
+        <div role="heading" aria-level={2} className="text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">{t.livePreview}</div>
         {isProcessing && (
           <div className="ml-auto flex items-center gap-1.5">
             <div className="w-3.5 h-3.5 border-2 border-accent-main border-t-transparent rounded-full animate-spin" />
@@ -140,6 +140,7 @@ export default function LivePreview() {
                 <div className="flex items-center border border-border-subtle rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-accent-main">
                   <input
                     type="text"
+                    aria-label="File name"
                     value={localName}
                     onChange={(e) => setLocalName(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleDownload()}
@@ -182,6 +183,7 @@ export default function LivePreview() {
                   </div>
                   <input
                     type="range" min="1" max="100" value={quality}
+                    aria-label="Image quality"
                     onChange={(e) => setQuality(Number(e.target.value))}
                     className="w-full accent-accent-main"
                   />

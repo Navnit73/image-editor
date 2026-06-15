@@ -170,7 +170,7 @@ export default function OriginalWorkspace() {
     <div className="flex-1 flex flex-col bg-bg-card border border-border-subtle rounded-xl overflow-hidden min-h-0 transition-colors duration-300">
       {/* Toolbar */}
       <div className="flex items-center gap-2 px-3 py-2.5 sm:px-4 sm:py-3 border-b border-border-subtle bg-bg-input">
-        <h3 className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-text-muted mr-auto">{t.canvas}</h3>
+        <div role="heading" aria-level={2} className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mr-auto">{t.canvas}</div>
         
         {imageFile && (
           <div className="flex items-center gap-1 bg-bg-root rounded-lg border border-border-subtle p-0.5 mr-2">
@@ -252,6 +252,7 @@ export default function OriginalWorkspace() {
             <span className="text-[10px] font-semibold text-text-muted uppercase tracking-wider mr-1">Custom:</span>
             <input
               type="number"
+              aria-label="Custom width"
               placeholder="W"
               value={completedCrop?.width && imageRef.current ? Math.round(completedCrop.width * (imageRef.current.naturalWidth / imageRef.current.width)) : ''}
               onChange={(e) => {
@@ -267,6 +268,7 @@ export default function OriginalWorkspace() {
             <span className="text-text-muted text-xs">×</span>
             <input
               type="number"
+              aria-label="Custom height"
               placeholder="H"
               value={completedCrop?.height && imageRef.current ? Math.round(completedCrop.height * (imageRef.current.naturalHeight / imageRef.current.height)) : ''}
               onChange={(e) => {
