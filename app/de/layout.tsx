@@ -1,6 +1,22 @@
 import React from 'react';
 import Link from 'next/link';
+import { Metadata } from 'next';
 import DeSiteHeader from './DeSiteHeader';
+
+export const metadata: Metadata = {
+  title: "Bilder Online Kostenlos Verkleinern, Hintergründe Entfernen & Fotos Bearbeiten | PhotoResizerAI",
+  description: "Bilder verkleinern, Fotos komprimieren, Hintergründe entfernen, Passfotos erstellen und Bilder online kostenlos bearbeiten. Keine Uploads erforderlich.",
+  alternates: {
+    canonical: '/de',
+    languages: {
+      en: '/',
+      de: '/de',
+      fr: '/fr',
+      es: '/es',
+      'x-default': '/',
+    },
+  },
+};
 
 export default function GermanLayout({ children }: { children: React.ReactNode }) {
   return (

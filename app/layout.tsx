@@ -9,8 +9,8 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://photoresizerai.com'),
-  title: "photoresizerai - Free Online Image Tools",
-  description: "Professional, fast, and fully local photo editing right in your browser. Remove backgrounds, resize images, create passport photos, and more. No uploads, 100% private.",
+  title: "Free Online Photo Resizer, Image Compressor & Background Remover | PhotoResizerAI",
+  description: "Resize images, compress photos, remove backgrounds, create passport photos and edit pictures online for free. No uploads required.",
   alternates: {
     canonical: '/',
     languages: {
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     icon: '/icon.svg',
   },
   openGraph: {
-    title: "photoresizerai - Free Online Image Tools",
-    description: "Professional, fast, and fully local photo editing right in your browser. Remove backgrounds, resize images, create passport photos, and more. No uploads, 100% private.",
+    title: "Free Online Photo Resizer, Image Compressor & Background Remover | PhotoResizerAI",
+    description: "Resize images, compress photos, remove backgrounds, create passport photos and edit pictures online for free. No uploads required.",
     type: "website",
     url: '/',
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "photoresizerai - Free Online Image Tools",
+    title: "Free Online Photo Resizer, Image Compressor & Background Remover | PhotoResizerAI",
     description: "Professional, fast, and fully local photo editing right in your browser. Remove backgrounds, resize images, create passport photos, and more. No uploads, 100% private.",
     images: ['/icon.svg'],
   },
@@ -86,8 +86,14 @@ export default function RootLayout({
         </Script>
         
         {/* Global Structured Data */}
-        <Script id="org-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
-        <Script id="website-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema, null, 2) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema, null, 2) }}
+        />
         
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <LangUpdater />

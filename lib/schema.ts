@@ -61,9 +61,9 @@ export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'photoresizerai',
+    name: 'PhotoResizerAI',
     url: baseUrl,
-    logo: `${baseUrl}/icon.svg`,
+    logo: `${baseUrl}/logo.png`,
     sameAs: []
   };
 }
@@ -72,7 +72,7 @@ export function generateWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'photoresizerai',
+    name: 'PhotoResizerAI',
     url: baseUrl,
     potentialAction: {
       '@type': 'SearchAction',
@@ -81,6 +81,39 @@ export function generateWebSiteSchema() {
         urlTemplate: `${baseUrl}/tools?q={search_term_string}`
       },
       'query-input': 'required name=search_term_string'
+    }
+  };
+}
+
+export function generateWebApplicationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'photoresizerai',
+    url: baseUrl,
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Any',
+    browserRequirements: 'Requires HTML5 and WebAssembly support (Chrome, Firefox, Safari, Edge).',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD'
+    }
+  };
+}
+
+export function generateSoftwareApplicationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'photoresizerai',
+    url: baseUrl,
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Any',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD'
     }
   };
 }

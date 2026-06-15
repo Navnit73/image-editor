@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import Script from "next/script";
 
 const PhotoEditor = dynamic(() => import("../components/editor/PhotoEditor"), { ssr: false });
 const BgRemoverApp = dynamic(() => import("../components/bg_removal/BgRemoverApp"), { ssr: false });
@@ -11,59 +10,206 @@ const BgRemoverApp = dynamic(() => import("../components/bg_removal/BgRemoverApp
 const homeFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
+  mainEntity: [
     {
       "@type": "Question",
-      "name": "Is the photoresizerai really free?",
-      "acceptedAnswer": {
+      name: "Is photoresizerai really free?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes! Our online photo editor is completely free to use. There are no hidden fees, no watermarks, and no premium subscriptions required to access core editing features."
-      }
+        text: "Yes! Our online photo editor is completely free to use. There are no hidden fees, no watermarks, and no premium subscriptions required to access core editing features.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Are my photos safe and private?",
-      "acceptedAnswer": {
+      name: "Are my photos safe and private?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Absolutely. photoresizerai utilizes cutting-edge WebAssembly technology, meaning all photo editing and background removal happens entirely inside your local browser. Your images are never uploaded to our servers."
-      }
+        text: "Absolutely. photoresizerai utilizes cutting-edge WebAssembly technology, meaning all photo editing and background removal happens entirely inside your local browser. Your images are never uploaded to our servers.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Do you support bulk background removal?",
-      "acceptedAnswer": {
+      name: "Do you support bulk background removal?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes, switch to the \"Bulk BG Remover\" tab at the top of the page. You can drag and drop multiple images at once, and our AI will automatically remove the backgrounds in sequence."
-      }
-    }
-  ]
+        text: 'Yes, switch to the "Bulk BG Remover" tab at the top of the page. You can drag and drop multiple images at once, and our AI will automatically remove the backgrounds in sequence.',
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What image formats are supported?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We support JPG, PNG, WEBP, BMP, and GIF files as input. You can export your edited images in JPG, PNG, or WEBP format.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is there a file size limit?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Since all processing happens in your browser, the practical limit is your device's RAM. Most modern devices handle images up to 20–30 MB without issue.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I use this on mobile?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, photoresizerai is fully responsive and works on smartphones and tablets. For complex editing tasks, a desktop browser provides a more comfortable experience.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How accurate is the AI background remover?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our AI model is trained on millions of images and handles complex edges like hair, fur, and transparent objects with high accuracy. For most subjects, the result is clean enough to use without manual touch-up.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do I need to create an account?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No account is needed. Open the site, upload your photo, and start editing immediately. No sign-up, no login, no email required.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I resize images to exact pixel dimensions?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. The resize tool lets you set exact width and height in pixels, with optional aspect-ratio lock so your image never gets distorted.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What makes this different from Photoshop or Canva?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Unlike Photoshop, there is nothing to install and no subscription to pay. Unlike Canva, your images never leave your device — everything is processed locally. It is the fastest, most private way to do quick professional edits.",
+      },
+    },
+  ],
 };
 
+const FEATURES = [
+  {
+    icon: "🖼️",
+    title: "Resize & Crop",
+    desc: "Set exact pixel dimensions, lock aspect ratio, or crop to any preset — social banners, passport photos, thumbnails, and more.",
+  },
+  {
+    icon: "🤖",
+    title: "AI Background Remover",
+    desc: "One-click background removal powered by a WebAssembly AI model. Works on people, products, logos, and pets with sharp edge detection.",
+  },
+  {
+    icon: "📦",
+    title: "Image Compressor",
+    desc: "Reduce file size without visible quality loss. Ideal for faster web pages, email attachments, and app uploads.",
+  },
+  {
+    icon: "🎨",
+    title: "Filters & Adjustments",
+    desc: "Fine-tune brightness, contrast, saturation, and sharpness. Apply one-click filters for instant style transformations.",
+  },
+  {
+    icon: "✏️",
+    title: "Text & Watermark",
+    desc: "Add custom text overlays or watermarks with full font, size, color, and opacity control.",
+  },
+  {
+    icon: "🔄",
+    title: "Format Converter",
+    desc: "Convert between JPG, PNG, and WEBP in seconds. Perfect for optimizing images for web or print.",
+  },
+];
+
+const USE_CASES = [
+  {
+    title: "E-commerce Sellers",
+    desc: "Remove backgrounds from product photos and place them on clean white backgrounds — Amazon, Shopify, and eBay ready in seconds.",
+    emoji: "🛒",
+  },
+  {
+    title: "Social Media Managers",
+    desc: "Resize images to exact platform specs: Instagram squares, Twitter banners, LinkedIn covers, and YouTube thumbnails.",
+    emoji: "📱",
+  },
+  {
+    title: "HR & Government Forms",
+    desc: "Create passport-compliant photos with precise dimensions and white backgrounds for visa applications and ID cards.",
+    emoji: "🪪",
+  },
+  {
+    title: "Bloggers & Content Creators",
+    desc: "Compress and optimize images for faster page load speeds without sacrificing visual quality.",
+    emoji: "✍️",
+  },
+  {
+    title: "Designers & Freelancers",
+    desc: "Quickly prepare client assets — cut out logos, isolate subjects, and batch-process product images.",
+    emoji: "🎨",
+  },
+  {
+    title: "Students & Job Seekers",
+    desc: "Prepare professional-looking profile photos and document images without expensive software.",
+    emoji: "🎓",
+  },
+];
+
+const COMPARISON = [
+  { feature: "Free to use", us: true, photoshop: false, canva: "Partial", removebg: "Partial" },
+  { feature: "No upload to servers", us: true, photoshop: true, canva: false, removebg: false },
+  { feature: "AI background removal", us: true, photoshop: true, canva: true, removebg: true },
+  { feature: "Bulk background removal", us: true, photoshop: false, canva: false, removebg: "Paid" },
+  { feature: "Image compression", us: true, photoshop: true, canva: false, removebg: false },
+  { feature: "Passport photo maker", us: true, photoshop: false, canva: false, removebg: false },
+  { feature: "No account required", us: true, photoshop: false, canva: false, removebg: false },
+  { feature: "Works on mobile", us: true, photoshop: false, canva: true, removebg: true },
+  { feature: "Format conversion", us: true, photoshop: true, canva: "Partial", removebg: false },
+  { feature: "Text & watermarks", us: true, photoshop: true, canva: true, removebg: false },
+];
+
+function CellIcon({ val }: { val: boolean | string }) {
+  if (val === true) return <span className="text-lime-600 dark:text-lime-400 font-bold text-lg">✓</span>;
+  if (val === false) return <span className="text-red-400 font-bold text-lg">✗</span>;
+  return <span className="text-amber-500 text-sm font-medium">{val}</span>;
+}
+
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'editor' | 'bg_remover'>('editor');
+  const [activeTab, setActiveTab] = useState<"editor" | "bg_remover">("editor");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-bg-root p-4 md:p-8 font-sans transition-colors duration-300">
-      <Script id="home-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }} />
+      <script
+        id="home-faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema, null, 2) }}
+      />
       <main className="max-w-[1400px] mx-auto">
+        {/* ── Header ── */}
         <header className="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight text-text-main">
-              Free Online photoresizerai
+              Free Online Photo Resizer, Image Compressor &amp; Background Remover
             </h1>
             <p className="mt-2 text-text-muted">
               Professional, fast, and fully local photo editing right in your browser. No uploads, 100% private.
             </p>
           </div>
-          
+
           {/* Tab Switcher */}
           <div className="flex p-1 bg-bg-card rounded-xl border border-border-subtle shadow-sm w-full md:w-auto self-start">
             <button
-              onClick={() => setActiveTab('editor')}
+              onClick={() => setActiveTab("editor")}
               className={`flex-1 md:w-36 py-2 px-4 text-sm font-semibold rounded-lg transition-all ${
-                activeTab === 'editor'
-                  ? 'bg-accent-main text-white shadow-md'
-                  : 'text-text-muted hover:text-text-main hover:bg-bg-input'
+                activeTab === "editor"
+                  ? "bg-accent-main text-white shadow-md"
+                  : "text-text-muted hover:text-text-main hover:bg-bg-input"
               }`}
             >
               Photo Editor
@@ -71,9 +217,9 @@ export default function Home() {
             <Link
               href="/picture-background-remover"
               className={`flex-1 text-center md:w-44 py-2 px-4 text-sm font-semibold rounded-lg transition-all ${
-                activeTab === 'bg_remover'
-                  ? 'bg-lime-600 dark:bg-lime-500 text-white shadow-md'
-                  : 'text-text-muted hover:text-text-main hover:bg-bg-input block'
+                activeTab === "bg_remover"
+                  ? "bg-lime-600 dark:bg-lime-500 text-white shadow-md"
+                  : "text-text-muted hover:text-text-main hover:bg-bg-input block"
               }`}
             >
               Bulk BG Remover
@@ -81,100 +227,250 @@ export default function Home() {
           </div>
         </header>
 
-        <div className={activeTab === 'editor' ? 'block min-h-[600px] sm:min-h-[800px]' : 'hidden'}>
+        {/* ── Tool panels ── */}
+        <div className={activeTab === "editor" ? "block min-h-[600px] sm:min-h-[800px]" : "hidden"}>
           <PhotoEditor />
         </div>
-        <div className={activeTab === 'bg_remover' ? 'block min-h-[600px] sm:min-h-[800px]' : 'hidden'}>
+        <div className={activeTab === "bg_remover" ? "block min-h-[600px] sm:min-h-[800px]" : "hidden"}>
           <BgRemoverApp />
         </div>
 
-        {/* SEO Content Section */}
-        <section className="mt-16 max-w-4xl mx-auto px-4 md:px-0">
-          <div className="prose prose-slate dark:prose-invert max-w-none">
-            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">The Best Free Online photoresizerai</h2>
-            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-              Welcome to photoresizerai, your ultimate destination for professional-grade photo manipulation without the need to download heavy software. Whether you need to crop a profile picture, remove a background for an e-commerce product, or resize a batch of images for social media, our suite of tools handles it all instantly and securely.
+        {/* ══════════════════════════════════════════
+            SEO CONTENT
+        ══════════════════════════════════════════ */}
+        <section className="mt-16 max-w-5xl mx-auto px-4 md:px-0 space-y-20">
+
+          {/* ── Intro ── */}
+          <div>
+            <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">
+              The Best Free Online Photo Editor — No Software, No Sign-Up
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              photoresizerai is a zero-installation, zero-upload photo editor that runs entirely inside your browser. Using
+              WebAssembly technology, every crop, resize, compression, and AI background removal operation happens locally on
+              your device. Your photos never touch a server — not even ours.
             </p>
-
-            <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">How to Use the Free Photo Editor</h3>
-            <div className="grid sm:grid-cols-3 gap-6 mb-12 not-prose">
-              <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-                <h4 className="font-bold text-lime-700 dark:text-lime-400 mb-2">1. Upload Image</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400">Simply drag and drop your photo into the workspace or click to browse files.</p>
-              </div>
-              <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-                <h4 className="font-bold text-lime-700 dark:text-lime-400 mb-2">2. Edit & Adjust</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400">Use our powerful sidebar tools to crop, filter, remove backgrounds, or add text.</p>
-              </div>
-              <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-                <h4 className="font-bold text-lime-700 dark:text-lime-400 mb-2">3. Free Export</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400">Download your edited masterpiece instantly in high-quality JPG, PNG, or WEBP formats.</p>
-              </div>
-            </div>
-
-            <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">Frequently Asked Questions (FAQ)</h3>
-            <div className="space-y-4 mb-12 not-prose">
-              <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-                <h4 className="font-bold text-slate-900 dark:text-white mb-2">Is the photoresizerai really free?</h4>
-                <p className="text-slate-600 dark:text-slate-400">Yes! Our online photo editor is completely free to use. There are no hidden fees, no watermarks, and no premium subscriptions required to access core editing features.</p>
-              </div>
-              <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-                <h4 className="font-bold text-slate-900 dark:text-white mb-2">Are my photos safe and private?</h4>
-                <p className="text-slate-600 dark:text-slate-400">Absolutely. photoresizerai utilizes cutting-edge WebAssembly technology, meaning all photo editing and background removal happens entirely inside your local browser. Your images are never uploaded to our servers.</p>
-              </div>
-              <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-                <h4 className="font-bold text-slate-900 dark:text-white mb-2">Do you support bulk background removal?</h4>
-                <p className="text-slate-600 dark:text-slate-400">Yes, switch to the "Bulk BG Remover" tab at the top of the page. You can drag and drop multiple images at once, and our AI will automatically remove the backgrounds in sequence.</p>
-              </div>
-            </div>
-
-            <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">Why Choose Our Online photoresizerai?</h3>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-              When looking for a fast, reliable, and secure way to edit photos online, privacy and speed are crucial. Because we do not upload your data to remote cloud servers, you benefit from instantaneous edits and zero wait times. Whether you are creating a passport photo, designing social media graphics, or just doing a quick crop, everything you need is right here.
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              Whether you are an e-commerce seller preparing product photos, a job seeker making a passport picture, or a
+              social media manager resizing banners for five platforms at once, photoresizerai gives you professional-grade
+              results in seconds — completely free, with no watermarks.
             </p>
+          </div>
 
-            <div className="not-prose text-center sm:text-left mt-10">
-              <Link 
-                href="/tools" 
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-lime-600 rounded-xl shadow-lg shadow-lime-500/30 hover:bg-lime-800 hover:-translate-y-1 hover:shadow-lime-500/40 transition-all duration-300"
-              >
-                Browse All 40+ Free Tools
-                <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-              </Link>
-            </div>
-
-            {/* Internal Links for Background Remover Pages */}
-            <div className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 not-prose">
-              <h3 className="text-lg font-bold mb-4 text-slate-800 dark:text-slate-200">Explore Our Background Removal Tools</h3>
-              <div className="flex flex-wrap gap-2">
-                <Link href="/bg-removal" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">BG Removal</Link>
-                <Link href="/free-background-remover" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Free Background Remover</Link>
-                <Link href="/background-eraser" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Background Eraser</Link>
-                <Link href="/photo-background-remover" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Photo Background Remover</Link>
-                <Link href="/remove-background-from-logo" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Remove Background From Logo</Link>
-                <Link href="/picture-background-remover" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Picture Background Remover</Link>
-                <Link href="/delete-background" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Delete Background</Link>
-                <Link href="/background-remover-png" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Background Remover PNG</Link>
-                <Link href="/change-picture-background" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Change Picture Background</Link>
-                <Link href="/photo-background-changer" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Photo Background Changer</Link>
-                <Link href="/clear-background" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Clear Background</Link>
-                <Link href="/high-quality-background-remover" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">High Quality Background Remover</Link>
-                <Link href="/delete-background-from-photo" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Delete Background From Photo</Link>
-              </div>
-            </div>
-
-            {/* Internal Links for Passport & Visa Photo Tools */}
-            <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 not-prose mb-12">
-              <h3 className="text-lg font-bold mb-4 text-slate-800 dark:text-slate-200">Explore Our Passport & Visa Photo Tools</h3>
-              <div className="flex flex-wrap gap-2">
-                <Link href="/passport-photo-maker" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Passport Photo Maker</Link>
-                <Link href="/passport-photo-size-maker" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Passport Photo Size Maker</Link>
-                <Link href="/pan-card-photo-resizer" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">PAN Card Photo Resizer</Link>
-                <Link href="/passport-photo-editor" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Passport Photo Editor</Link>
-                <Link href="/visa-photo-editor" className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">Visa Photo Editor</Link>
-              </div>
+          {/* ── How to Use ── */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6 text-slate-800 dark:text-slate-100">
+              How to Edit Photos Online in 3 Steps
+            </h2>
+            <div className="grid sm:grid-cols-3 gap-6">
+              {[
+                { step: "1", title: "Upload Your Image", body: "Drag and drop a JPG, PNG, or WEBP file into the editor — or click to browse. No file size account gate." },
+                { step: "2", title: "Edit & Adjust", body: "Crop, resize, compress, remove backgrounds, apply filters, add text, or convert the format. All tools are free and instant." },
+                { step: "3", title: "Download for Free", body: "Save your finished photo in JPG, PNG, or WEBP. No watermark, no login, no credits needed." },
+              ].map(({ step, title, body }) => (
+                <div key={step} className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 relative overflow-hidden">
+                  <span className="absolute top-4 right-4 text-6xl font-black text-slate-100 dark:text-slate-700 select-none leading-none">{step}</span>
+                  <h3 className="font-bold text-lime-700 dark:text-lime-400 mb-2 relative">{title}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 relative">{body}</p>
+                </div>
+              ))}
             </div>
           </div>
+
+          {/* ── Features ── */}
+          <div>
+            <h2 className="text-2xl font-bold mb-2 text-slate-800 dark:text-slate-100">
+              Everything You Need in One Free Tool
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+              Most free online editors lock key features behind a paywall. photoresizerai gives you the full toolkit upfront — no
+              tiers, no trial limits.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {FEATURES.map(({ icon, title, desc }) => (
+                <div key={title} className="flex gap-4 bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                  <span className="text-2xl flex-shrink-0">{icon}</span>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 dark:text-white mb-1">{title}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Use Cases ── */}
+          <div>
+            <h2 className="text-2xl font-bold mb-2 text-slate-800 dark:text-slate-100">
+              Who Uses photoresizerai?
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+              Our tool is used by over a million people across dozens of professions. Here are the most common workflows.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {USE_CASES.map(({ emoji, title, desc }) => (
+                <div key={title} className="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                  <div className="text-3xl mb-3">{emoji}</div>
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-1">{title}</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Comparison Table ── */}
+          <div>
+            <h2 className="text-2xl font-bold mb-2 text-slate-800 dark:text-slate-100">
+              photoresizerai vs. Photoshop, Canva &amp; remove.bg
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+              See how we compare to the most popular photo editing and background removal tools on the market.
+            </p>
+            <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-slate-100 dark:bg-slate-800">
+                    <th className="text-left p-4 font-semibold text-slate-700 dark:text-slate-300">Feature</th>
+                    <th className="p-4 font-semibold text-lime-700 dark:text-lime-400">photoresizerai</th>
+                    <th className="p-4 font-semibold text-slate-600 dark:text-slate-400">Photoshop</th>
+                    <th className="p-4 font-semibold text-slate-600 dark:text-slate-400">Canva</th>
+                    <th className="p-4 font-semibold text-slate-600 dark:text-slate-400">remove.bg</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {COMPARISON.map(({ feature, us, photoshop, canva, removebg }, i) => (
+                    <tr
+                      key={feature}
+                      className={`border-t border-slate-100 dark:border-slate-700/60 ${i % 2 === 0 ? "bg-white dark:bg-slate-900/30" : "bg-slate-50/60 dark:bg-slate-800/20"}`}
+                    >
+                      <td className="p-4 text-slate-700 dark:text-slate-300">{feature}</td>
+                      <td className="p-4 text-center"><CellIcon val={us} /></td>
+                      <td className="p-4 text-center"><CellIcon val={photoshop} /></td>
+                      <td className="p-4 text-center"><CellIcon val={canva} /></td>
+                      <td className="p-4 text-center"><CellIcon val={removebg} /></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* ── Why Us ── */}
+          <div className="bg-gradient-to-br from-lime-50 to-emerald-50 dark:from-slate-800/50 dark:to-slate-900/50 rounded-3xl p-8 border border-lime-100 dark:border-slate-700">
+            <h2 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">
+              Why Privacy-First Photo Editing Matters
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Most online photo editors send your images to a remote server, process them, and send them back. That means a copy
+              of your photo — which might contain personal information, proprietary product images, or confidential documents — 
+              exists on someone else's infrastructure, even briefly.
+            </p>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              photoresizerai works differently. By running entirely in your browser using WebAssembly, we eliminate that risk
+              entirely. No image data leaves your device at any point. This makes us the preferred choice for HR professionals
+              processing ID photos, legal teams working with contract documents, and medical staff handling patient images.
+            </p>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              The local-first approach also means there is zero latency waiting for a server response. Your edits are instant
+              because the work happens on your own CPU and GPU.
+            </p>
+          </div>
+
+          {/* ── FAQ ── */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6 text-slate-800 dark:text-slate-100">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-3">
+              {homeFaqSchema.mainEntity.map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+                >
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full flex justify-between items-center p-5 text-left gap-4"
+                    aria-expanded={openFaq === i}
+                  >
+                    <span className="font-semibold text-slate-900 dark:text-white">{item.name}</span>
+                    <span className={`flex-shrink-0 text-lime-600 dark:text-lime-400 transition-transform duration-200 ${openFaq === i ? "rotate-45" : ""}`}>
+                      ＋
+                    </span>
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-5 pb-5 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                      {item.acceptedAnswer.text}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── CTA ── */}
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-3 text-slate-800 dark:text-slate-100">Ready to Edit Your Photos?</h2>
+            <p className="text-slate-500 dark:text-slate-400 mb-6">No account. No downloads. Start immediately — it's free.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <button
+                onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); setActiveTab("editor"); }}
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-black bg-lime-500 rounded-xl shadow-lg shadow-lime-500/30 hover:bg-lime-400 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Open Photo Editor →
+              </button>
+              <Link
+                href="/tools"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Browse All 40+ Tools
+              </Link>
+            </div>
+          </div>
+
+          {/* ── Internal links: BG Removal ── */}
+          <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
+            <h3 className="text-lg font-bold mb-4 text-slate-800 dark:text-slate-200">Background Removal Tools</h3>
+            <div className="flex flex-wrap gap-2">
+              {[
+                ["/bg-removal", "BG Removal"],
+                ["/free-background-remover", "Free Background Remover"],
+                ["/background-eraser", "Background Eraser"],
+                ["/photo-background-remover", "Photo Background Remover"],
+                ["/remove-background-from-logo", "Remove Background From Logo"],
+                ["/picture-background-remover", "Picture Background Remover"],
+                ["/delete-background", "Delete Background"],
+                ["/background-remover-png", "Background Remover PNG"],
+                ["/change-picture-background", "Change Picture Background"],
+                ["/photo-background-changer", "Photo Background Changer"],
+                ["/clear-background", "Clear Background"],
+                ["/high-quality-background-remover", "High Quality Background Remover"],
+                ["/delete-background-from-photo", "Delete Background From Photo"],
+              ].map(([href, label]) => (
+                <Link key={href} href={href} className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Internal links: Passport ── */}
+          <div className="pt-8 border-t border-slate-200 dark:border-slate-800 pb-12">
+            <h3 className="text-lg font-bold mb-4 text-slate-800 dark:text-slate-200">Passport &amp; Visa Photo Tools</h3>
+            <div className="flex flex-wrap gap-2">
+              {[
+                ["/passport-photo-maker", "Passport Photo Maker"],
+                ["/passport-photo-size-maker", "Passport Photo Size Maker"],
+                ["/pan-card-photo-resizer", "PAN Card Photo Resizer"],
+                ["/passport-photo-editor", "Passport Photo Editor"],
+                ["/visa-photo-editor", "Visa Photo Editor"],
+              ].map(([href, label]) => (
+                <Link key={href} href={href} className="text-sm px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-lime-600 dark:hover:text-lime-400 rounded-lg transition-colors">
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
         </section>
       </main>
     </div>
