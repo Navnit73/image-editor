@@ -2,7 +2,7 @@
 
 // No external dependencies needed — export uses native Canvas API
 
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import TemplateGallery, { TEMPLATES, Template } from './TemplateGallery';
 import HowItWorksSteps from './HowItWorksSteps';
 
@@ -52,9 +52,26 @@ function clampPan(panX: number, panY: number, zoom: number, boxWidth: number, bo
   };
 }
 
+// Revoke a blob: URL safely (no-op for non-blob URLs, e.g. remote/data URLs)
+function revokeIfBlobUrl(src: string | null | undefined) {
+  if (src && src.startsWith('blob:')) {
+    try {
+      URL.revokeObjectURL(src);
+    } catch {
+      // ignore
+    }
+  }
+}
+
 const DownloadIcon = () => (
   <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+  </svg>
+);
+
+const PlusIcon = () => (
+  <svg className="w-6 h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
   </svg>
 );
 
@@ -87,7 +104,7 @@ export default function CollageMakerTool() {
   const slotRefs = useRef<(HTMLDivElement | null)[]>([]);
   const wheelCleanups = useRef<Map<number, () => void>>(new Map());
 
-  // Pointer-drag-to-pan state
+  // Pointer-drag-to-pan state (single finger / mouse)
   const slotInteraction = useRef<{
     index: number;
     pointerId: number;
@@ -101,21 +118,32 @@ export default function CollageMakerTool() {
     moved: boolean;
   } | null>(null);
 
+  // Multi-touch pinch-to-zoom state — tracks every active pointer per slot
+  // and derives zoom from the change in distance between the first two.
+  const activePointers = useRef<Map<number, Map<number, { x: number; y: number }>>>(new Map());
+  const pinchState = useRef<{
+    index: number;
+    startDist: number;
+    startZoom: number;
+    containerW: number;
+    containerH: number;
+  } | null>(null);
+
   const steps = [
     { title: 'Upload', desc: 'Drag and drop photos — or whole folders — onto the canvas, or browse to select them.' },
     { title: 'Choose a Template', desc: 'Pick a ready-made layout for 4, 6, 7, 8, 9, or 10 photos.' },
-    { title: 'Customize', desc: 'Scroll on a photo to zoom in/out, then drag to reposition it inside the frame. Add text, stickers, borders, and colors.' },
+    { title: 'Customize', desc: 'Pinch or scroll on a photo to zoom in/out, then drag to reposition it inside the frame. Add text, stickers, borders, and colors.' },
     { title: 'Download', desc: 'Save your finished collage instantly in high quality.' },
   ];
 
   // ---------- Template handling ----------
-  const handleTemplateSelect = (t: Template) => {
+  const handleTemplateSelect = useCallback((t: Template) => {
     setTemplate(t);
     setSlots((prev) =>
       Array.from({ length: t.slots }, (_, i) => prev[i] || { src: null, zoom: 1, panX: 0, panY: 0 })
     );
     setSelectedSlot(null);
-  };
+  }, []);
 
   // ---------- Image loading helpers ----------
   const fillEmptySlotsWithFiles = useCallback((files: File[]) => {
@@ -132,6 +160,7 @@ export default function CollageMakerTool() {
       }
       while (fileIndex < imageFiles.length && next.length > 0) {
         const i = fileIndex % next.length;
+        revokeIfBlobUrl(next[i].src);
         next[i] = { src: URL.createObjectURL(imageFiles[fileIndex]), zoom: 1, panX: 0, panY: 0 };
         fileIndex++;
       }
@@ -139,13 +168,14 @@ export default function CollageMakerTool() {
     });
   }, []);
 
-  const replaceSlotWithFile = (index: number, file: File) => {
+  const replaceSlotWithFile = useCallback((index: number, file: File) => {
     setSlots((prev) => {
       const next = [...prev];
+      revokeIfBlobUrl(next[index]?.src);
       next[index] = { src: URL.createObjectURL(file), zoom: 1, panX: 0, panY: 0 };
       return next;
     });
-  };
+  }, []);
 
   async function getFilesFromDataTransfer(dt: DataTransfer): Promise<File[]> {
     const items = dt.items;
@@ -177,21 +207,21 @@ export default function CollageMakerTool() {
   }
 
   // ---------- Dropzone ----------
-  const handleStageDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDraggingFile(true); };
-  const handleStageDragLeave = () => setIsDraggingFile(false);
-  const handleStageDrop = async (e: React.DragEvent) => {
+  const handleStageDragOver = useCallback((e: React.DragEvent) => { e.preventDefault(); setIsDraggingFile(true); }, []);
+  const handleStageDragLeave = useCallback(() => setIsDraggingFile(false), []);
+  const handleStageDrop = useCallback(async (e: React.DragEvent) => {
     e.preventDefault();
     setIsDraggingFile(false);
     const files = await getFilesFromDataTransfer(e.dataTransfer);
     fillEmptySlotsWithFiles(files);
-  };
+  }, [fillEmptySlotsWithFiles]);
 
-  const handleBulkInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleBulkInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) fillEmptySlotsWithFiles(Array.from(e.target.files));
     e.target.value = '';
-  };
+  }, [fillEmptySlotsWithFiles]);
 
-  const handleSlotInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSlotInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const index = activeSlotForUpload.current;
     if (index !== null && e.target.files && e.target.files.length > 0) {
       const files = Array.from(e.target.files);
@@ -199,22 +229,32 @@ export default function CollageMakerTool() {
       if (files.length > 1) fillEmptySlotsWithFiles(files.slice(1));
     }
     e.target.value = '';
-  };
+  }, [replaceSlotWithFile, fillEmptySlotsWithFiles]);
 
-  const openSlotUpload = (index: number) => {
+  const openSlotUpload = useCallback((index: number) => {
     activeSlotForUpload.current = index;
     slotFileInputRef.current?.click();
-  };
+  }, []);
 
-  // ---------- Slot reordering ----------
-  const handleSlotDragStart = (e: React.DragEvent, index: number) => {
+  // Mobile FAB: jump straight to the first empty slot (or bulk-fill if all full)
+  const openMobileAddPhoto = useCallback(() => {
+    const emptyIndex = slots.findIndex((s) => !s.src);
+    if (emptyIndex !== -1) {
+      openSlotUpload(emptyIndex);
+    } else {
+      bulkFileInputRef.current?.click();
+    }
+  }, [slots, openSlotUpload]);
+
+  // ---------- Slot reordering (mouse/desktop drag-and-drop) ----------
+  const handleSlotDragStart = useCallback((e: React.DragEvent, index: number) => {
     if (!slots[index].src) { e.preventDefault(); return; }
     e.dataTransfer.setData('text/plain', index.toString());
     e.dataTransfer.effectAllowed = 'move';
     draggedSlotIndex.current = index;
-  };
-  const handleSlotDragOver = (e: React.DragEvent) => e.preventDefault();
-  const handleSlotDrop = (e: React.DragEvent, index: number) => {
+  }, [slots]);
+  const handleSlotDragOver = useCallback((e: React.DragEvent) => e.preventDefault(), []);
+  const handleSlotDrop = useCallback((e: React.DragEvent, index: number) => {
     e.preventDefault();
     e.stopPropagation();
     const from = draggedSlotIndex.current;
@@ -225,18 +265,23 @@ export default function CollageMakerTool() {
       [next[from], next[index]] = [next[index], next[from]];
       return next;
     });
-  };
+  }, []);
 
   // ---------- Slot zoom/pan ----------
-  const updateSlot = (index: number, updates: Partial<SlotData>) => {
+  const updateSlot = useCallback((index: number, updates: Partial<SlotData>) => {
     setSlots((prev) => prev.map((s, i) => (i === index ? { ...s, ...updates } : s)));
-  };
-  const removeSlotImage = (index: number) => {
-    updateSlot(index, { src: null, zoom: 1, panX: 0, panY: 0 });
+  }, []);
+  const removeSlotImage = useCallback((index: number) => {
+    setSlots((prev) => {
+      const next = [...prev];
+      revokeIfBlobUrl(next[index]?.src);
+      next[index] = { src: null, zoom: 1, panX: 0, panY: 0 };
+      return next;
+    });
     setSelectedSlot(null);
-  };
+  }, []);
 
-  // Native wheel listener — passive:false so we can preventDefault
+  // Native wheel listener — passive:false so we can preventDefault (desktop trackpad/mouse zoom)
   const setSlotImageRef = useCallback((el: HTMLImageElement | null, index: number) => {
     const prevCleanup = wheelCleanups.current.get(index);
     if (prevCleanup) { prevCleanup(); wheelCleanups.current.delete(index); }
@@ -260,29 +305,77 @@ export default function CollageMakerTool() {
     }
   }, []);
 
-  // Drag to pan — works at any zoom level; at zoom=1 clamping keeps it stationary
+  // Drag to pan (mouse, or single-finger touch) + pinch to zoom (two-finger touch).
+  // Pointer Events unify mouse/touch/pen, so this single set of handlers covers
+  // both desktop and mobile — touchAction:'none' on the <img> stops the browser
+  // from hijacking the gesture for native page scroll/zoom.
   const handleSlotPointerDown = (e: React.PointerEvent<HTMLImageElement>, index: number) => {
     if (!slots[index].src) return;
     e.stopPropagation();
-    const rect = e.currentTarget.getBoundingClientRect();
-    slotInteraction.current = {
-      index,
-      pointerId: e.pointerId,
-      startX: e.clientX,
-      startY: e.clientY,
-      origPanX: slots[index].panX,
-      origPanY: slots[index].panY,
-      zoom: slots[index].zoom,
-      containerW: rect.width,
-      containerH: rect.height,
-      moved: false,
-    };
     e.currentTarget.setPointerCapture(e.pointerId);
+
+    let slotPointers = activePointers.current.get(index);
+    if (!slotPointers) {
+      slotPointers = new Map();
+      activePointers.current.set(index, slotPointers);
+    }
+    slotPointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    if (slotPointers.size >= 2) {
+      // Second finger landed — switch from pan to pinch-zoom.
+      slotInteraction.current = null;
+      const pts = Array.from(slotPointers.values()).slice(0, 2);
+      const dist = Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y);
+      pinchState.current = {
+        index,
+        startDist: dist || 1,
+        startZoom: slots[index].zoom,
+        containerW: rect.width,
+        containerH: rect.height,
+      };
+    } else {
+      slotInteraction.current = {
+        index,
+        pointerId: e.pointerId,
+        startX: e.clientX,
+        startY: e.clientY,
+        origPanX: slots[index].panX,
+        origPanY: slots[index].panY,
+        zoom: slots[index].zoom,
+        containerW: rect.width,
+        containerH: rect.height,
+        moved: false,
+      };
+    }
     setSelectedSlot(index);
     setSelectedLayerId(null);
   };
 
   const handleSlotPointerMove = (e: React.PointerEvent<HTMLImageElement>, index: number) => {
+    const slotPointers = activePointers.current.get(index);
+    if (slotPointers?.has(e.pointerId)) {
+      slotPointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    }
+
+    const pinch = pinchState.current;
+    if (pinch && pinch.index === index && slotPointers && slotPointers.size >= 2) {
+      const pts = Array.from(slotPointers.values()).slice(0, 2);
+      const dist = Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y);
+      const scale = dist / pinch.startDist;
+      const newZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, pinch.startZoom * scale));
+      setSlots((prev) => {
+        const s = prev[index];
+        if (!s) return prev;
+        const c = clampPan(s.panX, s.panY, newZoom, pinch.containerW, pinch.containerH);
+        const next = [...prev];
+        next[index] = { ...s, zoom: newZoom, panX: c.x, panY: c.y };
+        return next;
+      });
+      return;
+    }
+
     const s = slotInteraction.current;
     if (!s || s.index !== index || s.pointerId !== e.pointerId) return;
     const dx = e.clientX - s.startX;
@@ -295,34 +388,44 @@ export default function CollageMakerTool() {
     updateSlot(index, { panX: c.x, panY: c.y });
   };
 
-  const handleSlotPointerUp = (e: React.PointerEvent<HTMLImageElement>, index: number) => {
+  const endSlotPointer = (e: React.PointerEvent<HTMLImageElement>, index: number) => {
+    const slotPointers = activePointers.current.get(index);
+    slotPointers?.delete(e.pointerId);
+
+    if (!slotPointers || slotPointers.size < 2) {
+      if (pinchState.current?.index === index) pinchState.current = null;
+    }
+
     const s = slotInteraction.current;
     if (s && s.index === index && s.pointerId === e.pointerId) {
       slotInteraction.current = null;
     }
   };
+  const handleSlotPointerUp = (e: React.PointerEvent<HTMLImageElement>, index: number) => endSlotPointer(e, index);
+  const handleSlotPointerLeave = (e: React.PointerEvent<HTMLImageElement>, index: number) => endSlotPointer(e, index);
+  const handleSlotPointerCancel = (e: React.PointerEvent<HTMLImageElement>, index: number) => endSlotPointer(e, index);
 
   // ---------- Text & sticker layers ----------
-  const addTextLayer = () => {
+  const addTextLayer = useCallback(() => {
     const id = newLayerId();
     setLayers((prev) => [...prev, { id, type: 'text', content: 'Double-click to edit', x: 40, y: 40, width: 200, height: 50, rotation: 0, color: '#1e293b', fontSize: 24 }]);
     setSelectedLayerId(id);
-  };
-  const addStickerLayer = (emoji: string) => {
+  }, []);
+  const addStickerLayer = useCallback((emoji: string) => {
     const id = newLayerId();
     setLayers((prev) => [...prev, { id, type: 'sticker', content: emoji, x: 60, y: 60, width: 64, height: 64, rotation: 0, color: '#000000', fontSize: 48 }]);
     setSelectedLayerId(id);
     setShowStickerPicker(false);
-  };
-  const updateLayer = (id: string, updates: Partial<Layer>) => {
+  }, []);
+  const updateLayer = useCallback((id: string, updates: Partial<Layer>) => {
     setLayers((prev) => prev.map((l) => (l.id === id ? { ...l, ...updates } : l)));
-  };
-  const deleteLayer = (id: string) => {
+  }, []);
+  const deleteLayer = useCallback((id: string) => {
     setLayers((prev) => prev.filter((l) => l.id !== id));
     setSelectedLayerId(null);
-  };
+  }, []);
 
-  // ---------- Layer drag ----------
+  // ---------- Layer drag (mouse + touch via Pointer Events) ----------
   const handleLayerPointerMove = useCallback((e: PointerEvent) => {
     const d = dragLayerState.current;
     if (!d) return;
@@ -342,7 +445,7 @@ export default function CollageMakerTool() {
     window.addEventListener('pointerup', handleLayerPointerUp);
   };
 
-  // ---------- Layer resize ----------
+  // ---------- Layer resize (mouse + touch via Pointer Events) ----------
   const handleResizePointerMove = useCallback((e: PointerEvent) => {
     const r = resizeLayerState.current;
     if (!r) return;
@@ -361,7 +464,7 @@ export default function CollageMakerTool() {
   };
 
   // ---------- CANVAS-BASED EXPORT (fixes blurry/garbage downloads) ----------
-  const handleDownload = async () => {
+  const handleDownload = useCallback(async () => {
     if (!stageRef.current) return;
     setIsExporting(true);
     setSelectedSlot(null);
@@ -383,11 +486,6 @@ export default function CollageMakerTool() {
       // Background
       ctx.fillStyle = background;
       ctx.fillRect(0, 0, W, H);
-
-      // Calculate slot rects (mirrors the CSS grid layout exactly)
-      const gapPx = gap * SCALE;
-      const padPx = gap * SCALE;
-      const cols = template.columns;
 
       // Collect all slot DOM rects relative to stage
       const slotDOMRects: DOMRect[] = slotRefs.current
@@ -546,7 +644,15 @@ export default function CollageMakerTool() {
     } finally {
       setIsExporting(false);
     }
-  };
+  }, [background, borderColor, borderWidth, radius, slots, layers]);
+
+  // Revoke any remaining blob: URLs when the component unmounts, to avoid leaking memory.
+  useEffect(() => {
+    return () => {
+      slots.forEach((s) => revokeIfBlobUrl(s.src));
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const hasAnyImage = slots.some((s) => s.src);
   const selectedLayer = layers.find((l) => l.id === selectedLayerId);
@@ -599,6 +705,7 @@ export default function CollageMakerTool() {
             style={{
               aspectRatio: aspectRatio.value,
               width: `min(100%, calc(80vh * ${aspectRatio.ratio}))`,
+              touchAction: 'none',
             }}
           >
             <div
@@ -654,14 +761,15 @@ export default function CollageMakerTool() {
                         onPointerDown={(e) => handleSlotPointerDown(e, i)}
                         onPointerMove={(e) => handleSlotPointerMove(e, i)}
                         onPointerUp={(e) => handleSlotPointerUp(e, i)}
-                        onPointerLeave={(e) => handleSlotPointerUp(e, i)}
+                        onPointerLeave={(e) => handleSlotPointerLeave(e, i)}
+                        onPointerCancel={(e) => handleSlotPointerCancel(e, i)}
                       />
                     ) : (
                       <button
                         type="button"
                         data-html2canvas-ignore="true"
                         onClick={(e) => { e.stopPropagation(); openSlotUpload(i); }}
-                        className="w-full h-full flex flex-col items-center justify-center text-slate-400 hover:text-blue-500 hover:bg-accent-muted/50 dark:hover:bg-blue-900/10 transition-colors"
+                        className="w-full h-full flex flex-col items-center justify-center text-slate-400 hover:text-blue-500 active:bg-accent-muted/50 hover:bg-accent-muted/50 dark:hover:bg-blue-900/10 transition-colors"
                       >
                         <svg className="w-8 h-8 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
@@ -676,8 +784,8 @@ export default function CollageMakerTool() {
                           draggable
                           onDragStart={(e) => handleSlotDragStart(e, i)}
                           onClick={(e) => e.stopPropagation()}
-                          title="Drag to reorder slots"
-                          className="absolute top-1.5 left-1.5 w-6 h-6 rounded-full bg-black/50 text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-grab active:cursor-grabbing z-10"
+                          title="Drag to reorder slots (desktop)"
+                          className="absolute top-1.5 left-1.5 w-7 h-7 md:w-6 md:h-6 rounded-full bg-black/50 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-grab active:cursor-grabbing z-10 hidden md:flex"
                         >
                           <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                             <circle cx="6" cy="5" r="1.5" /><circle cx="14" cy="5" r="1.5" />
@@ -689,13 +797,13 @@ export default function CollageMakerTool() {
                         <button
                           type="button"
                           onClick={(e) => { e.stopPropagation(); removeSlotImage(i); }}
-                          className="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/50 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10"
+                          className="absolute top-1.5 right-1.5 w-7 h-7 md:w-6 md:h-6 rounded-full bg-black/50 text-white text-xs opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-center justify-center z-10"
                           aria-label="Remove photo"
                         >
                           ✕
                         </button>
 
-                        <div className="absolute bottom-1.5 left-1.5 right-1.5 px-2 py-1 rounded-lg bg-black/50 text-white text-[10px] leading-tight text-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                        <div className="absolute bottom-1.5 left-1.5 right-1.5 px-2 py-1 rounded-lg bg-black/50 text-white text-[10px] leading-tight text-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 hidden md:block">
                           Scroll to zoom · Drag to reposition
                         </div>
                       </>
@@ -719,6 +827,7 @@ export default function CollageMakerTool() {
                     transform: `rotate(${layer.rotation}deg)`,
                     outline: selectedLayerId === layer.id ? '2px dashed #3b82f6' : 'none',
                     outlineOffset: '4px',
+                    touchAction: 'none',
                   }}
                   className="cursor-move select-none flex items-center justify-center"
                 >
@@ -741,14 +850,15 @@ export default function CollageMakerTool() {
                       <button
                         type="button"
                         onClick={(e) => { e.stopPropagation(); deleteLayer(layer.id); }}
-                        className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-red-500 text-white text-xs flex items-center justify-center shadow"
+                        className="absolute -top-3 -right-3 w-7 h-7 md:w-6 md:h-6 rounded-full bg-red-500 text-white text-xs flex items-center justify-center shadow"
                         aria-label="Delete"
                       >
                         ✕
                       </button>
                       <div
                         onPointerDown={(e) => handleResizePointerDown(e, layer)}
-                        className="absolute -bottom-2 -right-2 w-4 h-4 rounded-full bg-blue-500 cursor-nwse-resize shadow"
+                        style={{ touchAction: 'none' }}
+                        className="absolute -bottom-2 -right-2 w-5 h-5 md:w-4 md:h-4 rounded-full bg-blue-500 cursor-nwse-resize shadow"
                       />
                     </>
                   )}
@@ -762,6 +872,7 @@ export default function CollageMakerTool() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     <p className="text-slate-400 text-sm">Drag and drop photos or a whole folder here</p>
+                    <p className="text-slate-400 text-sm md:hidden mt-1">Or tap the + button to add photos</p>
                   </div>
                 </div>
               )}
@@ -805,8 +916,11 @@ export default function CollageMakerTool() {
             </div>
           )}
 
-          <p className="text-xs text-slate-400 mt-3 text-center">
+          <p className="text-xs text-slate-400 mt-3 text-center hidden md:block">
             Tip: scroll (or pinch) on a photo to zoom in/out, then <strong>drag it to reposition</strong> — handy for centering faces.
+          </p>
+          <p className="text-xs text-slate-400 mt-3 text-center md:hidden">
+            Tip: pinch with two fingers to zoom, then <strong>drag with one finger to reposition</strong> — handy for centering faces.
           </p>
 
           <div className="w-full mt-4 flex justify-center">
@@ -917,6 +1031,17 @@ export default function CollageMakerTool() {
       </div>
 
       <HowItWorksSteps steps={steps} />
+
+      {/* Mobile-only floating "Add photo" button — keeps the primary action
+          reachable with a thumb without scrolling back to the header. */}
+      <button
+        type="button"
+        onClick={openMobileAddPhoto}
+        aria-label="Add photo"
+        className="md:hidden fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 active:scale-95 transition-transform flex items-center justify-center"
+      >
+        <PlusIcon />
+      </button>
     </div>
   );
 }
