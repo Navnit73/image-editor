@@ -5035,4 +5035,51 @@ export const enPages: SeoPage[] = [
       },
     ],
   },
+
+  // ─────────────────────────────────────────────
+  // CANVAS PHOTO COLLAGE MAKER
+  // ─────────────────────────────────────────────
+  {
+    slug: "canvas-photo-collage-maker",
+    metaTitle: "Canvas Photo Collage Maker — Free Online Tool | photoresizerai",
+    metaDescription: "Turn your photos into a custom canvas print for free. Make a canvas collage or print a large photo on multiple pages. No signup required.",
+    h1: "Canvas Photo Collage Maker — Turn Your Photos into a Custom Canvas Print",
+    structuredDataOverrides: { webPageType: "WebApplication" },
+    sections: [
+      {
+        heading: "",
+        content: ``, // We'll manage the main content in the component itself as it's highly custom.
+      }
+    ],
+    faq: [
+      {
+        question: "How do I print a photo on multiple pages?",
+        answer: "Our free poster splitter tool lets you upload any image and split it across multiple pages (A4, Letter, Legal). Just upload your picture, set your desired scale or final size, and download a ready-to-print PDF. No need to download any software."
+      },
+      {
+        question: "Can I print a picture on multiple pages using a regular home printer?",
+        answer: "Yes! When you split an image using our tool, it generates a tiled PDF. You can print this directly from your computer using a standard home printer and tape the pages together to create a large poster."
+      },
+      {
+        question: "How to print an image on multiple pages without losing quality?",
+        answer: "To ensure your image stays sharp, start with the highest resolution photo possible. Our poster printing tool preserves the original quality and splits the high-res image into a PDF without adding unnecessary compression."
+      },
+      {
+        question: "What size canvas should I use for a photo collage?",
+        answer: "For a 4-photo collage, an 8x10 or 11x14 canvas works well. For larger collages (9-16 photos), consider a 16x20 or 20x24 canvas so each picture is large enough to see clearly."
+      },
+      {
+        question: "How do I make a canvas photo collage maker for free?",
+        answer: "You can use our free canvas collage maker above. Just upload your photos, choose a layout, drag and drop to arrange them, and download the finished design. You can then print it yourself or order a canvas print online."
+      },
+      {
+        question: "Is there a printable 4x6 photo template I can use?",
+        answer: "Yes, our tool includes a free printable 4x6 photo template layout option, which makes it easy to arrange multiple 4x6 pictures on a larger canvas or split a large photo into 4x6 sections."
+      },
+      {
+        question: "How to split a picture into multiple pages for printing?",
+        answer: "Select the 'Print Photo on Multiple Pages' tool above, upload your picture, choose your paper size, and click download. It will automatically slice your image into perfectly sized sections."
+      }
+    ]
+  }
 ];
