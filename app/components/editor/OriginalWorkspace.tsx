@@ -341,10 +341,10 @@ export default function OriginalWorkspace() {
         {!imageFile ? (
           <div
             {...getRootProps()}
-            className={`w-full max-w-sm sm:max-w-md p-8 sm:p-12 border-2 border-dashed rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer transition-all ${
+            className={`w-full max-w-sm sm:max-w-md p-8 sm:p-12 border-2 border-dotted rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer transition-all ${
               isDragActive
-                ? 'border-accent-main bg-accent-muted scale-[1.02]'
-                : 'border-border-subtle hover:border-accent-main/60 hover:bg-bg-input'
+                ? 'border-red-500 bg-accent-muted scale-[1.02]'
+                : 'border-red-500 hover:border-red-600 hover:bg-bg-input'
             }`}
           >
             <input {...getInputProps()} />
