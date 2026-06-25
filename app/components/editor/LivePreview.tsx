@@ -40,7 +40,7 @@ export default function LivePreview() {
   };
 
   return (
-    <aside className="w-full lg:w-72 xl:w-80 flex-shrink-0 flex flex-col bg-bg-card border border-border-subtle rounded-xl overflow-hidden transition-colors duration-300">
+    <aside className="w-full h-full flex flex-col bg-bg-card border border-border-subtle rounded-xl overflow-hidden transition-colors duration-300">
       {/* Header */}
       <div className="flex items-center gap-2 px-4 py-3 border-b border-border-subtle bg-bg-input">
         <Eye size={14} className="text-accent-main" />
@@ -54,8 +54,8 @@ export default function LivePreview() {
       </div>
 
       {/* Preview image */}
-      <div className="flex-1 flex flex-col p-4 gap-4 min-h-0">
-        <div className="relative w-full aspect-video sm:aspect-square lg:aspect-video flex items-center justify-center bg-[conic-gradient(#e4e4e7_25%,transparent_25%,transparent_75%,#e4e4e7_75%,#e4e4e7),conic-gradient(#e4e4e7_25%,#f4f4f5_25%,#f4f4f5_75%,#e4e4e7_75%,#e4e4e7)] dark:bg-[conic-gradient(#27272a_25%,transparent_25%,transparent_75%,#27272a_75%,#27272a),conic-gradient(#27272a_25%,#3f3f46_25%,#3f3f46_75%,#27272a_75%,#27272a)] bg-[length:16px_16px] bg-[position:0_0,8px_8px] rounded-xl overflow-hidden border border-border-subtle">
+      <div className="flex-1 flex flex-col p-4 gap-4 min-h-0 h-full">
+        <div className="relative w-full flex-1 min-h-[250px] flex items-center justify-center bg-[conic-gradient(#e4e4e7_25%,transparent_25%,transparent_75%,#e4e4e7_75%,#e4e4e7),conic-gradient(#e4e4e7_25%,#f4f4f5_25%,#f4f4f5_75%,#e4e4e7_75%,#e4e4e7)] dark:bg-[conic-gradient(#27272a_25%,transparent_25%,transparent_75%,#27272a_75%,#27272a),conic-gradient(#27272a_25%,#3f3f46_25%,#3f3f46_75%,#27272a_75%,#27272a)] bg-[length:16px_16px] bg-[position:0_0,8px_8px] rounded-xl overflow-hidden border border-border-subtle">
           {!imageFile ? (
             <div className="text-center">
               <Eye size={28} className="mx-auto text-text-muted opacity-50 mb-2" />

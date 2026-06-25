@@ -32,7 +32,7 @@ function EditorContent() {
 
         {/* Live preview — below canvas on mobile, right column on desktop */}
         {imageFile && (
-          <div className="w-full lg:w-80 xl:w-96 flex-shrink-0 order-2 lg:order-none">
+          <div className="w-full lg:w-96 xl:w-[450px] flex-shrink-0 order-2 lg:order-none flex flex-col">
             <LivePreview />
           </div>
         )}
