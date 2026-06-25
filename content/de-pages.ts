@@ -362,15 +362,15 @@ export const dePages: SeoPage[] = [
   </div>
 
   <!-- Feature highlight box -->
-  <div class="bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 rounded-2xl p-6 border border-indigo-200 dark:border-indigo-800/50">
-    <h3 class="font-bold text-indigo-900 dark:text-indigo-100 mb-4 flex items-center gap-2"><span class="text-xl">🎛️</span> Alle Eingabeoptionen auf einen Blick</h3>
+  <div class="bg-gradient-to-br from-blue-50 to-sky-50 dark:from-indigo-900/20 dark:to-violet-900/20 rounded-2xl p-6 border border-blue-200 dark:border-blue-800/50">
+    <h3 class="font-bold text-blue-900 dark:text-blue-100 mb-4 flex items-center gap-2"><span class="text-xl">🎛️</span> Alle Eingabeoptionen auf einen Blick</h3>
     <div class="grid sm:grid-cols-2 gap-3">
-      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> Eingabe in px, cm, mm oder inch</div>
-      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> DPI-Slider für druckoptimierte Ausgabe</div>
-      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> Verhältnissperre mit optionalem Freistellen</div>
-      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> Vorschau in Originalgröße per Hover</div>
-      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> Plattform-Presets (Instagram, LinkedIn …)</div>
-      <div class="flex gap-2 text-sm text-indigo-800 dark:text-indigo-200"><span class="text-indigo-500 font-bold">✓</span> Stapelverarbeitung bis 20 Bilder</div>
+      <div class="flex gap-2 text-sm text-blue-800 dark:text-blue-200"><span class="text-blue-500 font-bold">✓</span> Eingabe in px, cm, mm oder inch</div>
+      <div class="flex gap-2 text-sm text-blue-800 dark:text-blue-200"><span class="text-blue-500 font-bold">✓</span> DPI-Slider für druckoptimierte Ausgabe</div>
+      <div class="flex gap-2 text-sm text-blue-800 dark:text-blue-200"><span class="text-blue-500 font-bold">✓</span> Verhältnissperre mit optionalem Freistellen</div>
+      <div class="flex gap-2 text-sm text-blue-800 dark:text-blue-200"><span class="text-blue-500 font-bold">✓</span> Vorschau in Originalgröße per Hover</div>
+      <div class="flex gap-2 text-sm text-blue-800 dark:text-blue-200"><span class="text-blue-500 font-bold">✓</span> Plattform-Presets (Instagram, LinkedIn …)</div>
+      <div class="flex gap-2 text-sm text-blue-800 dark:text-blue-200"><span class="text-blue-500 font-bold">✓</span> Stapelverarbeitung bis 20 Bilder</div>
     </div>
   </div>
 
@@ -2420,7 +2420,7 @@ export const dePages: SeoPage[] = [
       <p class="text-slate-600 dark:text-slate-400">Klicke auf den Upload‑Bereich oder ziehe deine Datei per Drag & Drop hinein. Unterstützt werden JPEG, PNG, WebP und HEIC. Du kannst auch direkt ein Foto mit deiner Kamera aufnehmen.</p>
     </div>
     <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
-      <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center mb-4 text-indigo-600 dark:text-indigo-400">
+      <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
       </div>
       <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">2. Werkzeug wählen</h3>

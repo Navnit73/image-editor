@@ -177,6 +177,9 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
       prevStateRef.current = newState;
       return newState;
     });
+    
+    // Notify the parent renderer that a file is loaded
+    window.dispatchEvent(new CustomEvent('editor-file-loaded', { detail: { loaded: !!file } }));
   };
 
   const setWidth = (width: number) => setState((prev) => ({ ...prev, width }));
@@ -236,6 +239,7 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
     setFuture([]);
     prevStateRef.current = defaultState;
     setState(defaultState);
+    window.dispatchEvent(new CustomEvent('editor-file-loaded', { detail: { loaded: false } }));
   };
 
   return (

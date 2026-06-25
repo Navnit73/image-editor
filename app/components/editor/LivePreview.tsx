@@ -40,7 +40,7 @@ export default function LivePreview() {
   };
 
   return (
-    <aside className="w-full h-full flex flex-col bg-bg-card border border-border-subtle rounded-xl overflow-hidden transition-colors duration-300">
+    <aside className="w-full h-full flex flex-col bg-bg-card/80 backdrop-blur-md shadow-sm border border-border-subtle rounded-xl overflow-hidden transition-colors duration-300">
       {/* Header */}
       <div className="flex items-center gap-2 px-4 py-3 border-b border-border-subtle bg-bg-input">
         <Eye size={14} className="text-accent-main" />

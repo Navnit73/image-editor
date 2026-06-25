@@ -318,7 +318,7 @@ export const enPages: SeoPage[] = [
       <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Click the upload area or drag and drop your image file directly onto it. We support JPG, JPEG, PNG, GIF, WEBP, and AVIF files up to 50MB. Your file loads instantly — no waiting for an upload to complete because nothing is sent to a server.</p>
     </div>
     <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-      <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl flex items-center justify-center mb-4 text-indigo-600 dark:text-indigo-400">
+      <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
       </div>
       <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Step 2 — Configure the Sidebar</h3>

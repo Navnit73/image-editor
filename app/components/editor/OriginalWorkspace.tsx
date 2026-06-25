@@ -50,6 +50,7 @@ export default function OriginalWorkspace() {
     return () => clearInterval(interval);
   }, [isBgRemoving]);
 
+
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
       if (acceptedFiles?.length > 0) {
@@ -67,6 +68,18 @@ export default function OriginalWorkspace() {
     },
     [setImageFile]
   );
+
+  // Listen for file drops from the homepage hero upload zone
+  useEffect(() => {
+    const handleHeroDrop = (e: Event) => {
+      const customEvent = e as CustomEvent<{ files: File[] }>;
+      if (customEvent.detail?.files) {
+        onDrop(customEvent.detail.files);
+      }
+    };
+    window.addEventListener('hero-file-drop', handleHeroDrop);
+    return () => window.removeEventListener('hero-file-drop', handleHeroDrop);
+  }, [onDrop]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -167,7 +180,7 @@ export default function OriginalWorkspace() {
   const currentRatioValue = ASPECT_RATIOS.find((r) => r.label === aspectRatio)?.value;
 
   return (
-    <div className="flex-1 flex flex-col bg-bg-card border border-border-subtle rounded-xl overflow-hidden min-h-0 transition-colors duration-300">
+    <div className="flex-1 flex flex-col bg-bg-card/80 backdrop-blur-md shadow-sm border border-border-subtle rounded-xl overflow-hidden min-h-0 transition-colors duration-300">
       {/* Toolbar */}
       <div className="flex items-center gap-2 px-3 py-2.5 sm:px-4 sm:py-3 border-b border-border-subtle bg-bg-input">
         <div role="heading" aria-level={2} className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mr-auto">{t.canvas}</div>

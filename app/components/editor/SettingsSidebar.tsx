@@ -209,7 +209,7 @@ export default function SettingsSidebar() {
   ] as const;
 
   return (
-    <aside className="w-full lg:w-72 xl:w-80 flex-shrink-0 flex flex-col bg-bg-card border border-border-subtle rounded-xl overflow-hidden transition-colors duration-300">
+    <aside className="w-full lg:w-72 xl:w-80 flex-shrink-0 flex flex-col bg-bg-card/80 backdrop-blur-md shadow-sm border border-border-subtle rounded-xl overflow-hidden transition-colors duration-300">
       {/* Tab bar */}
       <div className="flex border-b border-border-subtle">
         {tabs.map((tab) => (

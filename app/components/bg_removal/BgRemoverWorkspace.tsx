@@ -20,6 +20,17 @@ export default function BgRemoverWorkspace() {
     [addJobs]
   );
 
+  React.useEffect(() => {
+    const handleHeroDrop = (e: Event) => {
+      const customEvent = e as CustomEvent<{ files: File[] }>;
+      if (customEvent.detail?.files?.length > 0) {
+        addJobs(customEvent.detail.files);
+      }
+    };
+    window.addEventListener("hero-file-drop", handleHeroDrop);
+    return () => window.removeEventListener("hero-file-drop", handleHeroDrop);
+  }, [addJobs]);
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: { 'image/*': ['.jpeg', '.jpg', '.png', '.webp'] },
