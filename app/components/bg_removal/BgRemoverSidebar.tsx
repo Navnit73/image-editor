@@ -40,7 +40,7 @@ export default function BgRemoverSidebar() {
   const isCustomColor = !COLORS.find(c => c.value === backgroundColor);
 
   return (
-    <aside className="w-full lg:w-64 xl:w-72 flex-shrink-0 bg-white dark:bg-slate-900 border-t lg:border-t-0 lg:border-l border-slate-100 dark:border-slate-800 flex flex-col max-h-[35vh] sm:max-h-[40vh] lg:max-h-none">
+    <aside className="w-full lg:w-64 xl:w-72 flex-shrink-0 bg-white dark:bg-slate-900 border-t lg:border-t-0 lg:border-l border-slate-100 dark:border-slate-800 flex flex-col h-auto lg:h-full lg:overflow-hidden">
       <div className="overflow-y-auto flex-1">
         <div className="p-4 sm:p-5 flex flex-col gap-6">
 

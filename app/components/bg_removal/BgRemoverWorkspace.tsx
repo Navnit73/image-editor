@@ -74,7 +74,7 @@ export default function BgRemoverWorkspace() {
   };
 
   return (
-    <div className="flex-1 flex flex-col min-h-0 bg-slate-50 dark:bg-slate-950" {...getRootProps()}>
+    <div className="w-full lg:flex-1 min-h-[55vh] sm:min-h-[400px] lg:min-h-0 lg:h-full flex flex-col overflow-hidden bg-slate-50 dark:bg-slate-950 relative" {...getRootProps()}>
       <input {...getInputProps()} />
 
       {jobs.length === 0 ? (

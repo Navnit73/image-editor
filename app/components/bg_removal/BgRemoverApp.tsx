@@ -10,10 +10,12 @@ function BgRemoverLayout() {
   const { jobs } = useBgRemoval();
 
   return (
-    <div className="w-full flex flex-col bg-white dark:bg-slate-900 rounded-none sm:rounded-2xl overflow-hidden border-0 sm:border border-slate-200 dark:border-slate-800 h-[100dvh] sm:h-[calc(100vh-64px)] sm:min-h-[600px] sm:max-h-[900px] transition-colors duration-200">
-      <BgRemoverHeader />
+    <div className="w-full flex flex-col bg-white dark:bg-slate-900 rounded-none sm:rounded-2xl overflow-hidden border-0 sm:border border-slate-200 dark:border-slate-800 min-h-[100dvh] sm:min-h-[600px] sm:h-[calc(100vh-64px)] sm:max-h-[900px] transition-colors duration-200">
+      <div className="flex-shrink-0 z-10 sticky top-0 sm:relative shadow-sm sm:shadow-none">
+        <BgRemoverHeader />
+      </div>
 
-      <div className="flex-1 flex flex-col lg:flex-row min-h-0 overflow-hidden">
+      <div className="flex-1 flex flex-col lg:flex-row overflow-visible sm:overflow-y-auto lg:overflow-hidden relative z-0">
         {/* Workspace takes priority on mobile — sidebar goes below on mobile, right on desktop */}
         <BgRemoverWorkspace />
         {jobs.length > 0 && <BgRemoverSidebar />}
