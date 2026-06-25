@@ -108,7 +108,7 @@ export default function BgRemoverWorkspace() {
 
           {isDragActive && (
             <div className="absolute inset-0 z-50 bg-lime-500/10 backdrop-blur-sm border-4 border-lime-500 border-dashed rounded-xl flex items-center justify-center">
-              <div className="bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3">
+              <div className="bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl border border-lime-500 flex items-center gap-3">
                 <UploadCloud className="text-lime-500" size={26} />
                 <span className="text-base font-bold text-slate-800 dark:text-slate-100">Drop to add more images</span>
               </div>
@@ -136,7 +136,7 @@ export default function BgRemoverWorkspace() {
             </div>
 
             <div className="relative flex items-center">
-              <button onClick={() => scrollCarousel('left')} className="hidden sm:flex absolute left-0 z-10 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 items-center justify-center shadow-sm hover:bg-slate-50 transition-colors flex-shrink-0">
+              <button onClick={() => scrollCarousel('left')} className="hidden sm:flex absolute left-0 z-10 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex-shrink-0">
                 <ChevronLeft size={14} className="text-slate-600 dark:text-slate-300" />
               </button>
 
@@ -145,10 +145,10 @@ export default function BgRemoverWorkspace() {
                   <button
                     key={job.id}
                     onClick={() => setSelectedJobId(job.id)}
-                    className={`relative flex-shrink-0 snap-start rounded-xl overflow-hidden transition-all duration-150 ${
+                    className={`relative flex-shrink-0 snap-start rounded-xl overflow-hidden transition-all duration-150 border ${
                       selectedJobId === job.id
-                        ? 'ring-2 ring-lime-600 ring-offset-2 dark:ring-offset-slate-900 shadow-md scale-[1.03] z-10'
-                        : 'ring-1 ring-slate-200 dark:ring-slate-700 hover:ring-lime-400 hover:scale-[1.01] z-0'
+                        ? 'border-lime-600 z-10 border-2 scale-[1.03]'
+                        : 'border-slate-200 dark:border-slate-700 hover:border-lime-400 z-0'
                     }`}
                     style={{ width: 72, height: 72 }}
                   >
@@ -180,7 +180,7 @@ export default function BgRemoverWorkspace() {
                 ))}
               </div>
 
-              <button onClick={() => scrollCarousel('right')} className="hidden sm:flex absolute right-0 z-10 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 items-center justify-center shadow-sm hover:bg-slate-50 transition-colors flex-shrink-0">
+              <button onClick={() => scrollCarousel('right')} className="hidden sm:flex absolute right-0 z-10 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex-shrink-0">
                 <ChevronRight size={14} className="text-slate-600 dark:text-slate-300" />
               </button>
             </div>
@@ -215,7 +215,7 @@ export default function BgRemoverWorkspace() {
               </div>
             </div>
 
-            <div className="flex-1 relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner min-h-[200px] sm:min-h-0" style={getBgStyle()}>
+            <div className="flex-1 relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 min-h-[200px] sm:min-h-0" style={getBgStyle()}>
               {selectedJob ? (
                 <>
                   <img
@@ -227,7 +227,7 @@ export default function BgRemoverWorkspace() {
 
                   {selectedJob.status === 'processing' && (
                     <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/60 dark:bg-slate-900/60 backdrop-blur-[2px]">
-                      <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-5 shadow-xl flex flex-col items-center gap-3">
+                      <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-5 border border-slate-200 dark:border-slate-700 flex flex-col items-center gap-3">
                         <CircularProgress progress={selectedJob.progress} />
                         <span className="text-xs font-bold text-slate-600 dark:text-slate-300">Removing background…</span>
                       </div>
@@ -236,7 +236,7 @@ export default function BgRemoverWorkspace() {
 
                   {selectedJob.status === 'queued' && (
                     <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/60 dark:bg-slate-900/60 backdrop-blur-[2px]">
-                      <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-4 shadow-xl">
+                      <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-4 border border-slate-200 dark:border-slate-700">
                         <span className="text-xs font-bold text-slate-500 dark:text-slate-400">Waiting in queue…</span>
                       </div>
                     </div>
@@ -244,7 +244,7 @@ export default function BgRemoverWorkspace() {
 
                   {selectedJob.status === 'error' && (
                     <div className="absolute inset-0 z-20 flex items-center justify-center bg-red-50/80 dark:bg-red-950/50 backdrop-blur-[2px]">
-                      <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-4 shadow-xl flex flex-col items-center gap-2">
+                      <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-4 border border-red-100 dark:border-red-900 flex flex-col items-center gap-2">
                         <XCircle className="text-red-500" size={24} />
                         <span className="text-xs font-bold text-red-600 dark:text-red-400">Processing failed</span>
                       </div>
@@ -253,12 +253,12 @@ export default function BgRemoverWorkspace() {
 
                   {selectedJob.status === 'done' && selectedJob.resultUrl && (
                     <div className="absolute bottom-3 right-3 z-20 flex items-center gap-2">
-                      <div className="bg-emerald-500 text-white text-[9px] font-black px-2 py-1 rounded-lg tracking-wider uppercase flex items-center gap-1 shadow-sm">
+                      <div className="bg-emerald-500 text-white text-[9px] font-black px-2 py-1 rounded-lg tracking-wider uppercase flex items-center gap-1">
                         <CheckCircle size={9} strokeWidth={3} /> Done
                       </div>
                       <button
                         onClick={() => downloadProcessedImage(selectedJob.resultUrl!, selectedJob.fileName, backgroundColor, exportFormat)}
-                        className="flex items-center gap-1.5 px-3 py-2 bg-lime-600 hover:bg-lime-700 active:scale-95 text-white text-xs font-bold rounded-xl shadow-lg transition-all duration-150"
+                        className="flex items-center gap-1.5 px-3 py-2 bg-lime-600 hover:bg-lime-700 active:scale-95 text-white text-xs font-bold rounded-xl transition-all duration-150"
                       >
                         <Download size={13} />
                         Download

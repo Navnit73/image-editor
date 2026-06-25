@@ -66,10 +66,10 @@ export default function BgRemoverSidebar() {
                   key={c.value}
                   onClick={() => setBackgroundColor(c.value)}
                   title={c.label}
-                  className={`flex flex-col items-center gap-1.5 p-2 rounded-xl border transition-all duration-150 ${
+                  className={`flex flex-col items-center gap-1.5 p-2 rounded-xl transition-all duration-150 border ${
                     backgroundColor === c.value
-                      ? 'border-lime-500 bg-lime-50 dark:bg-lime-900/20 shadow-sm ring-1 ring-lime-500/30'
-                      : 'border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-800/50'
+                      ? 'bg-lime-100 dark:bg-lime-900/40 border-transparent'
+                      : 'border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 bg-slate-50 dark:bg-slate-900'
                   }`}
                 >
                   {c.value === 'transparent' ? (
@@ -85,10 +85,10 @@ export default function BgRemoverSidebar() {
             </div>
 
             {/* Custom color row */}
-            <label className={`flex items-center gap-3 px-3 py-2.5 rounded-xl border cursor-pointer transition-all duration-150 ${
+            <label className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-150 border cursor-pointer ${
               isCustomColor
-                ? 'border-lime-500 bg-lime-50 dark:bg-lime-900/20 shadow-sm'
-                : 'border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-800/50'
+                ? 'bg-lime-100 dark:bg-lime-900/40 border-transparent'
+                : 'border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 bg-slate-50 dark:bg-slate-900'
             }`}>
               <div className="relative w-5 h-5 flex-shrink-0">
                 <div className="w-5 h-5 rounded-md border border-black/10" style={{ backgroundColor: isCustomColor ? backgroundColor : '#84cc16' }} />
@@ -124,10 +124,10 @@ export default function BgRemoverSidebar() {
                 <button
                   key={fmt.value}
                   onClick={() => setExportFormat(fmt.value)}
-                  className={`flex flex-col items-start px-3 py-3 rounded-xl border transition-all duration-150 text-left ${
+                  className={`flex flex-col items-start px-3 py-3 rounded-xl transition-all duration-150 text-left border ${
                     exportFormat === fmt.value
-                      ? 'border-lime-500 bg-lime-50 dark:bg-lime-900/20 shadow-sm ring-1 ring-lime-500/20'
-                      : 'border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-800/50'
+                      ? 'bg-lime-100 dark:bg-lime-900/40 border-transparent'
+                      : 'border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 bg-slate-50 dark:bg-slate-900'
                   }`}
                 >
                   <span className={`text-sm font-black tracking-tight ${exportFormat === fmt.value ? 'text-lime-700 dark:text-lime-300' : 'text-slate-700 dark:text-slate-200'}`}>
