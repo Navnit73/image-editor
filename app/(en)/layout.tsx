@@ -1,6 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
 import SiteHeader from './SiteHeader';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+    languages: {
+      en: '/',
+      de: '/de',
+      fr: '/fr',
+      es: '/es',
+      'x-default': '/',
+    },
+  },
+};
 
 export default function EnglishLayout({ children }: { children: React.ReactNode }) {
   return (

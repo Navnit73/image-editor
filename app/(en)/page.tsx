@@ -5,6 +5,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useDropzone } from "react-dropzone";
 import { UploadCloud, Shield, Zap, Sparkles, Image, Layers, Type, ArrowRight } from "lucide-react";
+import { generateOrganizationSchema, generateWebSiteSchema } from "../../lib/schema";
 
 const PhotoEditor = dynamic(() => import("../components/editor/PhotoEditor"), { ssr: false });
 const BgRemoverApp = dynamic(() => import("../components/bg_removal/BgRemoverApp"), { ssr: false });
@@ -202,6 +203,9 @@ export default function Home() {
   const [hasUploadedImage, setHasUploadedImage] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  const orgSchema = generateOrganizationSchema();
+  const webSiteSchema = generateWebSiteSchema();
+
   const onDrop = useCallback((acceptedFiles: File[]) => {
     if (acceptedFiles?.length > 0) {
       setIsTransitioning(true);
@@ -226,6 +230,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-bg-root font-sans transition-colors duration-300">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema, null, 2) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema, null, 2) }}
+      />
       <script
         id="home-faq-schema"
         type="application/ld+json"
@@ -450,10 +462,10 @@ export default function Home() {
           </header>
 
           <div className={activeTab === "editor" ? "block min-h-[600px] sm:min-h-[800px]" : "hidden"}>
-            <PhotoEditor />
+            {activeTab === "editor" && <PhotoEditor />}
           </div>
           <div className={activeTab === "bg_remover" ? "block min-h-[600px] sm:min-h-[800px]" : "hidden"}>
-            <BgRemoverApp />
+            {activeTab === "bg_remover" && <BgRemoverApp />}
           </div>
         </div>
 

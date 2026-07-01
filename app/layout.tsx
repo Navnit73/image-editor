@@ -11,16 +11,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://photoresizerai.com'),
   title: "Free Online Photo Resizer, Image Compressor & Background Remover | PhotoResizerAI",
   description: "Resize images, compress photos, remove backgrounds, create passport photos and edit pictures online for free. No uploads required.",
-  alternates: {
-    canonical: '/',
-    languages: {
-      en: '/',
-      de: '/de',
-      fr: '/fr',
-      es: '/es',
-      'x-default': '/',
-    },
-  },
   icons: {
     icon: '/icon.svg',
   },
@@ -51,11 +41,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Default to English, since we can't use headers() without opting into dynamic rendering.
-  // The correct language will be updated by LangUpdater on the client if needed, or just left as en for SSG.
-  const orgSchema = generateOrganizationSchema();
-  const webSiteSchema = generateWebSiteSchema();
-  
   return (
     <html
       lang="en"
@@ -63,7 +48,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        <Script id="clarity-script" strategy="afterInteractive">
+        <Script id="clarity-script" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -74,8 +59,8 @@ export default function RootLayout({
         </Script>
 
         {/* Google Analytics */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-1Z9MBM58SZ" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-1Z9MBM58SZ" strategy="lazyOnload" />
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -84,16 +69,6 @@ export default function RootLayout({
             gtag('config', 'G-1Z9MBM58SZ');
           `}
         </Script>
-        
-        {/* Global Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema, null, 2) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema, null, 2) }}
-        />
         
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <LangUpdater />

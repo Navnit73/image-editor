@@ -11,9 +11,11 @@ import Link from 'next/link';
 import { useDropzone } from "react-dropzone";
 import { UploadCloud, Shield, Zap, Sparkles, Image, Layers, Type, ArrowRight } from "lucide-react";
 
-import PhotoEditor from '../../app/components/editor/PhotoEditor';
-import PassportMakerApp from '../../app/components/passport_photo/PassportMakerApp';
-import BgRemoverApp from '../../app/components/bg_removal/BgRemoverApp';
+import dynamic from 'next/dynamic';
+
+const PhotoEditor = dynamic(() => import('../../app/components/editor/PhotoEditor'), { ssr: false });
+const PassportMakerApp = dynamic(() => import('../../app/components/passport_photo/PassportMakerApp'), { ssr: false });
+const BgRemoverApp = dynamic(() => import('../../app/components/bg_removal/BgRemoverApp'), { ssr: false });
 
 import { enPages } from '../../content/en-pages';
 import { dePages } from '../../content/de-pages';

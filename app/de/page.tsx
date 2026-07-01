@@ -2,8 +2,11 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import PhotoEditor from "../components/editor/PhotoEditor";
-import BgRemoverApp from "../components/bg_removal/BgRemoverApp";
+import dynamic from "next/dynamic";
+import { generateOrganizationSchema, generateWebSiteSchema } from "../../lib/schema";
+
+const PhotoEditor = dynamic(() => import("../components/editor/PhotoEditor"), { ssr: false });
+const BgRemoverApp = dynamic(() => import("../components/bg_removal/BgRemoverApp"), { ssr: false });
 
 const STATS = [
   { value: "100%", label: "Kostenlos", sub: "Keine versteckten Kosten" },
@@ -334,8 +337,19 @@ export default function GermanHomePage() {
   const [activeTab, setActiveTab] = useState<"editor" | "bg_remover">("editor");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  const orgSchema = generateOrganizationSchema();
+  const webSiteSchema = generateWebSiteSchema();
+
   return (
     <div className="min-h-screen bg-bg-root font-sans transition-colors duration-300">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema, null, 2) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema, null, 2) }}
+      />
       <script
         id="de-home-faq-schema"
         type="application/ld+json"
@@ -446,10 +460,10 @@ export default function GermanHomePage() {
       {/* ── App Area ── */}
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-6">
         <div className={activeTab === "editor" ? "block" : "hidden"}>
-          <PhotoEditor />
+          {activeTab === "editor" && <PhotoEditor />}
         </div>
         <div className={activeTab === "bg_remover" ? "block" : "hidden"}>
-          <BgRemoverApp />
+          {activeTab === "bg_remover" && <BgRemoverApp />}
         </div>
       </div>
 

@@ -2,8 +2,10 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import PhotoEditor from "../components/editor/PhotoEditor";
-import BgRemoverApp from "../components/bg_removal/BgRemoverApp";
+import dynamic from "next/dynamic";
+
+const PhotoEditor = dynamic(() => import("../components/editor/PhotoEditor"), { ssr: false });
+const BgRemoverApp = dynamic(() => import("../components/bg_removal/BgRemoverApp"), { ssr: false });
 
 const STATS = [
   { value: "100%", label: "Kostenlos", sub: "Keine versteckten Kosten" },

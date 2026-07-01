@@ -70,10 +70,13 @@ export default function CanvasPhotoCollageMakerPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolsSchema) }}
-      />
+      {toolsSchema.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       {faqSchema && (
         <script
           type="application/ld+json"
