@@ -5,6 +5,7 @@ import { BgRemovalProvider, useBgRemoval } from './BgRemovalContext';
 import BgRemoverHeader from './BgRemoverHeader';
 import BgRemoverWorkspace from './BgRemoverWorkspace';
 import BgRemoverSidebar from './BgRemoverSidebar';
+import ModelPreloader from '../ModelPreloader';
 
 function BgRemoverLayout() {
   const { jobs } = useBgRemoval();
@@ -27,6 +28,7 @@ function BgRemoverLayout() {
 export default function BgRemoverApp() {
   return (
     <BgRemovalProvider>
+      <ModelPreloader />
       <BgRemoverLayout />
     </BgRemovalProvider>
   );
