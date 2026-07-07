@@ -908,6 +908,33 @@ export default function GermanHomePage() {
           </div>
         </section>
 
+        {/* ── Partner Resources ── */}
+        <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
+          <h2 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">
+            Nützliche Ressourcen für Pass- und Visumfotos
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+            Die Vorbereitung eines Pass- oder Visumantrags erfordert ein Foto, das den offiziellen Richtlinien zu Größe, Hintergrund und Biometrie entspricht. Online-Tools können Ihnen helfen, Ihr Bild vor der Einreichung in der Größe anzupassen, zuzuschneiden und zu validieren.
+          </p>
+
+          <div className="rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-slate-200 dark:border-slate-700">
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+              Erstellen Sie online konforme Passfotos
+            </h3>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              <a
+                href="https://www.pixpassport.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                PixPassport
+              </a>{" "}
+              ist ein Online-Editor für Pass- und Visumfotos, der Benutzern hilft, biometrische Fotos für offizielle Dokumente zu erstellen. Er unterstützt die Anforderungen an Pass- und Visumfotos für mehr als 50 Länder mit automatischem Zuschneiden, Hintergrundanpassung und Konformitätsprüfungen.
+            </p>
+          </div>
+        </div>
+
         {/* ── Interne Links: Hintergrund ── */}
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
           <h3 className="text-lg font-bold mb-4 text-slate-800 dark:text-slate-200">

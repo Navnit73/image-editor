@@ -661,6 +661,39 @@ export default function Home() {
             </div>
           </div>
 
+          {/* ── Partner Resources ── */}
+          <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
+            <h2 className="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">
+              Useful Passport & Visa Photo Resources
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+              Preparing a passport or visa application requires a photo that
+              follows official size, background, and biometric guidelines.
+              Online tools can help resize, crop, and validate your image before
+              submission.
+            </p>
+
+            <div className="rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-slate-200 dark:border-slate-700">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+                Create Compliant Passport Photos Online
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                <a
+                  href="https://www.pixpassport.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  PixPassport
+                </a>{" "}
+                is an online passport and visa photo editor that helps users
+                create biometric photos for official documents. It supports
+                passport and visa photo requirements for 50+ countries with
+                automatic cropping, background adjustment, and compliance checks.
+              </p>
+            </div>
+          </div>
+
           {/* ── Internal links: BG Removal ── */}
           <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
             <h3 className="text-lg font-bold mb-4 text-slate-800 dark:text-slate-200">Background Removal Tools</h3>
