@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { getToolPageData } from "@/lib/markdown/getContent";
@@ -75,6 +76,17 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
       {/* Global Apple Header */}
       <AppleNav currentLocale={locale} activeToolTitle={frontmatter.title} />
+
+      {/* Visual Breadcrumb Navigation */}
+      <nav aria-label="Breadcrumb" className="w-full bg-[#fafafc] border-b border-[#f0f0f0] py-2.5 px-6">
+        <div className="max-w-[1024px] mx-auto flex items-center gap-2 font-fine-print text-[12px] text-[#7a7a7a]">
+          <Link href={`/${locale}`} className="hover:text-[#0066cc] transition-colors">
+            Home
+          </Link>
+          <span>/</span>
+          <span className="text-[#1d1d1f] font-medium truncate">{frontmatter.title}</span>
+        </div>
+      </nav>
 
       {/* Hero Section */}
       <ToolHero

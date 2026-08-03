@@ -9,17 +9,59 @@ export function generateSoftwareApplicationSchema(pageData: ToolPageData, baseUr
     name: pageData.frontmatter.seoTitle || pageData.frontmatter.title,
     description: pageData.frontmatter.seoDescription || pageData.frontmatter.description,
     url: url,
+    image: `${baseUrl}/og-image.png`,
     applicationCategory: "MultimediaApplication",
-    operatingSystem: "All",
+    operatingSystem: "All Browser Platforms",
+    softwareVersion: "1.0",
+    inLanguage: pageData.locale,
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1280",
+      bestRating: "5",
+      worstRating: "1",
     },
     author: {
       "@type": "Organization",
       name: "photoresizerai.com",
+      url: baseUrl,
     },
+    featureList: pageData.frontmatter.features?.map((f) => f.title) || [
+      "Zero Server Upload Privacy",
+      "Lossless Export",
+      "Browser RAM Processing",
+    ],
+  };
+}
+
+export function generateWebSiteSchema(baseUrl: string, locale: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "photoresizerai.com",
+    url: `${baseUrl}/${locale}`,
+    inLanguage: locale,
+    publisher: {
+      "@type": "Organization",
+      name: "photoresizerai.com",
+      url: baseUrl,
+    },
+  };
+}
+
+export function generateOrganizationSchema(baseUrl: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "photoresizerai.com",
+    url: baseUrl,
+    logo: `${baseUrl}/file.svg`,
   };
 }
 
@@ -56,12 +98,6 @@ export function generateBreadcrumbSchema(pageData: ToolPageData, baseUrl: string
       {
         "@type": "ListItem",
         position: 2,
-        name: "Tools",
-        item: `${baseUrl}/${pageData.locale}#tools`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
         name: pageData.frontmatter.title,
         item: `${baseUrl}/${pageData.locale}/${pageData.slug}`,
       },

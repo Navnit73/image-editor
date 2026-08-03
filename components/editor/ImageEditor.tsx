@@ -26,10 +26,43 @@ interface ImageEditorProps {
   onSave?: (editedImageObject: any) => void;
 }
 
-export function ImageEditor({ preset, onSave }: ImageEditorProps) {
+const EDITOR_I18N: Record<string, {
+  title: string;
+  subtext: string;
+  button: string;
+  privacy: string;
+  loading: string;
+}> = {
+  en: {
+    title: "Upload your photo to start editing",
+    subtext: "Drag and drop your image file here, or click to browse from your device.",
+    button: "Select Image File",
+    privacy: "100% Client-Side Privacy • Your photo never leaves your browser",
+    loading: "Loading Image Editor...",
+  },
+  pt: {
+    title: "Envie sua foto para começar a editar",
+    subtext: "Arraste e solte o arquivo de imagem aqui ou clique para selecionar do seu dispositivo.",
+    button: "Selecionar Arquivo de Imagem",
+    privacy: "100% Privacidade Local • Sua foto nunca sai do seu navegador",
+    loading: "Carregando Editor de Imagem...",
+  },
+  de: {
+    title: "Laden Sie Ihr Foto hoch, um mit der Bearbeitung zu beginnen",
+    subtext: "Ziehen Sie Ihre Bilddatei hierher oder klicken Sie, um von Ihrem Gerät auszuwählen.",
+    button: "Bilddatei Auswählen",
+    privacy: "100% Lokaler Datenschutz • Ihr Foto verlässt niemals Ihren Browser",
+    loading: "Bild-Editor wird geladen...",
+  },
+};
+
+export function ImageEditor({ preset, locale = "en", onSave }: ImageEditorProps) {
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const validLocale = (locale && EDITOR_I18N[locale] ? locale : "en") as string;
+  const i18n = EDITOR_I18N[validLocale] || EDITOR_I18N.en;
 
   const config = getFilerobotConfig(preset);
 
@@ -67,7 +100,7 @@ export function ImageEditor({ preset, onSave }: ImageEditorProps) {
   };
 
   return (
-    <div >
+    <div>
       {/* Upload State 1: No Photo Uploaded Yet (Show Pure Drag & Drop Upload Zone) */}
       {!uploadedImage ? (
         <div
@@ -95,10 +128,10 @@ export function ImageEditor({ preset, onSave }: ImageEditorProps) {
           </div>
 
           <h3 className="font-display-lg text-[28px] sm:text-[36px] font-semibold text-[#1d1d1f] mb-3">
-            Upload your photo to start editing
+            {i18n.title}
           </h3>
           <p className="font-body text-[17px] text-[#7a7a7a] max-w-[500px] mb-8 leading-[1.45]">
-            Drag and drop your image file here, or click to browse from your device.
+            {i18n.subtext}
           </p>
 
           {/* Primary Upload Button */}
@@ -109,13 +142,13 @@ export function ImageEditor({ preset, onSave }: ImageEditorProps) {
             }}
             className="btn-apple-primary font-body text-[17px] py-3.5 px-10 shadow-sm cursor-pointer"
           >
-            Select Image File
+            {i18n.button}
           </button>
 
           {/* Privacy Guarantee Note */}
           <div className="mt-12 flex items-center gap-2 font-caption text-[13px] text-[#7a7a7a] bg-white px-4 py-2 rounded-full border border-[#e0e0e0]">
             <ShieldCheck className="w-4 h-4 text-[#0066cc]" />
-            <span>100% Client-Side Privacy • Your photo never leaves your browser</span>
+            <span>{i18n.privacy}</span>
           </div>
         </div>
       ) : (
@@ -170,14 +203,7 @@ export function ImageEditor({ preset, onSave }: ImageEditorProps) {
             />
           </div>
 
-          {/* Status Bar */}
-          <div className="px-4 py-2 mt-1 flex flex-col sm:flex-row items-center justify-between text-xs text-[#7a7a7a]">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#0066cc]" />
-              <span>Active Tab: <strong className="text-[#1d1d1f] capitalize">{config.defaultTabId || "Adjust"}</strong></span>
-            </div>
-            <span>Free Crop Enabled • HTML5 Canvas Security</span>
-          </div>
+        
         </div>
       )}
     </div>

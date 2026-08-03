@@ -1,9 +1,13 @@
 import React from "react";
 import Link from "next/link";
+import { Metadata } from "next";
 import { getAllToolPagesForLocale } from "@/lib/markdown/getContent";
 import { AppleNav } from "@/components/AppleNav";
 import { AppleFooter } from "@/components/AppleFooter";
 import { ImageEditor } from "@/components/editor/ImageEditor";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { constructHomeMetadata } from "@/lib/seo/generateMetadata";
+import { generateWebSiteSchema, generateOrganizationSchema } from "@/lib/seo/schemas";
 import { LOCALES, Locale } from "@/lib/types/i18n";
 import { ArrowRight, ShieldCheck, Zap, Sparkles, Lock } from "lucide-react";
 
@@ -12,6 +16,8 @@ interface LocaleHomeProps {
     locale: string;
   }>;
 }
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://photoresizerai.com";
 
 const HERO_I18N: Record<string, {
   badge: string;
@@ -67,15 +73,27 @@ export async function generateStaticParams() {
   return [{ locale: "en" }, { locale: "pt" }, { locale: "de" }];
 }
 
+export async function generateMetadata({ params }: LocaleHomeProps): Promise<Metadata> {
+  const { locale } = await params;
+  return constructHomeMetadata(locale);
+}
+
 export default async function LocaleHomePage({ params }: LocaleHomeProps) {
   const { locale } = await params;
   const validLocale = (LOCALES[locale as Locale] ? locale : "en") as Locale;
   const i18n = HERO_I18N[validLocale] || HERO_I18N.en;
   const pages = await getAllToolPagesForLocale(validLocale);
 
+  const websiteSchema = generateWebSiteSchema(BASE_URL, validLocale);
+  const organizationSchema = generateOrganizationSchema(BASE_URL);
+
   return (
     <div className="min-h-screen bg-white text-[#1d1d1f] flex flex-col font-body selection:bg-[#0066cc]/20 selection:text-[#0066cc]">
-      {/* Apple Global & Sub Nav Header */}
+      {/* Inject Structured Data Schemas */}
+      <JsonLd data={websiteSchema} />
+      <JsonLd data={organizationSchema} />
+
+      {/* Apple Global Header */}
       <AppleNav currentLocale={validLocale} />
 
       {/* Hero Section: Dark Product Tile (#272729) */}
