@@ -174,40 +174,40 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
       {/* Apple Global Header */}
       <AppleNav currentLocale={validLocale} />
 
-      {/* Hero Section */}
-      <section className="w-full bg-[#272729] text-white py-[64px] md:py-[80px] px-6 text-center overflow-hidden min-h-[640px] flex flex-col items-center justify-between">
+      {/* Hero Section (Tile 1: Dark Canvas #272729) */}
+      <section className="w-full bg-[#272729] text-white py-[80px] md:py-[100px] px-6 text-center overflow-hidden min-h-[640px] flex flex-col items-center justify-between">
         <div className="max-w-[840px] mx-auto z-10 flex flex-col items-center">
-          <span className="font-caption text-[14px] text-[#2997ff] font-semibold uppercase tracking-wider mb-2 inline-block bg-[#2997ff]/10 px-3.5 py-1 rounded-full border border-[#2997ff]/20">
+          <span className="font-caption text-[14px] text-[#2997ff] uppercase tracking-wider mb-3 inline-block">
             {i18n.badge}
           </span>
-          <h1 className="font-hero-display text-[40px] sm:text-[52px] md:text-[64px] font-semibold tracking-[-0.28px] leading-[1.05] mb-4 text-white">
+          <h1 className="font-hero-display text-[40px] sm:text-[56px] font-semibold tracking-[-0.28px] leading-[1.07] mb-4 text-white">
             {i18n.headline}
           </h1>
-          <p className="font-lead text-[21px] md:text-[26px] font-normal tracking-[0.196px] text-white/80 max-w-[680px] mb-8 leading-[1.35]">
+          <p className="font-lead text-[21px] md:text-[28px] font-normal tracking-[0.196px] text-white/80 max-w-[680px] mb-8 leading-[1.14]">
             {i18n.tagline}
           </p>
 
           <div className="flex items-center gap-4">
-            <a href="#editor-container" className="btn-apple-primary text-[17px] py-3 px-8">
+            <a href="#editor-container" className="btn-apple-primary bg-[#2997ff] text-white hover:bg-[#0071e3] text-[17px] py-3.5 px-8">
               Launch Live Studio
             </a>
           </div>
         </div>
 
-        {/* Live Interactive Editor */}
-        <div id="editor-container" className="mt-12 w-full max-w-[1024px] mx-auto">
+        {/* Live Interactive Editor with Signature Apple Product Drop Shadow */}
+        <div id="editor-container" className="mt-14 w-full max-w-[1024px] mx-auto rounded-[18px] product-shadow overflow-hidden bg-[#1d1d1f]">
           <ImageEditor preset="full" locale={validLocale} />
         </div>
       </section>
 
-      {/* Tools Grid Section */}
-      <section className="w-full py-20 px-6 bg-[#f5f5f7]">
+      {/* Tools Grid Section (Tile 2: Parchment Canvas #f5f5f7) */}
+      <section className="w-full py-[80px] md:py-[100px] px-6 bg-[#f5f5f7]">
         <div className="max-w-[1024px] mx-auto">
-          <div className="mb-12 text-left">
-            <span className="font-caption text-[14px] text-[#7a7a7a] font-semibold uppercase tracking-wider block mb-1">
+          <div className="mb-14 text-center">
+            <span className="font-caption text-[14px] text-[#7a7a7a] font-semibold uppercase tracking-wider block mb-2">
               {i18n.toolsHeadline}
             </span>
-            <h2 className="font-display-lg text-[36px] md:text-[44px] font-semibold text-[#1d1d1f]">
+            <h2 className="font-display-lg text-[36px] md:text-[40px] font-semibold text-[#1d1d1f] leading-[1.1]">
               {i18n.toolsSubtext}
             </h2>
           </div>
@@ -217,24 +217,24 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
               <Link
                 key={page.slug}
                 href={`/${validLocale}/${page.slug}`}
-                className="bg-white border border-[#e0e0e0] rounded-[18px] p-6 flex flex-col justify-between apple-active-scale group hover:border-[#0066cc]/40 transition-colors"
+                className="bg-white border border-[#e0e0e0]/60 rounded-[18px] p-6 flex flex-col justify-between apple-active-scale group transition-colors"
                 title={page.frontmatter.title}
               >
                 <div>
                   <div className="w-12 h-12 rounded-[14px] bg-[#0066cc]/10 text-[#0066cc] flex items-center justify-center mb-4">
                     <Sparkles className="w-6 h-6" />
                   </div>
-                  <span className="font-caption text-[13px] text-[#7a7a7a] block mb-1 uppercase tracking-wide">
+                  <span className="font-caption text-[12px] text-[#7a7a7a] block mb-1 uppercase tracking-wide">
                     {page.frontmatter.toolCategory}
                   </span>
                   <h3 className="font-body-strong text-[18px] font-semibold text-[#1d1d1f] group-hover:text-[#0066cc] transition-colors mb-2">
                     {page.frontmatter.title}
                   </h3>
-                  <p className="font-caption text-[14px] text-[#7a7a7a] line-clamp-2 leading-[1.45]">
+                  <p className="font-caption text-[14px] text-[#7a7a7a] line-clamp-2 leading-[1.43]">
                     {page.frontmatter.description}
                   </p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-[#f0f0f0] flex items-center justify-between text-[#0066cc] font-body text-[15px]">
+                <div className="mt-6 pt-4 border-t border-[#f0f0f0] flex items-center justify-between text-[#0066cc] font-body text-[17px]">
                   <span>Open Tool</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -244,20 +244,20 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
         </div>
       </section>
 
-      {/* Feature Highlights Section */}
-      <section className="w-full py-20 px-6 bg-white">
+      {/* Feature Highlights Section (Tile 3: Light Canvas #ffffff) */}
+      <section className="w-full py-[80px] md:py-[100px] px-6 bg-white">
         <div className="max-w-[1024px] mx-auto">
           <div className="text-center mb-14">
             <span className="font-caption text-[14px] text-[#7a7a7a] font-semibold uppercase tracking-wider block mb-2">
               Architectural Pillars
             </span>
-            <h2 className="font-display-lg text-[36px] md:text-[44px] font-semibold text-[#1d1d1f]">
+            <h2 className="font-display-lg text-[36px] md:text-[40px] font-semibold text-[#1d1d1f] leading-[1.1]">
               {i18n.featuresHeadline}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#fafafc] border border-[#e0e0e0] rounded-[18px] p-8 flex flex-col justify-between">
+            <div className="bg-[#fafafc] border border-[#e0e0e0]/60 rounded-[18px] p-8 flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-[14px] bg-[#0066cc]/10 text-[#0066cc] flex items-center justify-center mb-5">
                   <ShieldCheck className="w-6 h-6" />
@@ -265,13 +265,13 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
                 <h3 className="font-body-strong text-[19px] font-semibold text-[#1d1d1f] mb-3">
                   Zero Server Uploads
                 </h3>
-                <p className="font-body text-[16px] text-[#7a7a7a] leading-[1.47]">
+                <p className="font-body text-[17px] text-[#7a7a7a] leading-[1.47] tracking-[-0.374px]">
                   All image editing operations execute 100% locally in your web browser RAM using HTML5 Canvas.
                 </p>
               </div>
             </div>
 
-            <div className="bg-[#fafafc] border border-[#e0e0e0] rounded-[18px] p-8 flex flex-col justify-between">
+            <div className="bg-[#fafafc] border border-[#e0e0e0]/60 rounded-[18px] p-8 flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-[14px] bg-[#0066cc]/10 text-[#0066cc] flex items-center justify-center mb-5">
                   <Zap className="w-6 h-6" />
@@ -279,13 +279,13 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
                 <h3 className="font-body-strong text-[19px] font-semibold text-[#1d1d1f] mb-3">
                   Lossless Canvas Export
                 </h3>
-                <p className="font-body text-[16px] text-[#7a7a7a] leading-[1.47]">
+                <p className="font-body text-[17px] text-[#7a7a7a] leading-[1.47] tracking-[-0.374px]">
                   Export high-resolution PNG, WebP, and JPG files with zero compression artifacts or watermarks.
                 </p>
               </div>
             </div>
 
-            <div className="bg-[#fafafc] border border-[#e0e0e0] rounded-[18px] p-8 flex flex-col justify-between">
+            <div className="bg-[#fafafc] border border-[#e0e0e0]/60 rounded-[18px] p-8 flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-[14px] bg-[#0066cc]/10 text-[#0066cc] flex items-center justify-center mb-5">
                   <Lock className="w-6 h-6" />
@@ -293,7 +293,7 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
                 <h3 className="font-body-strong text-[19px] font-semibold text-[#1d1d1f] mb-3">
                   Biometric Precision
                 </h3>
-                <p className="font-body text-[16px] text-[#7a7a7a] leading-[1.47]">
+                <p className="font-body text-[17px] text-[#7a7a7a] leading-[1.47] tracking-[-0.374px]">
                   Integrated alignment guidelines for US 2x2", Schengen 35x45mm, and Brazil RG passport requirements.
                 </p>
               </div>
@@ -302,22 +302,22 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
         </div>
       </section>
 
-      {/* Comprehensive SEO Content Section (Rich Text) */}
-      <section className="w-full py-20 px-6 bg-[#f5f5f7] border-t border-[#e0e0e0]">
-        <article className="max-w-[840px] mx-auto prose prose-lg prose-headings:font-semibold prose-headings:text-[#1d1d1f] prose-p:text-[#424245] prose-p:leading-relaxed">
-          <h2 className="text-[32px] md:text-[40px] font-display-lg mb-10 text-center tracking-tight">
+      {/* Comprehensive SEO Content Section (Tile 4: Parchment Canvas #f5f5f7) */}
+      <section className="w-full py-[80px] md:py-[100px] px-6 bg-[#f5f5f7]">
+        <article className="max-w-[840px] mx-auto">
+          <h2 className="font-display-lg text-[32px] md:text-[40px] text-center text-[#1d1d1f] font-semibold mb-12 tracking-tight leading-[1.1]">
             {i18n.seoArticleHeadline}
           </h2>
           
-          <div className="space-y-12">
+          <div className="space-y-8">
             {i18n.seoArticles.map((article, index) => (
-              <div key={index} className="bg-white p-8 md:p-10 rounded-[24px] shadow-sm border border-[#e0e0e0]">
-                <h3 className="text-[22px] md:text-[26px] mb-4 text-[#1d1d1f] tracking-tight font-body-strong">
+              <div key={index} className="bg-white p-8 md:p-10 rounded-[18px] border border-[#e0e0e0]/60">
+                <h3 className="font-body-strong text-[21px] md:text-[24px] mb-4 text-[#1d1d1f] tracking-tight">
                   {article.title}
                 </h3>
                 <div className="space-y-4">
                   {article.content.map((paragraph, pIndex) => (
-                    <p key={pIndex} className="text-[17px] text-[#424245] leading-[1.6]">
+                    <p key={pIndex} className="font-body text-[17px] text-[#333333] leading-[1.47] tracking-[-0.374px]">
                       {paragraph}
                     </p>
                   ))}
@@ -328,24 +328,21 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
         </article>
       </section>
 
-      {/* Privacy Quote Card */}
-      <section className="w-full py-24 px-6 bg-[#272729] text-white flex flex-col items-center text-center">
+      {/* Privacy Quote Section (Tile 5: Dark Canvas #272729) */}
+      <section className="w-full py-[80px] md:py-[100px] px-6 bg-[#272729] text-white flex flex-col items-center text-center">
         <div className="max-w-[840px] flex flex-col items-center">
-          <div className="flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full bg-white/10 border border-white/20">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#2997ff] inline-block shadow-[0_0_8px_rgba(41,151,255,0.6)]" />
-            <span className="font-caption text-[14px] text-white font-medium">
-              {i18n.privacyBadge}
-            </span>
-          </div>
+          <span className="font-caption text-[14px] text-[#2997ff] font-semibold uppercase tracking-wider mb-4 inline-block">
+            {i18n.privacyBadge}
+          </span>
 
-          <h2 className="font-display-lg text-[32px] md:text-[44px] font-semibold leading-[1.12] mb-6 tracking-tight">
+          <h2 className="font-display-lg text-[32px] md:text-[40px] font-semibold leading-[1.1] mb-6 text-white tracking-tight">
             {i18n.privacyQuote}
           </h2>
-          <p className="font-lead-airy text-[22px] font-light text-white/80 max-w-[680px] mb-10">
+          <p className="font-lead-airy text-[22px] md:text-[24px] font-light text-white/80 max-w-[680px] mb-10 leading-[1.5]">
             {i18n.privacySubtext}
           </p>
 
-          <a href="#editor-container" className="btn-apple-primary font-body text-[17px] py-3.5 px-8 transition-transform hover:scale-105">
+          <a href="#editor-container" className="btn-apple-primary bg-[#2997ff] text-white hover:bg-[#0071e3] font-body text-[17px] py-3.5 px-8">
             {i18n.privacyCta}
           </a>
         </div>
