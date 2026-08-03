@@ -3,7 +3,7 @@ import { ToolPageData } from "../types/markdown";
 import { getAlternateSlugs } from "../i18n/slugMap";
 import { Locale } from "../types/i18n";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://apple-image-editor.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://photoresizerai.com";
 
 export function constructToolMetadata(pageData: ToolPageData): Metadata {
   const { frontmatter, locale, slug } = pageData;
@@ -31,7 +31,7 @@ export function constructToolMetadata(pageData: ToolPageData): Metadata {
       title: frontmatter.seoTitle || frontmatter.title,
       description: frontmatter.seoDescription || frontmatter.description,
       url: canonicalUrl,
-      siteName: "Apple Image Studio",
+      siteName: "photoresizerai.com",
       locale: locale === "pt" ? "pt_BR" : locale === "de" ? "de_DE" : "en_US",
       type: "website",
     },

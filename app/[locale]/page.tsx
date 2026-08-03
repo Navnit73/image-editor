@@ -79,9 +79,9 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
       <AppleNav currentLocale={validLocale} />
 
       {/* Hero Section: Dark Product Tile (#272729) */}
-      <section className="w-full bg-[#272729] text-white py-[64px] md:py-[80px] px-6 text-center overflow-hidden min-h-[640px] border-b border-white/10 flex flex-col items-center justify-between">
+      <section className="w-full bg-[#272729] text-white py-[64px] md:py-[80px] px-6 text-center overflow-hidden min-h-[640px] flex flex-col items-center justify-between">
         <div className="max-w-[840px] mx-auto z-10 flex flex-col items-center">
-          <span className="font-caption text-[14px] text-[#2997ff] font-semibold uppercase tracking-wider mb-2 inline-block bg-[#2997ff]/10 px-3 py-1 rounded-full border border-[#2997ff]/20">
+          <span className="font-caption text-[14px] text-[#2997ff] font-semibold uppercase tracking-wider mb-2 inline-block bg-[#2997ff]/10 px-3.5 py-1 rounded-full border border-[#2997ff]/20">
             {i18n.badge}
           </span>
           <h1 className="font-hero-display text-[40px] sm:text-[52px] md:text-[64px] font-semibold tracking-[-0.28px] leading-[1.05] mb-4 text-white">
@@ -92,20 +92,20 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
           </p>
 
           <div className="flex items-center gap-4">
-            <a href="#editor-demo" className="btn-apple-primary text-[17px] py-3 px-8">
+            <a href="#editor-container" className="btn-apple-primary text-[17px] py-3 px-8">
               Launch Live Studio
             </a>
           </div>
         </div>
 
         {/* Live Interactive Filerobot Editor Container with Apple Product Drop Shadow */}
-        <div id="editor-demo" className="mt-12 w-full max-w-[1024px] mx-auto">
+        <div id="editor-container" className="mt-12 w-full max-w-[1024px] mx-auto">
           <ImageEditor preset="full" locale={validLocale} />
         </div>
       </section>
 
       {/* Section 2: Store Utility Cards Grid (Parchment Canvas #f5f5f7) */}
-      <section className="w-full py-20 px-6 bg-[#f5f5f7] border-b border-[#e0e0e0]">
+      <section className="w-full py-20 px-6 bg-[#f5f5f7]">
         <div className="max-w-[1024px] mx-auto">
           <div className="mb-12 text-left">
             <span className="font-caption text-[14px] text-[#7a7a7a] font-semibold uppercase tracking-wider block mb-1">
@@ -148,7 +148,7 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
       </section>
 
       {/* Section 3: Feature Highlights (Light Canvas #ffffff) */}
-      <section className="w-full py-20 px-6 bg-white border-b border-[#f0f0f0]">
+      <section className="w-full py-20 px-6 bg-white">
         <div className="max-w-[1024px] mx-auto">
           <div className="text-center mb-14">
             <span className="font-caption text-[14px] text-[#7a7a7a] font-semibold uppercase tracking-wider block mb-2">
@@ -209,7 +209,7 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
       <section className="w-full py-20 px-6 bg-[#272729] text-white flex flex-col items-center text-center">
         <div className="max-w-[840px] flex flex-col items-center">
           <div className="flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 border border-white/20">
-            <span className="w-3 h-3 rounded-full bg-emerald-400 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#2997ff] inline-block" />
             <span className="font-caption text-[14px] text-white font-medium">
               {i18n.privacyBadge}
             </span>
@@ -222,7 +222,7 @@ export default async function LocaleHomePage({ params }: LocaleHomeProps) {
             {i18n.privacySubtext}
           </p>
 
-          <a href="#editor-demo" className="btn-apple-primary font-body text-[17px] py-3 px-8">
+          <a href="#editor-container" className="btn-apple-primary font-body text-[17px] py-3 px-8">
             {i18n.privacyCta}
           </a>
         </div>

@@ -18,7 +18,7 @@ export function ToolFaq({ faq }: ToolFaqProps) {
   if (!faq || faq.length === 0) return null;
 
   return (
-    <section className="w-full py-16 px-6 bg-[#f5f5f7] border-t border-[#e0e0e0]">
+    <section className="w-full py-16 px-6 bg-white">
       <div className="max-w-[800px] mx-auto">
         <div className="text-center mb-12">
           <span className="font-caption text-[14px] text-[#7a7a7a] font-semibold tracking-wider uppercase block mb-2">
@@ -35,7 +35,7 @@ export function ToolFaq({ faq }: ToolFaqProps) {
             return (
               <div
                 key={item.question}
-                className="bg-white border border-[#e0e0e0] rounded-[18px] overflow-hidden transition-all"
+                className="bg-[#fafafc] border border-[#e0e0e0] rounded-[18px] overflow-hidden transition-all"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}

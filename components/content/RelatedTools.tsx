@@ -35,7 +35,7 @@ export function RelatedTools({ currentLocale, relatedSlugs }: RelatedToolsProps)
   if (!relatedSlugs || relatedSlugs.length === 0) return null;
 
   return (
-    <section className="w-full py-16 px-6 bg-[#f5f5f7] border-t border-[#e0e0e0]">
+    <section className="w-full py-16 px-6 bg-[#f5f5f7]">
       <div className="max-w-[1024px] mx-auto">
         <div className="mb-10 text-left">
           <span className="font-caption text-[14px] text-[#7a7a7a] font-semibold tracking-wider uppercase block mb-1">

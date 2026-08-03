@@ -10,7 +10,7 @@ export function MarkdownRenderer({ contentHtml }: MarkdownRendererProps) {
   if (!contentHtml) return null;
 
   return (
-    <article className="w-full py-16 px-6 bg-white border-t border-[#f0f0f0]">
+    <article className="w-full py-16 px-6 bg-[#f5f5f7]">
       <div className="max-w-[800px] mx-auto prose prose-neutral prose-lg max-w-none text-[#1d1d1f] font-body">
         {/* Render markdown lines cleanly with styled headers and paragraphs */}
         {contentHtml.split("\n\n").map((chunk, idx) => {

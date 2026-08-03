@@ -62,7 +62,7 @@ const FOOTER_I18N: Record<string, {
       { name: "Signature Product Shadow", href: "/en" },
       { name: "Edge-to-Edge Tile Rhythm", href: "/en" },
     ],
-    copyright: "Copyright © 2026 Apple Image Studio Inc. All rights reserved.",
+    copyright: "Copyright © 2026 photoresizerai.com. All rights reserved.",
     privacy: "Privacy Policy",
     terms: "Terms of Service",
     legal: "Legal Info",
@@ -104,7 +104,7 @@ const FOOTER_I18N: Record<string, {
       { name: "Tipografia Corpo 17px", href: "/pt" },
       { name: "Sombra de Produto Única", href: "/pt" },
     ],
-    copyright: "Copyright © 2026 Apple Image Studio Inc. Todos os direitos reservados.",
+    copyright: "Copyright © 2026 photoresizerai.com. Todos os direitos reservados.",
     privacy: "Política de Privacidade",
     terms: "Termos de Uso",
     legal: "Informações Legais",
@@ -146,7 +146,7 @@ const FOOTER_I18N: Record<string, {
       { name: "17px Fließtext-Typografie", href: "/de" },
       { name: "Produkt-Schatten", href: "/de" },
     ],
-    copyright: "Copyright © 2026 Apple Image Studio Inc. Alle Rechte vorbehalten.",
+    copyright: "Copyright © 2026 photoresizerai.com. Alle Rechte vorbehalten.",
     privacy: "Datenschutz",
     terms: "Nutzungsbedingungen",
     legal: "Impressum",
@@ -169,10 +169,10 @@ export function AppleFooter({ locale = "en" }: AppleFooterProps) {
         {/* Directory Column Links - Relaxed leading 2.41 dense-link */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 py-10">
           <div>
-            <h4 className="font-caption-strong text-[14px] font-semibold text-[#1d1d1f] mb-3">
+            <h4 className="font-caption-strong text-[12px] font-semibold text-[#1d1d1f] uppercase tracking-wider mb-3">
               {content.col1Title}
             </h4>
-            <ul className="font-dense-link text-[15px] leading-[2.41] text-[#333333] space-y-0">
+            <ul className="font-fine-print text-[12px] leading-[2.2] text-[#333333] space-y-0">
               {content.col1Links.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:underline hover:text-[#0066cc] transition-colors">
@@ -184,10 +184,10 @@ export function AppleFooter({ locale = "en" }: AppleFooterProps) {
           </div>
 
           <div>
-            <h4 className="font-caption-strong text-[14px] font-semibold text-[#1d1d1f] mb-3">
+            <h4 className="font-caption-strong text-[12px] font-semibold text-[#1d1d1f] uppercase tracking-wider mb-3">
               {content.col2Title}
             </h4>
-            <ul className="font-dense-link text-[15px] leading-[2.41] text-[#333333] space-y-0">
+            <ul className="font-fine-print text-[12px] leading-[2.2] text-[#333333] space-y-0">
               {content.col2Links.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:underline hover:text-[#0066cc] transition-colors">
@@ -199,10 +199,10 @@ export function AppleFooter({ locale = "en" }: AppleFooterProps) {
           </div>
 
           <div>
-            <h4 className="font-caption-strong text-[14px] font-semibold text-[#1d1d1f] mb-3">
+            <h4 className="font-caption-strong text-[12px] font-semibold text-[#1d1d1f] uppercase tracking-wider mb-3">
               {content.col3Title}
             </h4>
-            <ul className="font-dense-link text-[15px] leading-[2.41] text-[#333333] space-y-0">
+            <ul className="font-fine-print text-[12px] leading-[2.2] text-[#333333] space-y-0">
               {content.col3Links.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:underline hover:text-[#0066cc] transition-colors">
@@ -214,10 +214,10 @@ export function AppleFooter({ locale = "en" }: AppleFooterProps) {
           </div>
 
           <div>
-            <h4 className="font-caption-strong text-[14px] font-semibold text-[#1d1d1f] mb-3">
+            <h4 className="font-caption-strong text-[12px] font-semibold text-[#1d1d1f] uppercase tracking-wider mb-3">
               {content.col4Title}
             </h4>
-            <ul className="font-dense-link text-[15px] leading-[2.41] text-[#333333] space-y-0">
+            <ul className="font-fine-print text-[12px] leading-[2.2] text-[#333333] space-y-0">
               {content.col4Links.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:underline hover:text-[#0066cc] transition-colors">
@@ -229,10 +229,10 @@ export function AppleFooter({ locale = "en" }: AppleFooterProps) {
           </div>
 
           <div>
-            <h4 className="font-caption-strong text-[14px] font-semibold text-[#1d1d1f] mb-3">
+            <h4 className="font-caption-strong text-[12px] font-semibold text-[#1d1d1f] uppercase tracking-wider mb-3">
               {content.col5Title}
             </h4>
-            <ul className="font-dense-link text-[15px] leading-[2.41] text-[#333333] space-y-0">
+            <ul className="font-fine-print text-[12px] leading-[2.2] text-[#333333] space-y-0">
               {content.col5Links.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:underline hover:text-[#0066cc] transition-colors">

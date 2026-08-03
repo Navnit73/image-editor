@@ -16,10 +16,10 @@ export function ToolHero({
   primaryCtaText = "Start Editing",
 }: ToolHeroProps) {
   return (
-    <section className="w-full bg-[#f5f5f7] text-[#1d1d1f] py-[64px] md:py-[80px] px-6 text-center border-b border-[#e0e0e0]">
+    <section className="w-full bg-white text-[#1d1d1f] py-[64px] md:py-[80px] px-6 text-center">
       <div className="max-w-[800px] mx-auto flex flex-col items-center">
         {badge && (
-          <span className="font-caption text-[14px] text-[#0066cc] font-semibold uppercase tracking-wider mb-2 inline-block bg-[#0066cc]/10 px-3 py-1 rounded-full">
+          <span className="font-caption text-[14px] text-[#0066cc] font-semibold uppercase tracking-wider mb-3 inline-block bg-[#0066cc]/10 px-3.5 py-1 rounded-full">
             {badge}
           </span>
         )}
@@ -30,7 +30,7 @@ export function ToolHero({
           {subheadline}
         </p>
 
-        <a href="#editor-container" className="btn-apple-primary font-body text-[17px] py-3 px-7">
+        <a href="#editor-container" className="btn-apple-primary font-body text-[17px] py-3 px-8">
           {primaryCtaText}
         </a>
       </div>

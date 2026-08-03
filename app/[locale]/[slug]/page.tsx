@@ -28,7 +28,7 @@ interface ToolPageProps {
   }>;
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://apple-image-editor.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://photoresizerai.com";
 
 // Next.js static params generation for all markdown files
 export async function generateStaticParams() {
@@ -74,7 +74,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
       <JsonLd data={breadcrumbSchema} />
 
       {/* Global Apple Header */}
-      <AppleNav />
+      <AppleNav currentLocale={locale} activeToolTitle={frontmatter.title} />
 
       {/* Hero Section */}
       <ToolHero
@@ -107,7 +107,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
       <ToolCta cta={frontmatter.cta} />
 
       {/* Apple Directory Footer */}
-      <AppleFooter />
+      <AppleFooter locale={locale} />
     </div>
   );
 }

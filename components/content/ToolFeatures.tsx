@@ -19,7 +19,7 @@ export function ToolFeatures({ features }: ToolFeaturesProps) {
   const defaultIcons = [Zap, ShieldCheck, Sparkles, Layers];
 
   return (
-    <section className="w-full py-16 px-6 bg-white border-t border-[#f0f0f0]">
+    <section className="w-full py-16 px-6 bg-white">
       <div className="max-w-[1024px] mx-auto">
         <div className="text-center mb-12">
           <span className="font-caption text-[14px] text-[#7a7a7a] font-semibold tracking-wider uppercase block mb-2">
@@ -39,7 +39,7 @@ export function ToolFeatures({ features }: ToolFeaturesProps) {
                 className="bg-[#fafafc] border border-[#e0e0e0] rounded-[18px] p-6 flex flex-col justify-between apple-active-scale cursor-default"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-[12px] bg-[#0066cc]/10 text-[#0066cc] flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-[14px] bg-[#0066cc]/10 text-[#0066cc] flex items-center justify-center mb-4">
                     <IconComponent className="w-6 h-6" />
                   </div>
                   <h3 className="font-body-strong text-[17px] font-semibold text-[#1d1d1f] mb-2">

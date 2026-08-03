@@ -18,7 +18,7 @@ export function generateSoftwareApplicationSchema(pageData: ToolPageData, baseUr
     },
     author: {
       "@type": "Organization",
-      name: "Apple Image Studio",
+      name: "photoresizerai.com",
     },
   };
 }

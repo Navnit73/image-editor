@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Apple Design System — Action Blue, SF Pro, and 24 components",
+  title: "photoresizerai.com — Free Online AI Image Resizer, Cropper & Studio",
   description:
-    "Apple's design system as a DESIGN.md spec. Action Blue #0066cc, SF Pro, 21 colors, 24 components.",
+    "Crop, resize, compress, and edit photos online for free with 100% browser-based privacy on photoresizerai.com.",
 };
 
 export default function RootLayout({
