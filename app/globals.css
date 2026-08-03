@@ -386,3 +386,33 @@ body {
     font-size: 28px;
   }
 }
+
+/* Filerobot Editor Mobile & Desktop Responsiveness & Layout Fixes */
+.Filerobot-Image-Editor-root,
+[class*="Filerobot-Image-Editor"],
+[class*="Fie-"] {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#editor-container {
+  max-width: 100% !important;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  [class*="Fie-topbar"],
+  [class*="Fie-topbar-"] {
+    padding: 6px 8px !important;
+    gap: 4px !important;
+  }
+
+  [class*="Fie-toolbar"],
+  [class*="Fie-bottombar"],
+  [class*="Fie-options"] {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+

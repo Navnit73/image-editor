@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { EditorPreset } from "@/lib/types/editor";
 import { getFilerobotConfig } from "@/lib/editor/mapper";
-import { Upload, ArrowLeft, ShieldCheck } from "lucide-react";
+import { Upload, ShieldCheck, ArrowLeft } from "lucide-react";
 
 // Dynamic import of Filerobot Image Editor with SSR disabled
 const FilerobotImageEditor = dynamic(
@@ -32,6 +32,7 @@ const EDITOR_I18N: Record<string, {
   button: string;
   privacy: string;
   loading: string;
+  changePhoto: string;
 }> = {
   en: {
     title: "Upload your photo to start editing",
@@ -39,6 +40,7 @@ const EDITOR_I18N: Record<string, {
     button: "Select Image File",
     privacy: "100% Client-Side Privacy • Your photo never leaves your browser",
     loading: "Loading Image Editor...",
+    changePhoto: "Upload Another Photo",
   },
   pt: {
     title: "Envie sua foto para começar a editar",
@@ -46,6 +48,7 @@ const EDITOR_I18N: Record<string, {
     button: "Selecionar Arquivo de Imagem",
     privacy: "100% Privacidade Local • Sua foto nunca sai do seu navegador",
     loading: "Carregando Editor de Imagem...",
+    changePhoto: "Enviar Outra Foto",
   },
   de: {
     title: "Laden Sie Ihr Foto hoch, um mit der Bearbeitung zu beginnen",
@@ -53,6 +56,7 @@ const EDITOR_I18N: Record<string, {
     button: "Bilddatei Auswählen",
     privacy: "100% Lokaler Datenschutz • Ihr Foto verlässt niemals Ihren Browser",
     loading: "Bild-Editor wird geladen...",
+    changePhoto: "Anderes Foto Wählen",
   },
 };
 
@@ -60,6 +64,48 @@ export function ImageEditor({ preset, locale = "en", onSave }: ImageEditorProps)
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  // Suppress third-party library DOM attribute console warnings in development mode
+  useEffect(() => {
+    if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+      const originalError = console.error;
+      const originalWarn = console.warn;
+
+      const shouldFilter = (msg: string) =>
+        msg.includes("React does not recognize") ||
+        msg.includes("non-boolean attribute") ||
+        msg.includes("unique \"key\" prop") ||
+        msg.includes("same key") ||
+        msg.includes("CropPresetsOption") ||
+        msg.includes("styled.div") ||
+        msg.includes("warning-keys");
+
+      console.error = (...args: any[]) => {
+        const fullMsg = args
+          .map((a) => (typeof a === "string" ? a : String(a)))
+          .join(" ");
+        if (shouldFilter(fullMsg)) {
+          return;
+        }
+        originalError(...args);
+      };
+
+      console.warn = (...args: any[]) => {
+        const fullMsg = args
+          .map((a) => (typeof a === "string" ? a : String(a)))
+          .join(" ");
+        if (shouldFilter(fullMsg)) {
+          return;
+        }
+        originalWarn(...args);
+      };
+
+      return () => {
+        console.error = originalError;
+        console.warn = originalWarn;
+      };
+    }
+  }, []);
 
   const validLocale = (locale && EDITOR_I18N[locale] ? locale : "en") as string;
   const i18n = EDITOR_I18N[validLocale] || EDITOR_I18N.en;
@@ -153,11 +199,22 @@ export function ImageEditor({ preset, locale = "en", onSave }: ImageEditorProps)
         </div>
       ) : (
         /* Upload State 2: Photo Uploaded (Show Filerobot Image Editor) */
-        <div className="w-full">
-         
+        <div className="w-full max-w-full overflow-hidden">
+          <div className="mb-3.5 flex items-center justify-between px-1">
+            <button
+              onClick={() => setUploadedImage(null)}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-[#fafafc] border border-[#e0e0e0] hover:border-[#0066cc]/40 rounded-full font-body text-[14px] font-medium text-[#1d1d1f] hover:text-[#0066cc] transition-all cursor-pointer shadow-sm apple-active-scale"
+            >
+              <ArrowLeft className="w-4 h-4 text-[#0066cc]" />
+              <span>{i18n.changePhoto}</span>
+            </button>
+            <span className="font-caption text-[13px] text-[#7a7a7a] font-normal hidden sm:inline-block">
+              100% Client-Side RAM Processing
+            </span>
+          </div>
 
           {/* Filerobot Canvas Frame */}
-          <div className="w-full h-[620px] bg-[#ffffff] relative overflow-hidden rounded-[6px] border border-[#f0f0f0]">
+          <div className="w-full max-w-full min-h-[500px] h-[540px] sm:h-[620px] md:h-[680px] bg-[#ffffff] relative overflow-hidden rounded-[16px] border border-[#e0e0e0] shadow-sm">
             <FilerobotImageEditor
               source={uploadedImage}
               onSave={(editedImageObject: any) => {
@@ -176,13 +233,13 @@ export function ImageEditor({ preset, locale = "en", onSave }: ImageEditorProps)
               Rotate={{ angle: 90, componentType: "slider" }}
               Crop={{
                 presetsItems: [
-                  { titleKey: "Free", descriptionKey: "free" },
-                  { titleKey: "1:1", descriptionKey: "1:1", ratio: 1 },
-                  { titleKey: "16:9", descriptionKey: "16:9", ratio: 16 / 9 },
-                  { titleKey: "4:3", descriptionKey: "4:3", ratio: 4 / 3 },
-                  { titleKey: "9:16", descriptionKey: "9:16", ratio: 9 / 16 },
-                  { titleKey: "35:45", descriptionKey: "35:45", ratio: 35 / 45 },
-                ],
+                  { itemKey: "crop-free", titleKey: "Free", descriptionKey: "free" },
+                  { itemKey: "crop-1-1", titleKey: "1:1", descriptionKey: "1:1", ratio: 1 },
+                  { itemKey: "crop-16-9", titleKey: "16:9", descriptionKey: "16:9", ratio: 16 / 9 },
+                  { itemKey: "crop-4-3", titleKey: "4:3", descriptionKey: "4:3", ratio: 4 / 3 },
+                  { itemKey: "crop-9-16", titleKey: "9:16", descriptionKey: "9:16", ratio: 9 / 16 },
+                  { itemKey: "crop-35-45", titleKey: "35:45", descriptionKey: "35:45", ratio: 35 / 45 },
+                ] as any,
                 autoResize: true,
               }}
               tabsIds={config.tabsIds as any}
