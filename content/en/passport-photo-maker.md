@@ -34,7 +34,6 @@ cta:
   buttonText: "Start Passport Editor"
 relatedSlugs:
   - "image-cropper"
-  - "resize-image"
 ---
 
 # Biometric Passport Photo Generator

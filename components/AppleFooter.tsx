@@ -32,16 +32,12 @@ const FOOTER_I18N: Record<string, {
     col1Title: "Tools & Editors",
     col1Links: [
       { name: "Image Cropper", href: "/en/image-cropper" },
-      { name: "Image Resizer", href: "/en/resize-image" },
-      { name: "Image Compressor", href: "/en/compress-image" },
       { name: "Passport Photo Maker", href: "/en/passport-photo-maker" },
-      { name: "Watermark Tool", href: "/en/watermark-image" },
     ],
     col2Title: "AI Studio",
     col2Links: [
       { name: "Background Remover", href: "/en/image-cropper" },
       { name: "AI Face Aligner", href: "/en/passport-photo-maker" },
-      { name: "Lossless Export Engine", href: "/en/compress-image" },
     ],
     col3Title: "Languages",
     col3Links: [
@@ -75,16 +71,12 @@ const FOOTER_I18N: Record<string, {
     col1Title: "Ferramentas",
     col1Links: [
       { name: "Cortar Imagem", href: "/pt/cortar-imagem" },
-      { name: "Redimensionar Foto", href: "/pt/redimensionar-imagem" },
-      { name: "Compactar Foto", href: "/pt/compactar-imagem" },
       { name: "Foto Passaporte", href: "/pt/foto-passaporte" },
-      { name: "Marca d'água", href: "/pt/marca-d-agua" },
     ],
     col2Title: "Estúdio IA",
     col2Links: [
       { name: "Removedor de Fundo", href: "/pt/cortar-imagem" },
       { name: "Alinhador Biométrico", href: "/pt/foto-passaporte" },
-      { name: "Exportação Sem Perdas", href: "/pt/compactar-imagem" },
     ],
     col3Title: "Idiomas",
     col3Links: [
@@ -117,16 +109,12 @@ const FOOTER_I18N: Record<string, {
     col1Title: "Werkzeuge",
     col1Links: [
       { name: "Bild Zuschneiden", href: "/de/bild-zuschneiden" },
-      { name: "Bildgröße Ändern", href: "/de/bildgroesse-aendern" },
-      { name: "Bild Komprimieren", href: "/de/bild-komprimieren" },
       { name: "Passfoto Generator", href: "/de/passfoto-generator" },
-      { name: "Wasserzeichen", href: "/de/wasserzeichen-erstellen" },
     ],
     col2Title: "KI Studio",
     col2Links: [
       { name: "Hintergrund Entfernen", href: "/de/bild-zuschneiden" },
       { name: "Biometrische Schablone", href: "/de/passfoto-generator" },
-      { name: "Verlustfreier Export", href: "/de/bild-komprimieren" },
     ],
     col3Title: "Sprachen",
     col3Links: [

@@ -35,8 +35,6 @@ cta:
   description: "Junte-se a milhares de criadores utilizando nossas ferramentas minimalistas."
   buttonText: "Iniciar Cortador de Fotos"
 relatedSlugs:
-  - "redimensionar-imagem"
-  - "compactar-imagem"
   - "foto-passaporte"
 ---
 

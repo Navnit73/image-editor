@@ -14,21 +14,9 @@ const TOOL_METADATA: Record<string, { title: string; category: string; icon: any
   "cortar-imagem": { title: "Cortador de Imagem", category: "Recorte", icon: Crop },
   "bild-zuschneiden": { title: "Bild-Zuschneider", category: "Zuschneiden", icon: Crop },
 
-  "resize-image": { title: "Image Resizer", category: "Dimensions", icon: Maximize2 },
-  "redimensionar-imagem": { title: "Redimensionar Foto", category: "Dimensões", icon: Maximize2 },
-  "bildgroesse-aendern": { title: "Bildgröße Ändern", category: "Skalieren", icon: Maximize2 },
-
-  "compress-image": { title: "Image Compressor", category: "File Optimization", icon: FileArchive },
-  "compactar-imagem": { title: "Compactar Foto", category: "Otimização", icon: FileArchive },
-  "bild-komprimieren": { title: "Bild Komprimieren", category: "Komprimieren", icon: FileArchive },
-
   "passport-photo-maker": { title: "Passport Photo Maker", category: "AI Biometric", icon: UserCheck },
   "foto-passaporte": { title: "Foto Passaporte", category: "Biometria IA", icon: UserCheck },
   "passfoto-generator": { title: "Passfoto Generator", category: "Passbild KI", icon: UserCheck },
-
-  "watermark-image": { title: "Image Watermark", category: "Security & Brand", icon: Stamp },
-  "marca-d-agua": { title: "Marca d'água", category: "Marca & Proteção", icon: Stamp },
-  "wasserzeichen-erstellen": { title: "Wasserzeichen", category: "Schutz", icon: Stamp },
 };
 
 export function RelatedTools({ currentLocale, relatedSlugs }: RelatedToolsProps) {

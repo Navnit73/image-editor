@@ -19,35 +19,11 @@ export const TOOL_SLUG_MAP: ToolSlugMapItem[] = [
     },
   },
   {
-    id: "resize-image",
-    slugs: {
-      en: "resize-image",
-      pt: "redimensionar-imagem",
-      de: "bildgroesse-aendern",
-    },
-  },
-  {
-    id: "compress-image",
-    slugs: {
-      en: "compress-image",
-      pt: "compactar-imagem",
-      de: "bild-komprimieren",
-    },
-  },
-  {
     id: "passport-photo-maker",
     slugs: {
       en: "passport-photo-maker",
       pt: "foto-passaporte",
       de: "passfoto-generator",
-    },
-  },
-  {
-    id: "watermark-image",
-    slugs: {
-      en: "watermark-image",
-      pt: "marca-d-agua",
-      de: "wasserzeichen-erstellen",
     },
   },
 ];

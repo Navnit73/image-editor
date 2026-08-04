@@ -35,8 +35,6 @@ cta:
   description: "Nutzen Sie unser schnelles und minimalistisches Bearbeitungstool."
   buttonText: "Bild-Zuschneider Starten"
 relatedSlugs:
-  - "bildgroesse-aendern"
-  - "bild-komprimieren"
   - "passfoto-generator"
 ---
 

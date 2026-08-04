@@ -13,40 +13,28 @@ interface AppleNavProps {
 const NAV_I18N: Record<string, {
   store: string;
   crop: string;
-  resize: string;
-  compress: string;
   passport: string;
-  watermark: string;
   subnavTitle: string;
   tryFree: string;
 }> = {
   en: {
     store: "All Tools",
     crop: "Crop Image",
-    resize: "Resize Image",
-    compress: "Compress Image",
     passport: "Passport Photo",
-    watermark: "Watermark",
     subnavTitle: "Pro Image Studio",
     tryFree: "Try Free",
   },
   pt: {
     store: "Todas as Ferramentas",
     crop: "Cortar Imagem",
-    resize: "Redimensionar Foto",
-    compress: "Compactar Foto",
     passport: "Foto Passaporte",
-    watermark: "Marca d'água",
     subnavTitle: "Estúdio de Imagem Pro",
     tryFree: "Experimentar Grátis",
   },
   de: {
     store: "Alle Werkzeuge",
     crop: "Bild Zuschneiden",
-    resize: "Bildgröße Ändern",
-    compress: "Bild Komprimieren",
     passport: "Passfoto Generator",
-    watermark: "Wasserzeichen",
     subnavTitle: "Pro Bildstudio",
     tryFree: "Kostenlos Testen",
   },
@@ -58,10 +46,7 @@ export function AppleNav({ currentLocale = "en", activeToolTitle }: AppleNavProp
   const i18n = NAV_I18N[localeKey] || NAV_I18N.en;
 
   const cropSlug = localeKey === "pt" ? "cortar-imagem" : localeKey === "de" ? "bild-zuschneiden" : "image-cropper";
-  const resizeSlug = localeKey === "pt" ? "redimensionar-imagem" : localeKey === "de" ? "bildgroesse-aendern" : "resize-image";
-  const compressSlug = localeKey === "pt" ? "compactar-imagem" : localeKey === "de" ? "bild-komprimieren" : "compress-image";
   const passportSlug = localeKey === "pt" ? "foto-passaporte" : localeKey === "de" ? "passfoto-generator" : "passport-photo-maker";
-  const watermarkSlug = localeKey === "pt" ? "marca-d-agua" : localeKey === "de" ? "wasserzeichen-erstellen" : "watermark-image";
 
   return (
     <header className="sticky top-0 z-50 w-full">
@@ -80,10 +65,7 @@ export function AppleNav({ currentLocale = "en", activeToolTitle }: AppleNavProp
           <div className="hidden md:flex items-center space-x-6 text-[#cccccc]">
             <Link href={`/${localeKey}`} className="hover:text-white transition-colors">{i18n.store}</Link>
             <Link href={`/${localeKey}/${cropSlug}`} className="hover:text-white transition-colors">{i18n.crop}</Link>
-            <Link href={`/${localeKey}/${resizeSlug}`} className="hover:text-white transition-colors">{i18n.resize}</Link>
-            <Link href={`/${localeKey}/${compressSlug}`} className="hover:text-white transition-colors">{i18n.compress}</Link>
             <Link href={`/${localeKey}/${passportSlug}`} className="hover:text-white transition-colors">{i18n.passport}</Link>
-            <Link href={`/${localeKey}/${watermarkSlug}`} className="hover:text-white transition-colors">{i18n.watermark}</Link>
           </div>
 
           {/* Language Selector Dropdown */}

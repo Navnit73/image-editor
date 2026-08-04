@@ -35,8 +35,6 @@ cta:
   description: "Join millions of creators using our minimalist Apple-inspired photo tools."
   buttonText: "Launch Photo Cropper"
 relatedSlugs:
-  - "resize-image"
-  - "compress-image"
   - "passport-photo-maker"
 ---
 

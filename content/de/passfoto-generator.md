@@ -28,7 +28,6 @@ cta:
   buttonText: "Passfoto-Editor Starten"
 relatedSlugs:
   - "bild-zuschneiden"
-  - "bildgroesse-aendern"
 ---
 
 # Biometrischer Passfoto-Generator Online

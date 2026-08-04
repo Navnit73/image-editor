@@ -30,7 +30,6 @@ cta:
   buttonText: "Iniciar Editor de Foto"
 relatedSlugs:
   - "cortar-imagem"
-  - "redimensionar-imagem"
 ---
 
 # Criador de Fotos Biométricas para Documentos
