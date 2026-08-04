@@ -17,6 +17,30 @@ const TOOL_METADATA: Record<string, { title: string; category: string; icon: any
   "passport-photo-maker": { title: "Passport Photo Maker", category: "AI Biometric", icon: UserCheck },
   "foto-passaporte": { title: "Foto Passaporte", category: "Biometria IA", icon: UserCheck },
   "passfoto-generator": { title: "Passfoto Generator", category: "Passbild KI", icon: UserCheck },
+
+  "decrease-pic-size": { title: "Decrease Pic Size", category: "Compression", icon: FileArchive },
+  "diminuir-tamanho-da-foto": { title: "Diminuir Tamanho da Foto", category: "Compressão", icon: FileArchive },
+  "foto-verkleinern": { title: "Foto Verkleinern", category: "Komprimierung", icon: FileArchive },
+
+  "reduce-image-dimensions": { title: "Reduce Image Dimensions", category: "Dimensions", icon: Maximize2 },
+  "reduzir-dimensoes-da-imagem": { title: "Reduzir Dimensões", category: "Dimensões", icon: Maximize2 },
+  "bildabmessungen-reduzieren": { title: "Bildabmessungen Reduzieren", category: "Abmessungen", icon: Maximize2 },
+
+  "photo-image-resizer": { title: "Photo Image Resizer", category: "Resizing", icon: Maximize2 },
+  "redimensionador-de-fotos": { title: "Redimensionador de Fotos", category: "Redimensionar", icon: Maximize2 },
+  "foto-resizer-online": { title: "Foto Resizer Online", category: "Skalierung", icon: Maximize2 },
+
+  "increase-image-dimensions": { title: "Increase Image Dimensions", category: "Upscaling", icon: Maximize2 },
+  "aumentar-dimensoes-da-imagem": { title: "Aumentar Dimensões", category: "Ampliação", icon: Maximize2 },
+  "bildgroesse-erhoehen": { title: "Bildgröße Erhöhen", category: "Vergrößerung", icon: Maximize2 },
+
+  "decrease-image-size-in-kb": { title: "Decrease Size in KB", category: "KB Reducer", icon: FileArchive },
+  "diminuir-tamanho-da-imagem-em-kb": { title: "Diminuir Tamanho em KB", category: "Redutor KB", icon: FileArchive },
+  "bildgroesse-in-kb-verringern": { title: "Größe in KB Verringern", category: "KB-Reduzierung", icon: FileArchive },
+
+  "adobe-express-image-resize": { title: "Adobe Express Resizer", category: "Alternative", icon: Maximize2 },
+  "adobe-express-redimensionar-imagem": { title: "Alternativa Adobe Express", category: "Alternativa", icon: Maximize2 },
+  "adobe-express-bildgroesse-aendern": { title: "Adobe Express Alternative", category: "Alternative", icon: Maximize2 },
 };
 
 export function RelatedTools({ currentLocale, relatedSlugs }: RelatedToolsProps) {

@@ -33,11 +33,15 @@ const FOOTER_I18N: Record<string, {
     col1Links: [
       { name: "Image Cropper", href: "/en/image-cropper" },
       { name: "Passport Photo Maker", href: "/en/passport-photo-maker" },
+      { name: "Decrease Pic Size", href: "/en/decrease-pic-size" },
+      { name: "Reduce Image Dimensions", href: "/en/reduce-image-dimensions" },
+      { name: "Photo Image Resizer", href: "/en/photo-image-resizer" },
     ],
     col2Title: "AI Studio",
     col2Links: [
-      { name: "Background Remover", href: "/en/image-cropper" },
-      { name: "AI Face Aligner", href: "/en/passport-photo-maker" },
+      { name: "Increase Image Dimensions", href: "/en/increase-image-dimensions" },
+      { name: "Decrease Size in KB", href: "/en/decrease-image-size-in-kb" },
+      { name: "Adobe Express Resizer", href: "/en/adobe-express-image-resize" },
     ],
     col3Title: "Languages",
     col3Links: [
@@ -72,11 +76,15 @@ const FOOTER_I18N: Record<string, {
     col1Links: [
       { name: "Cortar Imagem", href: "/pt/cortar-imagem" },
       { name: "Foto Passaporte", href: "/pt/foto-passaporte" },
+      { name: "Diminuir Foto", href: "/pt/diminuir-tamanho-da-foto" },
+      { name: "Reduzir Dimensões", href: "/pt/reduzir-dimensoes-da-imagem" },
+      { name: "Redimensionador", href: "/pt/redimensionador-de-fotos" },
     ],
     col2Title: "Estúdio IA",
     col2Links: [
-      { name: "Removedor de Fundo", href: "/pt/cortar-imagem" },
-      { name: "Alinhador Biométrico", href: "/pt/foto-passaporte" },
+      { name: "Aumentar Dimensões", href: "/pt/aumentar-dimensoes-da-imagem" },
+      { name: "Diminuir Tamanho KB", href: "/pt/diminuir-tamanho-da-imagem-em-kb" },
+      { name: "Alternativa Adobe Express", href: "/pt/adobe-express-redimensionar-imagem" },
     ],
     col3Title: "Idiomas",
     col3Links: [
@@ -110,11 +118,15 @@ const FOOTER_I18N: Record<string, {
     col1Links: [
       { name: "Bild Zuschneiden", href: "/de/bild-zuschneiden" },
       { name: "Passfoto Generator", href: "/de/passfoto-generator" },
+      { name: "Foto Verkleinern", href: "/de/foto-verkleinern" },
+      { name: "Abmessungen Reduzieren", href: "/de/bildabmessungen-reduzieren" },
+      { name: "Foto Resizer", href: "/de/foto-resizer-online" },
     ],
     col2Title: "KI Studio",
     col2Links: [
-      { name: "Hintergrund Entfernen", href: "/de/bild-zuschneiden" },
-      { name: "Biometrische Schablone", href: "/de/passfoto-generator" },
+      { name: "Bildgröße Erhöhen", href: "/de/bildgroesse-erhoehen" },
+      { name: "Größe in KB Verringern", href: "/de/bildgroesse-in-kb-verringern" },
+      { name: "Adobe Express Alternative", href: "/de/adobe-express-bildgroesse-aendern" },
     ],
     col3Title: "Sprachen",
     col3Links: [

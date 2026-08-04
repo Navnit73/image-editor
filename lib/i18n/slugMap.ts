@@ -26,6 +26,54 @@ export const TOOL_SLUG_MAP: ToolSlugMapItem[] = [
       de: "passfoto-generator",
     },
   },
+  {
+    id: "decrease-pic-size",
+    slugs: {
+      en: "decrease-pic-size",
+      pt: "diminuir-tamanho-da-foto",
+      de: "foto-verkleinern",
+    },
+  },
+  {
+    id: "reduce-image-dimensions",
+    slugs: {
+      en: "reduce-image-dimensions",
+      pt: "reduzir-dimensoes-da-imagem",
+      de: "bildabmessungen-reduzieren",
+    },
+  },
+  {
+    id: "photo-image-resizer",
+    slugs: {
+      en: "photo-image-resizer",
+      pt: "redimensionador-de-fotos",
+      de: "foto-resizer-online",
+    },
+  },
+  {
+    id: "increase-image-dimensions",
+    slugs: {
+      en: "increase-image-dimensions",
+      pt: "aumentar-dimensoes-da-imagem",
+      de: "bildgroesse-erhoehen",
+    },
+  },
+  {
+    id: "decrease-image-size-in-kb",
+    slugs: {
+      en: "decrease-image-size-in-kb",
+      pt: "diminuir-tamanho-da-imagem-em-kb",
+      de: "bildgroesse-in-kb-verringern",
+    },
+  },
+  {
+    id: "adobe-express-image-resize",
+    slugs: {
+      en: "adobe-express-image-resize",
+      pt: "adobe-express-redimensionar-imagem",
+      de: "adobe-express-bildgroesse-aendern",
+    },
+  },
 ];
 
 /**
