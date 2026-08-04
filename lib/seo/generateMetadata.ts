@@ -7,19 +7,19 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://photoresizerai.com
 
 const HOME_I18N_METADATA: Record<string, { title: string; description: string; keywords: string[] }> = {
   en: {
-    title: "photoresizerai.com — Free Online AI Image Resizer, Cropper & Studio",
-    description: "Crop, resize, compress, watermark, and generate passport photos with 100% browser-based privacy. Zero server uploads.",
-    keywords: ["photo resizer ai", "free image editor", "crop image online", "compress photo", "passport photo maker"],
+    title: "Free Online AI Image Editor & Photo Resizer — PhotoResizer AI",
+    description: "Free online AI image editor & photo resizer. Crop, resize, compress photos, convert formats, and create passport photos with 100% browser privacy. Zero server uploads.",
+    keywords: ["AI Image Editor", "Free Photo Editor", "Online Image Editor", "Resize Image Online", "Photo Resizer", "Crop Image Online", "Compress Photo", "Passport Photo Maker", "PNG to JPG"],
   },
   pt: {
-    title: "photoresizerai.com — Redimensionador de Fotos IA Grátis e Estúdio",
-    description: "Corte, redimensione, compacte e crie fotos biométricas com 100% de privacidade no seu navegador. Zero uploads.",
-    keywords: ["redimensionar foto ia", "cortar imagem online", "foto passaporte 3x4", "compactar foto gratis"],
+    title: "Editor de Imagem IA Grátis e Redimensionador de Fotos — PhotoResizer AI",
+    description: "Editor de imagem online grátis. Corte, redimensione, compacte fotos, converta formatos e crie fotos de passaporte com 100% de privacidade no navegador. Zero uploads.",
+    keywords: ["Editor de Imagem IA", "Editor de Fotos Grátis", "Redimensionar Foto Online", "Cortar Imagem", "Compactar Foto", "Foto Passaporte 3x4", "PNG para JPG"],
   },
   de: {
-    title: "photoresizerai.com — Kostenloses KI Bildstudio & Zuschneider",
-    description: "Bildgröße ändern, zuschneiden, komprimieren und biometrische Passfotos erstellen mit 100% Browser-Datenschutz.",
-    keywords: ["bildgroesse aendern ki", "bild zuschneiden online", "passfoto generator", "bild komprimieren"],
+    title: "Kostenloser KI Bildeditor & Foto Resizer Online — PhotoResizer AI",
+    description: "Kostenloser Online KI-Bildeditor & Foto Resizer. Bilder zuschneiden, verkleinern, komprimieren, Formate umwandeln und Passfotos erstellen mit 100% Datenschutz.",
+    keywords: ["KI Bildeditor", "Kostenloser Foto Editor", "Bildgröße ändern online", "Bild zuschneiden", "Passfoto Generator", "PNG in JPG"],
   },
 };
 

@@ -74,6 +74,38 @@ export const TOOL_SLUG_MAP: ToolSlugMapItem[] = [
       de: "adobe-express-bildgroesse-aendern",
     },
   },
+  {
+    id: "contact-us",
+    slugs: {
+      en: "contact-us",
+      pt: "fale-conosco",
+      de: "kontakt",
+    },
+  },
+  {
+    id: "privacy-policy",
+    slugs: {
+      en: "privacy-policy",
+      pt: "politica-de-privacidade",
+      de: "datenschutz",
+    },
+  },
+  {
+    id: "faq",
+    slugs: {
+      en: "faq",
+      pt: "perguntas-frequentes",
+      de: "faq",
+    },
+  },
+  {
+    id: "gdpr-data-security",
+    slugs: {
+      en: "gdpr-data-security",
+      pt: "gdpr-seguranca-de-dados",
+      de: "dsgvo-datensicherheit",
+    },
+  },
 ];
 
 /**

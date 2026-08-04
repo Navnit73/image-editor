@@ -43,29 +43,30 @@ const FOOTER_I18N: Record<string, {
       { name: "Decrease Size in KB", href: "/en/decrease-image-size-in-kb" },
       { name: "Adobe Express Resizer", href: "/en/adobe-express-image-resize" },
     ],
-    col3Title: "Languages",
+    col3Title: "Company & Trust",
     col3Links: [
+      { name: "Privacy Policy", href: "/en/privacy-policy" },
+      { name: "GDPR & Security", href: "/en/gdpr-data-security" },
+      { name: "Help & FAQ", href: "/en/faq" },
+      { name: "Contact Us", href: "/en/contact-us" },
+    ],
+    col4Title: "Languages",
+    col4Links: [
       { name: "English (US / Global)", href: "/en" },
       { name: "Português (Brasil)", href: "/pt" },
       { name: "Deutsch (DACH)", href: "/de" },
     ],
-    col4Title: "Privacy & Standards",
-    col4Links: [
-      { name: "Zero Upload Commitment", href: "/en" },
-      { name: "Client-Side Processing", href: "/en" },
-      { name: "HTML5 Canvas Security", href: "/en" },
-    ],
-    col5Title: "Apple Design System",
+    col5Title: "Privacy Commitments",
     col5Links: [
-      { name: "Action Blue Token (#0066cc)", href: "/en" },
-      { name: "17px Body Typography", href: "/en" },
-      { name: "Signature Product Shadow", href: "/en" },
-      { name: "Edge-to-Edge Tile Rhythm", href: "/en" },
+      { name: "Zero Upload Guarantee", href: "/en/privacy-policy" },
+      { name: "Client-Side WebGL", href: "/en/gdpr-data-security" },
+      { name: "HTML5 Canvas Security", href: "/en/privacy-policy" },
+      { name: "Biometric Standards", href: "/en/passport-photo-maker" },
     ],
-    copyright: "Copyright © 2026 photoresizerai.com. All rights reserved.",
+    copyright: "Copyright © 2026 PhotoResizer AI. All rights reserved.",
     privacy: "Privacy Policy",
-    terms: "Terms of Service",
-    legal: "Legal Info",
+    terms: "GDPR & Security",
+    legal: "Contact Support",
   },
   pt: {
     disclaimers: [
@@ -86,28 +87,30 @@ const FOOTER_I18N: Record<string, {
       { name: "Diminuir Tamanho KB", href: "/pt/diminuir-tamanho-da-imagem-em-kb" },
       { name: "Alternativa Adobe Express", href: "/pt/adobe-express-redimensionar-imagem" },
     ],
-    col3Title: "Idiomas",
+    col3Title: "Empresa & Confiança",
     col3Links: [
+      { name: "Política de Privacidade", href: "/pt/politica-de-privacidade" },
+      { name: "LGPD & Segurança", href: "/pt/gdpr-seguranca-de-dados" },
+      { name: "Ajuda & FAQ", href: "/pt/perguntas-frequentes" },
+      { name: "Fale Conosco", href: "/pt/fale-conosco" },
+    ],
+    col4Title: "Idiomas",
+    col4Links: [
       { name: "English (US / Global)", href: "/en" },
       { name: "Português (Brasil)", href: "/pt" },
       { name: "Deutsch (DACH)", href: "/de" },
     ],
-    col4Title: "Privacidade",
-    col4Links: [
-      { name: "Compromisso Zero Upload", href: "/pt" },
-      { name: "Processamento no Cliente", href: "/pt" },
-      { name: "Segurança HTML5 Canvas", href: "/pt" },
-    ],
-    col5Title: "Sistema de Design Apple",
+    col5Title: "Garantia de Privacidade",
     col5Links: [
-      { name: "Cor Action Blue (#0066cc)", href: "/pt" },
-      { name: "Tipografia Corpo 17px", href: "/pt" },
-      { name: "Sombra de Produto Única", href: "/pt" },
+      { name: "Garantia Zero Upload", href: "/pt/politica-de-privacidade" },
+      { name: "Processamento Local", href: "/pt/gdpr-seguranca-de-dados" },
+      { name: "Segurança HTML5 Canvas", href: "/pt/politica-de-privacidade" },
+      { name: "Fotos Biométricas", href: "/pt/foto-passaporte" },
     ],
-    copyright: "Copyright © 2026 photoresizerai.com. Todos os direitos reservados.",
+    copyright: "Copyright © 2026 PhotoResizer AI. Todos os direitos reservados.",
     privacy: "Política de Privacidade",
-    terms: "Termos de Uso",
-    legal: "Informações Legais",
+    terms: "LGPD & Segurança",
+    legal: "Atendimento ao Cliente",
   },
   de: {
     disclaimers: [
@@ -128,28 +131,30 @@ const FOOTER_I18N: Record<string, {
       { name: "Größe in KB Verringern", href: "/de/bildgroesse-in-kb-verringern" },
       { name: "Adobe Express Alternative", href: "/de/adobe-express-bildgroesse-aendern" },
     ],
-    col3Title: "Sprachen",
+    col3Title: "Unternehmen & Vertrauen",
     col3Links: [
+      { name: "Datenschutzerklärung", href: "/de/datenschutz" },
+      { name: "DSGVO & Sicherheit", href: "/de/dsgvo-datensicherheit" },
+      { name: "Hilfe & FAQ", href: "/de/faq" },
+      { name: "Kontakt", href: "/de/kontakt" },
+    ],
+    col4Title: "Sprachen",
+    col4Links: [
       { name: "English (US / Global)", href: "/en" },
       { name: "Português (Brasil)", href: "/pt" },
       { name: "Deutsch (DACH)", href: "/de" },
     ],
-    col4Title: "Datenschutz",
-    col4Links: [
-      { name: "Zero-Upload Garantie", href: "/de" },
-      { name: "Client-Side Bearbeitung", href: "/de" },
-      { name: "HTML5 Canvas Sicherheit", href: "/de" },
-    ],
-    col5Title: "Apple Design System",
+    col5Title: "Datenschutz-Garantie",
     col5Links: [
-      { name: "Action Blue Akzent (#0066cc)", href: "/de" },
-      { name: "17px Fließtext-Typografie", href: "/de" },
-      { name: "Produkt-Schatten", href: "/de" },
+      { name: "Zero-Upload Garantie", href: "/de/datenschutz" },
+      { name: "Client-Side Bearbeitung", href: "/de/dsgvo-datensicherheit" },
+      { name: "HTML5 Canvas Sicherheit", href: "/de/datenschutz" },
+      { name: "Biometrische Vorgaben", href: "/de/passfoto-generator" },
     ],
-    copyright: "Copyright © 2026 photoresizerai.com. Alle Rechte vorbehalten.",
-    privacy: "Datenschutz",
-    terms: "Nutzungsbedingungen",
-    legal: "Impressum",
+    copyright: "Copyright © 2026 PhotoResizer AI. Alle Rechte vorbehalten.",
+    privacy: "Datenschutzerklärung",
+    terms: "DSGVO & Sicherheit",
+    legal: "Kontakt & Support",
   },
 };
 
@@ -248,11 +253,11 @@ export function AppleFooter({ locale = "en" }: AppleFooterProps) {
         <div className="pt-8 border-t border-[#e0e0e0] font-fine-print text-[12px] text-[#7a7a7a] flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>{content.copyright}</div>
           <div className="flex flex-wrap gap-4">
-            <a href="#" className="hover:underline">{content.privacy}</a>
+            <Link href={content.col3Links[0].href} className="hover:underline hover:text-[#0066cc] transition-colors">{content.privacy}</Link>
             <span className="text-[#e0e0e0]">|</span>
-            <a href="#" className="hover:underline">{content.terms}</a>
+            <Link href={content.col3Links[1].href} className="hover:underline hover:text-[#0066cc] transition-colors">{content.terms}</Link>
             <span className="text-[#e0e0e0]">|</span>
-            <a href="#" className="hover:underline">{content.legal}</a>
+            <Link href={content.col3Links[3].href} className="hover:underline hover:text-[#0066cc] transition-colors">{content.legal}</Link>
           </div>
         </div>
       </div>
